@@ -1,90 +1,95 @@
 package ru.yaal.project.hhapi.dictionary;
 
-import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.EducationLevel;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Gender;
-import ru.yaal.project.hhapi.dictionary.entry.entries.LanguageLevel;
-import ru.yaal.project.hhapi.dictionary.entry.entries.PreferredContactType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.RelocationType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.ResumeAccessType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.SiteLang;
-import ru.yaal.project.hhapi.dictionary.entry.entries.SiteType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.TravelTime;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancyLabel;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancySearchFields;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancySearchOrder;
+import ru.yaal.project.hhapi.HhConstants;
+import ru.yaal.project.hhapi.dictionaries_old.BusinessTripReadiness;
+import ru.yaal.project.hhapi.dictionaries_old.VacancyType;
+import ru.yaal.project.hhapi.dictionary.entry.entries.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.IContentLoader;
+import ru.yaal.project.hhapi.loader.LoadException;
+import ru.yaal.project.hhapi.parser.AreasParser;
+import ru.yaal.project.hhapi.parser.IParser;
+import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
+
+import java.util.List;
 
 public class DictionariesHolder {
-	private static Dictionary<Currency> currencyCashe;
-	private static Dictionary<EducationLevel> educationLevelCashe;
-	private static Dictionary<Employment> employmentCashe;
-	private static Dictionary<Experience> experienceCashe;
-	private static Dictionary<Gender> genderCashe;
-	private static Dictionary<LanguageLevel> languageLevelCashe;
-	private static Dictionary<PreferredContactType> preferredContactTypeCashe;
-	private static Dictionary<RelocationType> relocationTypeCashe;
-	private static Dictionary<ResumeAccessType> resumeAccessTypeCashe;
-	private static Dictionary<Schedule> scheduleCashe;
-	private static Dictionary<SiteLang> siteLangCashe;
-	private static Dictionary<SiteType> siteTypeCashe;
-	private static Dictionary<TravelTime> travelTimeCashe;
-	private static Dictionary<VacancyLabel> vacancyLabelCashe;
-	private static Dictionary<VacancySearchFields> vacancySearchFieldsCashe;
-	private static Dictionary<VacancySearchOrder> vacancySearchOrderCashe;
+    public static DictionariesHolder dictionariesHolder;
+    public Dictionary<BusinessTripReadiness> businessTripReadinessCache;
+    public Dictionary<Currency> currencyCache;
+    public Dictionary<EducationLevel> educationLevelCache;
+    public Dictionary<Employment> employmentCache;
+    public Dictionary<Experience> experienceCache;
+    public Dictionary<Gender> genderCache;
+    public Dictionary<LanguageLevel> languageLevelCache;
+    public Dictionary<PreferredContactType> preferredContactTypeCache;
+    public Dictionary<RelocationType> relocationTypeCache;
+    public Dictionary<ResumeAccessType> resumeAccessTypeCache;
+    public Dictionary<Schedule> scheduleCache;
+    public Dictionary<SiteLang> siteLangCache;
+    public Dictionary<SiteType> siteTypeCache;
+    public Dictionary<TravelTime> travelTimeCache;
+    public Dictionary<VacancyLabel> vacancyLabelCache;
+    public Dictionary<VacancySearchFields> vacancySearchFieldsCache;
+    public Dictionary<VacancySearchOrder> vacancySearchOrderCache;
+    public Dictionary<VacancyType> vacancyTypeCache;
+    public Dictionary<Area> areaCache;
+    private IContentLoader loader;
 
-	private static Dictionary<Area> areaCashe;
+    private DictionariesHolder(IContentLoader loader) throws DictionaryException {
+        this.loader = loader;
+        loadSmallDictionaries();
+        loadAreas();
+    }
 
-	public static Dictionary<Currency> getCurrencyDict()
-			throws DictionaryException {
-		if (currencyCashe == null) {
-			loadDictionaries();
-		}
-		return currencyCashe;
-	}
+    public static DictionariesHolder getInstance() throws DictionaryException {
+        return getInstance(new ContentLoader());
+    }
 
-	public static Dictionary<EducationLevel> getEducationLevelDict()
-			throws DictionaryException {
-		if (educationLevelCashe == null) {
-			loadDictionaries();
-		}
-		return educationLevelCashe;
-	}
+    /**
+     * Подмена загрузчика контента нужна для модульного тестирования. Используйте #getInstance().
+     */
+    public static DictionariesHolder getInstance(IContentLoader loader) throws DictionaryException {
+        if (dictionariesHolder == null) {
+            dictionariesHolder = new DictionariesHolder(loader);
+        }
+        return dictionariesHolder;
+    }
 
-	public static Dictionary<Area> getAreaDict() throws DictionaryException {
-		if (areaCashe == null) {
-			loadAreas();
-		}
-		return areaCashe;
-	}
+    private void loadAreas() throws DictionaryException {
+        try {
+            String content = loader.loadContent(HhConstants.AREAS_URL);
+            IParser<List<Area>> parse = new AreasParser();
+            areaCache = new Dictionary<>(parse.parse(content));
+        } catch (LoadException e) {
+            throw new DictionaryException(e);
+        }
+    }
 
-	private static void loadAreas() throws DictionaryException {
-//		try {
-//			IContentLoader loader = new ContentLoader();
-//			String content = loader.loadContent(HhConstants.AREAS_URL);
-//			IParser<Dictionary<Area>> parser = new AreasParser();
-//			areaCashe = parser.parse(content);
-//		} catch (LoadException | ParseException e) {
-//			throw new DictionaryException(e);
-//		}
-	}
-	
-	private static void loadDictionaries() throws DictionaryException {
-//		try {
-//			IContentLoader loader = new ContentLoader();
-//			String content = loader.loadContent(HhConstants.DICTINARIES_URL);
-//			SmallDictionariesParser parser = new SmallDictionariesParser();
-//			DictionariesContainer dictionries = parser.parse(content);
-//			currencyCashe = new Dictionary<Currency>(dictionries.getCurrency());
-//			educationLevelCashe = new Dictionary<EducationLevel>(
-//					dictionries.getEducation_level());
-//
-//		} catch (LoadException | ParseException e) {
-//			throw new DictionaryException(e);
-//		}		
-	}
+    private void loadSmallDictionaries() throws DictionaryException {
+        try {
+            String content = loader.loadContent(HhConstants.DICTINARIES_URL);
+            SmallDictionariesParser parse = new SmallDictionariesParser();
+            DictionariesContainer dictionries = parse.parse(content);
+            businessTripReadinessCache = new Dictionary<>(dictionries.getBusiness_trip_readiness());
+            currencyCache = new Dictionary<>(dictionries.getCurrency());
+            educationLevelCache = new Dictionary<>(dictionries.getEducation_level());
+            employmentCache = new Dictionary<>(dictionries.getEmployment());
+            experienceCache = new Dictionary<>(dictionries.getExperience());
+            genderCache = new Dictionary<>(dictionries.getGender());
+            languageLevelCache = new Dictionary<>(dictionries.getLanguage_level());
+            preferredContactTypeCache = new Dictionary<>(dictionries.getPreferred_contact_type());
+            resumeAccessTypeCache = new Dictionary<>(dictionries.getResume_access_type());
+            employmentCache = new Dictionary<>(dictionries.getEmployment());
+            siteLangCache = new Dictionary<>(dictionries.getSite_lang());
+            travelTimeCache = new Dictionary<>(dictionries.getTravel_time());
+            vacancyLabelCache = new Dictionary<>(dictionries.getVacancy_label());
+            vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancy_search_fields());
+            vacancyTypeCache = new Dictionary<>(dictionries.getVacancy_type());
+        } catch (LoadException e) {
+            throw new DictionaryException(e);
+        }
+    }
 
 }

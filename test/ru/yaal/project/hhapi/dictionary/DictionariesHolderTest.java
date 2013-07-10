@@ -2,11 +2,13 @@ package ru.yaal.project.hhapi.dictionary;
 
 import static org.junit.Assert.*;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.EducationLevel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 /**
  * Тесты требуют подключения к Интернету для запросов к API HH.
@@ -14,21 +16,27 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
  *
  */
 public class DictionariesHolderTest {
+    private static DictionariesHolder dictionariesHolder;
+
+    @BeforeClass
+    public static void beforeClass() throws DictionaryException {
+        dictionariesHolder = DictionariesHolder.getInstance(new FakeContentLoader());
+    }
 
 	@Test
 	public void testCurrency() throws DictionaryException {
-		Dictionary<Currency> dict = DictionariesHolder.getCurrencyDict();
+		IDictionary<Currency> dict = dictionariesHolder.currencyCache;
 		assertEquals(7, dict.size());
-		Currency rur = dict.get("RUR");
+		Currency rur = dict.getEntryById("RUR");
 		assertEquals("Рубли", rur.getName());
-		assertEquals(true, rur.getIsDefault());
+		assertEquals(true, rur.isDefault());
 		assertEquals(new Double(1), rur.getRate());
 		assertEquals("руб.", rur.getAbbr());
 	}
 
 	@Test
 	public void testEducationLevel() throws DictionaryException {
-		Dictionary<EducationLevel> dict = DictionariesHolder.getEducationLevelDict();
+		Dictionary<EducationLevel> dict = dictionariesHolder.educationLevelCache;
 		assertEquals(8, dict.size());
 		EducationLevel higher = dict.get("higher");
 		assertNotNull(higher);
@@ -37,12 +45,8 @@ public class DictionariesHolderTest {
 	
 	@Test
 	public void testAreas() throws DictionaryException {
-		Dictionary<Area> dict = DictionariesHolder.getAreaDict();
-		final int areasCount = 1695;//количество районов на 06.07.2013
-		assertTrue(dict.size() >= areasCount);
-		Area spb = dict.get("2");
-		assertNotNull(spb);
-		assertEquals("Санкт-Петербург", spb.getName());
+		Dictionary<Area> dict = dictionariesHolder.areaCache;
+        assertEquals(6, dict.size());
 	}
 
 }

@@ -1,25 +1,32 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries;
 
-import lombok.Data;
+import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
-@Data
-@ToString(callSuper=true)
-public class Currency extends AbstractDictionaryEntry{
+@ToString(callSuper = true)
+public class Currency extends AbstractDictionaryEntry {
+    @Getter
+    @Setter
+    @SerializedName("code")
+    private String id;
+    @Getter
+    @Setter
+    private Double rate;
+    @Getter
+    @Setter
+    private String abbr;
+    @SerializedName("default")
+    private Boolean isDefault;
 
-	//TODO isDefault --> getIsDefault() исправить
-	private Boolean isDefault;
+    public Boolean isDefault() {
+        return isDefault;
+    }
 
-	private Double rate;
+    public void setDefault(Boolean def) {
+        isDefault = def;
+    }
 
-	/**
-	 * Заменяем code на id. 
-	 */
-	@Override
-	public void setId(String id) {
-		super.setId(id);
-	}
-	private String abbr;
-	
 }
