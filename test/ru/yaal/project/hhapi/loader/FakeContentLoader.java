@@ -14,10 +14,13 @@ public class FakeContentLoader implements IContentLoader {
         try {
             switch (url) {
                 case HhConstants.DICTINARIES_URL: {
-                    return getResource("dictionaries.json", url);
+                    return getResource("dictionaries.json", HhConstants.DICTINARIES_URL);
                 }
                 case HhConstants.AREAS_URL: {
-                    return getResource("areas.json", url);
+                    return getResource("areas.json", HhConstants.AREAS_URL);
+                }
+                case HhConstants.SPECIALIZATIONS_URL: {
+                    return getResource("specializations.json", HhConstants.SPECIALIZATIONS_URL);
                 }
                 default: {
                     throw new RuntimeException("Неопознанный url для загрузки контента: " + url);

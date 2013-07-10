@@ -5,11 +5,13 @@ import ru.yaal.project.hhapi.dictionaries_old.BusinessTripReadiness;
 import ru.yaal.project.hhapi.dictionaries_old.VacancyType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.AreasParser;
 import ru.yaal.project.hhapi.parser.IParser;
+import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
 import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 import java.util.List;
@@ -35,12 +37,14 @@ public class DictionariesHolder {
     public Dictionary<VacancySearchOrder> vacancySearchOrderCache;
     public Dictionary<VacancyType> vacancyTypeCache;
     public Dictionary<Area> areaCache;
+    public Dictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
 
     private DictionariesHolder(IContentLoader loader) throws DictionaryException {
         this.loader = loader;
         loadSmallDictionaries();
         loadAreas();
+        loadProfessionalFields();
     }
 
     public static DictionariesHolder getInstance() throws DictionaryException {
@@ -62,6 +66,16 @@ public class DictionariesHolder {
             String content = loader.loadContent(HhConstants.AREAS_URL);
             IParser<List<Area>> parse = new AreasParser();
             areaCache = new Dictionary<>(parse.parse(content));
+        } catch (LoadException e) {
+            throw new DictionaryException(e);
+        }
+    }
+
+    private void loadProfessionalFields() throws DictionaryException {
+        try {
+            String content = loader.loadContent(HhConstants.SPECIALIZATIONS_URL);
+            IParser<List<ProfessionalField>> parse = new ProfessionalFieldsParser();
+            professionalFieldCache = new Dictionary<>(parse.parse(content));
         } catch (LoadException e) {
             throw new DictionaryException(e);
         }
