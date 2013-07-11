@@ -5,5 +5,9 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 
 public interface ISearch<T> {
 	T search() throws SearchException;
-	void addParameter(ISearchParameter param);
+
+    /**
+     * Можно строить цепочку параметров.
+     */
+	ISearch<T> addParameter(ISearchParameter param);
 }

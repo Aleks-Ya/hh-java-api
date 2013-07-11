@@ -8,7 +8,7 @@ import java.util.Map;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 
 public class Text implements ISearchParameter {
-	public static final String TEXT_PARAM_NAME = "search_field";
+	public static final String TEXT_PARAM_NAME = "text";
 	public static final String VACANCY_SEARCH_FIELDS_PARAM_NAME = "search_field";
 	private String text = "";
 	private List<VacancySearchFields> fields = new ArrayList<>();
