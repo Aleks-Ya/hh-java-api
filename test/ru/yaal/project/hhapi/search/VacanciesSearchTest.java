@@ -4,18 +4,14 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
-import ru.yaal.project.hhapi.search.parameter.Coordinates;
-import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
-import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
-import ru.yaal.project.hhapi.search.parameter.Text;
+import ru.yaal.project.hhapi.search.parameter.*;
 import ru.yaal.project.hhapi.vacancy.Salary;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.Date;
 import java.util.List;
 
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class VacanciesSearchTest {
     private static final int WITHOUT_PARAMS_VACANCIES_COUNT = 299000;
@@ -89,5 +85,16 @@ public class VacanciesSearchTest {
             Date created20 = vacancies.get(v + 1).getCreatedAt();
             assertTrue(create1.after(created20));
         }
+    }
+
+    @Test
+    public void testPerPage() throws SearchException, DictionaryException {
+        final Integer perPageCount = 1;
+        PerPage perPage = new PerPage(perPageCount);
+        search.addParameter(perPage);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
+        assertEquals(perPageCount, result.getPerPage());
+        assertEquals((Object) perPageCount, result.getItems().size());
     }
 }

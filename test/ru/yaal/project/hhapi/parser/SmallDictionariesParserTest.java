@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.parser;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionariesContainer;
 
-import static junit.framework.Assert.assertNotNull;
+import static org.junit.Assert.assertNotNull;
 
 public class SmallDictionariesParserTest {
 

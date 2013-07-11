@@ -7,8 +7,8 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.search.VacanciesList;
 
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class VacancyParserTest {
     @Test

@@ -10,7 +10,8 @@ public enum SearchParamNames {
     BOTTOM_LAT("bottom_lat"),
     RIGHT_LNG("right_lng"),
     LEFT_LNG("left_lng"),
-    ORDER_BY("order_by");
+    ORDER_BY("order_by"),
+    PER_PAGE("per_page");
     private final String name;
 
     private SearchParamNames(String name) {
