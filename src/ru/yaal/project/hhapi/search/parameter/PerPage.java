@@ -31,7 +31,7 @@ public class PerPage implements ISearchParameter {
     @Override
     public Map<SearchParamNames, String> getSearchParameters() {
         Map<SearchParamNames, String> params = new HashMap<>(1);
-        params.put(SearchParamNames.PER_PAGE, String.valueOf(perPage));
+        params.put(SearchParamNames.PER_PAGE, String.valueOf(getPerPage()));
         return params;
     }
 }
