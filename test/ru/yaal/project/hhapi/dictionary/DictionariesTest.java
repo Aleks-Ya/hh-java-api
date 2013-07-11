@@ -16,17 +16,17 @@ import static org.junit.Assert.assertNotNull;
  *
  * @author Aleks
  */
-public class DictionariesHolderTest {
-    private static DictionariesHolder dictionariesHolder;
+public class DictionariesTest {
+    private static Dictionaries dictionaries;
 
     @BeforeClass
     public static void beforeClass() throws DictionaryException {
-        dictionariesHolder = DictionariesHolder.getInstance(new FakeContentLoader());
+        dictionaries = Dictionaries.getInstance(new FakeContentLoader());
     }
 
     @Test
     public void testCurrency() throws DictionaryException {
-        IDictionary<Currency> dict = dictionariesHolder.currencyCache;
+        IDictionary<Currency> dict = dictionaries.currencyCache;
         assertEquals(7, dict.size());
         Currency rur = dict.getEntryById("RUR");
         assertEquals("Рубли", rur.getName());
@@ -37,7 +37,7 @@ public class DictionariesHolderTest {
 
     @Test
     public void testEducationLevel() throws DictionaryException {
-        Dictionary<EducationLevel> dict = dictionariesHolder.educationLevelCache;
+        Dictionary<EducationLevel> dict = dictionaries.educationLevelCache;
         assertEquals(8, dict.size());
         EducationLevel higher = dict.get("higher");
         assertNotNull(higher);
@@ -46,13 +46,13 @@ public class DictionariesHolderTest {
 
     @Test
     public void testAreas() throws DictionaryException {
-        Dictionary<Area> dict = dictionariesHolder.areaCache;
+        Dictionary<Area> dict = dictionaries.areaCache;
         assertEquals(6, dict.size());
     }
 
     @Test
     public void testProfessionalFields() throws DictionaryException {
-        Dictionary<ProfessionalField> dict = dictionariesHolder.professionalFieldCache;
+        Dictionary<ProfessionalField> dict = dictionaries.professionalFieldCache;
         assertEquals(28, dict.size());
     }
 

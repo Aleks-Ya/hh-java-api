@@ -18,8 +18,8 @@ import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 import java.util.List;
 
-public class DictionariesHolder {
-    public static DictionariesHolder dictionariesHolder;
+public class Dictionaries {
+    private static Dictionaries dictionaries;
     public Dictionary<BusinessTripReadiness> businessTripReadinessCache;
     public Dictionary<Currency> currencyCache;
     public Dictionary<EducationLevel> educationLevelCache;
@@ -42,25 +42,25 @@ public class DictionariesHolder {
     public Dictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
 
-    private DictionariesHolder(IContentLoader loader) throws DictionaryException {
+    private Dictionaries(IContentLoader loader) throws DictionaryException {
         this.loader = loader;
         loadSmallDictionaries();
         loadAreas();
         loadProfessionalFields();
     }
 
-    public static DictionariesHolder getInstance() throws DictionaryException {
+    public static Dictionaries getInstance() throws DictionaryException {
         return getInstance(new ContentLoader());
     }
 
     /**
      * Подмена загрузчика контента нужна для модульного тестирования. Используйте #getInstance().
      */
-    public static DictionariesHolder getInstance(IContentLoader loader) throws DictionaryException {
-        if (dictionariesHolder == null) {
-            dictionariesHolder = new DictionariesHolder(loader);
+    public static Dictionaries getInstance(IContentLoader loader) throws DictionaryException {
+        if (dictionaries == null) {
+            dictionaries = new Dictionaries(loader);
         }
-        return dictionariesHolder;
+        return dictionaries;
     }
 
     private void loadAreas() throws DictionaryException {
@@ -103,6 +103,7 @@ public class DictionariesHolder {
             vacancyLabelCache = new Dictionary<>(dictionries.getVacancy_label());
             vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancy_search_fields());
             vacancyTypeCache = new Dictionary<>(dictionries.getVacancy_type());
+            scheduleCache = new Dictionary<>(dictionries.getSchedule());
         } catch (LoadException e) {
             throw new DictionaryException(e);
         }

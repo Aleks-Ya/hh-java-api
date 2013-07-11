@@ -7,6 +7,7 @@ import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
+import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 
 import java.util.Map;
 
@@ -26,9 +27,9 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
 
     @Override
     public VacanciesSearch addParameter(ISearchParameter searchParameter) {
-        Map<String, String> paramMap = searchParameter.getSearchParameters();
-        for (String key : paramMap.keySet()) {
-            loader.addParam(key, paramMap.get(key));
+        Map<SearchParamNames, String> paramMap = searchParameter.getSearchParameters();
+        for (SearchParamNames key : paramMap.keySet()) {
+            loader.addParam(key.getName(), paramMap.get(key));
         }
         return this;
     }
