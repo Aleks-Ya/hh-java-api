@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,17 +15,17 @@ import java.util.Map;
  * @author Aleks
  */
 public class ContentLoader implements IContentLoader {
-    protected final Map<String, String> parameters = new HashMap<>();
+    protected final Map<String, String> headers = new HashMap<>();
+    protected final Map<String, String> params = new HashMap<>();
 
-    public String loadContent(final String url) throws LoadException {
+    public String loadContent(String url) throws LoadException {
         try {
             assert (url != null);
+            url = setParameters(url);
             URL hhUrl = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
             connection.setRequestMethod("GET");
-            for (String key : parameters.keySet()) {
-                connection.setRequestProperty(key, parameters.get(key));
-            }
+            setHeaders(connection);
             connection.connect();
             String content = readInputStreamToString(connection);
             connection.disconnect();
@@ -32,6 +33,32 @@ public class ContentLoader implements IContentLoader {
         } catch (Exception e) {
             throw new LoadException(e);
         }
+    }
+
+    private String setParameters(String url) throws URISyntaxException {
+        StringBuilder builder = new StringBuilder(url);
+        for (String key : params.keySet()) {
+            if (builder.indexOf("?") == -1) {
+                builder.append("?");
+            } else {
+                builder.append("&");
+            }
+            builder.append(key);
+            builder.append("=");
+            builder.append(params.get(key));
+        }
+        return builder.toString();
+    }
+
+    private void setHeaders(HttpURLConnection connection) {
+        for (String key : headers.keySet()) {
+            connection.setRequestProperty(key, headers.get(key));
+        }
+    }
+
+    @Override
+    public void addHeader(String key, String value) {
+        headers.put(key, value);
     }
 
     private String readInputStreamToString(HttpURLConnection conn)
@@ -52,6 +79,6 @@ public class ContentLoader implements IContentLoader {
 
     @Override
     public void addParam(String key, String value) {
-        parameters.put(key, value);
+        params.put(key, value);
     }
 }

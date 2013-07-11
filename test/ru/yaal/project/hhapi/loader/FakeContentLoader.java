@@ -34,6 +34,11 @@ public class FakeContentLoader implements IContentLoader {
         }
     }
 
+    @Override
+    public void addHeader(String key, String value) {
+        //не используется
+    }
+
     private String getResource(String resourceName, String url) throws IOException, LoadException {
         String fileContent = loadResource(resourceName);
         if (!fileContent.isEmpty()) {

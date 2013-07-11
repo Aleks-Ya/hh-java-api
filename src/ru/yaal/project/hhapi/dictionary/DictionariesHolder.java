@@ -1,14 +1,13 @@
 package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.HhConstants;
-import ru.yaal.project.hhapi.dictionary.entry.entries.BusinessTripReadiness;
+import ru.yaal.project.hhapi.dictionary.entry.entries.*;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.*;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
@@ -69,7 +68,7 @@ public class DictionariesHolder {
             String content = loader.loadContent(HhConstants.AREAS_URL);
             IParser<List<Area>> parse = new AreasParser();
             areaCache = new Dictionary<>(parse.parse(content));
-        } catch (LoadException e) {
+        } catch (Exception e) {
             throw new DictionaryException(e);
         }
     }

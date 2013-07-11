@@ -10,6 +10,6 @@ import ru.yaal.project.hhapi.HhToken;
 public class AuthorisedContentLoader extends ContentLoader {
 
 	public AuthorisedContentLoader(HhToken token) {
-		parameters.put("Authorization", "Bearer " + token.getAccessToken());
+		addHeader("Authorization", "Bearer " + token.getAccessToken());
 	}
 }
