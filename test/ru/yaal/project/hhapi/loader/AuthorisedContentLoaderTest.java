@@ -9,12 +9,18 @@ import static org.junit.Assert.assertTrue;
 
 public class AuthorisedContentLoaderTest {
     @Test
-    public void test() throws LoadException {
+    public void testGood() throws LoadException {
         HhToken token = HhConstants.YABLOKOV_TOKEN;
         IContentLoader loader = new AuthorisedContentLoader(token);
         String content = loader.loadContent(HhConstants.ME_URL);
         assertNotNull(content);
         assertTrue(content.contains("яблоков"));
         System.out.println(content);
+    }
+
+    @Test(expected = LoadException.class)
+    public void testWithoutToken() throws LoadException {
+        IContentLoader loader = new ContentLoader();
+        loader.loadContent(HhConstants.ME_URL);
     }
 }
