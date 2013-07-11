@@ -35,7 +35,7 @@ public class VacanciesSearchTest {
 
     @Test
     public void testSchedule() throws SearchException, DictionaryException {
-        ISearchParameter schedule = Dictionaries.getInstance().scheduleCache.getEntryById("shift");
+        ISearchParameter schedule = Dictionaries.getSchedule().getEntryById("shift");
         search.addParameter(schedule);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());

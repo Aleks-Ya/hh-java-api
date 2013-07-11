@@ -17,16 +17,14 @@ import static org.junit.Assert.assertNotNull;
  * @author Aleks
  */
 public class DictionariesTest {
-    private static Dictionaries dictionaries;
-
     @BeforeClass
     public static void beforeClass() throws DictionaryException {
-        dictionaries = Dictionaries.getInstance(new FakeContentLoader());
+        Dictionaries.setLoader(new FakeContentLoader());
     }
 
     @Test
     public void testCurrency() throws DictionaryException {
-        IDictionary<Currency> dict = dictionaries.currencyCache;
+        IDictionary<Currency> dict = Dictionaries.getCurrency();
         assertEquals(7, dict.size());
         Currency rur = dict.getEntryById("RUR");
         assertEquals("Рубли", rur.getName());
@@ -37,22 +35,22 @@ public class DictionariesTest {
 
     @Test
     public void testEducationLevel() throws DictionaryException {
-        Dictionary<EducationLevel> dict = dictionaries.educationLevelCache;
+        IDictionary<EducationLevel> dict = Dictionaries.getEducationLevel();
         assertEquals(8, dict.size());
-        EducationLevel higher = dict.get("higher");
+        EducationLevel higher = dict.getEntryById("higher");
         assertNotNull(higher);
         assertEquals("Высшее", higher.getName());
     }
 
     @Test
     public void testAreas() throws DictionaryException {
-        Dictionary<Area> dict = dictionaries.areaCache;
+        IDictionary<Area> dict = Dictionaries.getArea();
         assertEquals(6, dict.size());
     }
 
     @Test
     public void testProfessionalFields() throws DictionaryException {
-        Dictionary<ProfessionalField> dict = dictionaries.professionalFieldCache;
+        IDictionary<ProfessionalField> dict = Dictionaries.getProfessionalField();
         assertEquals(28, dict.size());
     }
 
