@@ -2,6 +2,7 @@ package ru.yaal.project.hhapi.parser;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhConstants;
+import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -20,8 +21,8 @@ public class AreasParserTest {
     public void test() throws LoadException {
         IContentLoader loader = new FakeContentLoader();
         String content = loader.loadContent(HhConstants.AREAS_URL);
-        IParser<List<Area>> parser = new AreasParser();
-        List<Area> areas = parser.parse(content);
+        IParser<IDictionary<Area>> parser = new AreasParser();
+        IDictionary<Area> areas = parser.parse(content);
         assertNotNull(areas);
         assertEquals(6, areas.size());
     }
@@ -51,7 +52,7 @@ public class AreasParserTest {
                 List.class);
         method.setAccessible(true);
 
-        IParser<List<Area>> parse = new AreasParser();
+        IParser<IDictionary<Area>> parse = new AreasParser();
 
         List<Area> flatList = (List<Area>) method.invoke(parse, Arrays.asList(area0));
         assertEquals(4, flatList.size());

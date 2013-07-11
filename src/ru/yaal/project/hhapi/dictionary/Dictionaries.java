@@ -16,30 +16,28 @@ import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
 import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
-import java.util.List;
-
 public class Dictionaries {
     private static Dictionaries dictionaries;
-    private Dictionary<BusinessTripReadiness> businessTripReadinessCache;
-    private Dictionary<Currency> currencyCache;
-    private Dictionary<EducationLevel> educationLevelCache;
-    private Dictionary<Employment> employmentCache;
-    private Dictionary<Experience> experienceCache;
-    private Dictionary<Gender> genderCache;
-    private Dictionary<LanguageLevel> languageLevelCache;
-    private Dictionary<PreferredContactType> preferredContactTypeCache;
-    private Dictionary<RelocationType> relocationTypeCache;
-    private Dictionary<ResumeAccessType> resumeAccessTypeCache;
-    private Dictionary<Schedule> scheduleCache;
-    private Dictionary<SiteLang> siteLangCache;
-    private Dictionary<SiteType> siteTypeCache;
-    private Dictionary<TravelTime> travelTimeCache;
-    private Dictionary<VacancyLabel> vacancyLabelCache;
-    private Dictionary<VacancySearchFields> vacancySearchFieldsCache;
-    private Dictionary<VacancySearchOrder> vacancySearchOrderCache;
-    private Dictionary<VacancyType> vacancyTypeCache;
-    private Dictionary<Area> areaCache;
-    private Dictionary<ProfessionalField> professionalFieldCache;
+    private IDictionary<BusinessTripReadiness> businessTripReadinessCache;
+    private IDictionary<Currency> currencyCache;
+    private IDictionary<EducationLevel> educationLevelCache;
+    private IDictionary<Employment> employmentCache;
+    private IDictionary<Experience> experienceCache;
+    private IDictionary<Gender> genderCache;
+    private IDictionary<LanguageLevel> languageLevelCache;
+    private IDictionary<PreferredContactType> preferredContactTypeCache;
+    private IDictionary<RelocationType> relocationTypeCache;
+    private IDictionary<ResumeAccessType> resumeAccessTypeCache;
+    private IDictionary<Schedule> scheduleCache;
+    private IDictionary<SiteLang> siteLangCache;
+    private IDictionary<SiteType> siteTypeCache;
+    private IDictionary<TravelTime> travelTimeCache;
+    private IDictionary<VacancyLabel> vacancyLabelCache;
+    private IDictionary<VacancySearchFields> vacancySearchFieldsCache;
+    private IDictionary<VacancySearchOrder> vacancySearchOrderCache;
+    private IDictionary<VacancyType> vacancyTypeCache;
+    private IDictionary<Area> areaCache;
+    private IDictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
 
@@ -92,8 +90,8 @@ public class Dictionaries {
     private void loadAreas() throws DictionaryException {
         try {
             String content = loader.loadContent(HhConstants.AREAS_URL);
-            IParser<List<Area>> parse = new AreasParser();
-            areaCache = new Dictionary<>(parse.parse(content));
+            IParser<IDictionary<Area>> parse = new AreasParser();
+            areaCache = parse.parse(content);
         } catch (Exception e) {
             throw new DictionaryException(e);
         }
@@ -102,8 +100,8 @@ public class Dictionaries {
     private void loadProfessionalFields() throws DictionaryException {
         try {
             String content = loader.loadContent(HhConstants.SPECIALIZATIONS_URL);
-            IParser<List<ProfessionalField>> parse = new ProfessionalFieldsParser();
-            professionalFieldCache = new Dictionary<>(parse.parse(content));
+            IParser<IDictionary<ProfessionalField>> parse = new ProfessionalFieldsParser();
+            professionalFieldCache = parse.parse(content);
         } catch (LoadException e) {
             throw new DictionaryException(e);
         }
