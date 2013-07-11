@@ -1,0 +1,714 @@
+{"per_page": 20, "items": [
+    {
+        "salary": {
+            "to": 32000,
+            "from": 22000,
+            "currency": "RUR"
+        },
+        "name": "Продавец-консультант в салон связи МегаФон",
+        "area": {
+            "url": "https://api.hh.ru/areas/60",
+            "id": "60",
+            "name": "Магадан"
+        },
+        "url": "https://api.hh.ru/vacancies/8257367",
+        "created_at": "2013-07-11T02:49:36+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/866948.png",
+                "240": "http://hh.ru/employer-logo/866949.png",
+                "original": "http://hh.ru/file/11141364.png"
+            },
+            "name": "МегаФон Ритейл",
+            "url": "https://api.hh.ru/employers/1217313",
+            "alternate_url": "http://hh.ru/employer/1217313",
+            "id": "1217313",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8257367",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8257367"
+    },
+    {
+        "salary": null,
+        "name": "Продавец-консультант",
+        "area": {
+            "url": "https://api.hh.ru/areas/1980",
+            "id": "1980",
+            "name": "Николаевск-на-Амуре"
+        },
+        "url": "https://api.hh.ru/vacancies/8257371",
+        "created_at": "2013-07-11T02:45:53+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/866948.png",
+                "240": "http://hh.ru/employer-logo/866949.png",
+                "original": "http://hh.ru/file/11141364.png"
+            },
+            "name": "МегаФон Ритейл",
+            "url": "https://api.hh.ru/employers/1217313",
+            "alternate_url": "http://hh.ru/employer/1217313",
+            "id": "1217313",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8257371",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8257371"
+    },
+    {
+        "salary": null,
+        "name": "Специалист по тестированию (senior/mid)",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8190922",
+        "created_at": "2013-07-11T00:52:53+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/646502.jpeg",
+                "240": "http://hh.ru/employer-logo/646503.jpeg",
+                "original": "http://hh.ru/file/8578679.jpg"
+            },
+            "name": "СТ Группа",
+            "url": "https://api.hh.ru/employers/747189",
+            "alternate_url": "http://hh.ru/employer/747189",
+            "id": "747189",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8190922",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8190922"
+    },
+    {
+        "salary": {
+            "to": 70000,
+            "from": 50000,
+            "currency": "RUR"
+        },
+        "name": "Инженер ПТО (РФ)",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8268866",
+        "created_at": "2013-07-11T00:52:51+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/744173.jpeg",
+                "240": "http://hh.ru/employer-logo/744174.jpeg",
+                "original": "http://hh.ru/file/9670929.jpg"
+            },
+            "name": "РЕН-сервис",
+            "url": "https://api.hh.ru/employers/1076723",
+            "alternate_url": "http://hh.ru/employer/1076723",
+            "id": "1076723",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": {
+            "building": null,
+            "city": null,
+            "street": null,
+            "description": "собеседования проходят с 13.00 до 14.00, каждый день кроме пятн, субб., воскр.",
+            "metro": null,
+            "raw": "Минск, улица Скрыганова, 6, центральный вход, 1 этаж, офис 2105 а.",
+            "lat": 0.0,
+            "lng": 0.0
+        },
+        "alternate_url": "http://hh.ru/vacancy/8268866",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8268866"
+    },
+    {
+        "salary": null,
+        "name": "Программист Java",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/7184139",
+        "created_at": "2013-07-11T00:52:17+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/646502.jpeg",
+                "240": "http://hh.ru/employer-logo/646503.jpeg",
+                "original": "http://hh.ru/file/8578679.jpg"
+            },
+            "name": "СТ Группа",
+            "url": "https://api.hh.ru/employers/747189",
+            "alternate_url": "http://hh.ru/employer/747189",
+            "id": "747189",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/7184139",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "7184139"
+    },
+    {
+        "salary": {
+            "to": 70000,
+            "from": 40000,
+            "currency": "RUR"
+        },
+        "name": "Сварщик трубопроводов (РФ)",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8268711",
+        "created_at": "2013-07-11T00:49:27+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/744173.jpeg",
+                "240": "http://hh.ru/employer-logo/744174.jpeg",
+                "original": "http://hh.ru/file/9670929.jpg"
+            },
+            "name": "РЕН-сервис",
+            "url": "https://api.hh.ru/employers/1076723",
+            "alternate_url": "http://hh.ru/employer/1076723",
+            "id": "1076723",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": {
+            "building": null,
+            "city": null,
+            "street": null,
+            "description": "собеседования проходят с 13.00 до 14.00, каждый день кроме пятн, субб., воскр.",
+            "metro": null,
+            "raw": "Минск, улица Скрыганова, 6, центральный вход, 1 этаж, офис 2105 а.",
+            "lat": 0.0,
+            "lng": 0.0
+        },
+        "alternate_url": "http://hh.ru/vacancy/8268711",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8268711"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 700,
+            "currency": "USD"
+        },
+        "name": "Ведущий инженер-строитель",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8207826",
+        "created_at": "2013-07-11T00:48:39+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/524273.jpeg",
+                "240": "http://hh.ru/employer-logo/524274.jpeg",
+                "original": "http://hh.ru/file/7927892.jpg"
+            },
+            "name": "Международный университет МИТСО",
+            "url": "https://api.hh.ru/employers/659697",
+            "alternate_url": "http://hh.ru/employer/659697",
+            "id": "659697",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": {
+            "building": null,
+            "city": null,
+            "street": null,
+            "description": null,
+            "metro": null,
+            "raw": "Минск, ул.Казинца, 21, корпус 3",
+            "lat": null,
+            "lng": null
+        },
+        "alternate_url": "http://hh.ru/vacancy/8207826",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8207826"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 40000,
+            "currency": "RUR"
+        },
+        "name": "Личный помощник руководителя",
+        "area": {
+            "url": "https://api.hh.ru/areas/1",
+            "id": "1",
+            "name": "Москва"
+        },
+        "url": "https://api.hh.ru/vacancies/8354055",
+        "created_at": "2013-07-11T00:38:53+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/700817.png",
+                "240": "http://hh.ru/employer-logo/700818.png",
+                "original": "http://hh.ru/file/9025045.png"
+            },
+            "name": "Поставщик №1, ООО",
+            "url": "https://api.hh.ru/employers/713269",
+            "alternate_url": "http://hh.ru/employer/713269",
+            "id": "713269",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8354055",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8354055"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 800,
+            "currency": "USD"
+        },
+        "name": "Менеджер по продажам металлопроката",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8354039",
+        "created_at": "2013-07-11T00:18:42+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": null,
+            "name": "Агентство Коллекция Открытий",
+            "url": "https://api.hh.ru/employers/719393",
+            "alternate_url": "http://hh.ru/employer/719393",
+            "id": "719393",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8354039",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8354039"
+    },
+    {
+        "salary": null,
+        "name": "Руководитель отдела продаж",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8354034",
+        "created_at": "2013-07-11T00:14:55+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": null,
+            "name": "Агентство Коллекция Открытий",
+            "url": "https://api.hh.ru/employers/719393",
+            "alternate_url": "http://hh.ru/employer/719393",
+            "id": "719393",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8354034",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8354034"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 4500000,
+            "currency": "BYR"
+        },
+        "name": "Специалист по продажам порошковых красок",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8353979",
+        "created_at": "2013-07-11T00:09:42+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": null,
+            "name": "Агентство Коллекция Открытий",
+            "url": "https://api.hh.ru/employers/719393",
+            "alternate_url": "http://hh.ru/employer/719393",
+            "id": "719393",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8353979",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8353979"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 6000000,
+            "currency": "BYR"
+        },
+        "name": "Специалист по закупкам металлопродукции",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8353801",
+        "created_at": "2013-07-10T23:38:12+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/527891.jpeg",
+                "240": "http://hh.ru/employer-logo/527892.jpeg",
+                "original": "http://hh.ru/file/7930698.jpg"
+            },
+            "name": "АВАБИ ООО",
+            "url": "https://api.hh.ru/employers/756360",
+            "alternate_url": "http://hh.ru/employer/756360",
+            "id": "756360",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8353801",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8353801"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 1000,
+            "currency": "USD"
+        },
+        "name": "Помощник Генерального директора",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8178649",
+        "created_at": "2013-07-10T23:18:54+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/499426.png",
+                "240": "http://hh.ru/employer-logo/499427.png",
+                "original": "http://hh.ru/file/7905424.png"
+            },
+            "name": "ARTOX",
+            "url": "https://api.hh.ru/employers/730254",
+            "alternate_url": "http://hh.ru/employer/730254",
+            "id": "730254",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8178649",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8178649"
+    },
+    {
+        "salary": null,
+        "name": "Руководитель интернет-проекта",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8067174",
+        "created_at": "2013-07-10T23:17:38+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/499426.png",
+                "240": "http://hh.ru/employer-logo/499427.png",
+                "original": "http://hh.ru/file/7905424.png"
+            },
+            "name": "ARTOX",
+            "url": "https://api.hh.ru/employers/730254",
+            "alternate_url": "http://hh.ru/employer/730254",
+            "id": "730254",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8067174",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8067174"
+    },
+    {
+        "salary": {
+            "to": 100,
+            "from": 40,
+            "currency": "RUR"
+        },
+        "name": "Руководитель отдела по тендерной и договорной работе",
+        "area": {
+            "url": "https://api.hh.ru/areas/1",
+            "id": "1",
+            "name": "Москва"
+        },
+        "url": "https://api.hh.ru/vacancies/8353740",
+        "created_at": "2013-07-10T23:11:04+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/615983.png",
+                "240": "http://hh.ru/employer-logo/615984.png",
+                "original": "http://hh.ru/file/8017696.gif"
+            },
+            "name": "Информаудитсервис",
+            "url": "https://api.hh.ru/employers/605364",
+            "alternate_url": "http://hh.ru/employer/605364",
+            "id": "605364",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": {
+            "building": "6с5",
+            "city": "Москва",
+            "street": "улица Барклая",
+            "description": "Офис 320, Бизнес-центр \"Барклай-Плаза\"",
+            "metro": null,
+            "raw": null,
+            "lat": 55.739249999999998,
+            "lng": 37.508229
+        },
+        "alternate_url": "http://hh.ru/vacancy/8353740",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8353740"
+    },
+    {
+        "salary": {
+            "to": 40000,
+            "from": 25000,
+            "currency": "RUR"
+        },
+        "name": "Менеджер по продажам (call-центр, телемаркетолог)",
+        "area": {
+            "url": "https://api.hh.ru/areas/1",
+            "id": "1",
+            "name": "Москва"
+        },
+        "url": "https://api.hh.ru/vacancies/8146240",
+        "created_at": "2013-07-10T22:26:47+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/615983.png",
+                "240": "http://hh.ru/employer-logo/615984.png",
+                "original": "http://hh.ru/file/8017696.gif"
+            },
+            "name": "Информаудитсервис",
+            "url": "https://api.hh.ru/employers/605364",
+            "alternate_url": "http://hh.ru/employer/605364",
+            "id": "605364",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8146240",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8146240"
+    },
+    {
+        "salary": null,
+        "name": "Директор магазина (магазин \"Палас\")",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/7741381",
+        "created_at": "2013-07-10T22:11:31+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/837521.jpeg",
+                "240": "http://hh.ru/employer-logo/837522.jpeg",
+                "original": "http://hh.ru/file/10694921.jpg"
+            },
+            "name": "Эрнис",
+            "url": "https://api.hh.ru/employers/749588",
+            "alternate_url": "http://hh.ru/employer/749588",
+            "id": "749588",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/7741381",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "7741381"
+    },
+    {
+        "salary": {
+            "to": 18000,
+            "from": 13000,
+            "currency": "RUR"
+        },
+        "name": "Продавец-консультант",
+        "area": {
+            "url": "https://api.hh.ru/areas/99",
+            "id": "99",
+            "name": "Уфа"
+        },
+        "url": "https://api.hh.ru/vacancies/8333292",
+        "created_at": "2013-07-10T22:03:07+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": {
+                "90": "http://hh.ru/employer-logo/857426.jpeg",
+                "240": "http://hh.ru/employer-logo/857427.jpeg",
+                "original": "http://hh.ru/file/10866972.jpg"
+            },
+            "name": "Calzedonia Group",
+            "url": "https://api.hh.ru/employers/7449",
+            "alternate_url": "http://hh.ru/employer/7449",
+            "id": "7449",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8333292",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8333292"
+    },
+    {
+        "salary": {
+            "to": 1500,
+            "from": 1000,
+            "currency": "USD"
+        },
+        "name": "Программист asp.net",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8002189",
+        "created_at": "2013-07-10T21:53:28+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": null,
+            "name": "Пальма Трэвел",
+            "url": "https://api.hh.ru/employers/1149588",
+            "alternate_url": "http://hh.ru/employer/1149588",
+            "id": "1149588",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8002189",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8002189"
+    },
+    {
+        "salary": {
+            "to": null,
+            "from": 1200,
+            "currency": "USD"
+        },
+        "name": "PHP программист",
+        "area": {
+            "url": "https://api.hh.ru/areas/1002",
+            "id": "1002",
+            "name": "Минск"
+        },
+        "url": "https://api.hh.ru/vacancies/8002262",
+        "created_at": "2013-07-10T21:52:37+0400",
+        "relations": [],
+        "employer": {
+            "logo_urls": null,
+            "name": "Пальма Трэвел",
+            "url": "https://api.hh.ru/employers/1149588",
+            "alternate_url": "http://hh.ru/employer/1149588",
+            "id": "1149588",
+            "trusted": true
+        },
+        "response_letter_required": false,
+        "address": null,
+        "alternate_url": "http://hh.ru/vacancy/8002262",
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "id": "8002262"
+    }
+], "page": 0, "pages": 100, "found": 298682}

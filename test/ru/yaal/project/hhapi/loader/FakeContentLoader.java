@@ -22,6 +22,9 @@ public class FakeContentLoader implements IContentLoader {
                 case HhConstants.SPECIALIZATIONS_URL: {
                     return getResource("specializations.json", HhConstants.SPECIALIZATIONS_URL);
                 }
+                case HhConstants.VACANCIES_URL: {
+                    return getResource("vacancies.json", HhConstants.VACANCIES_URL);
+                }
                 default: {
                     throw new RuntimeException("Неопознанный url для загрузки контента: " + url);
                 }

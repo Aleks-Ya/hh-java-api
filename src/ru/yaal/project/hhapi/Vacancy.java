@@ -23,7 +23,7 @@ public class Vacancy {
 	private Schedule schedule;
 	private Boolean accept_handicapped;
 	private Experience experience;
-	private String address;
+	private Address address;
 	private String alternate_url;
 	private Employment employment;
 	private Salary salary;
