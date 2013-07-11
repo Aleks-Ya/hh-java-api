@@ -1,8 +1,11 @@
 package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.HhConstants;
-import ru.yaal.project.hhapi.dictionaries_old.BusinessTripReadiness;
-import ru.yaal.project.hhapi.dictionaries_old.VacancyType;
+import ru.yaal.project.hhapi.dictionary.entry.entries.BusinessTripReadiness;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;

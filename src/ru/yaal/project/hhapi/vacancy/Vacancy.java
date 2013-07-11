@@ -1,18 +1,16 @@
-package ru.yaal.project.hhapi;
+package ru.yaal.project.hhapi.vacancy;
 
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionaries_old.Employer;
-import ru.yaal.project.hhapi.dictionaries_old.Salary;
-import ru.yaal.project.hhapi.dictionaries_old.Type;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 
 @Data
 public class Vacancy {
@@ -33,6 +31,6 @@ public class Vacancy {
 	private List<Object> relations;
 	private Employer employer;
 	private Boolean response_letter_required;
-	private Type type;
+	private VacancyType type;
 	private List<ProfessionalFieldsForVacancy> professionalFields;
 }

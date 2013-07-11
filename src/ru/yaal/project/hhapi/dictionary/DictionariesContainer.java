@@ -2,9 +2,9 @@ package ru.yaal.project.hhapi.dictionary;
 
 import java.util.List;
 
-import ru.yaal.project.hhapi.dictionaries_old.BusinessTripReadiness;
-import ru.yaal.project.hhapi.dictionaries_old.ResumeContactsSiteType;
-import ru.yaal.project.hhapi.dictionaries_old.VacancyType;
+import ru.yaal.project.hhapi.dictionary.entry.entries.BusinessTripReadiness;
+import ru.yaal.project.hhapi.dictionary.entry.entries.ResumeContactsSiteType;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.EducationLevel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Employment;
@@ -17,9 +17,9 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.ResumeAccessType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.SiteLang;
 import ru.yaal.project.hhapi.dictionary.entry.entries.TravelTime;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancyLabel;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancySearchFields;
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancySearchOrder;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import lombok.Data;
 
 @Data

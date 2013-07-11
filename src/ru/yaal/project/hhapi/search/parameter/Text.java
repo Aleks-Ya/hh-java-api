@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ru.yaal.project.hhapi.dictionary.entry.entries.VacancySearchFields;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 
 public class Text implements ISearchParameter {
 	public static final String TEXT_PARAM_NAME = "search_field";

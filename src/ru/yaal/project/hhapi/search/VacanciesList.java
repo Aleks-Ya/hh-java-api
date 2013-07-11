@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.search;
 import java.util.List;
 
 import lombok.Data;
-import ru.yaal.project.hhapi.Vacancy;
+import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 @Data
 public class VacanciesList {

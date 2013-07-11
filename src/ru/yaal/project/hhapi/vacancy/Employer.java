@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionaries_old;
+package ru.yaal.project.hhapi.vacancy;
 
 import java.net.URL;
 

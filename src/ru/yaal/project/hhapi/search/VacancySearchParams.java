@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi;
+package ru.yaal.project.hhapi.search;
 
 import static java.lang.String.format;
 

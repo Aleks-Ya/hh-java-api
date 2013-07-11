@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi;
+package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Data;
 
