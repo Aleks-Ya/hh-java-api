@@ -1,17 +1,16 @@
 package ru.yaal.project.hhapi.parser;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AreasParser implements IParser<List<Area>>{
+public class AreasParser extends AbstractParser<List<Area>> {
     @Override
     public List<Area> parse(String content) {
-        Gson gson = new Gson();
-        return gson.fromJson(content, new TypeToken<List<Area>>() {}.getType());
+        return gson.fromJson(content, new TypeToken<List<Area>>() {
+        }.getType());
     }
 
     private List<Area> areaTreeToFlatList(List<Area> topAreas) {

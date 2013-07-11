@@ -4,6 +4,7 @@ public enum SearchParamNames {
     TEXT("text"),
     VACANCY_SEARCH_FIELDS("search_field"),
     SCHEDULE("schedule"),
+    SALARY("salary"),
     ONLY_WITH_SALARY("only_with_salary");
     private final String name;
 
