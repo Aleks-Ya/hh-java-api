@@ -3,11 +3,16 @@ package ru.yaal.project.hhapi.search;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Text;
 import ru.yaal.project.hhapi.vacancy.Salary;
+import ru.yaal.project.hhapi.vacancy.Vacancy;
+
+import java.util.Date;
+import java.util.List;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
@@ -70,5 +75,19 @@ public class VacanciesSearchTest {
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(300 < result.getFound());
+    }
+
+    @Test
+    public void testVacancySearchOrder() throws SearchException, DictionaryException {
+        VacancySearchOrder order = Dictionaries.getVacancySearchOrder().getEntryById("publication_time");
+        search.addParameter(order);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
+        List<Vacancy> vacancies = result.getItems();
+        for (int v = 0; (v + 1) < 20; v++) {
+            Date create1 = vacancies.get(v).getCreated_at();
+            Date created20 = vacancies.get(v + 1).getCreated_at();
+            assertTrue(create1.after(created20));
+        }
     }
 }

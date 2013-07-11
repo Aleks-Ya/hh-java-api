@@ -75,6 +75,12 @@ public class Dictionaries {
         return dictionaries.educationLevelCache;
     }
 
+    public static IDictionary<VacancySearchOrder> getVacancySearchOrder() throws DictionaryException {
+        init();
+        dictionaries.loadSmallDictionaries();
+        return dictionaries.vacancySearchOrderCache;
+    }
+
     public static IDictionary<Area> getArea() throws DictionaryException {
         init();
         dictionaries.loadAreas();
@@ -128,6 +134,7 @@ public class Dictionaries {
                 travelTimeCache = new Dictionary<>(dictionries.getTravel_time());
                 vacancyLabelCache = new Dictionary<>(dictionries.getVacancy_label());
                 vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancy_search_fields());
+                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancy_search_order());
                 vacancyTypeCache = new Dictionary<>(dictionries.getVacancy_type());
                 scheduleCache = new Dictionary<>(dictionries.getSchedule());
 
