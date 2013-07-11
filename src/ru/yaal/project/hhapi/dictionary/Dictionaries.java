@@ -120,22 +120,22 @@ public class Dictionaries {
                 SmallDictionariesParser parse = new SmallDictionariesParser();
                 DictionariesContainer dictionries = parse.parse(content);
 
-                businessTripReadinessCache = new Dictionary<>(dictionries.getBusiness_trip_readiness());
+                businessTripReadinessCache = new Dictionary<>(dictionries.getBusinessTripReadiness());
                 currencyCache = new Dictionary<>(dictionries.getCurrency());
-                educationLevelCache = new Dictionary<>(dictionries.getEducation_level());
+                educationLevelCache = new Dictionary<>(dictionries.getEducationLevel());
                 employmentCache = new Dictionary<>(dictionries.getEmployment());
                 experienceCache = new Dictionary<>(dictionries.getExperience());
                 genderCache = new Dictionary<>(dictionries.getGender());
-                languageLevelCache = new Dictionary<>(dictionries.getLanguage_level());
-                preferredContactTypeCache = new Dictionary<>(dictionries.getPreferred_contact_type());
-                resumeAccessTypeCache = new Dictionary<>(dictionries.getResume_access_type());
+                languageLevelCache = new Dictionary<>(dictionries.getLanguageLevel());
+                preferredContactTypeCache = new Dictionary<>(dictionries.getPreferredContactType());
+                resumeAccessTypeCache = new Dictionary<>(dictionries.getResumeAccessType());
                 employmentCache = new Dictionary<>(dictionries.getEmployment());
-                siteLangCache = new Dictionary<>(dictionries.getSite_lang());
-                travelTimeCache = new Dictionary<>(dictionries.getTravel_time());
-                vacancyLabelCache = new Dictionary<>(dictionries.getVacancy_label());
-                vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancy_search_fields());
-                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancy_search_order());
-                vacancyTypeCache = new Dictionary<>(dictionries.getVacancy_type());
+                siteLangCache = new Dictionary<>(dictionries.getSiteLang());
+                travelTimeCache = new Dictionary<>(dictionries.getTravelTime());
+                vacancyLabelCache = new Dictionary<>(dictionries.getVacancyLabel());
+                vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancySearchFields());
+                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancySearchOrder());
+                vacancyTypeCache = new Dictionary<>(dictionries.getVacancyType());
                 scheduleCache = new Dictionary<>(dictionries.getSchedule());
 
                 isSmallDictionariesLoaded = true;

@@ -85,8 +85,8 @@ public class VacanciesSearchTest {
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         List<Vacancy> vacancies = result.getItems();
         for (int v = 0; (v + 1) < 20; v++) {
-            Date create1 = vacancies.get(v).getCreated_at();
-            Date created20 = vacancies.get(v + 1).getCreated_at();
+            Date create1 = vacancies.get(v).getCreatedAt();
+            Date created20 = vacancies.get(v + 1).getCreatedAt();
             assertTrue(create1.after(created20));
         }
     }

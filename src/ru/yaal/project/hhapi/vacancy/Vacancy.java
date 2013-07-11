@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
@@ -19,18 +20,22 @@ public class Vacancy {
 	private URL url;
 	private String description;
 	private Schedule schedule;
-	private Boolean accept_handicapped;
+    @SerializedName("accept_handicapped")
+	private Boolean acceptHandicapped;
 	private Experience experience;
 	private Address address;
-	private String alternate_url;
+    @SerializedName("alternate_url")
+	private String alternateUrl;
 	private Employment employment;
 	private Salary salary;
 	private Boolean archived;
 	private Area area;
-	private Date created_at;
+    @SerializedName("created_at")
+	private Date createdAt;
 	private List<Object> relations;
 	private Employer employer;
-	private Boolean response_letter_required;
+    @SerializedName("response_letter_required")
+	private Boolean responseLetterRequired;
 	private VacancyType type;
 	private List<ProfessionalFieldsForVacancy> professionalFields;
 }

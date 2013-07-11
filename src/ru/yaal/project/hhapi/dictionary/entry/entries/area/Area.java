@@ -1,17 +1,19 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.ToString;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 public class Area extends AbstractDictionaryEntry {
-	private String parent_id;
-	private URL url;
-	private List<Area> areas = new ArrayList<Area>(0);
+    @SerializedName("parent_id")
+    private String parentId;
+    private URL url;
+    private List<Area> areas = new ArrayList<>(0);
 }
