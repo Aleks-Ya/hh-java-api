@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.search;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Text;
@@ -60,5 +61,14 @@ public class VacanciesSearchTest {
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(15000 < result.getFound());
+    }
+
+    @Test
+    public void testCoordinates() throws SearchException, DictionaryException {
+        Coordinates coordinates = new Coordinates(59.932243, 59.915611, 30.303541, 30.360532);
+        search.addParameter(coordinates);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(300 < result.getFound());
     }
 }
