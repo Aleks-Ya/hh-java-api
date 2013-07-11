@@ -7,4 +7,7 @@ public class SearchException extends Exception {
         super(e.getMessage(), e);
     }
 
+    public SearchException(String message) {
+        super(message);
+    }
 }
