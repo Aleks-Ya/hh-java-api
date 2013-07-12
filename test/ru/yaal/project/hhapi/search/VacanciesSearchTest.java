@@ -34,6 +34,10 @@ public class VacanciesSearchTest {
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(100000 < result.getFound());
+        for (Vacancy vacancy : result.getItems()) {
+            Salary salary = vacancy.getSalary();
+            assertTrue(salary.getTo() != null || salary.getFrom() != null);
+        }
     }
 
     @Test
@@ -47,8 +51,10 @@ public class VacanciesSearchTest {
 
     @Test
     public void testSalary() throws SearchException, DictionaryException {
-        Salary salary = new Salary(100000, 150000);
-        search.addParameter(salary);
+        final int MIN_SALARY = 100000;
+        final int MAX_SALARY = 150000;
+        Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
+        search.addParameter(salaryExpected);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(50000 < result.getFound());
@@ -56,12 +62,24 @@ public class VacanciesSearchTest {
 
     @Test
     public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
+        final int MIN_SALARY = 100000;
+        final int MAX_SALARY = 150000;
         ISearchParameter onlyWithSalary = new OnlyWithSalary();
-        Salary salary = new Salary(100000, 150000);
-        search.addParameter(salary).addParameter(onlyWithSalary);
+        Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
+        search.addParameter(salaryExpected).addParameter(onlyWithSalary);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(15000 < result.getFound());
+        assertTrue(4000 < result.getFound());
+        for (Vacancy vacancy : result.getItems()) {
+            Salary salary = vacancy.getSalary();
+            Integer to = salary.getTo();
+            if (salary.getCurrency() == Dictionaries.getCurrency().getEntryById("RUR")) {
+                if (to != null) if (!((MIN_SALARY - 10000) <= to))
+                    System.out.println("to=" + to);
+            }
+        }
+
+
     }
 
     @Test
@@ -83,7 +101,7 @@ public class VacanciesSearchTest {
         for (int v = 0; (v + 1) < 20; v++) {
             Date create1 = vacancies.get(v).getCreatedAt();
             Date created20 = vacancies.get(v + 1).getCreatedAt();
-            assertTrue(create1.after(created20));
+            assertTrue(create1.equals(created20) || create1.after(created20));
         }
     }
 
