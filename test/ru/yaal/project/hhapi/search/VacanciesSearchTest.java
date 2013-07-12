@@ -6,8 +6,10 @@ import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.IParser;
@@ -144,6 +146,20 @@ public class VacanciesSearchTest {
             String content = loader.loadContent(format(HhConstants.VACANCY_URL, vacancy.getId()));
             Vacancy detailedVacancy = parser.parse(content);
             assertEquals(detailedVacancy.getExperience(), Experience.BETWEEN_3_AND_6);
+        }
+    }
+
+    @Test
+    public void testArea() throws SearchException, DictionaryException {
+        Dictionaries.setLoader(new FakeContentLoader());
+        final Area expectedArea = Dictionaries.getArea().getEntryByName("Ñàíêò-ÏÅÒÅĞÁÓĞÃ");
+        search.addParameter(expectedArea);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(20000 < result.getFound());
+        for (Vacancy vacancy : result.getItems()) {
+            Area actualArea = vacancy.getArea();
+            assertEquals(expectedArea, actualArea);
         }
     }
 }

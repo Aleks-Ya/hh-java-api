@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.*;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaList;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
@@ -36,7 +36,7 @@ public class Dictionaries {
     private IDictionary<VacancySearchFields> vacancySearchFieldsCache;
     private IDictionary<VacancySearchOrder> vacancySearchOrderCache;
     private IDictionary<VacancyType> vacancyTypeCache;
-    private IDictionary<Area> areaCache;
+    private AreaList areaCache;
     private IDictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
@@ -90,7 +90,7 @@ public class Dictionaries {
         return dictionaries.experienceCache;
     }
 
-    public static IDictionary<Area> getArea() throws DictionaryException {
+    public static AreaList getArea() throws DictionaryException {
         init();
         dictionaries.loadAreas();
         return dictionaries.areaCache;
@@ -105,7 +105,7 @@ public class Dictionaries {
     private void loadAreas() throws DictionaryException {
         try {
             String content = loader.loadContent(HhConstants.AREAS_URL);
-            IParser<IDictionary<Area>> parse = new AreasParser();
+            IParser<AreaList> parse = new AreasParser();
             areaCache = parse.parse(content);
         } catch (Exception e) {
             throw new DictionaryException(e);
