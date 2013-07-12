@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.dictionary;
 import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaList;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroList;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
@@ -11,10 +12,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
-import ru.yaal.project.hhapi.parser.AreasParser;
-import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
-import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
+import ru.yaal.project.hhapi.parser.*;
 
 public class Dictionaries {
     private static Dictionaries dictionaries;
@@ -37,6 +35,7 @@ public class Dictionaries {
     private IDictionary<VacancySearchOrder> vacancySearchOrderCache;
     private IDictionary<VacancyType> vacancyTypeCache;
     private AreaList areaCache;
+    private MetroList metroCache;
     private IDictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
@@ -96,6 +95,12 @@ public class Dictionaries {
         return dictionaries.areaCache;
     }
 
+    public static MetroList getMetro() throws DictionaryException {
+        init();
+        dictionaries.loadMetro();
+        return dictionaries.metroCache;
+    }
+
     public static IDictionary<ProfessionalField> getProfessionalField() throws DictionaryException {
         init();
         dictionaries.loadProfessionalFields();
@@ -107,6 +112,16 @@ public class Dictionaries {
             String content = loader.loadContent(HhConstants.AREAS_URL);
             IParser<AreaList> parse = new AreasParser();
             areaCache = parse.parse(content);
+        } catch (Exception e) {
+            throw new DictionaryException(e);
+        }
+    }
+
+    private void loadMetro() throws DictionaryException {
+        try {
+            String content = loader.loadContent(HhConstants.METRO_URL);
+            IParser<MetroList> parse = new MetroParser();
+            metroCache = parse.parse(content);
         } catch (Exception e) {
             throw new DictionaryException(e);
         }

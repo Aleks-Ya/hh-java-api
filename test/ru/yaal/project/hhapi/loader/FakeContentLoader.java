@@ -25,6 +25,9 @@ public class FakeContentLoader implements IContentLoader {
                 case HhConstants.VACANCIES_URL: {
                     return getResource("vacancies.json", HhConstants.VACANCIES_URL);
                 }
+                case HhConstants.METRO_URL: {
+                    return getResource("metro.json", HhConstants.METRO_URL);
+                }
                 default: {
                     throw new RuntimeException("Неопознанный url для загрузки контента: " + url);
                 }
