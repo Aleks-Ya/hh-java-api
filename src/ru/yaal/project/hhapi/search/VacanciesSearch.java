@@ -26,7 +26,7 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
     }
 
     @Override
-    public VacanciesSearch addParameter(ISearchParameter searchParameter) {
+    public VacanciesSearch addParameter(ISearchParameter searchParameter) throws SearchException {
         Map<SearchParamNames, String> paramMap = searchParameter.getSearchParameters();
         for (SearchParamNames key : paramMap.keySet()) {
             loader.addParam(key.getName(), paramMap.get(key));

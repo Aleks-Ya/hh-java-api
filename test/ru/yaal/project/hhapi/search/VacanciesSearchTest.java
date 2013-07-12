@@ -89,12 +89,14 @@ public class VacanciesSearchTest {
 
     @Test
     public void testPerPage() throws SearchException, DictionaryException {
-        final Integer perPageCount = 1;
-        PerPage perPage = new PerPage(perPageCount);
+        final Integer page = 10;
+        final Integer perPageCount = 5;
+        Page perPage = new Page(page, perPageCount);
         search.addParameter(perPage);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         assertEquals(perPageCount, result.getPerPage());
         assertEquals((Object) perPageCount, result.getItems().size());
+        assertEquals(page, result.getPage());
     }
 }

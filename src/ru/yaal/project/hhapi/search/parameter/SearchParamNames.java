@@ -11,6 +11,7 @@ public enum SearchParamNames {
     RIGHT_LNG("right_lng"),
     LEFT_LNG("left_lng"),
     ORDER_BY("order_by"),
+    PAGE("page"),
     PER_PAGE("per_page");
     private final String name;
 
