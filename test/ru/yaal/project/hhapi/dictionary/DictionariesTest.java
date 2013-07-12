@@ -8,8 +8,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Тесты требуют подключения к Интернету для запросов к API HH.
@@ -45,7 +44,7 @@ public class DictionariesTest {
     @Test
     public void testAreas() throws DictionaryException {
         IDictionary<Area> dict = Dictionaries.getArea();
-        assertEquals(6, dict.size());
+        assertTrue(1500 < dict.size());
     }
 
     @Test

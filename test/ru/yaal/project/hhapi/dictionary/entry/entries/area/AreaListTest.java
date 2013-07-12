@@ -31,7 +31,7 @@ public class AreaListTest {
 
     @Test
     public void testGetFlatMap() throws Exception {
-        assertTrue(areas.getFlatMap().size() > 500);
+        assertTrue(areas.size() > 500);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class AreaListTest {
         area0.setName("Россия");
         area0.setAreas(Arrays.asList(area0_1, area0_2));
 
-        Method method = AreaList.class.getDeclaredMethod("areaTreeToFlatList",
+        Method method = AreaList.class.getDeclaredMethod("treeToFlat",
                 List.class);
         method.setAccessible(true);
 

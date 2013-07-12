@@ -9,8 +9,8 @@ import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class AreasParserTest {
 
@@ -21,7 +21,7 @@ public class AreasParserTest {
         IParser<AreaList> parser = new AreasParser();
         IDictionary<Area> areas = parser.parse(content);
         assertNotNull(areas);
-        assertEquals(6, areas.size());
+        assertTrue(1500 < areas.size());
     }
 
 }

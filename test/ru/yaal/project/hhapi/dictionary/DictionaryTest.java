@@ -12,9 +12,9 @@ public class DictionaryTest {
 	public void test() {
 		Currency currency = new Currency();
 		currency.setId("1");
-		Dictionary<Currency> currncyDictionary = new Dictionary<>();
-		currncyDictionary.putDictionaryEntry(currency);
-		Currency currency2 = currncyDictionary.get(currency.getId());
+		Dictionary<Currency> currencyDictionary = new Dictionary<>();
+		currencyDictionary.putDictionaryEntry(currency);
+		Currency currency2 = currencyDictionary.getEntryById(currency.getId());
 		assertEquals(currency, currency2);
 	}
 
