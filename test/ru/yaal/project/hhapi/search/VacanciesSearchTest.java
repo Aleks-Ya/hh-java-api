@@ -97,4 +97,13 @@ public class VacanciesSearchTest {
         assertEquals(perPageCount, result.getPerPage());
         assertEquals((Object) perPageCount, result.getItems().size());
     }
+
+    @Test
+    public void testPeriod() throws SearchException, DictionaryException {
+        Period period = new Period(1);
+        search.addParameter(period);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(32000 < result.getFound());
+    }
 }

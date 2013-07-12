@@ -12,7 +12,8 @@ public enum SearchParamNames {
     LEFT_LNG("left_lng"),
     ORDER_BY("order_by"),
     PAGE("page"),
-    PER_PAGE("per_page");
+    PER_PAGE("per_page"),
+    PERIOD("period");
     private final String name;
 
     private SearchParamNames(String name) {
