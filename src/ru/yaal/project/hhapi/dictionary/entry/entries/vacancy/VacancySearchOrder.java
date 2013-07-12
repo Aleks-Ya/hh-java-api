@@ -8,6 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VacancySearchOrder extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final VacancySearchOrder PUBLICATION_TIME = new VacancySearchOrder("publication_time", "по дате");
+    public static final VacancySearchOrder SALARY_DESC = new VacancySearchOrder("salary_desc", "по убыванию зарплаты");
+    public static final VacancySearchOrder SALARY_ASC = new VacancySearchOrder("salary_asc", "по возрастанию зарплаты");
+    public static final VacancySearchOrder RELEVANCE = new VacancySearchOrder("relevance", "по соответствию");
+
+    public VacancySearchOrder() {
+    }
+
+    public VacancySearchOrder(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     @Override
     public Map<SearchParamNames, String> getSearchParameters() {

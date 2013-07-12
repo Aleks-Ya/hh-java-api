@@ -57,6 +57,7 @@ public class Dictionaries {
         dictionaries.loader = loader;
     }
 
+    @Deprecated
     public static IDictionary<Schedule> getSchedule() throws DictionaryException {
         init();
         dictionaries.loadSmallDictionaries();
@@ -75,12 +76,14 @@ public class Dictionaries {
         return dictionaries.educationLevelCache;
     }
 
+    @Deprecated
     public static IDictionary<VacancySearchOrder> getVacancySearchOrder() throws DictionaryException {
         init();
         dictionaries.loadSmallDictionaries();
         return dictionaries.vacancySearchOrderCache;
     }
 
+    @Deprecated
     public static IDictionary<Experience> getExperience() throws DictionaryException {
         init();
         dictionaries.loadSmallDictionaries();

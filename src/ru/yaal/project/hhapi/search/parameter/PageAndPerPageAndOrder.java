@@ -1,7 +1,5 @@
 package ru.yaal.project.hhapi.search.parameter;
 
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.search.SearchException;
 
@@ -61,15 +59,11 @@ public class PageAndPerPageAndOrder implements ISearchParameter {
         return vacancySearchOrder;
     }
 
-    public void setVacancySearchOrder(VacancySearchOrder vacancySearchOrder) throws SearchException {
-        try {
-            if (vacancySearchOrder != null) {
-                this.vacancySearchOrder = vacancySearchOrder;
-            } else {
-                this.vacancySearchOrder = Dictionaries.getVacancySearchOrder().getEntryById("publication_time");
-            }
-        } catch (DictionaryException e) {
-            throw new SearchException(e);
+    public void setVacancySearchOrder(VacancySearchOrder vacancySearchOrder) {
+        if (vacancySearchOrder != null) {
+            this.vacancySearchOrder = vacancySearchOrder;
+        } else {
+            this.vacancySearchOrder = VacancySearchOrder.PUBLICATION_TIME;
         }
     }
 

@@ -5,6 +5,7 @@ import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -50,8 +51,7 @@ public class VacanciesSearchTest {
 
     @Test
     public void testSchedule() throws SearchException, DictionaryException {
-        ISearchParameter schedule = Dictionaries.getSchedule().getEntryById("shift");
-        search.addParameter(schedule);
+        search.addParameter(Schedule.SHIFT);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(30000 < result.getFound());
@@ -101,8 +101,7 @@ public class VacanciesSearchTest {
 
     @Test
     public void testVacancySearchOrder() throws SearchException, DictionaryException {
-        VacancySearchOrder order = Dictionaries.getVacancySearchOrder().getEntryById("publication_time");
-        search.addParameter(order);
+        search.addParameter(VacancySearchOrder.PUBLICATION_TIME);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         List<Vacancy> vacancies = result.getItems();
