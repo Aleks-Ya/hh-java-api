@@ -10,12 +10,12 @@ import ru.yaal.project.hhapi.search.VacanciesList;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class VacancyParserTest {
+public class VacanciesParserTest {
     @Test
     public void test() throws LoadException {
         IContentLoader loader = new FakeContentLoader();
         String content = loader.loadContent(HhConstants.VACANCIES_URL);
-        IParser<VacanciesList> parser = new VacancyParser();
+        IParser<VacanciesList> parser = new VacanciesParser();
         VacanciesList vacancies = parser.parse(content);
         assertNotNull(vacancies);
         assertTrue(290000 < vacancies.getFound());

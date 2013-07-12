@@ -81,6 +81,12 @@ public class Dictionaries {
         return dictionaries.vacancySearchOrderCache;
     }
 
+    public static IDictionary<Experience> getExperience() throws DictionaryException {
+        init();
+        dictionaries.loadSmallDictionaries();
+        return dictionaries.experienceCache;
+    }
+
     public static IDictionary<Area> getArea() throws DictionaryException {
         init();
         dictionaries.loadAreas();

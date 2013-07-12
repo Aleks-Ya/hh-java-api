@@ -5,7 +5,7 @@ import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.VacancyParser;
+import ru.yaal.project.hhapi.parser.VacanciesParser;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 
@@ -18,7 +18,7 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
     public VacanciesList search() throws SearchException {
         try {
             String content = loader.loadContent(HhConstants.VACANCIES_URL);
-            IParser<VacanciesList> parser = new VacancyParser();
+            IParser<VacanciesList> parser = new VacanciesParser();
             return parser.parse(content);
         } catch (LoadException e) {
             throw new SearchException(e);

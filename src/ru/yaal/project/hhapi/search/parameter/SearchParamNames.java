@@ -13,7 +13,8 @@ public enum SearchParamNames {
     ORDER_BY("order_by"),
     PAGE("page"),
     PER_PAGE("per_page"),
-    PERIOD("period");
+    PERIOD("period"),
+    EXPERIENCE("experience");
     private final String name;
 
     private SearchParamNames(String name) {

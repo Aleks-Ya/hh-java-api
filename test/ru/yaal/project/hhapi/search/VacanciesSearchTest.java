@@ -1,9 +1,16 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
+import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.IContentLoader;
+import ru.yaal.project.hhapi.loader.LoadException;
+import ru.yaal.project.hhapi.parser.IParser;
+import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.*;
 import ru.yaal.project.hhapi.vacancy.Salary;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
@@ -11,6 +18,7 @@ import ru.yaal.project.hhapi.vacancy.Vacancy;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.String.format;
 import static org.junit.Assert.*;
 
 public class VacanciesSearchTest {
@@ -123,5 +131,20 @@ public class VacanciesSearchTest {
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(32000 < result.getFound());
+    }
+
+    @Test
+    public void testExperience() throws SearchException, DictionaryException, LoadException {
+        search.addParameter(Experience.MORE_THAN_6);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(6000 < result.getFound());
+        IContentLoader loader = new ContentLoader();
+        IParser<Vacancy> parser = new VacancyParser();
+        for (Vacancy vacancy : result.getItems()) {
+            String content = loader.loadContent(format(HhConstants.VACANCY_URL, vacancy.getId()));
+            Vacancy detailedVacancy = parser.parse(content);
+            assertEquals(detailedVacancy.getExperience(), Experience.BETWEEN_3_AND_6);
+        }
     }
 }
