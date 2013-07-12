@@ -26,6 +26,7 @@ public class ContentLoader implements IContentLoader {
             HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
             connection.setRequestMethod("GET");
             addHeader("User-Agent", "HhJavaApi/1.0 (ya_al@bk.ru)");
+            addHeader("Accept", "application/json");
             setHeaders(connection);
             connection.connect();
             String content = readInputStreamToString(connection);
