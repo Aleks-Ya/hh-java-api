@@ -10,7 +10,7 @@ public interface IDictionary<T extends IDictionaryEntry> {
 
     T getEntryByName(String name) throws DictionaryException;
 
-    void putDictionaryEntry(T entry);
+    void putDictionaryEntry(T entry) throws DictionaryException;
 
     int size();
 

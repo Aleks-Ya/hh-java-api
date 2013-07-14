@@ -12,6 +12,7 @@ public class DictionaryTest {
 	public void test() throws DictionaryException {
 		Currency currency = new Currency();
 		currency.setId("1");
+		currency.setName("Рубли");
 		Dictionary<Currency> currencyDictionary = new Dictionary<>();
 		currencyDictionary.putDictionaryEntry(currency);
 		Currency currency2 = currencyDictionary.getEntryById(currency.getId());

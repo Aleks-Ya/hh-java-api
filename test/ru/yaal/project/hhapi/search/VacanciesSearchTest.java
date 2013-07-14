@@ -7,11 +7,11 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
-import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.*;
@@ -160,6 +160,21 @@ public class VacanciesSearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Area actualArea = vacancy.getArea();
             assertEquals(expectedArea, actualArea);
+        }
+    }
+
+    @Test
+    public void testMetroCity() throws SearchException, DictionaryException {
+        Dictionaries.setLoader(new FakeContentLoader());
+        MetroCity metroExpected = Dictionaries.getMetro().getEntryByName("САНКТ-Петербург");
+        search.addParameter(metroExpected);
+        VacanciesList result = search.search();
+        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(9000 < result.getFound());
+        for (Vacancy vacancy : result.getItems()) {
+            MetroCity metroActual = vacancy.getAddress().getMetro();
+            //assertEquals(metroExpected, metroActual);
+            if (metroActual.getId() == null) System.out.println(vacancy);
         }
     }
 }

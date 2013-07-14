@@ -15,6 +15,7 @@ public abstract class TreeDictionary<V extends IDictionaryEntry> extends Diction
 
     public TreeDictionary(List<V> treeList) throws DictionaryException {
         super(treeList);
+        List<V> flatList = treeToFlat(treeList);
         flatIdMap = listToIdMap(treeToFlat(treeList));
         flatNameMap = listToNameMap(treeToFlat(treeList));
     }
@@ -46,5 +47,21 @@ public abstract class TreeDictionary<V extends IDictionaryEntry> extends Diction
     @Override
     public int size() {
         return flatIdMap.size();
+    }
+
+    protected Map<String, V> listToNameMap(List<V> entries) {
+        Map<String, V> nameMap = new HashMap<>(entries.size());
+        for (V area : entries) {
+            nameMap.put(area.getName().toUpperCase(), area);
+        }
+        return nameMap;
+    }
+
+    protected Map<String, V> listToIdMap(List<V> entries) {
+        Map<String, V> idMap = new HashMap<>(entries.size());
+        for (V area : entries) {
+            idMap.put(area.getId().toUpperCase(), area);
+        }
+        return idMap;
     }
 }

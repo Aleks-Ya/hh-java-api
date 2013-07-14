@@ -15,15 +15,24 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     }
 
     public Dictionary(List<V> entryList) throws DictionaryException {
-        idMap = listToIdMap(entryList);
-        nameMap = listToNameMap(entryList);
+        for (V entry : entryList) {
+            putDictionaryEntry(entry);
+        }
     }
 
     /**
      * Упрощение для put(entry.getId(), entry);
      */
-    public void putDictionaryEntry(V entry) {
-        idMap.put(entry.getId(), entry);
+    public void putDictionaryEntry(V entry) throws DictionaryException {
+        if (entry.getId() == null) throw new DictionaryException("Ключ не может быть null (имя %s).", entry.getName());
+        String id = entry.getId().toUpperCase();
+        if (idMap.containsKey(id)) throw new DictionaryException("Повторяющийся ключ: %s.", id);
+        idMap.put(id, entry);
+
+        if (entry.getName() == null) throw new DictionaryException("Имя не может быть null (id %s).", entry.getId());
+        String name = entry.getName().toUpperCase();
+        if (nameMap.containsKey(name)) throw new DictionaryException("Повторяющееся имя: %s.", name);
+        nameMap.put(name, entry);
     }
 
     @Override
@@ -81,25 +90,5 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
         } else {
             throw new DictionaryException("В словаре не найдено значение по названию \"%s\".", name);
         }
-    }
-
-    protected Map<String, V> listToNameMap(List<V> entries) throws DictionaryException {
-        Map<String, V> nameMap = new HashMap<>(entries.size());
-        for (V entry : entries) {
-            String name = entry.getName().toUpperCase();
-            if (nameMap.containsKey(name)) throw new DictionaryException("Повторяющееся имя: %s.", name);
-            nameMap.put(name, entry);
-        }
-        return nameMap;
-    }
-
-    protected Map<String, V> listToIdMap(List<V> entries) throws DictionaryException {
-        Map<String, V> idMap = new HashMap<>(entries.size());
-        for (V entry : entries) {
-            String id = entry.getId().toUpperCase();
-            if (idMap.containsKey(id)) throw new DictionaryException("Повторяющийся ключ: %s.", id);
-            idMap.put(id, entry);
-        }
-        return idMap;
     }
 }
