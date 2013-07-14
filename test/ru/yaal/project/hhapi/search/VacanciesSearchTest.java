@@ -25,7 +25,7 @@ import static java.lang.String.format;
 import static org.junit.Assert.*;
 
 public class VacanciesSearchTest {
-    private static final int WITHOUT_PARAMS_VACANCIES_COUNT = 299000;
+    private static final int WITHOUT_PARAMS_VACANCIES_COUNT = 290000;
     private ISearch<VacanciesList> search = new VacanciesSearch();
 
     @Test
@@ -131,7 +131,7 @@ public class VacanciesSearchTest {
         search.addParameter(period);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(32000 < result.getFound());
+        assertTrue(7000 < result.getFound());
     }
 
     @Test
