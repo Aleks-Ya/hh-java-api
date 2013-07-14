@@ -2,12 +2,22 @@ package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 
-public interface IDictionary<T extends IDictionaryEntry> {
-    T getEntryById(String id);
+import java.util.List;
+import java.util.Map;
 
-    T getEntryByName(String name);
+public interface IDictionary<T extends IDictionaryEntry> {
+    T getEntryById(String id) throws DictionaryException;
+
+    T getEntryByName(String name) throws DictionaryException;
 
     void putDictionaryEntry(T entry);
 
     int size();
+
+    List<T> toList();
+
+    Map<String, T> toIdMap();
+
+    Map<String, T> toNameMap();
+
 }

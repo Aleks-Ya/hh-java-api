@@ -9,7 +9,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
 public class DictionaryTest {
 
 	@Test
-	public void test() {
+	public void test() throws DictionaryException {
 		Currency currency = new Currency();
 		currency.setId("1");
 		Dictionary<Currency> currencyDictionary = new Dictionary<>();
