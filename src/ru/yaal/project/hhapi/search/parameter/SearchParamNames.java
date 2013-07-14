@@ -15,6 +15,7 @@ public enum SearchParamNames {
     PER_PAGE("per_page"),
     PERIOD("period"),
     EXPERIENCE("experience"),
+    METRO("metro"),
     AREA("area");
     private final String name;
 
