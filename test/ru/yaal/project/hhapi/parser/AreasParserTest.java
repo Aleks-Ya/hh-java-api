@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 public class AreasParserTest {
 
     @Test
-    public void test() throws LoadException {
+    public void test() throws Exception {
         IContentLoader loader = new FakeContentLoader();
         String content = loader.loadContent(HhConstants.AREAS_URL);
         IParser<AreaList> parser = new AreasParser();

@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
+import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ public abstract class TreeDictionary<V extends IDictionaryEntry> extends Diction
     protected Map<String, V> flatIdMap = new HashMap<>();
     protected Map<String, V> flatNameMap = new HashMap<>();
 
-    public TreeDictionary(List<V> treeList) {
+    public TreeDictionary(List<V> treeList) throws DictionaryException {
         super(treeList);
         flatIdMap = listToIdMap(treeToFlat(treeList));
         flatNameMap = listToNameMap(treeToFlat(treeList));

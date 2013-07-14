@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 public class SmallDictionariesParserTest {
 
     @Test
-    public void test() {
+    public void test() throws ParseException {
         final String requestContent = ""
                 + "{\"resume_contacts_site_type\": ["
                 + "{\"id\": \"personal\", \"name\": \"Другой сайт\"}, "

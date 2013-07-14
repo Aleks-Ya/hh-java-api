@@ -20,7 +20,7 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
             String content = loader.loadContent(HhConstants.VACANCIES_URL);
             IParser<VacanciesList> parser = new VacanciesParser();
             return parser.parse(content);
-        } catch (LoadException e) {
+        } catch (Exception e) {
             throw new SearchException(e);
         }
     }

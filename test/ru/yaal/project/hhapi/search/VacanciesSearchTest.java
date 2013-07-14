@@ -135,7 +135,7 @@ public class VacanciesSearchTest {
     }
 
     @Test
-    public void testExperience() throws SearchException, DictionaryException, LoadException {
+    public void testExperience() throws Exception {
         search.addParameter(Experience.MORE_THAN_6);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());

@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public class VacanciesParserTest {
     @Test
-    public void test() throws LoadException {
+    public void test() throws Exception {
         IContentLoader loader = new FakeContentLoader();
         String content = loader.loadContent(HhConstants.VACANCIES_URL);
         IParser<VacanciesList> parser = new VacanciesParser();

@@ -132,7 +132,7 @@ public class Dictionaries {
             String content = loader.loadContent(HhConstants.SPECIALIZATIONS_URL);
             IParser<IDictionary<ProfessionalField>> parse = new ProfessionalFieldsParser();
             professionalFieldCache = parse.parse(content);
-        } catch (LoadException e) {
+        } catch (Exception e) {
             throw new DictionaryException(e);
         }
     }

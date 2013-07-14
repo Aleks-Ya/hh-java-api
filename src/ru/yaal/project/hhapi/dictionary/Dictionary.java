@@ -14,7 +14,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     public Dictionary() {
     }
 
-    public Dictionary(List<V> entryList) {
+    public Dictionary(List<V> entryList) throws DictionaryException {
         idMap = listToIdMap(entryList);
         nameMap = listToNameMap(entryList);
     }
@@ -83,18 +83,22 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
         }
     }
 
-    protected Map<String, V> listToNameMap(List<V> entries) {
+    protected Map<String, V> listToNameMap(List<V> entries) throws DictionaryException {
         Map<String, V> nameMap = new HashMap<>(entries.size());
-        for (V area : entries) {
-            nameMap.put(area.getName().toUpperCase(), area);
+        for (V entry : entries) {
+            String name = entry.getName().toUpperCase();
+            if (nameMap.containsKey(name)) throw new DictionaryException("Повторяющееся имя: %s.", name);
+            nameMap.put(name, entry);
         }
         return nameMap;
     }
 
-    protected Map<String, V> listToIdMap(List<V> entries) {
+    protected Map<String, V> listToIdMap(List<V> entries) throws DictionaryException {
         Map<String, V> idMap = new HashMap<>(entries.size());
-        for (V area : entries) {
-            idMap.put(area.getId().toUpperCase(), area);
+        for (V entry : entries) {
+            String id = entry.getId().toUpperCase();
+            if (idMap.containsKey(id)) throw new DictionaryException("Повторяющийся ключ: %s.", id);
+            idMap.put(id, entry);
         }
         return idMap;
     }
