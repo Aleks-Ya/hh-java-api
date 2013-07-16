@@ -1,11 +1,13 @@
 package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
+import ru.yaal.project.hhapi.dictionary.Nullable;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 
 @Data
-public class Address {
+public class Address implements Nullable {
+    public static final Address NULL_ADDRESS = new Address();
+    private static final String NULL_CITY = "NullCity";
     private String building;
     private String city;
     private String street;
@@ -14,4 +16,13 @@ public class Address {
     private String raw;
     private Double lat;
     private Double lng;
+
+    public Address() {
+        setCity(NULL_CITY);
+    }
+
+    @Override
+    public boolean isNull() {
+        return (getCity() == null || NULL_CITY.equalsIgnoreCase(getCity()));
+    }
 }

@@ -22,20 +22,20 @@ public class Vacancy {
 	private Schedule schedule;
     @SerializedName("accept_handicapped")
 	private Boolean acceptHandicapped;
-	private Experience experience;
-	private Address address;
+	private Experience experience = Experience.NULL_EXPERIENCE;
+	private Address address = Address.NULL_ADDRESS;
     @SerializedName("alternate_url")
 	private String alternateUrl;
-	private Employment employment;
-	private Salary salary;
+	private Employment employment = Employment.NULL_EMPLOYMENT;
+	private Salary salary = Salary.NULL_SALARY;
 	private Boolean archived;
-	private Area area;
+	private Area area = Area.NULL_AREA;
     @SerializedName("created_at")
 	private Date createdAt;
 	private List<Object> relations;
-	private Employer employer;
+	private Employer employer = Employer.NULL_EMPLOYER;
     @SerializedName("response_letter_required")
 	private Boolean responseLetterRequired;
-	private VacancyType type;
+	private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
 	private List<ProfessionalFieldsForVacancy> professionalFields;
 }

@@ -11,6 +11,7 @@ import java.util.Map;
 
 @Data
 public class Experience extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final Experience NULL_EXPERIENCE = new Experience();
     public static final Experience NO_EXPERIENCE = new Experience("noExperience", "Нет опыта");
     public static final Experience BETWEEN_1_AND_3 = new Experience("between1And3", "От 1 года до 3 лет");
     public static final Experience BETWEEN_3_AND_6 = new Experience("between3And6", "От 3 до 6 лет");
@@ -20,8 +21,7 @@ public class Experience extends AbstractDictionaryEntry implements ISearchParame
     }
 
     public Experience(String id, String name) {
-        setId(id);
-        setName(name);
+        super(id, name);
     }
 
     @Override

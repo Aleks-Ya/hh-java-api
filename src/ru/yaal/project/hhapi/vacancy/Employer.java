@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class Employer extends AbstractDictionaryEntry{
+    public static final Employer NULL_EMPLOYER = new Employer();
 	@SerializedName("logo_urls")
     private LogoUrls logoUrls;
 	private String hrbrand;

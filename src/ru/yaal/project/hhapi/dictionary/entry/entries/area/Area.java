@@ -17,6 +17,7 @@ import java.util.Map;
 
 @ToString(callSuper = true)
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final Area NULL_AREA = new Area();
     @Getter
     @Setter
     @SerializedName("parent_id")

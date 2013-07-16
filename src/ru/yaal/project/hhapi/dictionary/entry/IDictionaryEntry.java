@@ -1,11 +1,13 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
-public interface IDictionaryEntry {
-	String getId();
+import ru.yaal.project.hhapi.dictionary.Nullable;
 
-	void setId(String id);
+public interface IDictionaryEntry extends Nullable {
+    String getId();
 
-	String getName();
+    void setId(String id);
 
-	void setName(String name);
+    String getName();
+
+    void setName(String name);
 }

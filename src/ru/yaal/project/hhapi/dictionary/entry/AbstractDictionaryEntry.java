@@ -1,8 +1,20 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
 public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
+    private static final String NULL_ID = "IdForNullEntries";
+    private static final String NULL_NAME = "NameForNullEntries";
     protected String id;
     protected String name;
+
+    public AbstractDictionaryEntry() {
+        setId(NULL_ID);
+        setName(NULL_NAME);
+    }
+
+    public AbstractDictionaryEntry(String id, String name) {
+        setId(id);
+        setName(name);
+    }
 
     public String getId() {
         return id;
@@ -18,5 +30,13 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean isNull() {
+        return (getId() == null
+                || getId().isEmpty()
+                || NULL_ID.equalsIgnoreCase(getId())
+                || NULL_NAME.equalsIgnoreCase(getName()));
     }
 }
