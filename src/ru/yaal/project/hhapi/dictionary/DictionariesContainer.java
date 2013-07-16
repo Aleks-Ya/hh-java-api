@@ -2,7 +2,8 @@ package ru.yaal.project.hhapi.dictionary;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.entries.*;
+import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;

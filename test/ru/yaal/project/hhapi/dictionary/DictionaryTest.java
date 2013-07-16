@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 
 public class DictionaryTest {
 

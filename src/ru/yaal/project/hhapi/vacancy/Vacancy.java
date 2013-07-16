@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;

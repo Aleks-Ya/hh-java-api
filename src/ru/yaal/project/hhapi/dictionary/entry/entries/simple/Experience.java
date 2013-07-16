@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries;
+package ru.yaal.project.hhapi.dictionary.entry.entries.simple;
 
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;

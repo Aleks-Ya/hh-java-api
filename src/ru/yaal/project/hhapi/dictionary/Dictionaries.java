@@ -1,10 +1,11 @@
 package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.HhConstants;
-import ru.yaal.project.hhapi.dictionary.entry.entries.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaList;
+import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroList;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;

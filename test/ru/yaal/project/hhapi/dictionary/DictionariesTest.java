@@ -2,8 +2,8 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.EducationLevel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.EducationLevel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
