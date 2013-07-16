@@ -16,7 +16,8 @@ public enum SearchParamNames {
     PERIOD("period"),
     EXPERIENCE("experience"),
     METRO("metro"),
-    AREA("area");
+    AREA("area"),
+    PROFESSIONAL_FIELD("specialization");
     private final String name;
 
     private SearchParamNames(String name) {
