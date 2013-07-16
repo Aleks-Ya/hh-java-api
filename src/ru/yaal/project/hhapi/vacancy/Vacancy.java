@@ -13,6 +13,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Vacancy {
     @Getter @Setter
     private String description;
     @Getter @Setter
-    private Schedule schedule;
+    private Schedule schedule = Schedule.NULL_SCHEDULE;
     @Getter @Setter
     @SerializedName("accept_handicapped")
     private Boolean acceptHandicapped;
@@ -50,7 +51,7 @@ public class Vacancy {
     @SerializedName("created_at")
     private Date createdAt;
     @Getter @Setter
-    private List<Object> relations;
+    private List<Object> relations = new ArrayList<>(0);
     @Getter @Setter
     private Employer employer = Employer.NULL_EMPLOYER;
     @Getter @Setter
@@ -59,7 +60,7 @@ public class Vacancy {
     @Getter @Setter
     private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
     @Getter @Setter
-    private List<ProfessionalFieldsForVacancy> professionalFields;
+    private List<ProfessionalFieldsForVacancy> professionalFields = new ArrayList<>(0);
 
     public Address getAddress(){
         return (address != null) ? address : Address.NULL_ADDRESS;

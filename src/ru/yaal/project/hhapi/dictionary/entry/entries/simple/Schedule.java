@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final Schedule NULL_SCHEDULE = new Schedule();
     public static final Schedule FULL_DAY = new Schedule("fullDay", "Полный день");
     public static final Schedule SHIFT = new Schedule("shift", "Сменный график");
     public static final Schedule FLEXIBLE = new Schedule("flexible", "Гибкий график");
