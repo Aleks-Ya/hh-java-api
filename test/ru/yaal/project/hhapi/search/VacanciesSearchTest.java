@@ -2,56 +2,29 @@ package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhConstants;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.loader.ContentLoader;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
-import ru.yaal.project.hhapi.search.parameter.*;
-import ru.yaal.project.hhapi.vacancy.Address;
-import ru.yaal.project.hhapi.vacancy.Metro;
-import ru.yaal.project.hhapi.vacancy.Salary;
+import ru.yaal.project.hhapi.search.parameter.Coordinates;
+import ru.yaal.project.hhapi.search.parameter.PerPage;
+import ru.yaal.project.hhapi.search.parameter.Period;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.Date;
 import java.util.List;
 
 import static java.lang.String.format;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class VacanciesSearchTest {
-    private static final int WITHOUT_PARAMS_VACANCIES_COUNT = 290000;
+    public static final int WITHOUT_PARAMS_VACANCIES_COUNT = 290000;
     private ISearch<VacanciesList> search = new VacanciesSearch();
-
-    @Test
-    public void testText() throws SearchException {
-        ISearchParameter textParam = new Text("java");
-        search.addParameter(textParam);
-        VacanciesList result = search.search();
-        assertNotNull(result);
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(1000 < result.getFound());
-    }
-
-    @Test
-    public void testOnlyWithSalary() throws SearchException {
-        ISearchParameter onlyWithSalary = new OnlyWithSalary();
-        search.addParameter(onlyWithSalary);
-        VacanciesList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(100000 < result.getFound());
-        for (Vacancy vacancy : result.getItems()) {
-            Salary salary = vacancy.getSalary();
-            assertTrue(salary.getTo() != null || salary.getFrom() != null);
-        }
-    }
 
     @Test
     public void testSchedule() throws SearchException, DictionaryException {
@@ -59,39 +32,6 @@ public class VacanciesSearchTest {
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(30000 < result.getFound());
-    }
-
-    @Test
-    public void testSalary() throws SearchException, DictionaryException {
-        final int MIN_SALARY = 100000;
-        final int MAX_SALARY = 150000;
-        Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
-        search.addParameter(salaryExpected);
-        VacanciesList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(50000 < result.getFound());
-    }
-
-    @Test
-    public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
-        final int MIN_SALARY = 100000;
-        final int MAX_SALARY = 150000;
-        ISearchParameter onlyWithSalary = new OnlyWithSalary();
-        Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
-        search.addParameter(salaryExpected).addParameter(onlyWithSalary);
-        VacanciesList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(4000 < result.getFound());
-        for (Vacancy vacancy : result.getItems()) {
-            Salary salary = vacancy.getSalary();
-            Integer to = salary.getTo();
-            if (salary.getCurrency() == Dictionaries.getCurrency().getEntryById("RUR")) {
-                if (to != null) if (!((MIN_SALARY - 10000) <= to))
-                    System.out.println("to=" + to);
-            }
-        }
-
-
     }
 
     @Test
@@ -148,42 +88,6 @@ public class VacanciesSearchTest {
             String content = loader.loadContent(format(HhConstants.VACANCY_URL, vacancy.getId()));
             Vacancy detailedVacancy = parser.parse(content);
             assertEquals(detailedVacancy.getExperience(), Experience.BETWEEN_3_AND_6);
-        }
-    }
-
-    @Test
-    public void testArea() throws SearchException, DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
-        final Area expectedArea = Dictionaries.getArea().getEntryByName("Ñàíêò-ÏÅÒÅÐÁÓÐÃ");
-        search.addParameter(expectedArea);
-        VacanciesList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(20000 < result.getFound());
-        for (Vacancy vacancy : result.getItems()) {
-            Area actualArea = vacancy.getArea();
-            assertEquals(expectedArea, actualArea);
-        }
-    }
-
-    @Test
-    public void testMetroCity() throws SearchException, DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
-        MetroCity metroExpected = Dictionaries.getMetro().getEntryByName("ÑÀÍÊÒ-Ïåòåðáóðã");
-        search.addParameter(metroExpected);
-        VacanciesList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(9000 < result.getFound());
-        for (Vacancy vacancy : result.getItems()) {
-            Address address = vacancy.getAddress();
-            if (!address.isNull()) {
-                Metro metroActual = address.getMetro();
-                if (!metroActual.isNull()) {
-                    assertTrue(metroActual.getMetroId().startsWith(metroExpected.getId()));
-                } else {
-                    System.out.println(address);
-                }
-
-            }
         }
     }
 }
