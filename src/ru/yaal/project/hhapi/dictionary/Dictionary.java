@@ -70,6 +70,16 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     }
 
     @Override
+    public boolean hasEntryWithId(String id) {
+        return idMap.containsKey(id);
+    }
+
+    @Override
+    public boolean hasEntryWithName(String name) {
+        return nameMap.containsKey(name);
+    }
+
+    @Override
     public V getEntryById(String id) throws DictionaryException {
         V entry = idMap.get(id.toUpperCase());
         if (entry != null) {
