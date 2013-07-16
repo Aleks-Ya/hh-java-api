@@ -4,10 +4,10 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
@@ -15,6 +15,7 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.*;
+import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Salary;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
@@ -172,9 +173,13 @@ public class VacanciesSearchTest {
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(9000 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
-            MetroCity metroActual = vacancy.getAddress().getMetro();
-            //assertEquals(metroExpected, metroActual);
-            if (metroActual.getId() == null) System.out.println(vacancy);
+            Address address = vacancy.getAddress();
+            if (!address.isNull()) {
+                MetroCity metroActual = vacancy.getAddress().getMetro();
+//                assertEquals(metroExpected, metroActual);
+            } else {
+                System.out.println(vacancy);
+            }
         }
     }
 }

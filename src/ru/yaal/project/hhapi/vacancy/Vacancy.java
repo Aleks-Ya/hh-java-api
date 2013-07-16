@@ -1,41 +1,67 @@
 package ru.yaal.project.hhapi.vacancy;
 
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
+
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
-
-@Data
+@ToString
 public class Vacancy {
-	private String id;
-	private String name;
-	private URL url;
-	private String description;
-	private Schedule schedule;
+    @Getter @Setter
+    private String id;
+    @Getter @Setter
+    private String name;
+    @Getter @Setter
+    private URL url;
+    @Getter @Setter
+    private String description;
+    @Getter @Setter
+    private Schedule schedule;
+    @Getter @Setter
     @SerializedName("accept_handicapped")
-	private Boolean acceptHandicapped;
-	private Experience experience = Experience.NULL_EXPERIENCE;
-	private Address address = Address.NULL_ADDRESS;
+    private Boolean acceptHandicapped;
+    @Getter @Setter
+    private Experience experience = Experience.NULL_EXPERIENCE;
+    @Setter
+    private Address address = Address.NULL_ADDRESS;
+    @Getter @Setter
     @SerializedName("alternate_url")
-	private String alternateUrl;
-	private Employment employment = Employment.NULL_EMPLOYMENT;
-	private Salary salary = Salary.NULL_SALARY;
-	private Boolean archived;
-	private Area area = Area.NULL_AREA;
+    private String alternateUrl;
+    @Getter @Setter
+    private Employment employment = Employment.NULL_EMPLOYMENT;
+    @Getter @Setter
+    private Salary salary = Salary.NULL_SALARY;
+    @Getter @Setter
+    private Boolean archived;
+    @Getter @Setter
+    private Area area = Area.NULL_AREA;
+    @Getter @Setter
     @SerializedName("created_at")
-	private Date createdAt;
-	private List<Object> relations;
-	private Employer employer = Employer.NULL_EMPLOYER;
+    private Date createdAt;
+    @Getter @Setter
+    private List<Object> relations;
+    @Getter @Setter
+    private Employer employer = Employer.NULL_EMPLOYER;
+    @Getter @Setter
     @SerializedName("response_letter_required")
-	private Boolean responseLetterRequired;
-	private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
-	private List<ProfessionalFieldsForVacancy> professionalFields;
+    private Boolean responseLetterRequired;
+    @Getter @Setter
+    private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
+    @Getter @Setter
+    private List<ProfessionalFieldsForVacancy> professionalFields;
+
+    public Address getAddress(){
+        return (address != null) ? address : Address.NULL_ADDRESS;
+    }
 }

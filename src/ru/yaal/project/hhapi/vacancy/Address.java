@@ -23,6 +23,6 @@ public class Address implements Nullable {
 
     @Override
     public boolean isNull() {
-        return (getCity() == null || NULL_CITY.equalsIgnoreCase(getCity()));
+        return (getCity() == null || getCity().isEmpty() || NULL_CITY.equalsIgnoreCase(getCity()));
     }
 }
