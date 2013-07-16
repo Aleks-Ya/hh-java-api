@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.TreeDictionary;
+import ru.yaal.project.hhapi.dictionary.TreeDictionary;
 
 import java.util.ArrayList;
 import java.util.List;

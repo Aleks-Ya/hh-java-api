@@ -1,7 +1,8 @@
-package ru.yaal.project.hhapi.dictionary.entry;
+package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 
 import java.util.HashMap;
 import java.util.List;
