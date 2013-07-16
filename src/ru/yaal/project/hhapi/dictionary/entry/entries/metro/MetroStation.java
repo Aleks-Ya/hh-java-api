@@ -5,7 +5,9 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
 @Data
 public class MetroStation extends AbstractDictionaryEntry {
-	private Double lat;
-	private Double lng;
-	private Integer order;
+    public static final MetroStation NULL_STATION = new MetroStation();
+    private Double lat;
+    private Double lng;
+    private Integer order;
+    private MetroLine line;
 }

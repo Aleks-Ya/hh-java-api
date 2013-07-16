@@ -16,6 +16,7 @@ import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.*;
 import ru.yaal.project.hhapi.vacancy.Address;
+import ru.yaal.project.hhapi.vacancy.Metro;
 import ru.yaal.project.hhapi.vacancy.Salary;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
@@ -175,10 +176,13 @@ public class VacanciesSearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Address address = vacancy.getAddress();
             if (!address.isNull()) {
-                MetroCity metroActual = vacancy.getAddress().getMetro();
-//                assertEquals(metroExpected, metroActual);
-            } else {
-                System.out.println(vacancy);
+                Metro metroActual = address.getMetro();
+                if (!metroActual.isNull()) {
+                    assertTrue(metroActual.getMetroId().startsWith(metroExpected.getId()));
+                } else {
+                    System.out.println(address);
+                }
+
             }
         }
     }

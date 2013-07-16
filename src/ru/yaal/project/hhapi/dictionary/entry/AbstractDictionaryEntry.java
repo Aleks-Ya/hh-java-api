@@ -39,4 +39,11 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
                 || NULL_ID.equalsIgnoreCase(getId())
                 || NULL_NAME.equalsIgnoreCase(getName()));
     }
+
+    @Override
+    public boolean equals(Object otherObj) {
+        if (otherObj == null || !(otherObj instanceof AbstractDictionaryEntry)) return false;
+        AbstractDictionaryEntry other = (AbstractDictionaryEntry) otherObj;
+        return getId().equalsIgnoreCase(other.getId());
+    }
 }
