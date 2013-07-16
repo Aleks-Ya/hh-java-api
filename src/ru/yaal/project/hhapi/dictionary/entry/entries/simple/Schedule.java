@@ -17,8 +17,7 @@ public class Schedule extends AbstractDictionaryEntry implements ISearchParamete
     }
 
     public Schedule(String id, String name) {
-        this.id = id;
-        this.name = name;
+        super(id, name);
     }
 
     @Override
