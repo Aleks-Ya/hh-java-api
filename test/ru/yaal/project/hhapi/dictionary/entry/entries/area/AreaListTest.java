@@ -25,8 +25,11 @@ public class AreaListTest {
 
     @Test
     public void testGetEntryById() throws Exception {
-        Area spb = areas.getEntryById("2");
-        assertEquals("Санкт-Петербург", spb.getName());
+        final Area lenOblast = areas.getEntryById("145");
+        assertEquals("Ленинградская область", lenOblast.getName());
+        assertEquals("231", lenOblast.getParentId());
+        List<Area> nestedAreas = lenOblast.getAreas();
+        assertEquals(37, nestedAreas.size());
     }
 
     @Test
