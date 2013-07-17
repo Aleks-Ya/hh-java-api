@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import lombok.Data;
+import ru.yaal.project.hhapi.search.SearchException;
 
 @Data
 public class Coordinates implements ISearchParameter {
@@ -17,7 +18,7 @@ public class Coordinates implements ISearchParameter {
     }
 
     @Override
-    public SearchParameterBox getSearchParameters() {
+    public SearchParameterBox getSearchParameters() throws SearchException {
         SearchParameterBox params = new SearchParameterBox();
         params.addParameter(SearchParamNames.TOP_LAT, String.valueOf(topLat));
         params.addParameter(SearchParamNames.BOTTOM_LAT, String.valueOf(bottomLat));

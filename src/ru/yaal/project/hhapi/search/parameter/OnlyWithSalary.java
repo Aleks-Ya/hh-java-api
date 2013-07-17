@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
+import ru.yaal.project.hhapi.search.SearchException;
+
 public class OnlyWithSalary implements ISearchParameter {
     private boolean onlyWithSalary;
 
@@ -12,7 +14,7 @@ public class OnlyWithSalary implements ISearchParameter {
     }
 
     @Override
-    public SearchParameterBox getSearchParameters() {
+    public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.ONLY_WITH_SALARY, String.valueOf(onlyWithSalary));
     }
 }

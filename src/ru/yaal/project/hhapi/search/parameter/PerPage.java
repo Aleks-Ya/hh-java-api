@@ -26,7 +26,7 @@ public class PerPage implements ISearchParameter {
     }
 
     @Override
-    public SearchParameterBox getSearchParameters() {
+    public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.PER_PAGE, String.valueOf(getPerPage()));
     }
 }

@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
+import ru.yaal.project.hhapi.search.SearchException;
 
 public class Text implements ISearchParameter {
     private String text = "";
@@ -16,7 +17,7 @@ public class Text implements ISearchParameter {
     }
 
     @Override
-    public SearchParameterBox getSearchParameters() {
+    public SearchParameterBox getSearchParameters() throws SearchException {
         SearchParameterBox params = new SearchParameterBox();
         params.addParameter(SearchParamNames.TEXT, text);
         for (VacancySearchFields field : fields) {
