@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.parser;
 
-import ru.yaal.project.hhapi.search.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 
 public class VacanciesParser extends AbstractParser<VacanciesList> {
     @Override

@@ -13,6 +13,7 @@ import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.Period;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.Date;

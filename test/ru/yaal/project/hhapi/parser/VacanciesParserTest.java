@@ -4,7 +4,7 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
-import ru.yaal.project.hhapi.search.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

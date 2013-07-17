@@ -6,6 +6,7 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.vacancy.Salary;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertTrue;

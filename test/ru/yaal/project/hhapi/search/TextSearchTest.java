@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.search;
 import org.junit.Test;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.Text;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

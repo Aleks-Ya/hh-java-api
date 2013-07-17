@@ -5,6 +5,7 @@ import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 
 import static org.junit.Assert.assertTrue;
 

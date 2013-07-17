@@ -5,7 +5,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 import ru.yaal.project.hhapi.search.VacanciesSearch;
 
 public class SearchParameterBoxTest {

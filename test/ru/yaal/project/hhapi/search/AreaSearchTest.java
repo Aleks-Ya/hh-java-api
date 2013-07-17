@@ -5,6 +5,7 @@ import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertEquals;

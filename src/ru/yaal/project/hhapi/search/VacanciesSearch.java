@@ -8,6 +8,7 @@ import ru.yaal.project.hhapi.parser.VacanciesParser;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 
 import java.util.List;
 import java.util.Map;

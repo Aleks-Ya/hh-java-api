@@ -7,6 +7,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Metro;
+import ru.yaal.project.hhapi.vacancy.VacanciesList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertTrue;

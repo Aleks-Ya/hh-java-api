@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
