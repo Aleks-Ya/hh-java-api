@@ -4,7 +4,7 @@ import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
@@ -37,7 +37,7 @@ public class Dictionaries {
     private IDictionary<VacancyType> vacancyTypeCache;
     private AreaDictionary areaCache;
     private MetroDictionary metroCache;
-    private IDictionary<ProfessionalField> professionalFieldCache;
+    private ProfessionalFieldDictionary professionalFieldCache;
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
 
@@ -102,7 +102,7 @@ public class Dictionaries {
         return dictionaries.metroCache;
     }
 
-    public static IDictionary<ProfessionalField> getProfessionalField() throws DictionaryException {
+    public static ProfessionalFieldDictionary getProfessionalField() throws DictionaryException {
         init();
         dictionaries.loadProfessionalFields();
         return dictionaries.professionalFieldCache;
@@ -131,7 +131,7 @@ public class Dictionaries {
     private void loadProfessionalFields() throws DictionaryException {
         try {
             String content = loader.loadContent(HhConstants.SPECIALIZATIONS_URL);
-            IParser<IDictionary<ProfessionalField>> parse = new ProfessionalFieldsParser();
+            IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
             professionalFieldCache = parse.parse(content);
         } catch (Exception e) {
             throw new DictionaryException(e);
