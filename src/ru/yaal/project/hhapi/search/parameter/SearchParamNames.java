@@ -2,8 +2,8 @@ package ru.yaal.project.hhapi.search.parameter;
 
 public enum SearchParamNames {
     TEXT("text"),
-    VACANCY_SEARCH_FIELDS("search_field"),
-    SCHEDULE("schedule"),
+    VACANCY_SEARCH_FIELDS("search_field", true),
+    SCHEDULE("schedule", true),
     SALARY("salary"),
     ONLY_WITH_SALARY("only_with_salary"),
     TOP_LAT("top_lat"),
@@ -15,17 +15,30 @@ public enum SearchParamNames {
     PER_PAGE("per_page"),
     PERIOD("period"),
     EXPERIENCE("experience"),
-    METRO("metro"),
-    AREA("area"),
-    PROFESSIONAL_FIELD("specialization");
+    METRO("metro", true),
+    AREA("area", true),
+    PROFESSIONAL_FIELD("specialization", true),
+    EMPLOYMENT("employment", true),
+    EMPLOYER("employer_id", true),
+    LABEL("label", true);
     private final String name;
+    private boolean acceptMultipleValues;
 
     private SearchParamNames(String name) {
+        this(name, false);
+    }
+
+    private SearchParamNames(String name, boolean acceptMultipleValues) {
         this.name = name;
+        this.acceptMultipleValues = acceptMultipleValues;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean acceptMultipleVales() {
+        return acceptMultipleValues;
     }
 
 }
