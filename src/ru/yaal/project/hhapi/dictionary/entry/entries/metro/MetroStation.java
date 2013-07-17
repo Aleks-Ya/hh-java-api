@@ -1,13 +1,20 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
-import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class MetroStation extends AbstractDictionaryEntry {
+public class MetroStation extends MetroLine {
     public static final MetroStation NULL_STATION = new MetroStation();
+    @Getter
+    @Setter
     private Double lat;
+    @Getter
+    @Setter
     private Double lng;
+    @Getter
+    @Setter
     private Integer order;
+    @Getter
+    @Setter
     private MetroLine line;
 }

@@ -1,15 +1,18 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
-@Data
-public class MetroLine extends AbstractDictionaryEntry {
+public class MetroLine extends MetroCity {
     public static final MetroLine NULL_METRO_LINE = new MetroLine();
-    @SerializedName("hex_color")
+    @Getter
+    @Setter
     private String hexColor;
+    @Getter
+    @Setter
     private IDictionary<MetroStation> stations;
+    @Getter
+    @Setter
     private MetroCity city;
 }

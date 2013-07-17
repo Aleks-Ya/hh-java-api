@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.dictionary;
 import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaList;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroList;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
@@ -36,7 +36,7 @@ public class Dictionaries {
     private IDictionary<VacancySearchOrder> vacancySearchOrderCache;
     private IDictionary<VacancyType> vacancyTypeCache;
     private AreaList areaCache;
-    private MetroList metroCache;
+    private MetroDictionary metroCache;
     private IDictionary<ProfessionalField> professionalFieldCache;
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
@@ -96,7 +96,7 @@ public class Dictionaries {
         return dictionaries.areaCache;
     }
 
-    public static MetroList getMetro() throws DictionaryException {
+    public static MetroDictionary getMetro() throws DictionaryException {
         init();
         dictionaries.loadMetro();
         return dictionaries.metroCache;
@@ -121,7 +121,7 @@ public class Dictionaries {
     private void loadMetro() throws DictionaryException {
         try {
             String content = loader.loadContent(HhConstants.METRO_URL);
-            IParser<MetroList> parse = new MetroParser();
+            IParser<MetroDictionary> parse = new MetroParser();
             metroCache = parse.parse(content);
         } catch (Exception e) {
             throw new DictionaryException(e);

@@ -5,8 +5,8 @@ import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroList;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 
 import java.lang.reflect.Type;
@@ -15,13 +15,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MetroDeserializer implements JsonDeserializer<MetroList> {
+public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
 
     @Override
-    public MetroList deserialize(JsonElement element, Type type,
+    public MetroDictionary deserialize(JsonElement element, Type type,
                                  JsonDeserializationContext context) throws JsonParseException {
         try {
-            return new MetroList(parseCities(element));
+            return new MetroDictionary(parseCities(element));
         } catch (Exception e) {
             throw new JsonParseException(e);
         }

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface IDictionary<T extends IDictionaryEntry> {
 
-    boolean hasEntryWithId(String id);
+    boolean hasEntryWithId(String id) throws DictionaryException;
 
     boolean hasEntryWithName(String name);
 
