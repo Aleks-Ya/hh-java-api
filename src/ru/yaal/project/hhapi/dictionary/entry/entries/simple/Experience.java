@@ -5,6 +5,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
+import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,9 +26,7 @@ public class Experience extends AbstractDictionaryEntry implements ISearchParame
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() throws SearchException {
-        Map<SearchParamNames, String> params = new HashMap<>(1);
-        params.put(SearchParamNames.EXPERIENCE, getId());
-        return params;
+    public SearchParameterBox getSearchParameters() throws SearchException {
+        return new SearchParameterBox(SearchParamNames.EXPERIENCE, getId());
     }
 }

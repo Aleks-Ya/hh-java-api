@@ -3,9 +3,7 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.simple;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
-
-import java.util.HashMap;
-import java.util.Map;
+import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 public class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Schedule NULL_SCHEDULE = new Schedule();
@@ -22,9 +20,7 @@ public class Schedule extends AbstractDictionaryEntry implements ISearchParamete
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() {
-        Map<SearchParamNames, String> searchParams = new HashMap<>(1);
-        searchParams.put(SearchParamNames.SCHEDULE, getId());
-        return searchParams;
+    public SearchParameterBox getSearchParameters() {
+        return new SearchParameterBox(SearchParamNames.SCHEDULE, getId());
     }
 }

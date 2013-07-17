@@ -2,9 +2,6 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import ru.yaal.project.hhapi.search.SearchException;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static java.lang.String.format;
 
 public class Period implements ISearchParameter {
@@ -17,10 +14,8 @@ public class Period implements ISearchParameter {
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() throws SearchException {
-        Map<SearchParamNames, String> params = new HashMap<>(1);
-        params.put(SearchParamNames.PERIOD, String.valueOf(getPeriod()));
-        return params;
+    public SearchParameterBox getSearchParameters() throws SearchException {
+        return new SearchParameterBox(SearchParamNames.PERIOD, String.valueOf(getPeriod()));
     }
 
     public Integer getPeriod() {

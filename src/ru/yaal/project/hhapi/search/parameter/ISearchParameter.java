@@ -5,5 +5,5 @@ import ru.yaal.project.hhapi.search.SearchException;
 import java.util.Map;
 
 public interface ISearchParameter {
-    Map<SearchParamNames, String> getSearchParameters() throws SearchException;
+    SearchParameterBox getSearchParameters() throws SearchException;
 }

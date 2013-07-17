@@ -2,9 +2,6 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Data
 public class Coordinates implements ISearchParameter {
     private Double topLat;
@@ -20,12 +17,12 @@ public class Coordinates implements ISearchParameter {
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() {
-        Map<SearchParamNames, String> params = new HashMap<>(4);
-        params.put(SearchParamNames.TOP_LAT, String.valueOf(topLat));
-        params.put(SearchParamNames.BOTTOM_LAT, String.valueOf(bottomLat));
-        params.put(SearchParamNames.RIGHT_LNG, String.valueOf(rightLng));
-        params.put(SearchParamNames.LEFT_LNG, String.valueOf(leftLng));
+    public SearchParameterBox getSearchParameters() {
+        SearchParameterBox params = new SearchParameterBox();
+        params.addParameter(SearchParamNames.TOP_LAT, String.valueOf(topLat));
+        params.addParameter(SearchParamNames.BOTTOM_LAT, String.valueOf(bottomLat));
+        params.addParameter(SearchParamNames.RIGHT_LNG, String.valueOf(rightLng));
+        params.addParameter(SearchParamNames.LEFT_LNG, String.valueOf(leftLng));
         return params;
     }
 

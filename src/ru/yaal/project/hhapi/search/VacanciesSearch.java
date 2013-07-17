@@ -3,12 +3,12 @@ package ru.yaal.project.hhapi.search;
 import ru.yaal.project.hhapi.HhConstants;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
-import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacanciesParser;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 
+import java.util.List;
 import java.util.Map;
 
 public class VacanciesSearch implements ISearch<VacanciesList> {
@@ -27,9 +27,11 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
 
     @Override
     public VacanciesSearch addParameter(ISearchParameter searchParameter) throws SearchException {
-        Map<SearchParamNames, String> paramMap = searchParameter.getSearchParameters();
+        Map<SearchParamNames, List<String>> paramMap = searchParameter.getSearchParameters().getParameterMap();
         for (SearchParamNames key : paramMap.keySet()) {
-            loader.addParam(key.getName(), paramMap.get(key));
+            for (String value : paramMap.get(key)) {
+                loader.addParam(key.getName(), value);
+            }
         }
         return this;
     }

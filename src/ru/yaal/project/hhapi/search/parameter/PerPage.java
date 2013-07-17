@@ -2,9 +2,6 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import ru.yaal.project.hhapi.search.SearchException;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static java.lang.String.format;
 
 public class PerPage implements ISearchParameter {
@@ -29,9 +26,7 @@ public class PerPage implements ISearchParameter {
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() {
-        Map<SearchParamNames, String> params = new HashMap<>(1);
-        params.put(SearchParamNames.PER_PAGE, String.valueOf(getPerPage()));
-        return params;
+    public SearchParameterBox getSearchParameters() {
+        return new SearchParameterBox(SearchParamNames.PER_PAGE, String.valueOf(getPerPage()));
     }
 }

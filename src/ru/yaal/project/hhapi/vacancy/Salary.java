@@ -8,19 +8,17 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
-
-import java.util.HashMap;
-import java.util.Map;
+import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 @Data
 public class Salary implements ISearchParameter, Nullable {
-    private static final Integer NULL_VALUE = -1;
     public static final Salary NULL_SALARY = new Salary();
+    private static final Integer NULL_VALUE = -1;
     private Integer from;
     private Integer to;
     private Currency currency = Currency.NULL_CURRENCY;
 
-    public Salary(){
+    public Salary() {
         setTo(NULL_VALUE);
         setFrom(NULL_VALUE);
     }
@@ -36,13 +34,13 @@ public class Salary implements ISearchParameter, Nullable {
     }
 
     @Override
-    public Map<SearchParamNames, String> getSearchParameters() throws SearchException {
-        Map<SearchParamNames, String> params = new HashMap<>(1);
+    public SearchParameterBox getSearchParameters() throws SearchException {
+        SearchParameterBox params = new SearchParameterBox();
         if (from != null) {
-            params.put(SearchParamNames.SALARY, String.valueOf(from));
+            params.addParameter(SearchParamNames.SALARY, String.valueOf(from));
         } else {
             if (to != null) {
-                params.put(SearchParamNames.SALARY, String.valueOf(to));
+                params.addParameter(SearchParamNames.SALARY, String.valueOf(to));
             } else {
                 throw new SearchException("Ни минимальная, ни максимальная зарплата не указана.");
             }
