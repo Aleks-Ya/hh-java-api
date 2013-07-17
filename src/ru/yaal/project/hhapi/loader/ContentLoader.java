@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Загруажет контент с адресов, доступных без авторизации.
@@ -16,7 +15,7 @@ import java.util.Map;
  */
 public class ContentLoader implements IContentLoader {
     protected final Map<String, String> headers = new HashMap<>();
-    protected final Map<String, String> params = new HashMap<>();
+    protected final Map<String, List<String>> params = new HashMap<>();
 
     public String loadContent(String url) throws LoadException {
         try {
@@ -40,14 +39,16 @@ public class ContentLoader implements IContentLoader {
     private String setParameters(String url) throws URISyntaxException {
         StringBuilder builder = new StringBuilder(url);
         for (String key : params.keySet()) {
-            if (builder.indexOf("?") == -1) {
-                builder.append("?");
-            } else {
-                builder.append("&");
+            for (String value : params.get(key)) {
+                if (builder.indexOf("?") == -1) {
+                    builder.append("?");
+                } else {
+                    builder.append("&");
+                }
+                builder.append(key);
+                builder.append("=");
+                builder.append(value);
             }
-            builder.append(key);
-            builder.append("=");
-            builder.append(params.get(key));
         }
         return builder.toString();
     }
@@ -81,6 +82,11 @@ public class ContentLoader implements IContentLoader {
 
     @Override
     public void addParam(String key, String value) {
-        params.put(key, value);
+        if (!params.containsKey(key)) {
+            params.put(key, new ArrayList<>(Arrays.asList(value)));
+        } else {
+            List<String> values = params.get(key);
+            values.add(value);
+        }
     }
 }
