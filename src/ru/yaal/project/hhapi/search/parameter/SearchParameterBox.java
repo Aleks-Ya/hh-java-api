@@ -23,8 +23,18 @@ public class SearchParameterBox {
                 values.add(value);
             } else {
                 throw new SearchException(
-                        "Параметр поиска \"%s\" не позволяет добавлять более одного значения (попытка добавить \"%s\").",
-                        name.getName(), value);
+                        "Параметр поиска \"%s\" не позволяет добавлять более одного значения " +
+                                "(попытка добавить \"%s\", уже есть \"%s\").",
+                        name.getName(), value, params.get(name).get(0));
+            }
+        }
+    }
+
+    public void addParameter(SearchParameterBox parameterBox) throws SearchException {
+        Map<SearchParamNames, List<String>> paramsMap = parameterBox.getParameterMap();
+        for (SearchParamNames name : paramsMap.keySet()) {
+            for (String value : paramsMap.get(name)) {
+                addParameter(name, value);
             }
         }
     }
