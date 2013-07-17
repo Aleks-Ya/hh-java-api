@@ -1,7 +1,5 @@
 package ru.yaal.project.hhapi.loader;
 
-import ru.yaal.project.hhapi.HhConstants;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,20 +11,20 @@ public class FakeContentLoader implements IContentLoader {
     public String loadContent(String url) throws LoadException {
         try {
             switch (url) {
-                case HhConstants.DICTINARIES_URL: {
-                    return getResource("dictionaries.json", HhConstants.DICTINARIES_URL);
+                case UrlConstants.DICTINARIES_URL: {
+                    return getResource("dictionaries.json", UrlConstants.DICTINARIES_URL);
                 }
-                case HhConstants.AREAS_URL: {
-                    return getResource("areas.json", HhConstants.AREAS_URL);
+                case UrlConstants.AREAS_URL: {
+                    return getResource("areas.json", UrlConstants.AREAS_URL);
                 }
-                case HhConstants.SPECIALIZATIONS_URL: {
-                    return getResource("specializations.json", HhConstants.SPECIALIZATIONS_URL);
+                case UrlConstants.SPECIALIZATIONS_URL: {
+                    return getResource("specializations.json", UrlConstants.SPECIALIZATIONS_URL);
                 }
-                case HhConstants.VACANCIES_URL: {
-                    return getResource("vacancies.json", HhConstants.VACANCIES_URL);
+                case UrlConstants.VACANCIES_URL: {
+                    return getResource("vacancies.json", UrlConstants.VACANCIES_URL);
                 }
-                case HhConstants.METRO_URL: {
-                    return getResource("metro.json", HhConstants.METRO_URL);
+                case UrlConstants.METRO_URL: {
+                    return getResource("metro.json", UrlConstants.METRO_URL);
                 }
                 default: {
                     throw new RuntimeException("Неопознанный url для загрузки контента: " + url);

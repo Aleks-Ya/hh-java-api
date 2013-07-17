@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.HhConstants;
+import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
@@ -85,7 +85,7 @@ public class VacanciesSearchTest {
         IContentLoader loader = new ContentLoader();
         IParser<Vacancy> parser = new VacancyParser();
         for (Vacancy vacancy : result.getItems()) {
-            String content = loader.loadContent(format(HhConstants.VACANCY_URL, vacancy.getId()));
+            String content = loader.loadContent(format(UrlConstants.VACANCY_URL, vacancy.getId()));
             Vacancy detailedVacancy = parser.parse(content);
             assertEquals(detailedVacancy.getExperience(), Experience.BETWEEN_3_AND_6);
         }

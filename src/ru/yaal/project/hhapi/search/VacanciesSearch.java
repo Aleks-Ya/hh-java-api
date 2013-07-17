@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.search;
 
-import ru.yaal.project.hhapi.HhConstants;
+import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
@@ -20,7 +20,7 @@ public class VacanciesSearch implements ISearch<VacanciesList> {
     public VacanciesList search() throws SearchException {
         try {
             putParametersToLoader();
-            String content = loader.loadContent(HhConstants.VACANCIES_URL);
+            String content = loader.loadContent(UrlConstants.VACANCIES_URL);
             IParser<VacanciesList> parser = new VacanciesParser();
             return parser.parse(content);
         } catch (Exception e) {

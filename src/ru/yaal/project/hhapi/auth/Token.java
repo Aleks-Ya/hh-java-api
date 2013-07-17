@@ -1,10 +1,10 @@
-package ru.yaal.project.hhapi;
+package ru.yaal.project.hhapi.auth;
 
-public class HhToken {
+public class Token {
 	private final String accessToken;
 	private final String refreshToken;
 	
-	public HhToken(String accessToken, String refreshToken){
+	public Token(String accessToken, String refreshToken){
 		this.accessToken = accessToken;
 		this.refreshToken = refreshToken;
 	}

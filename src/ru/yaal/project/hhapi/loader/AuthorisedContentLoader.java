@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.loader;
 
-import ru.yaal.project.hhapi.HhToken;
+import ru.yaal.project.hhapi.auth.Token;
 
 /**
  * Загружает контент с адресов, требующих авторизацию (информация о текущем пользователе и его резюме).
@@ -9,7 +9,7 @@ import ru.yaal.project.hhapi.HhToken;
  */
 public class AuthorisedContentLoader extends ContentLoader {
 
-	public AuthorisedContentLoader(HhToken token) {
+	public AuthorisedContentLoader(Token token) {
 		addHeader("Authorization", "Bearer " + token.getAccessToken());
 	}
 }

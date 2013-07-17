@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.dictionary;
 
-import ru.yaal.project.hhapi.HhConstants;
+import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
@@ -110,7 +110,7 @@ public class Dictionaries {
 
     private void loadAreas() throws DictionaryException {
         try {
-            String content = loader.loadContent(HhConstants.AREAS_URL);
+            String content = loader.loadContent(UrlConstants.AREAS_URL);
             IParser<AreaDictionary> parse = new AreasParser();
             areaCache = parse.parse(content);
         } catch (Exception e) {
@@ -120,7 +120,7 @@ public class Dictionaries {
 
     private void loadMetro() throws DictionaryException {
         try {
-            String content = loader.loadContent(HhConstants.METRO_URL);
+            String content = loader.loadContent(UrlConstants.METRO_URL);
             IParser<MetroDictionary> parse = new MetroParser();
             metroCache = parse.parse(content);
         } catch (Exception e) {
@@ -130,7 +130,7 @@ public class Dictionaries {
 
     private void loadProfessionalFields() throws DictionaryException {
         try {
-            String content = loader.loadContent(HhConstants.SPECIALIZATIONS_URL);
+            String content = loader.loadContent(UrlConstants.SPECIALIZATIONS_URL);
             IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
             professionalFieldCache = parse.parse(content);
         } catch (Exception e) {
@@ -141,7 +141,7 @@ public class Dictionaries {
     private void loadSmallDictionaries() throws DictionaryException {
         try {
             if (!isSmallDictionariesLoaded) {
-                String content = loader.loadContent(HhConstants.DICTINARIES_URL);
+                String content = loader.loadContent(UrlConstants.DICTINARIES_URL);
                 SmallDictionariesParser parse = new SmallDictionariesParser();
                 DictionariesContainer dictionries = parse.parse(content);
 
