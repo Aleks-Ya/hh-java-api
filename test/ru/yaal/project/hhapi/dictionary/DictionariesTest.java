@@ -2,13 +2,14 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.EducationLevel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.EducationLevel;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Тесты требуют подключения к Интернету для запросов к API HH.
@@ -44,7 +45,7 @@ public class DictionariesTest {
     @Test
     public void testAreas() throws DictionaryException {
         IDictionary<Area> dict = Dictionaries.getArea();
-        assertTrue(1500 < dict.size());
+        assertEquals(6, dict.size());
     }
 
     @Test

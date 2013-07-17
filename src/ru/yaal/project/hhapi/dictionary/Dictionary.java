@@ -75,7 +75,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     }
 
     @Override
-    public boolean hasEntryWithName(String name) {
+    public boolean hasEntryWithName(String name) throws DictionaryException {
         return nameMap.containsKey(name.toUpperCase());
     }
 

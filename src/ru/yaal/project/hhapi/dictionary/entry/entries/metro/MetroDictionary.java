@@ -35,7 +35,7 @@ public class MetroDictionary extends Dictionary<MetroCity> {
     }
 
     @Override
-    public boolean hasEntryWithName(String name) {
+    public boolean hasEntryWithName(String name) throws DictionaryException {
         if (super.hasEntryWithName(name)) {
             return true;
         } else {
@@ -95,6 +95,6 @@ public class MetroDictionary extends Dictionary<MetroCity> {
                 }
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", name);
+        throw new DictionaryException("В словаре не найдено значение по имени \"%s\".", name);
     }
 }

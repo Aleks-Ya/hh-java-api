@@ -9,7 +9,7 @@ public interface IDictionary<T extends IDictionaryEntry> {
 
     boolean hasEntryWithId(String id) throws DictionaryException;
 
-    boolean hasEntryWithName(String name);
+    boolean hasEntryWithName(String name) throws DictionaryException;
 
     T getEntryById(String id) throws DictionaryException;
 
