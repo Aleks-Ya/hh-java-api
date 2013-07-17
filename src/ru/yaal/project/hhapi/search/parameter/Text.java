@@ -2,17 +2,20 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Text implements ISearchParameter {
     private String text = "";
-    private List<VacancySearchFields> fields = new ArrayList<>();
+    private VacancySearchFields[] fields = {};
 
     public Text(String text) {
         this.text = text;
+    }
+
+    public Text(String text, VacancySearchFields... fields) {
+        this.text = text;
+        this.fields = fields;
     }
 
     @Override
@@ -21,7 +24,7 @@ public class Text implements ISearchParameter {
         params.put(SearchParamNames.TEXT, text);
         for (VacancySearchFields field : fields) {
             params.put(SearchParamNames.VACANCY_SEARCH_FIELDS, field.getId());
-            //TODO перетрет, если несколько полей задано
+            //todo реализовать добавление нескольких параметров
         }
         return params;
     }
