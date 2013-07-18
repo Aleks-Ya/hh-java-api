@@ -51,8 +51,7 @@ public class Vacancy {
     private String alternateUrl;
     @Setter
     private Employment employment = Employment.NULL_EMPLOYMENT;
-    @Getter
-    private Salary salary;
+    private Salary salary = Salary.NULL_SALARY;
     @Setter
     private Boolean archived;
     @Getter
@@ -81,8 +80,15 @@ public class Vacancy {
     private IParser<Vacancy> parser = new VacancyParser();
     private boolean singleVacancyLoaded = false;
 
+    public Salary getSalary() {
+        if (salary == null) setSalary(Salary.NULL_SALARY);
+        assert (salary != null);
+        return salary;
+    }
+
     public void setSalary(Salary salary) {
         this.salary = (salary != null) ? salary : Salary.NULL_SALARY;
+        assert (salary != null);
     }
 
     public Schedule getSchedule() throws LoadException, ParseException {
