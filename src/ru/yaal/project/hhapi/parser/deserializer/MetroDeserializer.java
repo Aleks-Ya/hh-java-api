@@ -4,10 +4,7 @@ import com.google.gson.*;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.*;
 
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;
@@ -15,13 +12,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
+public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> {
 
     @Override
-    public MetroDictionary deserialize(JsonElement element, Type type,
-                                       JsonDeserializationContext context) throws JsonParseException {
+    public MetroCityDictionary deserialize(JsonElement element, Type type,
+                                           JsonDeserializationContext context) throws JsonParseException {
         try {
-            return new MetroDictionary(parseCities(element));
+            return new MetroCityDictionary(parseCities(element));
         } catch (Exception e) {
             throw new JsonParseException(e);
         }
@@ -52,7 +49,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
         return result;
     }
 
-    private IDictionary<MetroLine> parseLines(JsonElement lines, MetroCity city) throws DictionaryException {
+    private MetroLineDictionary parseLines(JsonElement lines, MetroCity city) throws DictionaryException {
         List<MetroLine> result = new ArrayList<>();
         if (!lines.isJsonNull()) {
             for (JsonElement lineElement : lines.getAsJsonArray()) {
@@ -71,7 +68,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
                 }
             }
         }
-        return new Dictionary<>(result, MetroLine.NULL_METRO_LINE);
+        return new MetroLineDictionary(result);
     }
 
     private IDictionary<MetroStation> parseStations(JsonElement stationsElement, MetroLine line) throws DictionaryException {
@@ -87,13 +84,14 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
                     newStation.setLat(stationObj.get("lat").getAsDouble());
                     newStation.setLng(stationObj.get("lng").getAsDouble());
                     newStation.setLine(line);
+                    newStation.setCity(line.getCity());
                     newStation.setOrder(stationObj.get("order").getAsInt());
                     result.add(newStation);
                 } else {
-                    result.add(MetroStation.NULL_STATION);
+                    result.add(MetroStation.NULL_METRO_STATION);
                 }
             }
         }
-        return new Dictionary<>(result, MetroStation.NULL_STATION);
+        return new Dictionary<>(result, MetroStation.NULL_METRO_STATION);
     }
 }

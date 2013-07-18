@@ -6,14 +6,14 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 
 import java.util.List;
 
-public class MetroDictionary extends Dictionary<MetroCity> {
+public class MetroCityDictionary extends Dictionary<MetroCity> {
 
-    public MetroDictionary() {
-        super(MetroCity.NULL_METRO_CITY);
+    public MetroCityDictionary() {
+        super(MetroStation.NULL_METRO_CITY);
     }
 
-    public MetroDictionary(List<MetroCity> metroCities) throws DictionaryException {
-        super(MetroCity.NULL_METRO_CITY);
+    public MetroCityDictionary(List<MetroCity> metroCities) throws DictionaryException {
+        super(MetroStation.NULL_METRO_CITY);
         for (MetroCity metroCity : metroCities) {
             putDictionaryEntry(metroCity);
         }

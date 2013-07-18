@@ -10,14 +10,14 @@ import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class MetroDictionaryTest {
+public class MetroCityDictionaryTest {
     public static final String CITY_NAME_MOSCOW = "ÌîÑêÂà";
     public static final String CITY_ID_MOSCOW = "1";
     public static final String LINE_ID_CENTRALNO_ZAVODSKAYA = "58";
     public static final String LINE_NAME_CENTRALNO_ZAVODSKAYA = "ÖåÍòÐàËüÍî-ÇàÂîÄñÊàß";
     public static final String STATION_ID_NOVOSLABODSKAYA = "5.82";
     public static final String STATION_NAME_NOVOSLABODSKAYA = "ÍîÂîÑëÎáÎäÑêÀÿ";
-    private MetroDictionary metroDictionary;
+    private MetroCityDictionary metroCityDictionary;
 
     @BeforeClass
     public static void beforeClass() throws DictionaryException {
@@ -26,46 +26,46 @@ public class MetroDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        metroDictionary = Dictionaries.getMetro();
+        metroCityDictionary = Dictionaries.getMetro();
     }
 
     @Test
     public void getById() throws DictionaryException {
-        MetroCity city = metroDictionary.getEntryById(CITY_ID_MOSCOW);
+        MetroCity city = metroCityDictionary.getEntryById(CITY_ID_MOSCOW);
         assertTrue(CITY_NAME_MOSCOW.equalsIgnoreCase(city.getName()));
 
-        MetroLine line = (MetroLine) metroDictionary.getEntryById(LINE_ID_CENTRALNO_ZAVODSKAYA);
+        MetroLine line = (MetroLine) metroCityDictionary.getEntryById(LINE_ID_CENTRALNO_ZAVODSKAYA);
         assertTrue(LINE_NAME_CENTRALNO_ZAVODSKAYA.equalsIgnoreCase(line.getName()));
 
-        MetroStation station = (MetroStation) metroDictionary.getEntryById(STATION_ID_NOVOSLABODSKAYA);
+        MetroStation station = (MetroStation) metroCityDictionary.getEntryById(STATION_ID_NOVOSLABODSKAYA);
         assertTrue(STATION_NAME_NOVOSLABODSKAYA.equalsIgnoreCase(station.getName()));
     }
 
     @Test
     public void getByName() throws DictionaryException {
-        MetroCity city = metroDictionary.getEntryByName(CITY_NAME_MOSCOW);
+        MetroCity city = metroCityDictionary.getEntryByName(CITY_NAME_MOSCOW);
         assertTrue(CITY_NAME_MOSCOW.equalsIgnoreCase(city.getName()));
 
-        MetroLine line = (MetroLine) metroDictionary.getEntryByName(LINE_NAME_CENTRALNO_ZAVODSKAYA);
+        MetroLine line = (MetroLine) metroCityDictionary.getEntryByName(LINE_NAME_CENTRALNO_ZAVODSKAYA);
         assertTrue(LINE_NAME_CENTRALNO_ZAVODSKAYA.equalsIgnoreCase(line.getName()));
 
-        MetroStation station = (MetroStation) metroDictionary.getEntryByName(STATION_NAME_NOVOSLABODSKAYA);
+        MetroStation station = (MetroStation) metroCityDictionary.getEntryByName(STATION_NAME_NOVOSLABODSKAYA);
         assertTrue(STATION_NAME_NOVOSLABODSKAYA.equalsIgnoreCase(station.getName()));
     }
 
     @Test
     public void hasWithId() throws DictionaryException {
-        assertTrue(metroDictionary.hasEntryWithId(CITY_ID_MOSCOW));
-        assertTrue(metroDictionary.hasEntryWithId(LINE_ID_CENTRALNO_ZAVODSKAYA));
-        assertTrue(metroDictionary.hasEntryWithId(STATION_ID_NOVOSLABODSKAYA));
-        assertFalse(metroDictionary.hasEntryWithId("1000"));
+        assertTrue(metroCityDictionary.hasEntryWithId(CITY_ID_MOSCOW));
+        assertTrue(metroCityDictionary.hasEntryWithId(LINE_ID_CENTRALNO_ZAVODSKAYA));
+        assertTrue(metroCityDictionary.hasEntryWithId(STATION_ID_NOVOSLABODSKAYA));
+        assertFalse(metroCityDictionary.hasEntryWithId("1000"));
     }
 
     @Test
     public void hasCityWithName() throws DictionaryException {
-        assertTrue(metroDictionary.hasEntryWithName(CITY_NAME_MOSCOW));
-        assertTrue(metroDictionary.hasEntryWithName(LINE_NAME_CENTRALNO_ZAVODSKAYA));
-        assertTrue(metroDictionary.hasEntryWithName(STATION_NAME_NOVOSLABODSKAYA));
-        assertFalse(metroDictionary.hasEntryWithName("Óðþïèíñê"));
+        assertTrue(metroCityDictionary.hasEntryWithName(CITY_NAME_MOSCOW));
+        assertTrue(metroCityDictionary.hasEntryWithName(LINE_NAME_CENTRALNO_ZAVODSKAYA));
+        assertTrue(metroCityDictionary.hasEntryWithName(STATION_NAME_NOVOSLABODSKAYA));
+        assertFalse(metroCityDictionary.hasEntryWithName("Óðþïèíñê"));
     }
 }

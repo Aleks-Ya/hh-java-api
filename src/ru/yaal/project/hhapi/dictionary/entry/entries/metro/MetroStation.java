@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class MetroStation extends MetroLine {
-    public static final MetroStation NULL_STATION = new MetroStation();
+    public static final MetroStation NULL_METRO_STATION = new MetroStation();
     @Getter
     @Setter
     private Double lat;
@@ -17,4 +17,5 @@ public class MetroStation extends MetroLine {
     @Getter
     @Setter
     private MetroLine line;
+
 }

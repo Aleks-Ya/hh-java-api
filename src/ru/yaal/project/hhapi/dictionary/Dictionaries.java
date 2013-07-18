@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
@@ -35,7 +35,7 @@ public class Dictionaries {
     private IDictionary<VacancySearchOrder> vacancySearchOrderCache = new Dictionary<>(VacancySearchOrder.NULL_VACANCY_SEARCH_ORDER);
     private IDictionary<VacancyType> vacancyTypeCache = new Dictionary<>(VacancyType.NULL_VACANCY_TYPE);
     private AreaDictionary areaCache = new AreaDictionary();
-    private MetroDictionary metroCache = new MetroDictionary();
+    private MetroCityDictionary metroCache = new MetroCityDictionary();
     private ProfessionalFieldDictionary professionalFieldCache = new ProfessionalFieldDictionary();
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
@@ -110,7 +110,7 @@ public class Dictionaries {
         return dictionaries.areaCache;
     }
 
-    public static MetroDictionary getMetro() {
+    public static MetroCityDictionary getMetro() {
         init();
         dictionaries.loadMetro();
         return dictionaries.metroCache;
@@ -135,10 +135,10 @@ public class Dictionaries {
     private void loadMetro() {
         try {
             String content = loader.loadContent(UrlConstants.METRO_URL);
-            IParser<MetroDictionary> parse = new MetroParser();
+            IParser<MetroCityDictionary> parse = new MetroParser();
             metroCache = parse.parse(content);
         } catch (Exception e) {
-            metroCache = new MetroDictionary();
+            metroCache = new MetroCityDictionary();
         }
     }
 

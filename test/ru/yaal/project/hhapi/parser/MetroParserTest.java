@@ -4,7 +4,7 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 import ru.yaal.project.hhapi.loader.FakeContentLoader;
@@ -17,10 +17,10 @@ public class MetroParserTest {
     @Test
     public void testParse() throws Exception {
         Dictionaries.setLoader(new FakeContentLoader());
-        MetroDictionary metroDictionary = Dictionaries.getMetro();
+        MetroCityDictionary metroCityDictionary = Dictionaries.getMetro();
         final int metroCityCount = 12;
-        assertEquals(metroCityCount, metroDictionary.size());
-        MetroCity spb = metroDictionary.getEntryById("2");
+        assertEquals(metroCityCount, metroCityDictionary.size());
+        MetroCity spb = metroCityDictionary.getEntryById("2");
         assertEquals("Санкт-Петербург", spb.getName());
         assertEquals(new URL("https://api.hh.ru/metro/2"), spb.getUrl());
         IDictionary<MetroLine> lines = spb.getLines();
