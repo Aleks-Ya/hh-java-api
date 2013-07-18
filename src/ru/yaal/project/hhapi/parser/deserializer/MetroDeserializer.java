@@ -19,7 +19,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
 
     @Override
     public MetroDictionary deserialize(JsonElement element, Type type,
-                                 JsonDeserializationContext context) throws JsonParseException {
+                                       JsonDeserializationContext context) throws JsonParseException {
         try {
             return new MetroDictionary(parseCities(element));
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
                 }
             }
         }
-        return new Dictionary<>(result);
+        return new Dictionary<>(result, MetroLine.NULL_METRO_LINE);
     }
 
     private IDictionary<MetroStation> parseStations(JsonElement stationsElement, MetroLine line) throws DictionaryException {
@@ -94,6 +94,6 @@ public class MetroDeserializer implements JsonDeserializer<MetroDictionary> {
                 }
             }
         }
-        return new Dictionary<>(result);
+        return new Dictionary<>(result, MetroStation.NULL_STATION);
     }
 }

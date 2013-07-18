@@ -7,6 +7,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 public class VacancySearchOrder extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final VacancySearchOrder NULL_VACANCY_SEARCH_ORDER = new VacancySearchOrder();
     public static final VacancySearchOrder PUBLICATION_TIME = new VacancySearchOrder("publication_time", "по дате");
     public static final VacancySearchOrder SALARY_DESC = new VacancySearchOrder("salary_desc", "по убыванию зарплаты");
     public static final VacancySearchOrder SALARY_ASC = new VacancySearchOrder("salary_asc", "по возрастанию зарплаты");

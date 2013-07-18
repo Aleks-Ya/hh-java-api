@@ -1,6 +1,5 @@
 package ru.yaal.project.hhapi.dictionary;
 
-import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroDictionary;
@@ -13,6 +12,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoader;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
+import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.*;
 
 public class Dictionaries {
@@ -145,23 +145,23 @@ public class Dictionaries {
                 SmallDictionariesParser parse = new SmallDictionariesParser();
                 DictionariesContainer dictionries = parse.parse(content);
 
-                businessTripReadinessCache = new Dictionary<>(dictionries.getBusinessTripReadiness());
-                currencyCache = new Dictionary<>(dictionries.getCurrency());
-                educationLevelCache = new Dictionary<>(dictionries.getEducationLevel());
-                employmentCache = new Dictionary<>(dictionries.getEmployment());
-                experienceCache = new Dictionary<>(dictionries.getExperience());
-                genderCache = new Dictionary<>(dictionries.getGender());
-                languageLevelCache = new Dictionary<>(dictionries.getLanguageLevel());
-                preferredContactTypeCache = new Dictionary<>(dictionries.getPreferredContactType());
-                resumeAccessTypeCache = new Dictionary<>(dictionries.getResumeAccessType());
-                employmentCache = new Dictionary<>(dictionries.getEmployment());
-                siteLangCache = new Dictionary<>(dictionries.getSiteLang());
-                travelTimeCache = new Dictionary<>(dictionries.getTravelTime());
-                vacancyLabelCache = new Dictionary<>(dictionries.getVacancyLabel());
-                vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancySearchFields());
-                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancySearchOrder());
-                vacancyTypeCache = new Dictionary<>(dictionries.getVacancyType());
-                scheduleCache = new Dictionary<>(dictionries.getSchedule());
+                businessTripReadinessCache = new Dictionary<>(dictionries.getBusinessTripReadiness(), BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
+                currencyCache = new Dictionary<>(dictionries.getCurrency(), Currency.NULL_CURRENCY);
+                educationLevelCache = new Dictionary<>(dictionries.getEducationLevel(), EducationLevel.NULL_EDUCATION_LEVEL);
+                employmentCache = new Dictionary<>(dictionries.getEmployment(), Employment.NULL_EMPLOYMENT);
+                experienceCache = new Dictionary<>(dictionries.getExperience(), Experience.NULL_EXPERIENCE);
+                genderCache = new Dictionary<>(dictionries.getGender(), Gender.NULL_GENDER);
+                languageLevelCache = new Dictionary<>(dictionries.getLanguageLevel(), LanguageLevel.NULL_LANGUAGE_LEVEL);
+                preferredContactTypeCache = new Dictionary<>(dictionries.getPreferredContactType(), PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);
+                resumeAccessTypeCache = new Dictionary<>(dictionries.getResumeAccessType(), ResumeAccessType.NULL_RESUME_ACCESS_TYPE);
+                employmentCache = new Dictionary<>(dictionries.getEmployment(), Employment.NULL_EMPLOYMENT);
+                siteLangCache = new Dictionary<>(dictionries.getSiteLang(), SiteLang.NULL_SITE_LANG);
+                travelTimeCache = new Dictionary<>(dictionries.getTravelTime(), TravelTime.NULL_TRAVEL_TIME);
+                vacancyLabelCache = new Dictionary<>(dictionries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
+                vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
+                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancySearchOrder(), VacancySearchOrder.NULL_VACANCY_SEARCH_ORDER);
+                vacancyTypeCache = new Dictionary<>(dictionries.getVacancyType(), VacancyType.NULL_VACANCY_TYPE);
+                scheduleCache = new Dictionary<>(dictionries.getSchedule(), Schedule.NULL_SCHEDULE);
 
                 isSmallDictionariesLoaded = true;
             }

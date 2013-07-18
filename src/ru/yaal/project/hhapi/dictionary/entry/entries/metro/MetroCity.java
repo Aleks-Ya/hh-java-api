@@ -19,7 +19,7 @@ public class MetroCity extends AbstractDictionaryEntry implements ISearchParamet
     private URL url;
     @Getter
     @Setter
-    private IDictionary<MetroLine> lines = new Dictionary<>();
+    private IDictionary<MetroLine> lines = new Dictionary<>(MetroLine.NULL_METRO_LINE);
 
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
