@@ -1,8 +1,6 @@
 package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.Nullable;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -19,12 +17,11 @@ public class Salary implements ISearchParameter, Nullable {
     private Currency currency = Currency.NULL_CURRENCY;
 
     public Salary() {
-        setTo(NULL_VALUE);
-        setFrom(NULL_VALUE);
+        this(NULL_VALUE, NULL_VALUE);
     }
 
-    public Salary(Integer from, Integer to) throws SearchException, DictionaryException {
-        this(from, to, Dictionaries.getCurrency().getEntryById("RUR"));
+    public Salary(Integer from, Integer to) {
+        this(from, to, Currency.RUR);
     }
 
     public Salary(Integer from, Integer to, Currency currency) {

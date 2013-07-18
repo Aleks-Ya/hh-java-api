@@ -52,8 +52,7 @@ public class Vacancy {
     @Setter
     private Employment employment = Employment.NULL_EMPLOYMENT;
     @Getter
-    @Setter
-    private Salary salary = Salary.NULL_SALARY;
+    private Salary salary;
     @Setter
     private Boolean archived;
     @Getter
@@ -81,6 +80,10 @@ public class Vacancy {
     private IContentLoader loader = new ContentLoader();
     private IParser<Vacancy> parser = new VacancyParser();
     private boolean singleVacancyLoaded = false;
+
+    public void setSalary(Salary salary) {
+        this.salary = (salary != null) ? salary : Salary.NULL_SALARY;
+    }
 
     public Schedule getSchedule() throws LoadException, ParseException {
         loadSingleVacancy();
