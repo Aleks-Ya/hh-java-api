@@ -17,8 +17,7 @@ public class Salary implements ISearchParameter, Nullable {
     private Currency currency = Currency.NULL_CURRENCY;
 
     public Salary() {
-        setTo(NULL_VALUE);
-        setFrom(NULL_VALUE);
+        this(NULL_VALUE, NULL_VALUE);
     }
 
     public Salary(Integer from, Integer to) {
