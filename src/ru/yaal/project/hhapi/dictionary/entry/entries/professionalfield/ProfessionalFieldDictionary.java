@@ -7,6 +7,10 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 import java.util.List;
 
 public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
+    public ProfessionalFieldDictionary() {
+        super(ProfessionalField.NULL_PROFESSIONAL_FIELD);
+    }
+
     public ProfessionalFieldDictionary(List<ProfessionalField> fieldList) throws DictionaryException {
         super(fieldList, ProfessionalField.NULL_PROFESSIONAL_FIELD);
     }
