@@ -96,7 +96,7 @@ public class Dictionaries {
         return dictionaries.areaCache;
     }
 
-    public static MetroDictionary getMetro() throws DictionaryException {
+    public static MetroDictionary getMetro() {
         init();
         dictionaries.loadMetro();
         return dictionaries.metroCache;
@@ -118,13 +118,13 @@ public class Dictionaries {
         }
     }
 
-    private void loadMetro() throws DictionaryException {
+    private void loadMetro() {
         try {
             String content = loader.loadContent(UrlConstants.METRO_URL);
             IParser<MetroDictionary> parse = new MetroParser();
             metroCache = parse.parse(content);
         } catch (Exception e) {
-            throw new DictionaryException(e);
+            metroCache = new MetroDictionary();
         }
     }
 

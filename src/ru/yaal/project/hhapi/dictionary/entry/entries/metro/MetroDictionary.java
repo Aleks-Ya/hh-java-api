@@ -8,6 +8,10 @@ import java.util.List;
 
 public class MetroDictionary extends Dictionary<MetroCity> {
 
+    public MetroDictionary() {
+        super(MetroCity.NULL_METRO_CITY);
+    }
+
     public MetroDictionary(List<MetroCity> metroCities) throws DictionaryException {
         super(MetroCity.NULL_METRO_CITY);
         for (MetroCity metroCity : metroCities) {
