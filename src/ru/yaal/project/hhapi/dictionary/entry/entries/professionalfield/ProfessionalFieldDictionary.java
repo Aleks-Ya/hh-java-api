@@ -7,12 +7,16 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 import java.util.List;
 
 public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
+    public ProfessionalFieldDictionary() {
+        super(ProfessionalField.NULL_PROFESSIONAL_FIELD);
+    }
+
     public ProfessionalFieldDictionary(List<ProfessionalField> fieldList) throws DictionaryException {
-        super(fieldList);
+        super(fieldList, ProfessionalField.NULL_PROFESSIONAL_FIELD);
     }
 
     @Override
-    public boolean hasEntryWithId(String id) throws DictionaryException {
+    public boolean hasEntryWithId(String id) {
         if (super.hasEntryWithId(id)) {
             return true;
         } else {
@@ -25,7 +29,7 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
     }
 
     @Override
-    public boolean hasEntryWithName(String name) throws DictionaryException {
+    public boolean hasEntryWithName(String name) {
         if (super.hasEntryWithName(name)) {
             return true;
         } else {
@@ -38,7 +42,7 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
     }
 
     @Override
-    public ProfessionalField getEntryById(String id) throws DictionaryException {
+    public ProfessionalField getEntryById(String id) {
         if (super.hasEntryWithId(id)) {
             return super.getEntryById(id);
         } else {
@@ -47,11 +51,11 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
                 if (specializations.hasEntryWithId(id)) return specializations.getEntryById(id);
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", id);
+        return nullObject;
     }
 
     @Override
-    public ProfessionalField getEntryByName(String name) throws DictionaryException {
+    public ProfessionalField getEntryByName(String name) {
         if (super.hasEntryWithName(name)) {
             return super.getEntryByName(name);
         } else {
@@ -60,6 +64,6 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
                 if (specializations.hasEntryWithName(name)) return specializations.getEntryByName(name);
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по имени \"%s\".", name);
+        return nullObject;
     }
 }

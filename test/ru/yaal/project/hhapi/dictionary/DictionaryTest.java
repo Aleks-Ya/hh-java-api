@@ -13,7 +13,7 @@ public class DictionaryTest {
 		Currency currency = new Currency();
 		currency.setId("1");
 		currency.setName("Рубли");
-		Dictionary<Currency> currencyDictionary = new Dictionary<>();
+		Dictionary<Currency> currencyDictionary = new Dictionary<>(Currency.NULL_CURRENCY);
 		currencyDictionary.putDictionaryEntry(currency);
 		Currency currency2 = currencyDictionary.getEntryById(currency.getId());
 		assertEquals(currency, currency2);

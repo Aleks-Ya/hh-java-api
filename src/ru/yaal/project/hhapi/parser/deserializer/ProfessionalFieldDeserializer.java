@@ -39,7 +39,7 @@ public class ProfessionalFieldDeserializer implements JsonDeserializer<Professio
                                 newSpecializations.add(Specialization.NULL_SPECIALIZATION);
                             }
                         }
-                        newField.setSpecializations(new Dictionary<>(newSpecializations));
+                        newField.setSpecializations(new Dictionary<>(newSpecializations, Specialization.NULL_SPECIALIZATION));
                     }
                     fields.add(newField);
                 } else {

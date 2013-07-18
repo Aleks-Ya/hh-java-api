@@ -8,14 +8,19 @@ import java.util.List;
 
 public class MetroDictionary extends Dictionary<MetroCity> {
 
+    public MetroDictionary() {
+        super(MetroCity.NULL_METRO_CITY);
+    }
+
     public MetroDictionary(List<MetroCity> metroCities) throws DictionaryException {
+        super(MetroCity.NULL_METRO_CITY);
         for (MetroCity metroCity : metroCities) {
             putDictionaryEntry(metroCity);
         }
     }
 
     @Override
-    public boolean hasEntryWithId(String id) throws DictionaryException {
+    public boolean hasEntryWithId(String id) {
         if (super.hasEntryWithId(id)) {
             return true;
         } else {
@@ -35,7 +40,7 @@ public class MetroDictionary extends Dictionary<MetroCity> {
     }
 
     @Override
-    public boolean hasEntryWithName(String name) throws DictionaryException {
+    public boolean hasEntryWithName(String name) {
         if (super.hasEntryWithName(name)) {
             return true;
         } else {
@@ -55,7 +60,7 @@ public class MetroDictionary extends Dictionary<MetroCity> {
     }
 
     @Override
-    public MetroCity getEntryById(String id) throws DictionaryException {
+    public MetroCity getEntryById(String id) {
         if (hasEntryWithId(id)) {
             if (super.hasEntryWithId(id)) {
                 return super.getEntryById(id);
@@ -73,11 +78,11 @@ public class MetroDictionary extends Dictionary<MetroCity> {
                 }
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", id);
+        return nullObject;
     }
 
     @Override
-    public MetroCity getEntryByName(String name) throws DictionaryException {
+    public MetroCity getEntryByName(String name) {
         if (hasEntryWithName(name)) {
             if (super.hasEntryWithName(name)) {
                 return super.getEntryByName(name);
@@ -95,6 +100,6 @@ public class MetroDictionary extends Dictionary<MetroCity> {
                 }
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по имени \"%s\".", name);
+        return nullObject;
     }
 }

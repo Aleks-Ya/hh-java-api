@@ -10,14 +10,17 @@ import java.util.Map;
 public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     protected Map<String, V> idMap = new HashMap<>();
     protected Map<String, V> nameMap = new HashMap<>();
+    protected V nullObject;
 
-    public Dictionary() {
+    public Dictionary(V nullObject) {
+        this.nullObject = nullObject;
     }
 
-    public Dictionary(List<V> entryList) throws DictionaryException {
+    public Dictionary(List<V> entryList, V nullObject) throws DictionaryException {
         for (V entry : entryList) {
             putDictionaryEntry(entry);
         }
+        this.nullObject = nullObject;
     }
 
     /**
@@ -57,48 +60,36 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
 
     @Override
     public String toString() {
-        try {
-            StringBuilder builder = new StringBuilder();
-            for (String key : idMap.keySet()) {
-                builder.append(getEntryById(key));
-                builder.append("\n");
-            }
-            return builder.toString();
-        } catch (DictionaryException e) {
-            return e.getMessage();
+        StringBuilder builder = new StringBuilder();
+        for (String key : idMap.keySet()) {
+            builder.append(getEntryById(key));
+            builder.append("\n");
         }
+        return builder.toString();
     }
 
     @Override
-    public boolean hasEntryWithId(String id) throws DictionaryException {
-        return idMap.containsKey(id);
+    public boolean hasEntryWithId(String id) {
+        return idMap.containsKey(id.toUpperCase());
     }
 
     @Override
-    public boolean hasEntryWithName(String name) throws DictionaryException {
+    public boolean hasEntryWithName(String name) {
         return nameMap.containsKey(name.toUpperCase());
     }
 
     @Override
-    public V getEntryById(String id) throws DictionaryException {
+    public V getEntryById(String id) {
         V entry = idMap.get(id.toUpperCase());
-        if (entry != null) {
-            return entry;
-        } else {
-            throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", id);
-        }
+        return (entry != null) ? entry : nullObject;
     }
 
     /**
      * Регистронезависимый поиск.
      */
     @Override
-    public V getEntryByName(String name) throws DictionaryException {
+    public V getEntryByName(String name) {
         V entry = nameMap.get(name.toUpperCase());
-        if (entry != null) {
-            return entry;
-        } else {
-            throw new DictionaryException("В словаре не найдено значение по названию \"%s\".", name);
-        }
+        return (entry != null) ? entry : nullObject;
     }
 }

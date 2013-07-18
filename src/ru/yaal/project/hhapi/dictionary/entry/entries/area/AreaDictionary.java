@@ -8,12 +8,16 @@ import java.util.List;
 
 public class AreaDictionary extends Dictionary<Area> {
 
+    public AreaDictionary() {
+        super(Area.NULL_AREA);
+    }
+
     public AreaDictionary(List<Area> treeList) throws DictionaryException {
-        super(treeList);
+        super(treeList, Area.NULL_AREA);
     }
 
     @Override
-    public boolean hasEntryWithId(String id) throws DictionaryException {
+    public boolean hasEntryWithId(String id) {
         if (super.hasEntryWithId(id)) {
             return true;
         } else {
@@ -26,7 +30,7 @@ public class AreaDictionary extends Dictionary<Area> {
     }
 
     @Override
-    public boolean hasEntryWithName(final String name) throws DictionaryException {
+    public boolean hasEntryWithName(final String name) {
         if (super.hasEntryWithName(name)) {
             return true;
         } else {
@@ -39,7 +43,7 @@ public class AreaDictionary extends Dictionary<Area> {
     }
 
     @Override
-    public Area getEntryById(String id) throws DictionaryException {
+    public Area getEntryById(String id) {
         if (super.hasEntryWithId(id)) {
             return super.getEntryById(id);
         } else {
@@ -48,11 +52,11 @@ public class AreaDictionary extends Dictionary<Area> {
                 if (areas.hasEntryWithId(id)) return areas.getEntryById(id);
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", id);
+        return nullObject;
     }
 
     @Override
-    public Area getEntryByName(String name) throws DictionaryException {
+    public Area getEntryByName(String name) {
         if (super.hasEntryWithName(name)) {
             return super.getEntryByName(name);
         } else {
@@ -61,6 +65,6 @@ public class AreaDictionary extends Dictionary<Area> {
                 if (areas.hasEntryWithName(name)) return areas.getEntryByName(name);
             }
         }
-        throw new DictionaryException("В словаре не найдено значение по ключу \"%s\".", name);
+        return nullObject;
     }
 }

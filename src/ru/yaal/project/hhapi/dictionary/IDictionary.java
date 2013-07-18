@@ -7,13 +7,13 @@ import java.util.Map;
 
 public interface IDictionary<T extends IDictionaryEntry> {
 
-    boolean hasEntryWithId(String id) throws DictionaryException;
+    boolean hasEntryWithId(String id);
 
-    boolean hasEntryWithName(String name) throws DictionaryException;
+    boolean hasEntryWithName(String name);
 
-    T getEntryById(String id) throws DictionaryException;
+    T getEntryById(String id);
 
-    T getEntryByName(String name) throws DictionaryException;
+    T getEntryByName(String name);
 
     void putDictionaryEntry(T entry) throws DictionaryException;
 
