@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.yaal.project.hhapi</groupId>
     <artifactId>HhApi</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.5</version>
     <name>Aleksey Yablokov</name>
     <build>
         <sourceDirectory>src</sourceDirectory>
