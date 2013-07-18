@@ -13,7 +13,7 @@ public class AreaDictionary extends Dictionary<Area> {
     }
 
     @Override
-    public boolean hasEntryWithId(String id) throws DictionaryException {
+    public boolean hasEntryWithId(String id) {
         if (super.hasEntryWithId(id)) {
             return true;
         } else {
@@ -26,7 +26,7 @@ public class AreaDictionary extends Dictionary<Area> {
     }
 
     @Override
-    public boolean hasEntryWithName(final String name) throws DictionaryException {
+    public boolean hasEntryWithName(final String name) {
         if (super.hasEntryWithName(name)) {
             return true;
         } else {
