@@ -47,6 +47,6 @@ public class Salary implements ISearchParameter, Nullable {
 
     @Override
     public boolean isNull() {
-        return (getTo() == NULL_VALUE || getFrom() == NULL_VALUE);
+        return ((getTo() == null && getFrom() == null) || getTo() == NULL_VALUE || getFrom() == NULL_VALUE);
     }
 }
