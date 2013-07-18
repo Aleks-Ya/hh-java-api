@@ -8,6 +8,10 @@ import java.util.List;
 
 public class AreaDictionary extends Dictionary<Area> {
 
+    public AreaDictionary() {
+        super(Area.NULL_AREA);
+    }
+
     public AreaDictionary(List<Area> treeList) throws DictionaryException {
         super(treeList, Area.NULL_AREA);
     }

@@ -41,11 +41,11 @@ public class Dictionaries {
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
 
-    private Dictionaries(IContentLoader loader) throws DictionaryException {
+    private Dictionaries(IContentLoader loader) {
         this.loader = loader;
     }
 
-    private static void init() throws DictionaryException {
+    private static void init() {
         if (dictionaries == null) dictionaries = new Dictionaries(new ContentLoader());
     }
 
@@ -90,7 +90,7 @@ public class Dictionaries {
         return dictionaries.experienceCache;
     }
 
-    public static AreaDictionary getArea() throws DictionaryException {
+    public static AreaDictionary getArea() {
         init();
         dictionaries.loadAreas();
         return dictionaries.areaCache;
@@ -108,13 +108,13 @@ public class Dictionaries {
         return dictionaries.professionalFieldCache;
     }
 
-    private void loadAreas() throws DictionaryException {
+    private void loadAreas() {
         try {
             String content = loader.loadContent(UrlConstants.AREAS_URL);
             IParser<AreaDictionary> parse = new AreasParser();
             areaCache = parse.parse(content);
         } catch (Exception e) {
-            throw new DictionaryException(e);
+            areaCache = new AreaDictionary();
         }
     }
 
