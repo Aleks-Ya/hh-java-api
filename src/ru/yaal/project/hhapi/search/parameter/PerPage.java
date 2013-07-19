@@ -29,4 +29,9 @@ public class PerPage implements ISearchParameter {
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.PER_PAGE, String.valueOf(getPerPage()));
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Количество вакансий на страницу";
+    }
 }

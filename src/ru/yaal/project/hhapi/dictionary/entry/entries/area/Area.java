@@ -40,4 +40,9 @@ public class Area extends AbstractDictionaryEntry implements ISearchParameter {
             return false;
         }
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Регион";
+    }
 }

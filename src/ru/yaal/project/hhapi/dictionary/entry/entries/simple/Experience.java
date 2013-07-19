@@ -20,4 +20,9 @@ public class Experience extends AbstractDictionaryEntry implements ISearchParame
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.EXPERIENCE, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Опыт работы";
+    }
 }

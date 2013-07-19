@@ -26,4 +26,9 @@ public class Text implements ISearchParameter {
         return params;
     }
 
+    @Override
+    public String getSearchParameterName() {
+        return "Текст";
+    }
+
 }

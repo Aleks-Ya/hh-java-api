@@ -19,4 +19,9 @@ public class ProfessionalField extends AbstractDictionaryEntry implements ISearc
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.PROFESSIONAL_FIELD, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Профессиональная область";
+    }
 }

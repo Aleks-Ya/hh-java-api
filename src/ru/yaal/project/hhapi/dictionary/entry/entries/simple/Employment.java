@@ -19,4 +19,9 @@ public class Employment extends AbstractDictionaryEntry implements ISearchParame
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.EMPLOYMENT, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Тип занятости";
+    }
 }

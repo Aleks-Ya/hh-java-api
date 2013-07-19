@@ -18,4 +18,9 @@ public class VacancySearchOrder extends AbstractDictionaryEntry implements ISear
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.ORDER_BY, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Сортировка вакансий";
+    }
 }

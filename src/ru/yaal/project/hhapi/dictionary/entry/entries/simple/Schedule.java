@@ -21,4 +21,9 @@ public class Schedule extends AbstractDictionaryEntry implements ISearchParamete
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.SCHEDULE, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "График работы";
+    }
 }

@@ -27,4 +27,9 @@ public class Page implements ISearchParameter {
         return new SearchParameterBox(SearchParamNames.PAGE, String.valueOf(getPage()));
     }
 
+    @Override
+    public String getSearchParameterName() {
+        return "Номер страницы";
+    }
+
 }

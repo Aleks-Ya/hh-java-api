@@ -27,4 +27,9 @@ public class Period implements ISearchParameter {
                 format("Некорректный период. Ожидается %d-%d. Получено %d.", MIN_PERIOD, MAX_PERIOD, period));
         this.period = period;
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Период";
+    }
 }

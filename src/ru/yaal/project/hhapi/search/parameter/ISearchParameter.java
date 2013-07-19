@@ -6,4 +6,5 @@ import java.util.Map;
 
 public interface ISearchParameter {
     SearchParameterBox getSearchParameters() throws SearchException;
+    String getSearchParameterName();
 }

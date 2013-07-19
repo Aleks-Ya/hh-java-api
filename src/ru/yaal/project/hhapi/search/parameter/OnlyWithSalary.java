@@ -17,4 +17,9 @@ public class OnlyWithSalary implements ISearchParameter {
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.ONLY_WITH_SALARY, String.valueOf(onlyWithSalary));
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Только с указанием зарплаты";
+    }
 }

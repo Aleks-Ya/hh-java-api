@@ -27,4 +27,9 @@ public class Coordinates implements ISearchParameter {
         return params;
     }
 
+    @Override
+    public String getSearchParameterName() {
+        return "Географические координаты";
+    }
+
 }

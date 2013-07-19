@@ -24,4 +24,9 @@ public class MetroLine extends MetroCity implements ISearchParameter {
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.METRO, getId());
     }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Линия метро";
+    }
 }
