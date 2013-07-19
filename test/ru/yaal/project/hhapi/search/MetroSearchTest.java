@@ -22,6 +22,7 @@ public class MetroSearchTest {
         Dictionaries.setLoader(new FakeContentLoader());
         MetroStation metroExpected = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Площадь Восстания");
         MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Маяковская");
+        MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Чернышевская");
         search.addParameter(metroExpected);
         VacanciesList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
@@ -32,7 +33,9 @@ public class MetroSearchTest {
                 Metro metroActual = address.getMetro();
                 if (!metroActual.isNull()) {
                     MetroStation metroStationActual = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryById(metroActual.getMetroId());
-                    assertTrue(metroStationActual.equals(metroExpected) || metroStationActual.equals(metroExpected2));
+                    assertTrue(metroStationActual.equals(metroExpected)
+                            || metroStationActual.equals(metroExpected2)
+                            || metroStationActual.equals(metroExpected3));
                 }
             }
         }
