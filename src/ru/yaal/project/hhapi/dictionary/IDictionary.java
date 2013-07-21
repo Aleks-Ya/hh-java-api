@@ -5,7 +5,7 @@ import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 import java.util.List;
 import java.util.Map;
 
-public interface IDictionary<T extends IDictionaryEntry> {
+public interface IDictionary<T extends IDictionaryEntry> extends Iterable<T> {
 
     boolean hasEntryWithId(String id);
 

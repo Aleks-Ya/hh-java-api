@@ -2,10 +2,7 @@ package ru.yaal.project.hhapi.dictionary;
 
 import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     protected Map<String, V> idMap = new HashMap<>();
@@ -91,5 +88,10 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     public V getEntryByName(String name) {
         V entry = nameMap.get(name.toUpperCase());
         return (entry != null) ? entry : nullObject;
+    }
+
+    @Override
+    public Iterator<V> iterator() {
+        return toList().iterator();
     }
 }
