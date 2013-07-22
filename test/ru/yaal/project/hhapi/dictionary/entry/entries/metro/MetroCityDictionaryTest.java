@@ -1,11 +1,9 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -18,11 +16,6 @@ public class MetroCityDictionaryTest {
     public static final String STATION_ID_NOVOSLABODSKAYA = "5.82";
     public static final String STATION_NAME_NOVOSLABODSKAYA = "ÕÓ¬Ó—ÎŒ·Œ‰—Í¿ˇ";
     private MetroCityDictionary metroCityDictionary;
-
-    @BeforeClass
-    public static void beforeClass() throws DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
-    }
 
     @Before
     public void before() throws DictionaryException {

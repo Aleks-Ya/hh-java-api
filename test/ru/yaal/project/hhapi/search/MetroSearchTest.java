@@ -1,11 +1,9 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Metro;
 import ru.yaal.project.hhapi.vacancy.VacanciesList;
@@ -19,7 +17,6 @@ public class MetroSearchTest {
 
     @Test
     public void testMetro() throws SearchException, DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
         MetroStation metroExpected = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Площадь Восстания");
         MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Маяковская");
         MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Чернышевская");

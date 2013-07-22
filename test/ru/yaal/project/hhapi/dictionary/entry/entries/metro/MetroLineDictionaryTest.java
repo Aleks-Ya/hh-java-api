@@ -1,11 +1,8 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,11 +14,6 @@ public class MetroLineDictionaryTest {
     public static final String STATION_NAME = "Площадь Восстания";
     private MetroLineDictionary dictionary;
 
-    @BeforeClass
-    public static void beforeClass() throws DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
-    }
-
     @Before
     public void before() throws DictionaryException {
         dictionary = MetroCity.SAINT_PETERSBURG.getLines();
@@ -29,7 +21,7 @@ public class MetroLineDictionaryTest {
 
     @Test
     public void getById() throws DictionaryException {
-        MetroLine line = (MetroLine) dictionary.getEntryById(LINE_ID);
+        MetroLine line = dictionary.getEntryById(LINE_ID);
         assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
 
         MetroStation station = (MetroStation) dictionary.getEntryById(STATION_ID);
@@ -38,7 +30,7 @@ public class MetroLineDictionaryTest {
 
     @Test
     public void getByName() throws DictionaryException {
-        MetroLine line = (MetroLine) dictionary.getEntryByName(LINE_NAME);
+        MetroLine line = dictionary.getEntryByName(LINE_NAME);
         assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
 
         MetroStation station = (MetroStation) dictionary.getEntryByName(STATION_NAME);

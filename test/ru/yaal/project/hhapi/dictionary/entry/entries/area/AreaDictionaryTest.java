@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 import static org.junit.Assert.*;
 
@@ -19,7 +18,6 @@ public class AreaDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
         areas = Dictionaries.getArea();
     }
 

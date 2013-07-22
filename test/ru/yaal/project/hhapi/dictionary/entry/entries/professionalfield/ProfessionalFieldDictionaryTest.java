@@ -1,11 +1,9 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 import static org.junit.Assert.*;
 
@@ -15,11 +13,6 @@ public class ProfessionalFieldDictionaryTest {
     private static final String SPECIALIZATION_ID = "1.221";
     private static final String SPECIALIZATION_NAME = "œŒ„–‡ÃÏ»Œ‚¿Ì»Â, –‡«¿·ŒÚ ‡";
     private ProfessionalFieldDictionary dictionary;
-
-    @BeforeClass
-    public static void beforeClass() throws DictionaryException {
-        Dictionaries.setLoader(new FakeContentLoader());
-    }
 
     @Before
     public void before() throws DictionaryException {

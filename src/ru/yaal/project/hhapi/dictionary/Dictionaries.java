@@ -14,6 +14,9 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.*;
 
+/**
+ * Для подмены загрузчика классов на тестовый добавить параметр -Dfake_content_loader=ru.yaal.project.hhapi.loader.FakeContentLoader
+ */
 public class Dictionaries {
     private static Dictionaries dictionaries;
     private IDictionary<BusinessTripReadiness> businessTripReadinessCache = new Dictionary<>(BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
@@ -45,15 +48,20 @@ public class Dictionaries {
     }
 
     private static void init() {
-        if (dictionaries == null) dictionaries = new Dictionaries(new ContentLoader());
-    }
-
-    /**
-     * Подмена загрузчика контента нужна для модульного тестирования. Используйте #getInstance().
-     */
-    public static void setLoader(IContentLoader loader) {
-        init();
-        dictionaries.loader = loader;
+        if (dictionaries == null) {
+            String fakeContentLoaderName = System.getProperty("content_loader");
+            if (fakeContentLoaderName == null) {
+                dictionaries = new Dictionaries(new ContentLoader());
+            } else {
+                try {
+                    Class fakeContentLoaderClass = Class.forName(fakeContentLoaderName);
+                    IContentLoader contentLoader = (IContentLoader) fakeContentLoaderClass.newInstance();
+                    dictionaries = new Dictionaries(contentLoader);
+                } catch (Exception e) {
+                    dictionaries = new Dictionaries(new ContentLoader());
+                }
+            }
+        }
     }
 
     public static IDictionary<Schedule> getSchedule() {

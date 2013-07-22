@@ -25,6 +25,18 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.15</version>
+                <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>content_loader</name>
+                            <value>ru.yaal.project.hhapi.loader.FakeContentLoader</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>

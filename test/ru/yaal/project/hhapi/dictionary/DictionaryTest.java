@@ -1,10 +1,7 @@
 package ru.yaal.project.hhapi.dictionary;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +10,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DictionaryTest {
-    @Before
-    public void before() {
-        Dictionaries.setLoader(new FakeContentLoader());
-    }
 
     @Test
     public void test() throws DictionaryException {
