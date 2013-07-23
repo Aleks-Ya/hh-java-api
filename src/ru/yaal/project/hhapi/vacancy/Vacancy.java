@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
-import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -78,7 +78,7 @@ public class Vacancy implements IDictionaryEntry {
     private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
     @Setter
     private List<ProfessionalFieldsForVacancy> professionalFields = new ArrayList<>(0);
-    private IContentLoader loader = new ContentLoader();
+    private IContentLoader loader = ContentLoaderFactory.newInstance();
     private IParser<Vacancy> parser = new VacancyParser();
     private boolean singleVacancyLoaded = false;
 

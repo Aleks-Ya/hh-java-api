@@ -1,20 +1,19 @@
 package ru.yaal.project.hhapi.parser;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.loader.FakeContentLoader;
-import ru.yaal.project.hhapi.loader.IContentLoader;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.vacancy.Salary;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class VacanciesParserTest {
     @Test
     public void test() throws Exception {
-        IContentLoader loader = new FakeContentLoader();
-        String content = loader.loadContent(UrlConstants.VACANCIES_URL);
+        String content = ContentLoaderFactory.newInstance().loadContent(UrlConstants.VACANCIES_URL);
         IParser<VacancyList> parser = new VacanciesParser();
         VacancyList vacancies = parser.parse(content);
         assertNotNull(vacancies);

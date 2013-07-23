@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.search;
 
-import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacanciesParser;
@@ -18,7 +18,7 @@ public abstract class AbstractVacancySearch<E> implements ISearch<E> {
     public static final int MIN_VACANCIES_LIMIT = PerPage.MIN_PER_PAGE;
     public static final int DEFAULT_VACANCIES_LIMIT = 20;
     protected IParser<VacancyList> parser = new VacanciesParser();
-    protected IContentLoader loader = new ContentLoader();
+    protected IContentLoader loader = ContentLoaderFactory.newInstance();
     protected SearchParameterBox parameterBox = new SearchParameterBox();
 
     protected void putParametersToLoader(SearchParameterBox parameterBox) {

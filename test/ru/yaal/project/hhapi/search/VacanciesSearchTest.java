@@ -1,20 +1,20 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
-import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
+import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.Period;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import java.util.Date;
 import java.util.List;
@@ -83,7 +83,7 @@ public class VacanciesSearchTest {
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(6000 < result.getFound());
-        IContentLoader loader = new ContentLoader();
+        IContentLoader loader = ContentLoaderFactory.newInstance();
         IParser<Vacancy> parser = new VacancyParser();
         for (Vacancy vacancy : result.getItems()) {
             String content = loader.loadContent(format(UrlConstants.VACANCY_URL, vacancy.getId()));

@@ -11,7 +11,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
-import ru.yaal.project.hhapi.loader.ContentLoader;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.*;
@@ -52,19 +52,8 @@ public class Dictionaries {
 
     private static void init() {
         if (dictionaries == null) {
-            String fakeContentLoaderName = System.getProperty("content_loader");
-            if (fakeContentLoaderName == null) {
-                dictionaries = new Dictionaries(new ContentLoader());
-            } else {
-                try {
-                    Class fakeContentLoaderClass = Class.forName(fakeContentLoaderName);
-                    IContentLoader contentLoader = (IContentLoader) fakeContentLoaderClass.newInstance();
-                    dictionaries = new Dictionaries(contentLoader);
-                } catch (Exception e) {
-                    LOG.error(e.getMessage(), e);
-                    dictionaries = new Dictionaries(new ContentLoader());
-                }
-            }
+            LOG.info("Инициализирую словари.");
+            dictionaries = new Dictionaries(ContentLoaderFactory.newInstance());
         }
     }
 

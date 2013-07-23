@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
-public class FakeContentLoader implements IContentLoader {
+class FakeContentLoader implements IContentLoader {
 
     @Override
     public String loadContent(String url) throws LoadException {
@@ -75,6 +75,6 @@ public class FakeContentLoader implements IContentLoader {
 
     @Override
     public void addParam(String key, String value) {
-        throw new UnsupportedOperationException();
+        //не используется
     }
 }

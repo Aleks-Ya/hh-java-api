@@ -31,7 +31,7 @@ public class MetroParserTest {
         assertEquals(19, stations.size());
         MetroStation station = stations.getEntryById("14.190");
         assertEquals("Девяткино", station.getName());
-        assertEquals(new Integer(1), station.getOrder());
+        assertEquals(new Integer(0), station.getOrder());
         assertEquals(new Double("60.050182"), station.getLat());
         assertEquals(new Double("30.443045000000001"), station.getLng());
         assertEquals(line14, station.getLine());
