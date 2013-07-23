@@ -41,18 +41,22 @@ public class FakeContentLoader implements IContentLoader {
     }
 
     private String getResource(String resourceName, String url) throws IOException, LoadException {
-        String fileContent = loadResource(resourceName);
+        String fileContent = loadResourceFromCache(resourceName);
         if (!fileContent.isEmpty()) {
             return fileContent;
         } else {
-            IContentLoader realLoader = new ContentLoader();
-            String realContent = realLoader.loadContent(url);
-            saveResource(resourceName, realContent);
+            String realContent = loadFromNet(url);
+            saveResourceToCache(resourceName, realContent);
             return realContent;
         }
     }
 
-    private String loadResource(String resourceName) throws IOException {
+    private String loadFromNet(String url) throws LoadException {
+        IContentLoader realLoader = new ContentLoader();
+        return realLoader.loadContent(url);
+    }
+
+    private String loadResourceFromCache(String resourceName) throws IOException {
         String resource = FakeContentLoader.class.getResource(resourceName).getFile();
         LineNumberReader reader = new LineNumberReader(new FileReader(resource));
         StringBuilder builder = new StringBuilder();
@@ -62,7 +66,7 @@ public class FakeContentLoader implements IContentLoader {
         return builder.toString().trim();
     }
 
-    private void saveResource(String resourceName, String content) throws IOException {
+    private void saveResourceToCache(String resourceName, String content) throws IOException {
         String resource = FakeContentLoader.class.getResource(resourceName).getFile();
         FileWriter writer = new FileWriter(resource);
         writer.append(content);
