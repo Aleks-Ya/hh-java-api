@@ -1,9 +1,13 @@
 package ru.yaal.project.hhapi.search;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 public class VacanciesSearch extends AbstractVacancySearch<VacancyList> {
+    private static final Logger LOG = LoggerFactory.getLogger(VacanciesSearch.class);
+
     @Override
     public VacancyList search() throws SearchException {
         try {
@@ -11,6 +15,7 @@ public class VacanciesSearch extends AbstractVacancySearch<VacancyList> {
             String content = loader.loadContent(UrlConstants.VACANCIES_URL);
             return parser.parse(content);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new SearchException(e);
         }
     }

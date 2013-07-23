@@ -1,6 +1,8 @@
 package ru.yaal.project.hhapi.parser.deserializer;
 
 import com.google.gson.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
+    private static final Logger LOG = LoggerFactory.getLogger(AreaDeserializer.class);
 
     @Override
     public AreaDictionary deserialize(JsonElement element, Type type,
@@ -23,6 +26,7 @@ public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
             }
             return new AreaDictionary(areas);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new JsonParseException(e);
         }
     }

@@ -1,6 +1,8 @@
 package ru.yaal.project.hhapi.parser.deserializer;
 
 import com.google.gson.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> {
+    private static final Logger LOG = LoggerFactory.getLogger(MetroCityDictionary.class);
 
     @Override
     public MetroCityDictionary deserialize(JsonElement element, Type type,
@@ -20,6 +23,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> 
         try {
             return new MetroCityDictionary(parseCities(element));
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new JsonParseException(e);
         }
     }

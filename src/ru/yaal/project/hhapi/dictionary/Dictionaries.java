@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.dictionary;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
@@ -18,6 +20,7 @@ import ru.yaal.project.hhapi.parser.*;
  * Для подмены загрузчика классов на тестовый добавить параметр -Dfake_content_loader=ru.yaal.project.hhapi.loader.FakeContentLoader
  */
 public class Dictionaries {
+    private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
     private static Dictionaries dictionaries;
     private IDictionary<BusinessTripReadiness> businessTripReadinessCache = new Dictionary<>(BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
     private IDictionary<Currency> currencyCache = new Dictionary<>(Currency.NULL_CURRENCY);
@@ -58,6 +61,7 @@ public class Dictionaries {
                     IContentLoader contentLoader = (IContentLoader) fakeContentLoaderClass.newInstance();
                     dictionaries = new Dictionaries(contentLoader);
                 } catch (Exception e) {
+                    LOG.error(e.getMessage(), e);
                     dictionaries = new Dictionaries(new ContentLoader());
                 }
             }
@@ -136,6 +140,7 @@ public class Dictionaries {
             IParser<AreaDictionary> parse = new AreasParser();
             areaCache = parse.parse(content);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             areaCache = new AreaDictionary();
         }
     }
@@ -146,6 +151,7 @@ public class Dictionaries {
             IParser<MetroCityDictionary> parse = new MetroParser();
             metroCache = parse.parse(content);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             metroCache = new MetroCityDictionary();
         }
     }
@@ -156,6 +162,7 @@ public class Dictionaries {
             IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
             professionalFieldCache = parse.parse(content);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             professionalFieldCache = new ProfessionalFieldDictionary();
         }
     }
@@ -188,7 +195,7 @@ public class Dictionaries {
                 isSmallDictionariesLoaded = true;
             }
         } catch (Exception e) {
-            //todo сообщение в лог
+            LOG.error(e.getMessage(), e);
         }
     }
 

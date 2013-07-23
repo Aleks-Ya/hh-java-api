@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.vacancy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.VacanciesSearch;
@@ -10,6 +12,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 import java.util.*;
 
 public class PageableVacancyList implements Iterable<IterableVacancyList> {
+    private static final Logger LOG = LoggerFactory.getLogger(PageableVacancyList.class);
     private VacancyList firstPage;
     private SearchParameterBox searchParameters;
     private Map<Integer, VacancyList> pagesCache;
@@ -35,16 +38,11 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
                 searchParameters.setParameter(SearchParamNames.PAGE, String.valueOf(pageNumber - 1));
                 search.addParameter(searchParameters);
                 VacancyList vacancyList = search.search();
-//                final int pageLimit = vacanciesLimit - pageNumber * getVacanciesPerPage();
-//                if (pageLimit < vacancyList.getItems().size()) {
-//                    List<Vacancy> vacancies = vacancyList.getItems();
-//                    List<Vacancy> subList = vacancies.subList(0, pageLimit - 1);
-//                    pagesCache.put(pageNumber, new VacancyList(subList));
-//                }
                 pagesCache.put(pageNumber, vacancyList);
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             }
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new SearchException(e);
         }
     }
@@ -76,6 +74,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
                 try {
                     return getVacanciesOnPage(++cursor);
                 } catch (SearchException e) {
+                    LOG.error(e.getMessage(), e);
                     throw new NoSuchElementException(e.getMessage());
                 }
             }
@@ -101,6 +100,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
             }
             return new IterableVacancyList(fullVacancyList);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new SearchException(e);
         }
     }

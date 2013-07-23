@@ -1,6 +1,8 @@
 package ru.yaal.project.hhapi.parser.deserializer;
 
 import com.google.gson.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfessionalFieldDeserializer implements JsonDeserializer<ProfessionalFieldDictionary> {
+    private static final Logger LOG = LoggerFactory.getLogger(ProfessionalFieldDeserializer.class);
 
     @Override
     public ProfessionalFieldDictionary deserialize(JsonElement element, Type type,
@@ -48,6 +51,7 @@ public class ProfessionalFieldDeserializer implements JsonDeserializer<Professio
             }
             return new ProfessionalFieldDictionary(fields);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new JsonParseException(e);
         }
     }

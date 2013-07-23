@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.search;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
@@ -9,6 +11,7 @@ import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
 import java.util.Set;
 
 public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancyList> {
+    private static final Logger LOG = LoggerFactory.getLogger(IterableVacancySearch.class);
     private Integer vacancyLimit;
 
     public IterableVacancySearch(int vacancyLimit) throws SearchException {
@@ -32,6 +35,7 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
             PageableVacancyList pageableVacancyList = search.search();
             return new IterableVacancyList(pageableVacancyList);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new SearchException(e);
         }
     }

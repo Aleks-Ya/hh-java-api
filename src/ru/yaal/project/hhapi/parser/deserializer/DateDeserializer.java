@@ -4,6 +4,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -14,6 +16,7 @@ import java.util.Date;
  * Парсит дату в формате ISO 8601.
  */
 public class DateDeserializer implements JsonDeserializer<Date> {
+    private static final Logger LOG = LoggerFactory.getLogger(DateDeserializer.class);
 
     public static Date parse(String input) throws java.text.ParseException {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz");
@@ -35,6 +38,7 @@ public class DateDeserializer implements JsonDeserializer<Date> {
             String dateStr = element.getAsString();
             return parse(dateStr);
         } catch (ParseException e) {
+            LOG.error(e.getMessage(), e);
             throw new JsonParseException(e);
         }
     }

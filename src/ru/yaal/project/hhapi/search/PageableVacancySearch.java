@@ -1,9 +1,12 @@
 package ru.yaal.project.hhapi.search;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
 
 public class PageableVacancySearch extends AbstractVacancySearch<PageableVacancyList> {
+    private static final Logger LOG = LoggerFactory.getLogger(PageableVacancySearch.class);
     private int vacanciesLimit;
 
     public PageableVacancySearch() {
@@ -21,6 +24,7 @@ public class PageableVacancySearch extends AbstractVacancySearch<PageableVacancy
             String content = loader.loadContent(UrlConstants.VACANCIES_URL);
             return new PageableVacancyList(parser.parse(content), parameterBox, vacanciesLimit);
         } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
             throw new SearchException(e);
         }
     }
