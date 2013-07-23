@@ -152,4 +152,9 @@ public class Vacancy implements IDictionaryEntry {
     public boolean isNull() {
         return getId() == null;
     }
+
+    @Override
+    public String toString() {
+        return format("%s(%s)", getName(), getId());
+    }
 }
