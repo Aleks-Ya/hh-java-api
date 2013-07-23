@@ -65,10 +65,12 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
+        builder.append("{");
         for (String key : idMap.keySet()) {
+            if (builder.length() != 1) builder.append(",");
             builder.append(getEntryById(key));
-            builder.append("\n");
         }
+        builder.append("}");
         return builder.toString();
     }
 
