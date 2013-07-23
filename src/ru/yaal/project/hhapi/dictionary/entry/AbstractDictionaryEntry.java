@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
+import static java.lang.String.format;
+
 public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
     private static final String NULL_ID = "IdForNullEntries";
     private static final String NULL_NAME = "NameForNullEntries";
@@ -45,5 +47,10 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
         if (otherObj == null || !(otherObj instanceof AbstractDictionaryEntry)) return false;
         AbstractDictionaryEntry other = (AbstractDictionaryEntry) otherObj;
         return getId().equalsIgnoreCase(other.getId());
+    }
+
+    @Override
+    public String toString() {
+        return format("%s(%s)", getName(), getId());
     }
 }
