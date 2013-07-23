@@ -7,7 +7,7 @@ import ru.yaal.project.hhapi.vacancy.Vacancy;
 import java.util.List;
 
 @Data
-public class VacanciesList {
+public class VacancyList {
     private Integer found;
     private Integer pages;
     @SerializedName("per_page")

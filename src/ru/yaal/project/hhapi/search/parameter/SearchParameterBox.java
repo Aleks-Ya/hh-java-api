@@ -30,6 +30,11 @@ public class SearchParameterBox {
         }
     }
 
+    public void setParameter(SearchParamNames name, String value) throws SearchException {
+        params.remove(name);
+        addParameter(name, value);
+    }
+
     public void addParameter(SearchParameterBox parameterBox) throws SearchException {
         Map<SearchParamNames, List<String>> paramsMap = parameterBox.getParameterMap();
         for (SearchParamNames name : paramsMap.keySet()) {

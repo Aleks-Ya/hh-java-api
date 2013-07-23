@@ -13,7 +13,7 @@ import ru.yaal.project.hhapi.parser.VacancyParser;
 import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.Period;
-import ru.yaal.project.hhapi.vacancy.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.Date;
@@ -25,12 +25,12 @@ import static org.junit.Assert.assertTrue;
 
 public class VacanciesSearchTest {
     public static final int WITHOUT_PARAMS_VACANCIES_COUNT = 290000;
-    private ISearch<VacanciesList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacanciesSearch();
 
     @Test
     public void testSchedule() throws SearchException, DictionaryException {
         search.addParameter(Schedule.SHIFT);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(30000 < result.getFound());
     }
@@ -39,7 +39,7 @@ public class VacanciesSearchTest {
     public void testCoordinates() throws SearchException, DictionaryException {
         Coordinates coordinates = new Coordinates(59.932243, 59.915611, 30.303541, 30.360532);
         search.addParameter(coordinates);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(300 < result.getFound());
     }
@@ -47,7 +47,7 @@ public class VacanciesSearchTest {
     @Test
     public void testVacancySearchOrder() throws SearchException, DictionaryException {
         search.addParameter(VacancySearchOrder.PUBLICATION_TIME);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         List<Vacancy> vacancies = result.getItems();
         for (int v = 0; (v + 1) < 20; v++) {
@@ -62,7 +62,7 @@ public class VacanciesSearchTest {
         final Integer perPageCount = 5;
         PerPage perPage = new PerPage(perPageCount);
         search.addParameter(perPage);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         assertEquals(perPageCount, result.getPerPage());
         assertEquals((Object) perPageCount, result.getItems().size());
@@ -72,7 +72,7 @@ public class VacanciesSearchTest {
     public void testPeriod() throws SearchException, DictionaryException {
         Period period = new Period(1);
         search.addParameter(period);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(7000 < result.getFound());
     }
@@ -80,7 +80,7 @@ public class VacanciesSearchTest {
     @Test
     public void testExperience() throws Exception {
         search.addParameter(Experience.MORE_THAN_6);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(6000 < result.getFound());
         IContentLoader loader = new ContentLoader();

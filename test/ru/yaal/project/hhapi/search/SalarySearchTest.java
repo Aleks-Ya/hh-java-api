@@ -6,20 +6,20 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.vacancy.Salary;
-import ru.yaal.project.hhapi.vacancy.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yaal.project.hhapi.search.VacanciesSearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class SalarySearchTest {
-    private ISearch<VacanciesList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacanciesSearch();
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
         ISearchParameter onlyWithSalary = new OnlyWithSalary();
         search.addParameter(onlyWithSalary);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(100000 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
@@ -34,7 +34,7 @@ public class SalarySearchTest {
         final int MAX_SALARY = 150000;
         Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
         search.addParameter(salaryExpected);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(50000 < result.getFound());
     }
@@ -46,7 +46,7 @@ public class SalarySearchTest {
         ISearchParameter onlyWithSalary = new OnlyWithSalary();
         Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
         search.addParameter(salaryExpected).addParameter(onlyWithSalary);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(4000 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {

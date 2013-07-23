@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.vacancy;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
+import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
@@ -24,7 +25,8 @@ import java.util.List;
 
 import static java.lang.String.format;
 
-public class Vacancy {
+public class Vacancy implements IDictionaryEntry {
+    public static final Vacancy NULL_VACANCY = new Vacancy();
     @Getter
     @Setter
     private String id;
@@ -144,5 +146,10 @@ public class Vacancy {
 
     public Address getAddress() {
         return (address != null) ? address : Address.NULL_ADDRESS;
+    }
+
+    @Override
+    public boolean isNull() {
+        return getId() == null;
     }
 }

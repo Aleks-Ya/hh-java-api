@@ -1,10 +1,10 @@
 package ru.yaal.project.hhapi.parser;
 
-import ru.yaal.project.hhapi.vacancy.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
-public class VacanciesParser extends AbstractParser<VacanciesList> {
+public class VacanciesParser extends AbstractParser<VacancyList> {
     @Override
-    public VacanciesList parse(String content) {
-        return gson.fromJson(content, VacanciesList.class);
+    public VacancyList parse(String content) {
+        return gson.fromJson(content, VacancyList.class);
     }
 }

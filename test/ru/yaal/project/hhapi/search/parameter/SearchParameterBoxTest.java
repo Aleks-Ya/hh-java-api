@@ -5,7 +5,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.vacancy.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.search.VacanciesSearch;
 
 public class SearchParameterBoxTest {
@@ -25,7 +25,7 @@ public class SearchParameterBoxTest {
 
     @Test(expected = SearchException.class)
     public void multipleParamsNotAcceptedSearch() throws SearchException {
-        ISearch<VacanciesList> search = new VacanciesSearch();
+        ISearch<VacancyList> search = new VacanciesSearch();
         search.addParameter(new Text("one"));
         search.addParameter(new Text("two"));
     }

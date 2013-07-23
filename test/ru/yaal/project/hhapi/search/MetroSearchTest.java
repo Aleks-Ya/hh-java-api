@@ -6,14 +6,14 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Metro;
-import ru.yaal.project.hhapi.vacancy.VacanciesList;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yaal.project.hhapi.search.VacanciesSearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class MetroSearchTest {
-    private ISearch<VacanciesList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacanciesSearch();
 
     @Test
     public void testMetro() throws SearchException, DictionaryException {
@@ -21,7 +21,7 @@ public class MetroSearchTest {
         MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Маяковская");
         MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Чернышевская");
         search.addParameter(metroExpected);
-        VacanciesList result = search.search();
+        VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(1 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
