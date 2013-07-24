@@ -18,6 +18,7 @@
                 <directory>test</directory>
                 <includes>
                     <include>**/*.json</include>
+                    <include>**/*.cache</include>
                 </includes>
             </testResource>
         </testResources>
