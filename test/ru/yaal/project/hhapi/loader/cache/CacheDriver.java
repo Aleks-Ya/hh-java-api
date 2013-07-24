@@ -22,6 +22,7 @@ public class CacheDriver {
         if (content == null) {
             content = loadFromTemp(hash);
         }
+        LOG.info("Данные для url={} в кэше найдены: {}.", resourceName, content != null);
         return content;
     }
 
@@ -57,6 +58,7 @@ public class CacheDriver {
 
     public void saveContent(String url, String content) throws LoadException {
         try {
+            LOG.info("Сохраняю в кэш данные для url={} (длина контента {}).", url, content.length());
             String hashFileName = generateHashFileName(url);
             File file = new File(tempDir, hashFileName);
             FileWriter writer = new FileWriter(file);
@@ -81,5 +83,12 @@ public class CacheDriver {
             }
         }
         return (tempDir.exists());
+    }
+
+    public boolean deleteFromTempCache(String url) {
+        String hash = generateHashFileName(url);
+        File file = new File(tempDir, hash);
+        if (file.exists()) file.delete();
+        return !file.exists();
     }
 }

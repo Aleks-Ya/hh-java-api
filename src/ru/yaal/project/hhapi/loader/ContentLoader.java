@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 
@@ -23,9 +22,9 @@ class ContentLoader implements IContentLoader {
 
     public String loadContent(String url) throws LoadException {
         try {
-            LOG.info("Загружаю данные с {}.", url);
             assert (url != null);
-            url = setParameters(url);
+            url = appendParameters(url);
+            LOG.info("Загружаю данные с {}.", url);
             URL hhUrl = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
             connection.setRequestMethod("GET");
@@ -42,7 +41,7 @@ class ContentLoader implements IContentLoader {
         }
     }
 
-    private String setParameters(String url) throws URISyntaxException {
+    protected String appendParameters(String url) {
         StringBuilder builder = new StringBuilder(url);
         for (String key : params.keySet()) {
             for (String value : params.get(key)) {
