@@ -7,12 +7,12 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
-public class VacancySearchOrder extends AbstractDictionaryEntry implements ISearchParameter {
-    public static final VacancySearchOrder NULL_VACANCY_SEARCH_ORDER = new VacancySearchOrder();
-    public static final VacancySearchOrder PUBLICATION_TIME = Dictionaries.getVacancySearchOrder().getById("publication_time");
-    public static final VacancySearchOrder SALARY_DESC = Dictionaries.getVacancySearchOrder().getById("salary_desc");
-    public static final VacancySearchOrder SALARY_ASC = Dictionaries.getVacancySearchOrder().getById("salary_asc");
-    public static final VacancySearchOrder RELEVANCE = Dictionaries.getVacancySearchOrder().getById("relevance");
+public class Order extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final Order NULL_ORDER = new Order();
+    public static final Order PUBLICATION_TIME = Dictionaries.getOrder().getById("publication_time");
+    public static final Order SALARY_DESC = Dictionaries.getOrder().getById("salary_desc");
+    public static final Order SALARY_ASC = Dictionaries.getOrder().getById("salary_asc");
+    public static final Order RELEVANCE = Dictionaries.getOrder().getById("relevance");
 
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {

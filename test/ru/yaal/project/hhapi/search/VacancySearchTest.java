@@ -4,7 +4,8 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -45,7 +46,7 @@ public class VacancySearchTest {
 
     @Test
     public void testVacancySearchOrder() throws SearchException, DictionaryException {
-        search.addParameter(VacancySearchOrder.PUBLICATION_TIME);
+        search.addParameter(Order.PUBLICATION_TIME);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         List<Vacancy> vacancies = result.getItems();

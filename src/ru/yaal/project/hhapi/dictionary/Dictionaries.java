@@ -7,9 +7,9 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
+import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchOrder;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -38,7 +38,7 @@ public class Dictionaries {
     private IDictionary<TravelTime> travelTimeCache = new Dictionary<>(TravelTime.NULL_TRAVEL_TIME);
     private IDictionary<VacancyLabel> vacancyLabelCache = new Dictionary<>(VacancyLabel.NULL_VACANCY_LABEL);
     private IDictionary<VacancySearchFields> vacancySearchFieldsCache = new Dictionary<>(VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
-    private IDictionary<VacancySearchOrder> vacancySearchOrderCache = new Dictionary<>(VacancySearchOrder.NULL_VACANCY_SEARCH_ORDER);
+    private IDictionary<Order> vacancySearchOrderCache = new Dictionary<>(Order.NULL_ORDER);
     private IDictionary<VacancyType> vacancyTypeCache = new Dictionary<>(VacancyType.NULL_VACANCY_TYPE);
     private AreaDictionary areaCache = new AreaDictionary();
     private MetroCityDictionary metroCache = new MetroCityDictionary();
@@ -87,7 +87,7 @@ public class Dictionaries {
         return dictionaries.employmentCache;
     }
 
-    public static IDictionary<VacancySearchOrder> getVacancySearchOrder() {
+    public static IDictionary<Order> getOrder() {
         init();
         dictionaries.loadSmallDictionaries();
         return dictionaries.vacancySearchOrderCache;
@@ -177,7 +177,7 @@ public class Dictionaries {
                 travelTimeCache = new Dictionary<>(dictionries.getTravelTime(), TravelTime.NULL_TRAVEL_TIME);
                 vacancyLabelCache = new Dictionary<>(dictionries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
                 vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
-                vacancySearchOrderCache = new Dictionary<>(dictionries.getVacancySearchOrder(), VacancySearchOrder.NULL_VACANCY_SEARCH_ORDER);
+                vacancySearchOrderCache = new Dictionary<>(dictionries.getOrder(), Order.NULL_ORDER);
                 vacancyTypeCache = new Dictionary<>(dictionries.getVacancyType(), VacancyType.NULL_VACANCY_TYPE);
                 scheduleCache = new Dictionary<>(dictionries.getSchedule(), Schedule.NULL_SCHEDULE);
 
