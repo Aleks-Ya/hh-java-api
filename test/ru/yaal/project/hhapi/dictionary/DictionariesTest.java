@@ -19,7 +19,7 @@ public class DictionariesTest {
     public void testCurrency() throws DictionaryException {
         IDictionary<Currency> dict = Dictionaries.getCurrency();
         assertEquals(7, dict.size());
-        Currency rur = dict.getEntryById("RUR");
+        Currency rur = dict.getById("RUR");
         assertEquals("Рубли", rur.getName());
         assertEquals(true, rur.isDefault());
         assertEquals(new Double(1), rur.getRate());
@@ -30,7 +30,7 @@ public class DictionariesTest {
     public void testEducationLevel() throws DictionaryException {
         IDictionary<EducationLevel> dict = Dictionaries.getEducationLevel();
         assertEquals(8, dict.size());
-        EducationLevel higher = dict.getEntryById("higher");
+        EducationLevel higher = dict.getById("higher");
         assertNotNull(higher);
         assertEquals("Высшее", higher.getName());
     }

@@ -17,52 +17,52 @@ public class AreaDictionary extends Dictionary<Area> {
     }
 
     @Override
-    public boolean hasEntryWithId(String id) {
-        if (super.hasEntryWithId(id)) {
+    public boolean hasId(String id) {
+        if (super.hasId(id)) {
             return true;
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasEntryWithId(id)) return true;
+                if (areas.hasId(id)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public boolean hasEntryWithName(final String name) {
-        if (super.hasEntryWithName(name)) {
+    public boolean hasName(final String name) {
+        if (super.hasName(name)) {
             return true;
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasEntryWithName(name)) return true;
+                if (areas.hasName(name)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public Area getEntryById(String id) {
-        if (super.hasEntryWithId(id)) {
-            return super.getEntryById(id);
+    public Area getById(String id) {
+        if (super.hasId(id)) {
+            return super.getById(id);
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasEntryWithId(id)) return areas.getEntryById(id);
+                if (areas.hasId(id)) return areas.getById(id);
             }
         }
         return nullObject;
     }
 
     @Override
-    public Area getEntryByName(String name) {
-        if (super.hasEntryWithName(name)) {
-            return super.getEntryByName(name);
+    public Area getByName(String name) {
+        if (super.hasName(name)) {
+            return super.getByName(name);
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasEntryWithName(name)) return areas.getEntryByName(name);
+                if (areas.hasName(name)) return areas.getByName(name);
             }
         }
         return nullObject;

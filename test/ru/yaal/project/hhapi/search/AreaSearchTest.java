@@ -16,7 +16,7 @@ public class AreaSearchTest {
 
     @Test
     public void testArea() throws SearchException, DictionaryException {
-        final Area expectedArea = Dictionaries.getArea().getEntryByName("Ñàíêò-ÏÅÒÅĞÁÓĞÃ");
+        final Area expectedArea = Dictionaries.getArea().getByName("Ñàíêò-ÏÅÒÅĞÁÓĞÃ");
         search.addParameter(expectedArea);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());

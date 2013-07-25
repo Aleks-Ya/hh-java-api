@@ -10,9 +10,9 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 @ToString(callSuper = true)
 public class Currency extends AbstractDictionaryEntry {
     public static final Currency NULL_CURRENCY = new Currency();
-    public static final Currency RUR = Dictionaries.getCurrency().getEntryById("RUR");
-    public static final Currency USD = Dictionaries.getCurrency().getEntryById("USD");
-    public static final Currency EUR = Dictionaries.getCurrency().getEntryById("EUR");
+    public static final Currency RUR = Dictionaries.getCurrency().getById("RUR");
+    public static final Currency USD = Dictionaries.getCurrency().getById("USD");
+    public static final Currency EUR = Dictionaries.getCurrency().getById("EUR");
     @Getter
     @Setter
     @SerializedName("code")

@@ -7,15 +7,15 @@ import java.util.Map;
 
 public interface IDictionary<T extends IDictionaryEntry> extends Iterable<T> {
 
-    boolean hasEntryWithId(String id);
+    boolean hasId(String id);
 
-    boolean hasEntryWithName(String name);
+    boolean hasName(String name);
 
-    T getEntryById(String id);
+    T getById(String id);
 
-    T getEntryByName(String name);
+    T getByName(String name);
 
-    void putDictionaryEntry(T entry) throws DictionaryException;
+    void addEntry(T entry) throws DictionaryException;
 
     int size();
 

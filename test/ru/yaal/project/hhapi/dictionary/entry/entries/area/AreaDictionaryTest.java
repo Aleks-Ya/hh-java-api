@@ -23,32 +23,32 @@ public class AreaDictionaryTest {
 
     @Test
     public void hasById() throws DictionaryException {
-        assertTrue(areas.hasEntryWithId(RUSSIA_ID));
-        assertTrue(areas.hasEntryWithId(LEN_OBLAST_ID));
-        assertTrue(areas.hasEntryWithId(SPB_ID));
-        assertFalse(areas.hasEntryWithId("1000"));
+        assertTrue(areas.hasId(RUSSIA_ID));
+        assertTrue(areas.hasId(LEN_OBLAST_ID));
+        assertTrue(areas.hasId(SPB_ID));
+        assertFalse(areas.hasId("1000"));
     }
 
     @Test
     public void hasByName() throws DictionaryException {
-        assertTrue(areas.hasEntryWithName(RUSSIA_NAME));
-        assertTrue(areas.hasEntryWithName(LEN_OBLAST_NAME));
-        assertTrue(areas.hasEntryWithName(SPB_NAME));
-        assertFalse(areas.hasEntryWithName("Море дождей"));
+        assertTrue(areas.hasName(RUSSIA_NAME));
+        assertTrue(areas.hasName(LEN_OBLAST_NAME));
+        assertTrue(areas.hasName(SPB_NAME));
+        assertFalse(areas.hasName("Море дождей"));
     }
 
     @Test
     public void getById() throws DictionaryException {
-        assertTrue(RUSSIA_NAME.equalsIgnoreCase(areas.getEntryById(RUSSIA_ID).getName()));
-        assertTrue(LEN_OBLAST_NAME.equalsIgnoreCase(areas.getEntryById(LEN_OBLAST_ID).getName()));
-        assertTrue(SPB_NAME.equalsIgnoreCase(areas.getEntryById(SPB_ID).getName()));
+        assertTrue(RUSSIA_NAME.equalsIgnoreCase(areas.getById(RUSSIA_ID).getName()));
+        assertTrue(LEN_OBLAST_NAME.equalsIgnoreCase(areas.getById(LEN_OBLAST_ID).getName()));
+        assertTrue(SPB_NAME.equalsIgnoreCase(areas.getById(SPB_ID).getName()));
     }
 
     @Test
     public void getByName() throws DictionaryException {
-        assertEquals(RUSSIA_ID, areas.getEntryByName(RUSSIA_NAME).getId());
-        assertEquals(LEN_OBLAST_ID, areas.getEntryByName(LEN_OBLAST_NAME).getId());
-        assertEquals(SPB_ID, areas.getEntryByName(SPB_NAME).getId());
+        assertEquals(RUSSIA_ID, areas.getByName(RUSSIA_NAME).getId());
+        assertEquals(LEN_OBLAST_ID, areas.getByName(LEN_OBLAST_NAME).getId());
+        assertEquals(SPB_ID, areas.getByName(SPB_NAME).getId());
     }
 
 }

@@ -17,9 +17,9 @@ public class MetroSearchTest {
 
     @Test
     public void testMetro() throws SearchException, DictionaryException {
-        MetroStation metroExpected = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Площадь Восстания");
-        MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Маяковская");
-        MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryByName("Чернышевская");
+        MetroStation metroExpected = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Площадь Восстания");
+        MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Маяковская");
+        MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Чернышевская");
         search.addParameter(metroExpected);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
@@ -29,7 +29,7 @@ public class MetroSearchTest {
             if (!address.isNull()) {
                 Metro metroActual = address.getMetro();
                 if (!metroActual.isNull()) {
-                    MetroStation metroStationActual = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getEntryById(metroActual.getMetroId());
+                    MetroStation metroStationActual = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getById(metroActual.getMetroId());
                     assertTrue(metroStationActual.equals(metroExpected)
                             || metroStationActual.equals(metroExpected2)
                             || metroStationActual.equals(metroExpected3));

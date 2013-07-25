@@ -16,52 +16,52 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
     }
 
     @Override
-    public boolean hasEntryWithId(String id) {
-        if (super.hasEntryWithId(id)) {
+    public boolean hasId(String id) {
+        if (super.hasId(id)) {
             return true;
         } else {
             for (ProfessionalField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
-                if (specializations.hasEntryWithId(id)) return true;
+                if (specializations.hasId(id)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public boolean hasEntryWithName(String name) {
-        if (super.hasEntryWithName(name)) {
+    public boolean hasName(String name) {
+        if (super.hasName(name)) {
             return true;
         } else {
             for (ProfessionalField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
-                if (specializations.hasEntryWithName(name)) return true;
+                if (specializations.hasName(name)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public ProfessionalField getEntryById(String id) {
-        if (super.hasEntryWithId(id)) {
-            return super.getEntryById(id);
+    public ProfessionalField getById(String id) {
+        if (super.hasId(id)) {
+            return super.getById(id);
         } else {
             for (ProfessionalField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
-                if (specializations.hasEntryWithId(id)) return specializations.getEntryById(id);
+                if (specializations.hasId(id)) return specializations.getById(id);
             }
         }
         return nullObject;
     }
 
     @Override
-    public ProfessionalField getEntryByName(String name) {
-        if (super.hasEntryWithName(name)) {
-            return super.getEntryByName(name);
+    public ProfessionalField getByName(String name) {
+        if (super.hasName(name)) {
+            return super.getByName(name);
         } else {
             for (ProfessionalField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
-                if (specializations.hasEntryWithName(name)) return specializations.getEntryByName(name);
+                if (specializations.hasName(name)) return specializations.getByName(name);
             }
         }
         return nullObject;

@@ -52,7 +52,7 @@ public class SalarySearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Salary salary = vacancy.getSalary();
             Integer to = salary.getTo();
-            if (salary.getCurrency() == Dictionaries.getCurrency().getEntryById("RUR")) {
+            if (salary.getCurrency() == Dictionaries.getCurrency().getById("RUR")) {
                 if (to != null) if (!((MIN_SALARY - 10000) <= to))
                     System.out.println("to=" + to);
             }

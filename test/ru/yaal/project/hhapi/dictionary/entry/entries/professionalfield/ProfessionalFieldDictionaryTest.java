@@ -21,27 +21,27 @@ public class ProfessionalFieldDictionaryTest {
 
     @Test
     public void hasWithId() throws DictionaryException {
-        assertTrue(dictionary.hasEntryWithId(FIELD_ID));
-        assertTrue(dictionary.hasEntryWithId(SPECIALIZATION_ID));
-        assertFalse(dictionary.hasEntryWithId("1000"));
+        assertTrue(dictionary.hasId(FIELD_ID));
+        assertTrue(dictionary.hasId(SPECIALIZATION_ID));
+        assertFalse(dictionary.hasId("1000"));
     }
 
     @Test
     public void hasWithName() throws DictionaryException {
-        assertTrue(dictionary.hasEntryWithName(FIELD_NAME));
-        assertTrue(dictionary.hasEntryWithName(SPECIALIZATION_NAME));
-        assertFalse(dictionary.hasEntryWithName("1000"));
+        assertTrue(dictionary.hasName(FIELD_NAME));
+        assertTrue(dictionary.hasName(SPECIALIZATION_NAME));
+        assertFalse(dictionary.hasName("1000"));
     }
 
     @Test
     public void getById() throws DictionaryException {
-        assertTrue(FIELD_NAME.equalsIgnoreCase(dictionary.getEntryById(FIELD_ID).getName()));
-        assertTrue(SPECIALIZATION_NAME.equalsIgnoreCase(dictionary.getEntryById(SPECIALIZATION_ID).getName()));
+        assertTrue(FIELD_NAME.equalsIgnoreCase(dictionary.getById(FIELD_ID).getName()));
+        assertTrue(SPECIALIZATION_NAME.equalsIgnoreCase(dictionary.getById(SPECIALIZATION_ID).getName()));
     }
 
     @Test
     public void getByName() throws DictionaryException {
-        assertEquals(FIELD_ID, dictionary.getEntryByName(FIELD_NAME).getId());
-        assertEquals(SPECIALIZATION_ID, dictionary.getEntryByName(SPECIALIZATION_NAME).getId());
+        assertEquals(FIELD_ID, dictionary.getByName(FIELD_NAME).getId());
+        assertEquals(SPECIALIZATION_ID, dictionary.getByName(SPECIALIZATION_NAME).getId());
     }
 }

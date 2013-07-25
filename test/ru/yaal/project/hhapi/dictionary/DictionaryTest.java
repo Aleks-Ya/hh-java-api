@@ -19,8 +19,8 @@ public class DictionaryTest {
         currency.setId("1");
         currency.setName("Рубли");
         Dictionary<Currency> currencyDictionary = new Dictionary<>(Currency.NULL_CURRENCY);
-        currencyDictionary.putDictionaryEntry(currency);
-        Currency currency2 = currencyDictionary.getEntryById(currency.getId());
+        currencyDictionary.addEntry(currency);
+        Currency currency2 = currencyDictionary.getById(currency.getId());
         assertEquals(currency, currency2);
     }
 
@@ -52,7 +52,7 @@ public class DictionaryTest {
         assertEquals("{Екатеринбург(3),Нижний Новгород(66),Санкт-Петербург(2),Днепропетровск(117),Харьков(135)," +
                 "Самара(78),Москва(1),Минск(1002),Киев(115),Алматы(160),Новосибирск(4),Казань(88)}",
                 Dictionaries.getMetro().toString());
-        MetroLine line = (MetroLine) Dictionaries.getMetro().getEntryByName("Кольцевая");
+        MetroLine line = (MetroLine) Dictionaries.getMetro().getByName("Кольцевая");
         assertEquals("{Краснопресненская(5.58),Киевская(5.49),Курская(5.71),Павелецкая(5.102),Октябрьская(5.93)," +
                 "Добрынинская(5.36),Парк культуры(5.104),Комсомольская(5.55),Новослободская(5.82),Таганская(5.76)," +
                 "Проспект Мира(5.119),Белорусская(5.20)}",
@@ -71,7 +71,7 @@ public class DictionaryTest {
                 "Информационные технологии, интернет, телеком(1),Добыча сырья(10),Автомобильный бизнес(7)," +
                 "Управление персоналом, тренинги(6),Банки, инвестиции, лизинг(5),Административный персонал(4)," +
                 "Высший менеджмент(9),Безопасность(8)}", Dictionaries.getProfessionalField().toString());
-        ProfessionalField field = Dictionaries.getProfessionalField().getEntryById("19");
+        ProfessionalField field = Dictionaries.getProfessionalField().getById("19");
         assertEquals("{Эксперт-оценщик(19.357),Агент(19.19),Начальный уровень, Мало опыта(19.170)," +
                 "Комплексное страхование физических лиц(19.108),Руководитель направления(19.259),Автострахование(19.18)," +
                 "Андеррайтер(19.28),Комплексное страхование юридических лиц(19.109),Перестрахование(19.483)," +

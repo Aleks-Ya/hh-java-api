@@ -28,7 +28,7 @@ public class SalaryDeserializer implements JsonDeserializer<Salary> {
             Currency currency = null;
             if (currencyElement.isJsonPrimitive()) {
                 String currencyId = currencyElement.getAsString();
-                currency = Dictionaries.getCurrency().getEntryById(currencyId);
+                currency = Dictionaries.getCurrency().getById(currencyId);
             }
 
             return new Salary(from, to, currency);

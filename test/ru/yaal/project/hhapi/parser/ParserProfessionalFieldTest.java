@@ -14,8 +14,8 @@ public class ParserProfessionalFieldTest {
         String content = ContentLoaderFactory.newInstance().loadContent(UrlConstants.SPECIALIZATIONS_URL);
         IParser<ProfessionalFieldDictionary> parser = new ProfessionalFieldsParser();
         ProfessionalFieldDictionary dictionary = parser.parse(content);
-        assertTrue(dictionary.hasEntryWithId("24.492"));
-        assertTrue(dictionary.hasEntryWithName("Массажист"));
+        assertTrue(dictionary.hasId("24.492"));
+        assertTrue(dictionary.hasName("Массажист"));
     }
 
 }

@@ -21,33 +21,33 @@ public class MetroLineDictionaryTest {
 
     @Test
     public void getById() throws DictionaryException {
-        MetroLine line = dictionary.getEntryById(LINE_ID);
+        MetroLine line = dictionary.getById(LINE_ID);
         assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
 
-        MetroStation station = (MetroStation) dictionary.getEntryById(STATION_ID);
+        MetroStation station = (MetroStation) dictionary.getById(STATION_ID);
         assertTrue(STATION_NAME.equalsIgnoreCase(station.getName()));
     }
 
     @Test
     public void getByName() throws DictionaryException {
-        MetroLine line = dictionary.getEntryByName(LINE_NAME);
+        MetroLine line = dictionary.getByName(LINE_NAME);
         assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
 
-        MetroStation station = (MetroStation) dictionary.getEntryByName(STATION_NAME);
+        MetroStation station = (MetroStation) dictionary.getByName(STATION_NAME);
         assertTrue(STATION_NAME.equalsIgnoreCase(station.getName()));
     }
 
     @Test
     public void hasWithId() throws DictionaryException {
-        assertTrue(dictionary.hasEntryWithId(LINE_ID));
-        assertTrue(dictionary.hasEntryWithId(STATION_ID));
-        assertFalse(dictionary.hasEntryWithId("1000"));
+        assertTrue(dictionary.hasId(LINE_ID));
+        assertTrue(dictionary.hasId(STATION_ID));
+        assertFalse(dictionary.hasId("1000"));
     }
 
     @Test
     public void hasCityWithName() throws DictionaryException {
-        assertTrue(dictionary.hasEntryWithName(LINE_NAME));
-        assertTrue(dictionary.hasEntryWithName(STATION_NAME));
-        assertFalse(dictionary.hasEntryWithName("Óðþïèíñê"));
+        assertTrue(dictionary.hasName(LINE_NAME));
+        assertTrue(dictionary.hasName(STATION_NAME));
+        assertFalse(dictionary.hasName("Óðþïèíñê"));
     }
 }

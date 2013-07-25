@@ -28,7 +28,7 @@ public class IterableVacancyList extends Dictionary<Vacancy> {
     }
 
     @Override
-    public Vacancy getEntryByName(String name) {
+    public Vacancy getByName(String name) {
         throw new UnsupportedOperationException("ѕоиск вакансии по имени не поддерживаетс€, т.к. имена (названи€) вакансий не уникальны.");
     }
 }

@@ -14,45 +14,45 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
     public MetroLineDictionary(List<MetroLine> metroLines) throws DictionaryException {
         super(MetroStation.NULL_METRO_STATION);
         for (MetroLine line : metroLines) {
-            putDictionaryEntry(line);
+            addEntry(line);
         }
     }
 
     @Override
-    public boolean hasEntryWithId(String id) {
-        if (super.hasEntryWithId(id)) {
+    public boolean hasId(String id) {
+        if (super.hasId(id)) {
             return true;
         } else {
             for (MetroLine line : toList()) {
                 IDictionary<MetroStation> stations = line.getStations();
-                if (stations.hasEntryWithId(id)) return true;
+                if (stations.hasId(id)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public boolean hasEntryWithName(String name) {
-        if (super.hasEntryWithName(name)) {
+    public boolean hasName(String name) {
+        if (super.hasName(name)) {
             return true;
         } else {
             for (MetroLine line : toList()) {
                 IDictionary<MetroStation> stations = line.getStations();
-                if (stations.hasEntryWithName(name)) return true;
+                if (stations.hasName(name)) return true;
             }
         }
         return false;
     }
 
     @Override
-    public MetroLine getEntryById(String id) {
-        if (hasEntryWithId(id)) {
-            if (super.hasEntryWithId(id)) {
-                return super.getEntryById(id);
+    public MetroLine getById(String id) {
+        if (hasId(id)) {
+            if (super.hasId(id)) {
+                return super.getById(id);
             } else {
                 for (MetroLine line : toList()) {
                     IDictionary<MetroStation> stations = line.getStations();
-                    if (stations.hasEntryWithId(id)) return stations.getEntryById(id);
+                    if (stations.hasId(id)) return stations.getById(id);
                 }
             }
         }
@@ -60,14 +60,14 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
     }
 
     @Override
-    public MetroLine getEntryByName(String name) {
-        if (hasEntryWithName(name)) {
-            if (super.hasEntryWithName(name)) {
-                return super.getEntryByName(name);
+    public MetroLine getByName(String name) {
+        if (hasName(name)) {
+            if (super.hasName(name)) {
+                return super.getByName(name);
             } else {
                 for (MetroLine line : toList()) {
                     IDictionary<MetroStation> stations = line.getStations();
-                    if (stations.hasEntryWithName(name)) return stations.getEntryByName(name);
+                    if (stations.hasName(name)) return stations.getByName(name);
                 }
             }
         }

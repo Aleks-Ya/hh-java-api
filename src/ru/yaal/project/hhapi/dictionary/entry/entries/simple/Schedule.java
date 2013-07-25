@@ -9,10 +9,10 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 public class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Schedule NULL_SCHEDULE = new Schedule();
-    public static final Schedule FULL_DAY = Dictionaries.getSchedule().getEntryById("fullDay");
-    public static final Schedule SHIFT = Dictionaries.getSchedule().getEntryById("shift");
-    public static final Schedule FLEXIBLE = Dictionaries.getSchedule().getEntryById("flexible");
-    public static final Schedule REMOTE = Dictionaries.getSchedule().getEntryById("remote");
+    public static final Schedule FULL_DAY = Dictionaries.getSchedule().getById("fullDay");
+    public static final Schedule SHIFT = Dictionaries.getSchedule().getById("shift");
+    public static final Schedule FLEXIBLE = Dictionaries.getSchedule().getById("flexible");
+    public static final Schedule REMOTE = Dictionaries.getSchedule().getById("remote");
 
     public Schedule() {
     }

@@ -15,7 +15,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
 
     public Dictionary(List<V> entryList, V nullObject) throws DictionaryException {
         for (V entry : entryList) {
-            putDictionaryEntry(entry);
+            addEntry(entry);
         }
         this.nullObject = nullObject;
     }
@@ -23,7 +23,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     /**
      * Упрощение для put(entry.getId(), entry);
      */
-    public void putDictionaryEntry(V entry) throws DictionaryException {
+    public void addEntry(V entry) throws DictionaryException {
         putId(entry);
         putName(entry);
     }
@@ -68,24 +68,24 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
         builder.append("{");
         for (String key : idMap.keySet()) {
             if (builder.length() != 1) builder.append(",");
-            builder.append(getEntryById(key));
+            builder.append(getById(key));
         }
         builder.append("}");
         return builder.toString();
     }
 
     @Override
-    public boolean hasEntryWithId(String id) {
+    public boolean hasId(String id) {
         return idMap.containsKey(id.toUpperCase());
     }
 
     @Override
-    public boolean hasEntryWithName(String name) {
+    public boolean hasName(String name) {
         return nameMap.containsKey(name.toUpperCase());
     }
 
     @Override
-    public V getEntryById(String id) {
+    public V getById(String id) {
         V entry = idMap.get(id.toUpperCase());
         return (entry != null) ? entry : nullObject;
     }
@@ -94,7 +94,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
      * Регистронезависимый поиск.
      */
     @Override
-    public V getEntryByName(String name) {
+    public V getByName(String name) {
         V entry = nameMap.get(name.toUpperCase());
         return (entry != null) ? entry : nullObject;
     }

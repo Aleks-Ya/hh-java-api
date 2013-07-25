@@ -13,8 +13,8 @@ public class ProfessionalFieldSearchTest {
 
     @Test
     public void test() throws DictionaryException, SearchException {
-        ISearchParameter programming = Dictionaries.getProfessionalField().getEntryById("1.221");
-        ISearchParameter copywriter = Dictionaries.getProfessionalField().getEntryById("3.119");
+        ISearchParameter programming = Dictionaries.getProfessionalField().getById("1.221");
+        ISearchParameter copywriter = Dictionaries.getProfessionalField().getById("3.119");
         search.addParameter(programming).addParameter(copywriter);
         VacancyList searchResult = search.search();
         assertTrue(15000 < searchResult.getFound());
