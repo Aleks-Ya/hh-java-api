@@ -1,41 +1,35 @@
 package ru.yaal.project.hhapi.loader.cache.storage;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class FileStorageTest {
-    private IStorage storage;
-    private File tempFile;
-
-    @Before
-    public void before() {
-         tempFile = new File(System.getProperty("java.io.tmpdir") + "test_hh_api_cache\\");
-    }
-
+public class MemoryStorageTest {
     @Test
     public void testSave() throws Exception {
-        int lifeTime = 10000;
-        storage = new FileStorage(tempFile, lifeTime);
-        storage.clear();
-        final String name = "http://ready.com/now?fuck=true";
+        int lifeTimeMin = 0;
+        IStorage storage = new MemoryStorage(lifeTimeMin);
+        String name = "http://nasa.com?curiosity=good";
+
         assertNull(storage.search(name));
-        final String expectedContent = "{girl:777}";
+
+        String expectedContent = "{gangnamStyle:PSY}";
         storage.save(name, expectedContent);
         String actualContent = storage.search(name);
         assertEquals(expectedContent, actualContent);
+
+        storage.delete(name);
+        assertNull(storage.search(name));
+
+        storage.save(name, expectedContent);
+        storage.clear();
+        assertNull(storage.search(name));
     }
 
     @Test
     public void outdated() throws Exception {
         int lifeTimeMin = 0;
-        storage = new FileStorage(tempFile, lifeTimeMin);
-        storage.clear();
         IStorage storage = new MemoryStorage(lifeTimeMin);
         String name = "http://danceja.com";
         String content = "{Dancehall:'Vybz Kartel'}";
@@ -43,10 +37,5 @@ public class FileStorageTest {
         Thread.sleep(100);
         String actualContent = storage.search(name);
         assertNull(actualContent);
-    }
-
-    @After
-    public void after() {
-        storage.clear();
     }
 }
