@@ -5,7 +5,6 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.VacanciesParser;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
-import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
