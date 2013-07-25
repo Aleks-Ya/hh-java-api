@@ -12,6 +12,10 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
     private static final Logger LOG = LoggerFactory.getLogger(IterableVacancySearch.class);
     private Integer vacancyLimit;
 
+    public IterableVacancySearch() throws SearchException {
+        this(DEFAULT_VACANCIES_LIMIT);
+    }
+
     public IterableVacancySearch(int vacancyLimit) throws SearchException {
         if (vacancyLimit < MIN_VACANCIES_LIMIT || vacancyLimit > MAX_VACANCIES_LIMIT) throw new SearchException(
                 "Количество вакансий может быть в пределах от %d до %d. Получено: %d.",
