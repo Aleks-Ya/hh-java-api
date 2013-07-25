@@ -1,13 +1,16 @@
 package ru.yaal.project.hhapi.dictionary;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 
 import java.util.*;
 
 public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
+    private static final Logger LOG = LoggerFactory.getLogger(Dictionary.class);
     protected Map<String, V> idMap = new HashMap<>();
     protected Map<String, V> nameMap = new HashMap<>();
-    protected V nullObject;
+    private V nullObject;
 
     public Dictionary(V nullObject) {
         this.nullObject = nullObject;
@@ -87,7 +90,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     @Override
     public V getById(String id) {
         V entry = idMap.get(id.toUpperCase());
-        return (entry != null) ? entry : nullObject;
+        return (entry != null) ? entry : getNullObject(id);
     }
 
     /**
@@ -96,11 +99,16 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     @Override
     public V getByName(String name) {
         V entry = nameMap.get(name.toUpperCase());
-        return (entry != null) ? entry : nullObject;
+        return (entry != null) ? entry : getNullObject(name);
     }
 
     @Override
     public Iterator<V> iterator() {
         return toList().iterator();
+    }
+
+    protected V getNullObject(String idOrName) {
+        LOG.warn("Объект не найден по {}. Возвращаю NullObject.", idOrName);
+        return nullObject;
     }
 }

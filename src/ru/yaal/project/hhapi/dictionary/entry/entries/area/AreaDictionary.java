@@ -7,7 +7,6 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 import java.util.List;
 
 public class AreaDictionary extends Dictionary<Area> {
-
     public AreaDictionary() {
         super(Area.NULL_AREA);
     }
@@ -52,7 +51,7 @@ public class AreaDictionary extends Dictionary<Area> {
                 if (areas.hasId(id)) return areas.getById(id);
             }
         }
-        return nullObject;
+        return getNullObject(id);
     }
 
     @Override
@@ -65,6 +64,6 @@ public class AreaDictionary extends Dictionary<Area> {
                 if (areas.hasName(name)) return areas.getByName(name);
             }
         }
-        return nullObject;
+        return getNullObject(name);
     }
 }

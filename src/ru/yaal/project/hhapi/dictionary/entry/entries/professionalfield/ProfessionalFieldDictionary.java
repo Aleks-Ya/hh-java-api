@@ -51,7 +51,7 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
                 if (specializations.hasId(id)) return specializations.getById(id);
             }
         }
-        return nullObject;
+        return getNullObject(id);
     }
 
     @Override
@@ -64,6 +64,6 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
                 if (specializations.hasName(name)) return specializations.getByName(name);
             }
         }
-        return nullObject;
+        return getNullObject(name);
     }
 }

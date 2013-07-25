@@ -56,7 +56,7 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
                 }
             }
         }
-        return nullObject;
+        return getNullObject(id);
     }
 
     @Override
@@ -71,6 +71,6 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
                 }
             }
         }
-        return nullObject;
+        return getNullObject(name);
     }
 }

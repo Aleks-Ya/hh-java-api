@@ -7,7 +7,6 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 import java.util.List;
 
 public class MetroCityDictionary extends Dictionary<MetroCity> {
-
     public MetroCityDictionary() {
         super(MetroStation.NULL_METRO_CITY);
     }
@@ -78,7 +77,7 @@ public class MetroCityDictionary extends Dictionary<MetroCity> {
                 }
             }
         }
-        return nullObject;
+        return getNullObject(id);
     }
 
     @Override
@@ -100,6 +99,6 @@ public class MetroCityDictionary extends Dictionary<MetroCity> {
                 }
             }
         }
-        return nullObject;
+        return getNullObject(name);
     }
 }
