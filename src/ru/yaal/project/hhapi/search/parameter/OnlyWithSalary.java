@@ -3,13 +3,11 @@ package ru.yaal.project.hhapi.search.parameter;
 import ru.yaal.project.hhapi.search.SearchException;
 
 public class OnlyWithSalary implements ISearchParameter {
+    public static final OnlyWithSalary ON = new OnlyWithSalary(true);
+    public static final OnlyWithSalary OFF = new OnlyWithSalary(false);
     private boolean onlyWithSalary;
 
-    public OnlyWithSalary() {
-        this(true);
-    }
-
-    public OnlyWithSalary(boolean withSalary) {
+    OnlyWithSalary(boolean withSalary) {
         this.onlyWithSalary = withSalary;
     }
 

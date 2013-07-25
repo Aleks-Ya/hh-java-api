@@ -15,7 +15,7 @@ public class DictionaryTest {
 
     @Test
     public void test() throws DictionaryException {
-        Currency currency = new Currency();
+        Currency currency = Currency.NULL_CURRENCY;
         currency.setId("1");
         currency.setName("Рубли");
         Dictionary<Currency> currencyDictionary = new Dictionary<>(Currency.NULL_CURRENCY);

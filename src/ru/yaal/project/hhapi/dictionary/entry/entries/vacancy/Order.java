@@ -14,6 +14,9 @@ public class Order extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Order SALARY_ASC = Dictionaries.getOrder().getById("salary_asc");
     public static final Order RELEVANCE = Dictionaries.getOrder().getById("relevance");
 
+    Order() {
+    }
+
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.ORDER_BY, getId());

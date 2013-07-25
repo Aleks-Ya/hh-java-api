@@ -15,6 +15,9 @@ public class Employment extends AbstractDictionaryEntry implements ISearchParame
     public static final Employment VOLUNTEER = Dictionaries.getEmployment().getById("volunteer");
     public static final Employment PROBATION = Dictionaries.getEmployment().getById("probation");
 
+    Employment() {
+    }
+
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
         return new SearchParameterBox(SearchParamNames.EMPLOYMENT, getId());

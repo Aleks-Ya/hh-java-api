@@ -6,8 +6,8 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.vacancy.Salary;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
@@ -17,7 +17,7 @@ public class SalarySearchTest {
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
-        ISearchParameter onlyWithSalary = new OnlyWithSalary();
+        ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
         search.addParameter(onlyWithSalary);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
@@ -43,7 +43,7 @@ public class SalarySearchTest {
     public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
         final int MIN_SALARY = 100000;
         final int MAX_SALARY = 150000;
-        ISearchParameter onlyWithSalary = new OnlyWithSalary();
+        ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
         Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
         search.addParameter(salaryExpected).addParameter(onlyWithSalary);
         VacancyList result = search.search();

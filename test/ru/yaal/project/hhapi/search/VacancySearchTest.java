@@ -88,7 +88,7 @@ public class VacancySearchTest {
         for (Vacancy vacancy : result.getItems()) {
             String content = loader.loadContent(format(UrlConstants.VACANCY_URL, vacancy.getId()));
             Vacancy detailedVacancy = parser.parse(content);
-            assertEquals(detailedVacancy.getExperience(), Experience.BETWEEN_3_AND_6);
+            assertEquals(detailedVacancy.getExperience(), Experience.MORE_THAN_6);
         }
     }
 }

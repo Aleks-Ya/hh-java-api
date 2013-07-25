@@ -8,4 +8,7 @@ public class VacancySearchFields extends AbstractDictionaryEntry {
     public static final VacancySearchFields VACANCY_NAME = Dictionaries.getVacancySearchFields().getById("name");
     public static final VacancySearchFields COMPANY_NAME = Dictionaries.getVacancySearchFields().getById("company_name");
     public static final VacancySearchFields DESCRIPTION = Dictionaries.getVacancySearchFields().getById("description");
+
+    VacancySearchFields() {
+    }
 }

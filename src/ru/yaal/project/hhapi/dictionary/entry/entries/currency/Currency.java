@@ -26,6 +26,9 @@ public class Currency extends AbstractDictionaryEntry {
     @SerializedName("default")
     private Boolean isDefault;
 
+    Currency() {
+    }
+
     public Boolean isDefault() {
         return isDefault;
     }

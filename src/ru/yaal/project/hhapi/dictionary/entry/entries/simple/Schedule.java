@@ -14,7 +14,7 @@ public class Schedule extends AbstractDictionaryEntry implements ISearchParamete
     public static final Schedule FLEXIBLE = Dictionaries.getSchedule().getById("flexible");
     public static final Schedule REMOTE = Dictionaries.getSchedule().getById("remote");
 
-    public Schedule() {
+    Schedule() {
     }
 
     @Override
