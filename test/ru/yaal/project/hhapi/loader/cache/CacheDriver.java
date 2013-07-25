@@ -72,7 +72,7 @@ public class CacheDriver {
 
     private String generateHashFileName(String realFileName) {
         int hashCode = realFileName.hashCode();
-        return "c_" + hashCode + ".cache";
+        return "cache_" + hashCode + ".json";
     }
 
     public boolean clearTempCache() {
