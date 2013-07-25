@@ -1,13 +1,12 @@
-package ru.yaal.project.hhapi.vacancy;
+package ru.yaal.project.hhapi.search;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.VacanciesSearch;
 import ru.yaal.project.hhapi.search.parameter.Page;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
+import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import java.util.*;
 
@@ -34,7 +33,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
             if (pagesCache.containsKey(pageNumber)) {
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             } else {
-                ISearch<VacancyList> search = new VacanciesSearch();
+                ISearch<VacancyList> search = new VacancySearch();
                 searchParameters.setParameter(SearchParamNames.PAGE, String.valueOf(pageNumber - 1));
                 search.addParameter(searchParameters);
                 VacancyList vacancyList = search.search();

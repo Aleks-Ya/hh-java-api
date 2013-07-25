@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
 
 import java.util.Set;
 

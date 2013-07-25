@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
 
-public class VacanciesSearch extends AbstractVacancySearch<VacancyList> {
-    private static final Logger LOG = LoggerFactory.getLogger(VacanciesSearch.class);
+class VacancySearch extends AbstractVacancySearch<VacancyList> {
+    private static final Logger LOG = LoggerFactory.getLogger(VacancySearch.class);
 
     @Override
     public VacancyList search() throws SearchException {

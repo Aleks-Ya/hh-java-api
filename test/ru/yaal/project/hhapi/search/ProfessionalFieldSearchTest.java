@@ -9,7 +9,7 @@ import ru.yaal.project.hhapi.vacancy.VacancyList;
 import static org.junit.Assert.assertTrue;
 
 public class ProfessionalFieldSearchTest {
-    private ISearch<VacancyList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacancySearch();
 
     @Test
     public void test() throws DictionaryException, SearchException {

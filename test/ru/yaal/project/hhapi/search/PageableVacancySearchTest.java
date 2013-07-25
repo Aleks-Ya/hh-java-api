@@ -3,8 +3,6 @@ package ru.yaal.project.hhapi.search;
 import org.junit.Test;
 import ru.yaal.project.hhapi.search.parameter.PerPage;
 import ru.yaal.project.hhapi.search.parameter.Text;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.ArrayList;

@@ -23,9 +23,9 @@ import static java.lang.String.format;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class VacanciesSearchTest {
+public class VacancySearchTest {
     public static final int WITHOUT_PARAMS_VACANCIES_COUNT = 290000;
-    private ISearch<VacancyList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacancySearch();
 
     @Test
     public void testSchedule() throws SearchException, DictionaryException {

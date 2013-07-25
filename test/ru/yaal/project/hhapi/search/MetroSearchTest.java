@@ -10,10 +10,10 @@ import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertTrue;
-import static ru.yaal.project.hhapi.search.VacanciesSearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
+import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class MetroSearchTest {
-    private ISearch<VacancyList> search = new VacanciesSearch();
+    private ISearch<VacancyList> search = new VacancySearch();
 
     @Test
     public void testMetro() throws SearchException, DictionaryException {
