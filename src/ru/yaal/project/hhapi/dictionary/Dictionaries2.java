@@ -1,5 +1,6 @@
 package ru.yaal.project.hhapi.dictionary;
 
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
@@ -7,6 +8,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Gender;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -20,11 +22,16 @@ public class Dictionaries2 {
     private MetroCityDictionary metroCities;
     private ProfessionalFieldDictionary professionalFields;
     private DictionariesContainer smallDictionaries;
+    @Getter
     private IDictionary<Currency> currency;
+    @Getter
     private IDictionary<Gender> gender;
+    @Getter
+    private IDictionary<Schedule> schedule;
 
     private Dictionaries2() {
         LOG.debug("Создаю инстанс Dictionaries2");
+        loadSmallDictionaries();
     }
 
     public static Dictionaries2 getInstance() {
@@ -83,16 +90,6 @@ public class Dictionaries2 {
         }
     }
 
-    public IDictionary<Currency> getCurrency() {
-        loadSmallDictionaries();
-        return currency;
-    }
-
-    public IDictionary<Gender> getGender() {
-        loadSmallDictionaries();
-        return gender;
-    }
-
     private void loadSmallDictionaries() {
         try {
             if (smallDictionaries == null) {
@@ -102,6 +99,7 @@ public class Dictionaries2 {
 
                 currency = new Dictionary<>(smallDictionaries.getCurrency(), Currency.NULL_CURRENCY);
                 gender = new Dictionary<>(smallDictionaries.getGender(), Gender.NULL_GENDER);
+                schedule = new Dictionary<>(smallDictionaries.getSchedule(), Schedule.NULL_SCHEDULE);
             }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);

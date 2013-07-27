@@ -26,7 +26,6 @@ public class Dictionaries {
     private IDictionary<PreferredContactType> preferredContactTypeCache = new Dictionary<>(PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);
     private IDictionary<RelocationType> relocationTypeCache = new Dictionary<>(RelocationType.NULL_RELOCATION_TYPE);//todo похоже не парсится из /dictionaries
     private IDictionary<ResumeAccessType> resumeAccessTypeCache = new Dictionary<>(ResumeAccessType.NULL_RESUME_ACCESS_TYPE);
-    private IDictionary<Schedule> scheduleCache = new Dictionary<>(Schedule.NULL_SCHEDULE);
     private IDictionary<SiteLang> siteLangCache = new Dictionary<>(SiteLang.NULL_SITE_LANG);
     private IDictionary<SiteType> siteTypeCache = new Dictionary<>(SiteType.NULL_SITE_TYPE);//todo похоже не парсится из /dictionaries
     private IDictionary<TravelTime> travelTimeCache = new Dictionary<>(TravelTime.NULL_TRAVEL_TIME);
@@ -46,12 +45,6 @@ public class Dictionaries {
             LOG.info("Инициализирую словари.");
             dictionaries = new Dictionaries(ContentLoaderFactory.newInstanceLongTermCache());
         }
-    }
-
-    public static IDictionary<Schedule> getSchedule() {
-        init();
-        dictionaries.loadSmallDictionaries();
-        return dictionaries.scheduleCache;
     }
 
     public static IDictionary<EducationLevel> getEducationLevel() {
@@ -105,7 +98,6 @@ public class Dictionaries {
                 vacancySearchFieldsCache = new Dictionary<>(dictionries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
                 vacancySearchOrderCache = new Dictionary<>(dictionries.getOrder(), Order.NULL_ORDER);
                 vacancyTypeCache = new Dictionary<>(dictionries.getVacancyType(), VacancyType.NULL_VACANCY_TYPE);
-                scheduleCache = new Dictionary<>(dictionries.getSchedule(), Schedule.NULL_SCHEDULE);
 
                 isSmallDictionariesLoaded = true;
             }
