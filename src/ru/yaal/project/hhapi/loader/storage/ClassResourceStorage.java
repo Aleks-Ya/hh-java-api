@@ -4,13 +4,23 @@ import java.io.File;
 import java.net.URL;
 
 public class ClassResourceStorage extends AbstractStorage {
+    private IStorage fileStorage;
 
-    public ClassResourceStorage() {
+    public ClassResourceStorage(File tempDir) {
         super(1000);
+        fileStorage = new FileStorage(tempDir, 1000);
     }
 
     @Override
     public String search(String name) {
+        String content = searchInResource(name);
+        if (content == null) {
+            content = fileStorage.search(name);
+        }
+        return content;
+    }
+
+    private String searchInResource(String name) {
         String hashName = generateHashFileName(name);
         URL resourceUrl = ClassResourceStorage.class.getResource(hashName);
         if (resourceUrl != null) {
@@ -23,16 +33,16 @@ public class ClassResourceStorage extends AbstractStorage {
 
     @Override
     public void save(String name, String content) {
-        //не используется
+        fileStorage.save(name, content);
     }
 
     @Override
     public void delete(String name) {
-        //не используется
+        fileStorage.delete(name);
     }
 
     @Override
     public void clear() {
-        //не используется
+        fileStorage.clear();
     }
 }

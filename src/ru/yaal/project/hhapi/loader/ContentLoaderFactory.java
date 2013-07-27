@@ -2,10 +2,7 @@ package ru.yaal.project.hhapi.loader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.loader.storage.FileStorage;
-import ru.yaal.project.hhapi.loader.storage.IStorage;
-import ru.yaal.project.hhapi.loader.storage.MemoryStorage;
-import ru.yaal.project.hhapi.loader.storage.TwoLevelStorage;
+import ru.yaal.project.hhapi.loader.storage.*;
 
 import java.io.File;
 
@@ -29,7 +26,9 @@ public class ContentLoaderFactory {
         LOG.info("Кэш краткосрочного хранения ({} мин.): {}", oneDay, shortTermDir.getAbsolutePath());
 
         if (isUseFakeStorage()) {
-            fakeStorage = getFakeStorage();
+            File testDir = new File(System.getProperty("java.io.tmpdir") + "hh_api_cache\\test\\");
+            if (!longTermDir.exists()) longTermDir.mkdirs();
+            fakeStorage = new ClassResourceStorage(testDir);
         }
         LOG.info("Кэш для тестирования: {}", fakeStorage);
     }
@@ -42,18 +41,6 @@ public class ContentLoaderFactory {
     public static IContentLoader newInstanceSortTermCache() {
         IStorage storage = (fakeStorage == null) ? shortTermStorage : fakeStorage;
         return new ContentLoader(storage);
-    }
-
-    private static IStorage getFakeStorage() {
-        if (isUseFakeStorage()) {
-            try {
-                Class fakeStorageClass = Class.forName("ru.yaal.project.hhapi.loader.storage.ClassResourceStorage");
-                return (IStorage) fakeStorageClass.newInstance();
-            } catch (Exception e) {
-                LOG.error(e.getMessage(), e);
-            }
-        }
-        return null;
     }
 
     private static boolean isUseFakeStorage() {
