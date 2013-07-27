@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
@@ -23,7 +22,6 @@ public class Dictionaries {
     private IDictionary<EducationLevel> educationLevelCache = new Dictionary<>(EducationLevel.NULL_EDUCATION_LEVEL);
     private IDictionary<Employment> employmentCache = new Dictionary<>(Employment.NULL_EMPLOYMENT);
     private IDictionary<Experience> experienceCache = new Dictionary<>(Experience.NULL_EXPERIENCE);
-    private IDictionary<Gender> genderCache = new Dictionary<>(Gender.NULL_GENDER);
     private IDictionary<LanguageLevel> languageLevelCache = new Dictionary<>(LanguageLevel.NULL_LANGUAGE_LEVEL);
     private IDictionary<PreferredContactType> preferredContactTypeCache = new Dictionary<>(PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);
     private IDictionary<RelocationType> relocationTypeCache = new Dictionary<>(RelocationType.NULL_RELOCATION_TYPE);//todo похоже не парсится из /dictionaries
@@ -62,12 +60,6 @@ public class Dictionaries {
         return dictionaries.educationLevelCache;
     }
 
-    public static IDictionary<Gender> getGender() {
-        init();
-        dictionaries.loadSmallDictionaries();
-        return dictionaries.genderCache;
-    }
-
     public static IDictionary<Employment> getEmployment() {
         init();
         dictionaries.loadSmallDictionaries();
@@ -103,7 +95,6 @@ public class Dictionaries {
                 educationLevelCache = new Dictionary<>(dictionries.getEducationLevel(), EducationLevel.NULL_EDUCATION_LEVEL);
                 employmentCache = new Dictionary<>(dictionries.getEmployment(), Employment.NULL_EMPLOYMENT);
                 experienceCache = new Dictionary<>(dictionries.getExperience(), Experience.NULL_EXPERIENCE);
-                genderCache = new Dictionary<>(dictionries.getGender(), Gender.NULL_GENDER);
                 languageLevelCache = new Dictionary<>(dictionries.getLanguageLevel(), LanguageLevel.NULL_LANGUAGE_LEVEL);
                 preferredContactTypeCache = new Dictionary<>(dictionries.getPreferredContactType(), PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);
                 resumeAccessTypeCache = new Dictionary<>(dictionries.getResumeAccessType(), ResumeAccessType.NULL_RESUME_ACCESS_TYPE);

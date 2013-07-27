@@ -6,6 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Gender;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -20,6 +21,7 @@ public class Dictionaries2 {
     private ProfessionalFieldDictionary professionalFields;
     private DictionariesContainer smallDictionaries;
     private IDictionary<Currency> currency;
+    private IDictionary<Gender> gender;
 
     private Dictionaries2() {
         LOG.debug("Создаю инстанс Dictionaries2");
@@ -86,6 +88,11 @@ public class Dictionaries2 {
         return currency;
     }
 
+    public IDictionary<Gender> getGender() {
+        loadSmallDictionaries();
+        return gender;
+    }
+
     private void loadSmallDictionaries() {
         try {
             if (smallDictionaries == null) {
@@ -94,6 +101,7 @@ public class Dictionaries2 {
                 smallDictionaries = parse.parse(content);
 
                 currency = new Dictionary<>(smallDictionaries.getCurrency(), Currency.NULL_CURRENCY);
+                gender = new Dictionary<>(smallDictionaries.getGender(), Gender.NULL_GENDER);
             }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);

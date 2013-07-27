@@ -38,7 +38,7 @@ public class DictionaryTest {
 
     @Test
     public void toStringDictionary() {
-        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", Dictionaries.getGender().toString());
+        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", Dictionaries2.getInstance().getGender().toString());
     }
 
     @Test
