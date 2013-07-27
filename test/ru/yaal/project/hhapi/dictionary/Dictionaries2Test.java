@@ -1,7 +1,6 @@
-package ru.yaal.project.hhapi;
+package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
