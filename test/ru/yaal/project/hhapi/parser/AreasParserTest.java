@@ -14,7 +14,7 @@ public class AreasParserTest {
 
     @Test
     public void test() throws Exception {
-        String content = ContentLoaderFactory.newInstance().loadContent(UrlConstants.AREAS_URL);
+        String content = ContentLoaderFactory.newInstanceLongTermCache().loadContent(UrlConstants.AREAS_URL);
         IParser<AreaDictionary> parser = new AreasParser();
         IDictionary<Area> areas = parser.parse(content);
         assertNotNull(areas);

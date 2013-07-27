@@ -2,6 +2,7 @@ package ru.yaal.project.hhapi.loader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.yaal.project.hhapi.loader.storage.IStorage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,26 +20,42 @@ class ContentLoader implements IContentLoader {
     private static final Logger LOG = LoggerFactory.getLogger(ContentLoader.class);
     protected final Map<String, String> headers = new HashMap<>();
     protected final Map<String, List<String>> params = new HashMap<>();
+    private final IStorage storage;
+
+    ContentLoader(IStorage storage) {
+        this.storage = storage;
+    }
 
     public String loadContent(String url) throws LoadException {
         try {
             assert (url != null);
             url = appendParameters(url);
-            LOG.info("Загружаю данные с {}.", url);
-            URL hhUrl = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
-            connection.setRequestMethod("GET");
-            addHeader("User-Agent", "HhJavaApi/1.0 (ya_al@bk.ru)");
-            addHeader("Accept", "application/json");
-            setHeaders(connection);
-            connection.connect();
-            String content = readInputStreamToString(connection);
-            connection.disconnect();
-            return content;
+            String cachedContent = storage.search(url);
+            if (cachedContent != null && !cachedContent.isEmpty()) {
+                return cachedContent;
+            } else {
+                String content = loadContentFromNet(url);
+                storage.save(url, content);
+                return content;
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new LoadException(e);
         }
+    }
+
+    private String loadContentFromNet(String url) throws IOException {
+        LOG.info("Загружаю данные с {}.", url);
+        URL hhUrl = new URL(url);
+        HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
+        connection.setRequestMethod("GET");
+        addHeader("User-Agent", "HhJavaApi/1.0 (ya_al@bk.ru)");
+        addHeader("Accept", "application/json");
+        setHeaders(connection);
+        connection.connect();
+        String content = readInputStreamToString(connection);
+        connection.disconnect();
+        return content;
     }
 
     protected String appendParameters(String url) {

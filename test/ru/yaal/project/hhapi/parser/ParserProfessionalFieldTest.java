@@ -11,7 +11,7 @@ public class ParserProfessionalFieldTest {
 
     @Test
     public void testParseSpecialization() throws Exception {
-        String content = ContentLoaderFactory.newInstance().loadContent(UrlConstants.SPECIALIZATIONS_URL);
+        String content = ContentLoaderFactory.newInstanceLongTermCache().loadContent(UrlConstants.SPECIALIZATIONS_URL);
         IParser<ProfessionalFieldDictionary> parser = new ProfessionalFieldsParser();
         ProfessionalFieldDictionary dictionary = parser.parse(content);
         assertTrue(dictionary.hasId("24.492"));

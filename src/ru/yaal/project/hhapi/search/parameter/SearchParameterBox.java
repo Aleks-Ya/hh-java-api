@@ -1,9 +1,11 @@
 package ru.yaal.project.hhapi.search.parameter;
 
+import lombok.ToString;
 import ru.yaal.project.hhapi.search.SearchException;
 
 import java.util.*;
 
+@ToString(of = "params")
 public class SearchParameterBox {
     private final Map<SearchParamNames, List<String>> params = new HashMap<>();
 

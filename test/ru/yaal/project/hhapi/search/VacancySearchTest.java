@@ -5,7 +5,6 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -41,7 +40,7 @@ public class VacancySearchTest {
         search.addParameter(coordinates);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(300 < result.getFound());
+        assertTrue(200 < result.getFound());
     }
 
     @Test
@@ -74,7 +73,7 @@ public class VacancySearchTest {
         search.addParameter(period);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(7000 < result.getFound());
+        assertTrue(4000 < result.getFound());
     }
 
     @Test
@@ -83,7 +82,7 @@ public class VacancySearchTest {
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(6000 < result.getFound());
-        IContentLoader loader = ContentLoaderFactory.newInstance();
+        IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
         IParser<Vacancy> parser = new VacancyParser();
         for (Vacancy vacancy : result.getItems()) {
             String content = loader.loadContent(format(UrlConstants.VACANCY_URL, vacancy.getId()));

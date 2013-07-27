@@ -53,7 +53,7 @@ public class Dictionaries {
     private static void init() {
         if (dictionaries == null) {
             LOG.info("Инициализирую словари.");
-            dictionaries = new Dictionaries(ContentLoaderFactory.newInstance());
+            dictionaries = new Dictionaries(ContentLoaderFactory.newInstanceLongTermCache());
         }
     }
 

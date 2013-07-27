@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class VacanciesParserTest {
     @Test
     public void test() throws Exception {
-        String content = ContentLoaderFactory.newInstance().loadContent(UrlConstants.VACANCIES_URL);
+        String content = ContentLoaderFactory.newInstanceLongTermCache().loadContent(UrlConstants.VACANCIES_URL);
         IParser<VacancyList> parser = new VacanciesParser();
         VacancyList vacancies = parser.parse(content);
         assertNotNull(vacancies);

@@ -37,8 +37,8 @@
                 <configuration>
                     <systemProperties>
                         <property>
-                            <name>content_loader</name>
-                            <value>ru.yaal.project.hhapi.loader.FakeContentLoader</value>
+                            <name>use_fake_storage</name>
+                            <value>true</value>
                         </property>
                     </systemProperties>
                 </configuration>
