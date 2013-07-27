@@ -26,7 +26,7 @@ public class DictionaryTest {
 
     @Test
     public void iterable() {
-        IDictionary<Currency> currencies = Dictionaries.getCurrency();
+        IDictionary<Currency> currencies = Dictionaries2.getInstance().getCurrency();
         List<Currency> actualCurrencies = new ArrayList<>(currencies.size());
         for (Currency currency : currencies) {
             actualCurrencies.add(currency);

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
 public class DictionariesTest {
     @Test
     public void testCurrency() throws DictionaryException {
-        IDictionary<Currency> dict = Dictionaries.getCurrency();
+        IDictionary<Currency> dict = Dictionaries2.getInstance().getCurrency();
         assertEquals(7, dict.size());
         Currency rur = dict.getById("RUR");
         assertEquals("Рубли", rur.getName());

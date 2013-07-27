@@ -20,7 +20,6 @@ public class Dictionaries {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
     private static Dictionaries dictionaries;
     private IDictionary<BusinessTripReadiness> businessTripReadinessCache = new Dictionary<>(BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
-    private IDictionary<Currency> currencyCache = new Dictionary<>(Currency.NULL_CURRENCY);
     private IDictionary<EducationLevel> educationLevelCache = new Dictionary<>(EducationLevel.NULL_EDUCATION_LEVEL);
     private IDictionary<Employment> employmentCache = new Dictionary<>(Employment.NULL_EMPLOYMENT);
     private IDictionary<Experience> experienceCache = new Dictionary<>(Experience.NULL_EXPERIENCE);
@@ -55,12 +54,6 @@ public class Dictionaries {
         init();
         dictionaries.loadSmallDictionaries();
         return dictionaries.scheduleCache;
-    }
-
-    public static IDictionary<Currency> getCurrency() {
-        init();
-        dictionaries.loadSmallDictionaries();
-        return dictionaries.currencyCache;
     }
 
     public static IDictionary<EducationLevel> getEducationLevel() {
@@ -107,7 +100,6 @@ public class Dictionaries {
                 DictionariesContainer dictionries = parse.parse(content);
 
                 businessTripReadinessCache = new Dictionary<>(dictionries.getBusinessTripReadiness(), BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
-                currencyCache = new Dictionary<>(dictionries.getCurrency(), Currency.NULL_CURRENCY);
                 educationLevelCache = new Dictionary<>(dictionries.getEducationLevel(), EducationLevel.NULL_EDUCATION_LEVEL);
                 employmentCache = new Dictionary<>(dictionries.getEmployment(), Employment.NULL_EMPLOYMENT);
                 experienceCache = new Dictionary<>(dictionries.getExperience(), Experience.NULL_EXPERIENCE);

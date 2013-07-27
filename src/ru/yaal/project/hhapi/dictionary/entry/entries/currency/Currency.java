@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
+import ru.yaal.project.hhapi.dictionary.Dictionaries2;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
 @ToString(callSuper = true)
 public class Currency extends AbstractDictionaryEntry {
     public static final Currency NULL_CURRENCY = new Currency();
-    public static final Currency RUR = Dictionaries.getCurrency().getById("RUR");
-    public static final Currency USD = Dictionaries.getCurrency().getById("USD");
-    public static final Currency EUR = Dictionaries.getCurrency().getById("EUR");
+    public static final Currency RUR = Dictionaries2.getInstance().getCurrency().getById("RUR");
+    public static final Currency USD = Dictionaries2.getInstance().getCurrency().getById("USD");
+    public static final Currency EUR = Dictionaries2.getInstance().getCurrency().getById("EUR");
     @Getter
     @Setter
     @SerializedName("code")
