@@ -16,7 +16,7 @@ public class MetroLineDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        dictionary = MetroCity.SAINT_PETERSBURG.getLines();
+        dictionary = MetroLine.SAINT_PETERSBURG;
     }
 
     @Test

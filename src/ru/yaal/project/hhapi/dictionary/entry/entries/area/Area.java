@@ -14,8 +14,9 @@ import java.net.URL;
 
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Area NULL_AREA = new Area();
-    public static final Area MOSCOW = Dictionaries.getInstance().getAreas().getByName("Москва");
-    public static final Area SAINT_PETERSBURG = Dictionaries.getInstance().getAreas().getByName("Санкт-Петербург");
+    public static final AreaDictionary AREAS = Dictionaries.getInstance().getAreas();
+    public static final Area MOSCOW = AREAS.getByName("Москва");
+    public static final Area SAINT_PETERSBURG = AREAS.getByName("Санкт-Петербург");
     @Getter
     @Setter
     private Area parent;

@@ -2,12 +2,12 @@ package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Metro;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
@@ -17,9 +17,9 @@ public class MetroSearchTest {
 
     @Test
     public void testMetro() throws SearchException, DictionaryException {
-        MetroStation metroExpected = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Площадь Восстания");
-        MetroStation metroExpected2 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Маяковская");
-        MetroStation metroExpected3 = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getByName("Чернышевская");
+        MetroStation metroExpected = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
+        MetroStation metroExpected2 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Маяковская");
+        MetroStation metroExpected3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
         search.addParameter(metroExpected);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
@@ -29,7 +29,7 @@ public class MetroSearchTest {
             if (!address.isNull()) {
                 Metro metroActual = address.getMetro();
                 if (!metroActual.isNull()) {
-                    MetroStation metroStationActual = (MetroStation) MetroCity.SAINT_PETERSBURG.getLines().getById(metroActual.getMetroId());
+                    MetroStation metroStationActual = (MetroStation) MetroLine.SAINT_PETERSBURG.getById(metroActual.getMetroId());
                     assertTrue(metroStationActual.equals(metroExpected)
                             || metroStationActual.equals(metroExpected2)
                             || metroStationActual.equals(metroExpected3));
