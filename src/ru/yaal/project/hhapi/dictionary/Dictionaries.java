@@ -2,10 +2,7 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
@@ -14,7 +11,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.*;
+import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 /**
  * Для подмены загрузчика классов на тестовый добавить параметр -Dfake_content_loader=ru.yaal.project.hhapi.loader.FakeContentLoader
@@ -40,9 +37,6 @@ public class Dictionaries {
     private IDictionary<VacancySearchFields> vacancySearchFieldsCache = new Dictionary<>(VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
     private IDictionary<Order> vacancySearchOrderCache = new Dictionary<>(Order.NULL_ORDER);
     private IDictionary<VacancyType> vacancyTypeCache = new Dictionary<>(VacancyType.NULL_VACANCY_TYPE);
-    private AreaDictionary areaCache = new AreaDictionary();
-    private MetroCityDictionary metroCache = new MetroCityDictionary();
-    private ProfessionalFieldDictionary professionalFieldCache = new ProfessionalFieldDictionary();
     private IContentLoader loader;
     private boolean isSmallDictionariesLoaded = false;
 
@@ -103,57 +97,6 @@ public class Dictionaries {
         init();
         dictionaries.loadSmallDictionaries();
         return dictionaries.experienceCache;
-    }
-
-    public static AreaDictionary getArea() {
-        init();
-        dictionaries.loadAreas();
-        return dictionaries.areaCache;
-    }
-
-    public static MetroCityDictionary getMetro() {
-        init();
-        dictionaries.loadMetro();
-        return dictionaries.metroCache;
-    }
-
-    public static ProfessionalFieldDictionary getProfessionalField() {
-        init();
-        dictionaries.loadProfessionalFields();
-        return dictionaries.professionalFieldCache;
-    }
-
-    private void loadAreas() {
-        try {
-            String content = loader.loadContent(UrlConstants.AREAS_URL);
-            IParser<AreaDictionary> parse = new AreasParser();
-            areaCache = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            areaCache = new AreaDictionary();
-        }
-    }
-
-    private void loadMetro() {
-        try {
-            String content = loader.loadContent(UrlConstants.METRO_URL);
-            IParser<MetroCityDictionary> parse = new MetroParser();
-            metroCache = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            metroCache = new MetroCityDictionary();
-        }
-    }
-
-    private void loadProfessionalFields() {
-        try {
-            String content = loader.loadContent(UrlConstants.SPECIALIZATIONS_URL);
-            IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
-            professionalFieldCache = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            professionalFieldCache = new ProfessionalFieldDictionary();
-        }
     }
 
     private void loadSmallDictionaries() {

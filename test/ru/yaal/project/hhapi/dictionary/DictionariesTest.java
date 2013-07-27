@@ -37,13 +37,13 @@ public class DictionariesTest {
 
     @Test
     public void testAreas() throws DictionaryException {
-        IDictionary<Area> dict = Dictionaries.getArea();
+        IDictionary<Area> dict = Dictionaries2.getInstance().getAreas();
         assertEquals(6, dict.size());
     }
 
     @Test
     public void testProfessionalFields() throws DictionaryException {
-        IDictionary<ProfessionalField> dict = Dictionaries.getProfessionalField();
+        IDictionary<ProfessionalField> dict = Dictionaries2.getInstance().getProfessionalFields();
         assertEquals(28, dict.size());
     }
 

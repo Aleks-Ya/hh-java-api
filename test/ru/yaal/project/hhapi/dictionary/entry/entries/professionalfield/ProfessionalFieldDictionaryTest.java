@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
+import ru.yaal.project.hhapi.dictionary.Dictionaries2;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.junit.Assert.*;
@@ -16,7 +16,7 @@ public class ProfessionalFieldDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        dictionary = Dictionaries.getProfessionalField();
+        dictionary = Dictionaries2.getInstance().getProfessionalFields();
     }
 
     @Test

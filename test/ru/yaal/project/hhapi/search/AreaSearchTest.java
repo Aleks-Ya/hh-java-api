@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
+import ru.yaal.project.hhapi.dictionary.Dictionaries2;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
@@ -16,7 +16,7 @@ public class AreaSearchTest {
 
     @Test
     public void testArea() throws SearchException, DictionaryException {
-        final Area expectedArea = Dictionaries.getArea().getByName("Ñàíêò-ÏÅÒÅĞÁÓĞÃ");
+        final Area expectedArea = Dictionaries2.getInstance().getAreas().getByName("Ñàíêò-ÏÅÒÅĞÁÓĞÃ");
         search.addParameter(expectedArea);
         VacancyList result = search.search();
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());

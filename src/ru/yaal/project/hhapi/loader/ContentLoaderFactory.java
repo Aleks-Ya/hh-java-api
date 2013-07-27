@@ -20,15 +20,18 @@ public class ContentLoaderFactory {
         if (!longTermDir.exists()) longTermDir.mkdirs();
         int sevenDays = 7 * 24 * 60;
         longTermStorage = new TwoLevelStorage(new MemoryStorage(sevenDays), new FileStorage(longTermDir, sevenDays));
+        LOG.info("Кэш длительного хранения ({} мин.): {}", sevenDays, longTermDir.getAbsolutePath());
 
         File shortTermDir = new File(System.getProperty("java.io.tmpdir") + "hh_api_cache\\short_term\\");
         if (!shortTermDir.exists()) shortTermDir.mkdirs();
         int oneDay = 24 * 60;
         shortTermStorage = new TwoLevelStorage(new MemoryStorage(oneDay), new FileStorage(shortTermDir, oneDay));
+        LOG.info("Кэш краткосрочного хранения ({} мин.): {}", oneDay, shortTermDir.getAbsolutePath());
 
         if (isUseFakeStorage()) {
             fakeStorage = getFakeStorage();
         }
+        LOG.info("Кэш для тестирования: {}", fakeStorage);
     }
 
     public static IContentLoader newInstanceLongTermCache() {
