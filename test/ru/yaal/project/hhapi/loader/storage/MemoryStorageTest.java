@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNull;
 public class MemoryStorageTest {
     @Test
     public void testSave() throws Exception {
-        int lifeTimeMin = 0;
+        int lifeTimeMin = 10;
         IStorage storage = new MemoryStorage(lifeTimeMin);
         String name = "http://nasa.com?curiosity=good";
 

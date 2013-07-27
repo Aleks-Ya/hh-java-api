@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.yaal.project.hhapi.dictionary.Dictionaries2;
+import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -14,8 +14,8 @@ import java.net.URL;
 
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Area NULL_AREA = new Area();
-    public static final Area MOSCOW = Dictionaries2.getInstance().getAreas().getByName("Москва");
-    public static final Area SAINT_PETERSBURG = Dictionaries2.getInstance().getAreas().getByName("Санкт-Петербург");
+    public static final Area MOSCOW = Dictionaries.getInstance().getAreas().getByName("Москва");
+    public static final Area SAINT_PETERSBURG = Dictionaries.getInstance().getAreas().getByName("Санкт-Петербург");
     @Getter
     @Setter
     private Area parent;

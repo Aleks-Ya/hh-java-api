@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries2;
+import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
@@ -52,7 +52,7 @@ public class SalarySearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Salary salary = vacancy.getSalary();
             Integer to = salary.getTo();
-            if (salary.getCurrency() == Dictionaries2.getInstance().getCurrency().getById("RUR")) {
+            if (salary.getCurrency() == Dictionaries.getInstance().getCurrency().getById("RUR")) {
                 if (to != null) if (!((MIN_SALARY - 10000) <= to))
                     System.out.println("to=" + to);
             }

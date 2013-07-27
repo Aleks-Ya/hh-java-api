@@ -15,9 +15,9 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.*;
 
-public class Dictionaries2 {
-    private static final Logger LOG = LoggerFactory.getLogger(Dictionaries2.class);
-    private static Dictionaries2 dictionary;
+public class Dictionaries {
+    private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
+    private static Dictionaries dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
     @Getter
     private AreaDictionary areas;
@@ -42,16 +42,16 @@ public class Dictionaries2 {
     @Getter
     private IDictionary<Experience> experience;
 
-    private Dictionaries2() {
-        LOG.debug("Создаю инстанс Dictionaries2");
+    private Dictionaries() {
+        LOG.debug("Создаю инстанс Dictionaries");
         loadSmallDictionaries();
         loadAreas();
         loadMetro();
         loadProfessionalFields();
     }
 
-    public static Dictionaries2 getInstance() {
-        if (dictionary == null) dictionary = new Dictionaries2();
+    public static Dictionaries getInstance() {
+        if (dictionary == null) dictionary = new Dictionaries();
         return dictionary;
     }
 

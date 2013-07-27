@@ -26,7 +26,7 @@ public class DictionaryTest {
 
     @Test
     public void iterable() {
-        IDictionary<Currency> currencies = Dictionaries2.getInstance().getCurrency();
+        IDictionary<Currency> currencies = Dictionaries.getInstance().getCurrency();
         List<Currency> actualCurrencies = new ArrayList<>(currencies.size());
         for (Currency currency : currencies) {
             actualCurrencies.add(currency);
@@ -38,21 +38,21 @@ public class DictionaryTest {
 
     @Test
     public void toStringDictionary() {
-        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", Dictionaries2.getInstance().getGender().toString());
+        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", Dictionaries.getInstance().getGender().toString());
     }
 
     @Test
     public void toStringAreaDictionary() {
         assertEquals("{Другие страны(1001),Россия(113),Украина(5),Казахстан(40),Азербайджан(9),Беларусь(16)}",
-                Dictionaries2.getInstance().getAreas().toString());
+                Dictionaries.getInstance().getAreas().toString());
     }
 
     @Test
     public void toStringMetroDictionary() {
         assertEquals("{Екатеринбург(3),Нижний Новгород(66),Санкт-Петербург(2),Днепропетровск(117),Харьков(135)," +
                 "Самара(78),Москва(1),Минск(1002),Киев(115),Алматы(160),Новосибирск(4),Казань(88)}",
-                Dictionaries2.getInstance().getMetroCities().toString());
-        MetroLine line = (MetroLine) Dictionaries2.getInstance().getMetroCities().getByName("Кольцевая");
+                Dictionaries.getInstance().getMetroCities().toString());
+        MetroLine line = (MetroLine) Dictionaries.getInstance().getMetroCities().getByName("Кольцевая");
         assertEquals("{Краснопресненская(5.58),Киевская(5.49),Курская(5.71),Павелецкая(5.102),Октябрьская(5.93)," +
                 "Добрынинская(5.36),Парк культуры(5.104),Комсомольская(5.55),Новослободская(5.82),Таганская(5.76)," +
                 "Проспект Мира(5.119),Белорусская(5.20)}",
@@ -70,8 +70,8 @@ public class DictionaryTest {
                 "Бухгалтерия, управленческий учет, финансы предприятия(2)," +
                 "Информационные технологии, интернет, телеком(1),Добыча сырья(10),Автомобильный бизнес(7)," +
                 "Управление персоналом, тренинги(6),Банки, инвестиции, лизинг(5),Административный персонал(4)," +
-                "Высший менеджмент(9),Безопасность(8)}", Dictionaries2.getInstance().getProfessionalFields().toString());
-        ProfessionalField field = Dictionaries2.getInstance().getProfessionalFields().getById("19");
+                "Высший менеджмент(9),Безопасность(8)}", Dictionaries.getInstance().getProfessionalFields().toString());
+        ProfessionalField field = Dictionaries.getInstance().getProfessionalFields().getById("19");
         assertEquals("{Эксперт-оценщик(19.357),Агент(19.19),Начальный уровень, Мало опыта(19.170)," +
                 "Комплексное страхование физических лиц(19.108),Руководитель направления(19.259),Автострахование(19.18)," +
                 "Андеррайтер(19.28),Комплексное страхование юридических лиц(19.109),Перестрахование(19.483)," +
