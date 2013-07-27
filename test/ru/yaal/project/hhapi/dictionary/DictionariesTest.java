@@ -28,7 +28,7 @@ public class DictionariesTest {
 
     @Test
     public void testEducationLevel() throws DictionaryException {
-        IDictionary<EducationLevel> dict = Dictionaries.getEducationLevel();
+        IDictionary<EducationLevel> dict = Dictionaries2.getInstance().getEducationLevel();
         assertEquals(8, dict.size());
         EducationLevel higher = dict.getById("higher");
         assertNotNull(higher);
