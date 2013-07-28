@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 
 import java.util.List;
@@ -45,4 +45,6 @@ public class DictionariesContainer {
     private List<VacancyType> vacancyType;
     @SerializedName("site_lang")
     private List<SiteLang> siteLang;
+    @SerializedName("employer_type")
+    private List<EmployerType> employerType;
 }

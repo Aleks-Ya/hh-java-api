@@ -8,6 +8,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
@@ -41,6 +42,8 @@ public class Dictionaries {
     private IDictionary<VacancySearchFields> vacancySearchFields;
     @Getter
     private IDictionary<Experience> experience;
+    @Getter
+    private IDictionary<EmployerType> employerType;
 
     private Dictionaries() {
         LOG.debug("Создаю инстанс Dictionaries");
@@ -105,6 +108,7 @@ public class Dictionaries {
             order = new Dictionary<>(smallDictionaries.getOrder(), Order.NULL_ORDER);
             vacancySearchFields = new Dictionary<>(smallDictionaries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
             experience = new Dictionary<>(smallDictionaries.getExperience(), Experience.NULL_EXPERIENCE);
+            employerType = new Dictionary<>(smallDictionaries.getEmployerType(), EmployerType.NULL_EMPLOYER_TYPE);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }

@@ -1,8 +1,8 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
-import ru.yaal.project.hhapi.dictionary.Nullable;
+import ru.yaal.project.hhapi.dictionary.INullable;
 
-public interface IDictionaryEntry extends Nullable {
+public interface IDictionaryEntry extends INullable {
     String getId();
 
     void setId(String id);

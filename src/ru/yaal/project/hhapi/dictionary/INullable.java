@@ -1,5 +1,5 @@
 package ru.yaal.project.hhapi.dictionary;
 
-public interface Nullable {
+public interface INullable {
     boolean isNull();
 }

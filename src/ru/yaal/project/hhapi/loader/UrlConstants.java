@@ -12,5 +12,5 @@ public class UrlConstants {
     public static final String AREA_URL = BASE_API_URL + "/areas/%s";
     public static final String METRO_URL = BASE_API_URL + "/metro";
     public static final String METRO_IN_CITY_URL = BASE_API_URL + "/metro/%s";
-
+    public static final String EMPLOYER_URL = BASE_API_URL + "/employers/%s";
 }
