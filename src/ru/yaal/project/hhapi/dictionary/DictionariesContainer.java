@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyLabel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 

@@ -10,6 +10,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Professi
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -44,6 +45,8 @@ public class Dictionaries {
     private IDictionary<Experience> experience;
     @Getter
     private IDictionary<EmployerType> employerType;
+    @Getter
+    private IDictionary<VacancyLabel> vacancyLabel;
 
     private Dictionaries() {
         LOG.debug("Создаю инстанс Dictionaries");
@@ -109,6 +112,7 @@ public class Dictionaries {
             vacancySearchFields = new Dictionary<>(smallDictionaries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
             experience = new Dictionary<>(smallDictionaries.getExperience(), Experience.NULL_EXPERIENCE);
             employerType = new Dictionary<>(smallDictionaries.getEmployerType(), EmployerType.NULL_EMPLOYER_TYPE);
+            vacancyLabel = new Dictionary<>(smallDictionaries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
