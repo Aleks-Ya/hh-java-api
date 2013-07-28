@@ -7,7 +7,7 @@ import ru.yaal.project.hhapi.vacancy.LogoUrls;
 
 import java.net.URL;
 
-public class EmployerVacancy extends EmployerSearchParameter {
+public class EmployerInVacancy extends EmployerSearchParameter {
     @Getter
     @Setter
     private URL url;

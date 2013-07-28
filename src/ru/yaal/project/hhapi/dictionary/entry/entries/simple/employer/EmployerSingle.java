@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.net.URL;
 
-public class EmployerSingle extends EmployerVacancy {
+public class EmployerSingle extends EmployerInVacancy {
     public static final EmployerSingle NULL_EMPLOYER = new EmployerSingle();
     @Setter
     private String type;

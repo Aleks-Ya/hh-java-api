@@ -9,8 +9,8 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Professi
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerInVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerSingle;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -70,7 +70,7 @@ public class Vacancy implements IDictionaryEntry {
     private List<Object> relations = new ArrayList<>(0);
     @Getter
     @Setter
-    private EmployerVacancy employer = EmployerSingle.NULL_EMPLOYER;
+    private EmployerInVacancy employer = EmployerSingle.NULL_EMPLOYER;
     @Getter
     @Setter
     @SerializedName("response_letter_required")
