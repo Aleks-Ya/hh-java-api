@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer;
+package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;

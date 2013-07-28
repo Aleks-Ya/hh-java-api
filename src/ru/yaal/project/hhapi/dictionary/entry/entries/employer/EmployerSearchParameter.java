@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer;
+package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.SearchException;

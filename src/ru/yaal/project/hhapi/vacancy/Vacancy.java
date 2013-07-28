@@ -9,8 +9,8 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Professi
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerInVacancy;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerSingle;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerInVacancy;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerSingle;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;

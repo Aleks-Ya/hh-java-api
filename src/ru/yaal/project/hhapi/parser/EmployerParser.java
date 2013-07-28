@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.parser;
 
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.employer.EmployerSingle;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerSingle;
 
 public class EmployerParser extends AbstractParser<EmployerSingle> {
     @Override
