@@ -9,26 +9,33 @@ public class Address implements INullable {
     private static final String NULL_CITY = "NullCity";
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String building;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String city;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String street;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String description;
     @Setter
     private Metro metro;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String raw;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Double lat;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Double lng;
 
     public Address() {

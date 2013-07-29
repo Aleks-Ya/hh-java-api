@@ -14,6 +14,7 @@ public class Salary implements ISearchParameter, INullable {
     private static final Integer NULL_VALUE = -1;
     private Integer from;
     private Integer to;
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Currency currency = Currency.NULL_CURRENCY;
 
     public Salary() {

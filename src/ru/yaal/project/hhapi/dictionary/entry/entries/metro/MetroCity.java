@@ -13,8 +13,10 @@ public class MetroCity extends AbstractDictionaryEntry {
 
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL url;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private MetroLineDictionary lines = new MetroLineDictionary();
 }

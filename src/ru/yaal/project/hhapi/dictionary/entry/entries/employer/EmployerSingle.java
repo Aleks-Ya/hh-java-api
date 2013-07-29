@@ -13,13 +13,16 @@ public class EmployerSingle extends EmployerInVacancy {
     @Getter
     @Setter
     @SerializedName("site_url")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL siteUrl;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String description;
     @Getter
     @Setter
     @SerializedName("vacancies_url")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL vacanciesUrl;
 
     public EmployerType getType() {

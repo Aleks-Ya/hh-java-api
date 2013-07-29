@@ -7,15 +7,18 @@ public class MetroStation extends MetroLine {
     public static final MetroStation NULL_METRO_STATION = new MetroStation();
     @Getter
     @Setter
-    private Double lat;
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private MetroLine line;
     @Getter
     @Setter
-    private Double lng;
-    @Getter
-    @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Integer order;
     @Getter
     @Setter
-    private MetroLine line;
-
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private Double lat;
+    @Getter
+    @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private Double lng;
 }

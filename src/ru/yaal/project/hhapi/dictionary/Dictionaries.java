@@ -5,12 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
-import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.VacancyLabel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -22,30 +21,43 @@ public class Dictionaries {
     private static Dictionaries dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private AreaDictionary areas;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private MetroCityDictionary metroCities;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private ProfessionalFieldDictionary professionalFields;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Currency> currency;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Gender> gender;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Schedule> schedule;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<EducationLevel> educationLevel;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Employment> employment;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Order> order;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancySearchFields> vacancySearchFields;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Experience> experience;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<EmployerType> employerType;
     @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancyLabel> vacancyLabel;
 
     private Dictionaries() {

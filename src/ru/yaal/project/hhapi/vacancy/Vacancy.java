@@ -31,12 +31,15 @@ public class Vacancy implements IDictionaryEntry {
     public static final Vacancy NULL_VACANCY = new Vacancy();
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String id;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String name;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL url;
     @Setter
     private String description;
@@ -52,6 +55,7 @@ public class Vacancy implements IDictionaryEntry {
     @Getter
     @Setter
     @SerializedName("alternate_url")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String alternateUrl;
     @Setter
     private Employment employment = Employment.NULL_EMPLOYMENT;
@@ -60,23 +64,29 @@ public class Vacancy implements IDictionaryEntry {
     private Boolean archived;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Area area = Area.NULL_AREA;
     @Getter
     @Setter
     @SerializedName("created_at")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Date createdAt;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private List<Object> relations = new ArrayList<>(0);
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private EmployerInVacancy employer = EmployerSingle.NULL_EMPLOYER;
     @Getter
     @Setter
     @SerializedName("response_letter_required")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Boolean responseLetterRequired;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
     @Setter
     private List<ProfessionalFieldsForVacancy> professionalFields = new ArrayList<>(0);

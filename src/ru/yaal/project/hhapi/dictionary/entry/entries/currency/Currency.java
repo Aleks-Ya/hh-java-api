@@ -16,12 +16,15 @@ public class Currency extends AbstractDictionaryEntry {
     @Getter
     @Setter
     @SerializedName("code")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String id;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Double rate;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String abbr;
     @SerializedName("default")
     private Boolean isDefault;

@@ -19,12 +19,15 @@ public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Area SAINT_PETERSBURG = AREAS.getByName("Санкт-Петербург");
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private Area parent;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL url;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Area> areas;
 
     @Override

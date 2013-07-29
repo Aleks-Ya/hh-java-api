@@ -10,13 +10,16 @@ import java.net.URL;
 public class EmployerInVacancy extends EmployerSearchParameter {
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL url;
     @Getter
     @Setter
     @SerializedName("alternate_url")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private URL alternateUrl;
     @Getter
     @Setter
     @SerializedName("logo_urls")
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private LogoUrls logoUrls;
 }

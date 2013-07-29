@@ -15,6 +15,7 @@ public class ProfessionalField extends AbstractDictionaryEntry implements ISearc
     public static final ProfessionalFieldDictionary PROFESSIONAL_FIELDS = Dictionaries.getInstance().getProfessionalFields();
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Specialization> specializations;
 
     @Override

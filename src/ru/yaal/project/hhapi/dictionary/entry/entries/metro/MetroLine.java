@@ -26,12 +26,15 @@ public class MetroLine extends AbstractDictionaryEntry implements ISearchParamet
     public static final MetroLineDictionary SAMARA = Dictionaries.getInstance().getMetroCities().getByName("Самара").getLines();
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private String hexColor;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<MetroStation> stations;
     @Getter
     @Setter
+    @SuppressWarnings("PMD.UnusedPrivateField")
     private MetroCity city;
 
     @Override
