@@ -19,9 +19,9 @@ public class PageableVacancySearch extends AbstractVacancySearch<PageableVacancy
     @Override
     public PageableVacancyList search() throws SearchException {
         try {
-            putParametersToLoader(parameterBox);
-            String content = loader.loadContent(UrlConstants.VACANCIES_URL);
-            return new PageableVacancyList(parser.parse(content), parameterBox, vacanciesLimit);
+            putParametersToLoader(getParameterBox());
+            String content = getLoader().loadContent(UrlConstants.VACANCIES_URL);
+            return new PageableVacancyList(getParser().parse(content), getParameterBox(), vacanciesLimit);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new SearchException(e);

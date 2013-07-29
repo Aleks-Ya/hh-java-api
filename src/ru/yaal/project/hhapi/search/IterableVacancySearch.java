@@ -26,7 +26,7 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
 
     @Override
     public IterableVacancyList search() throws SearchException {
-        verifySearchParameters(parameterBox);
+        verifySearchParameters(getParameterBox());
         if (vacancyLimit <= PerPage.MAX_PER_PAGE) {
             addParameter(new PerPage(vacancyLimit));
         } else {
@@ -34,7 +34,7 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
         }
         try {
             ISearch<PageableVacancyList> search = new PageableVacancySearch(vacancyLimit);
-            search.addParameter(parameterBox);
+            search.addParameter(getParameterBox());
             PageableVacancyList pageableVacancyList = search.search();
             return new IterableVacancyList(pageableVacancyList);
         } catch (Exception e) {

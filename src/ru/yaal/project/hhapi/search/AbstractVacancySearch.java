@@ -16,9 +16,21 @@ public abstract class AbstractVacancySearch<E> implements ISearch<E> {
     public static final int MAX_VACANCIES_LIMIT = 2000;
     public static final int MIN_VACANCIES_LIMIT = PerPage.MIN_PER_PAGE;
     public static final int DEFAULT_VACANCIES_LIMIT = 20;
-    protected IParser<VacancyList> parser = new VacanciesParser();
-    protected IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
-    protected SearchParameterBox parameterBox = new SearchParameterBox();
+    private IParser<VacancyList> parser = new VacanciesParser();
+    private IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
+    private SearchParameterBox parameterBox = new SearchParameterBox();
+
+    protected IParser<VacancyList> getParser() {
+        return parser;
+    }
+
+    protected IContentLoader getLoader() {
+        return loader;
+    }
+
+    protected SearchParameterBox getParameterBox() {
+        return parameterBox;
+    }
 
     protected void putParametersToLoader(SearchParameterBox parameterBox) {
         Map<SearchParamNames, List<String>> paramMap = parameterBox.getParameterMap();

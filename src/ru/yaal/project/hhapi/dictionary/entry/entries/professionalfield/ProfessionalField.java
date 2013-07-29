@@ -15,7 +15,7 @@ public class ProfessionalField extends AbstractDictionaryEntry implements ISearc
     public static final ProfessionalFieldDictionary PROFESSIONAL_FIELDS = Dictionaries.getInstance().getProfessionalFields();
     @Getter
     @Setter
-    protected IDictionary<Specialization> specializations;
+    private IDictionary<Specialization> specializations;
 
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {

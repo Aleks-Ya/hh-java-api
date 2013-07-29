@@ -5,8 +5,8 @@ import static java.lang.String.format;
 public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
     private static final String NULL_ID = "IdForNullEntries";
     private static final String NULL_NAME = "NameForNullEntries";
-    protected String id;
-    protected String name;
+    private String id;
+    private String name;
 
     public AbstractDictionaryEntry() {
         setId(NULL_ID);

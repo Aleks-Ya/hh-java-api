@@ -16,7 +16,7 @@ public abstract class AbstractStorage implements IStorage {
     protected static final String DATA_NOT_FOUND_MESSAGE = "Данные для url={} кэше не найдены.";
     protected static final String SAVE_DATA_MESSAGE = "Сохраняю в кэш данные для url={} (длина контента {}).";
     private static final Logger LOG = LoggerFactory.getLogger(AbstractStorage.class);
-    protected long lifeTimeMilliSec;
+    private long lifeTimeMilliSec;
 
     public AbstractStorage(int lifeTimeMin) {
         this.lifeTimeMilliSec = lifeTimeMin * 60 * 1000;

@@ -8,8 +8,8 @@ import java.util.*;
 
 public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionary.class);
-    protected Map<String, V> idMap = new HashMap<>();
-    protected Map<String, V> nameMap = new HashMap<>();
+    private Map<String, V> idMap = new HashMap<>();
+    private Map<String, V> nameMap = new HashMap<>();
     private V nullObject;
 
     public Dictionary(V nullObject) {
@@ -43,7 +43,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     }
 
     protected void putId(V entry) throws DictionaryException {
-        if (entry.getId() == null){
+        if (entry.getId() == null) {
             throw new DictionaryException("Ключ не может быть null (имя %s).", entry.getName());
         }
         String id = entry.getId().toUpperCase();

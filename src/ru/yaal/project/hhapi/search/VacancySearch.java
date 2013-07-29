@@ -11,9 +11,9 @@ class VacancySearch extends AbstractVacancySearch<VacancyList> {
     @Override
     public VacancyList search() throws SearchException {
         try {
-            putParametersToLoader(parameterBox);
-            String content = loader.loadContent(UrlConstants.VACANCIES_URL);
-            return parser.parse(content);
+            putParametersToLoader(getParameterBox());
+            String content = getLoader().loadContent(UrlConstants.VACANCIES_URL);
+            return getParser().parse(content);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new SearchException(e);

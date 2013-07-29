@@ -18,8 +18,8 @@ import java.util.*;
  */
 class ContentLoader implements IContentLoader {
     private static final Logger LOG = LoggerFactory.getLogger(ContentLoader.class);
-    protected final Map<String, String> headers = new HashMap<>();
-    protected final Map<String, List<String>> params = new HashMap<>();
+    private final Map<String, String> headers = new HashMap<>();
+    private final Map<String, List<String>> params = new HashMap<>();
     private final IStorage storage;
 
     ContentLoader(IStorage storage) {

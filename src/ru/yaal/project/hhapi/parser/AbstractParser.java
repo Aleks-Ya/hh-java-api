@@ -11,7 +11,7 @@ import ru.yaal.project.hhapi.vacancy.Salary;
 import java.util.Date;
 
 public abstract class AbstractParser<T> implements IParser<T> {
-    protected final Gson gson;
+    private final Gson gson;
 
     protected AbstractParser() {
         GsonBuilder builder = new GsonBuilder();
@@ -21,5 +21,9 @@ public abstract class AbstractParser<T> implements IParser<T> {
                 .registerTypeAdapter(AreaDictionary.class, new AreaDeserializer())
                 .registerTypeAdapter(ProfessionalFieldDictionary.class, new ProfessionalFieldDeserializer());
         gson = builder.create();
+    }
+
+    protected Gson getGson() {
+        return gson;
     }
 }

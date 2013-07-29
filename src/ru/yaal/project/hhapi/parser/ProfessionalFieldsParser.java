@@ -5,6 +5,6 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Professi
 public class ProfessionalFieldsParser extends AbstractParser<ProfessionalFieldDictionary> {
     @Override
     public ProfessionalFieldDictionary parse(String content) throws ParseException {
-        return gson.fromJson(content, ProfessionalFieldDictionary.class);
+        return getGson().fromJson(content, ProfessionalFieldDictionary.class);
     }
 }
