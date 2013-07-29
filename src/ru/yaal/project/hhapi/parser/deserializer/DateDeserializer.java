@@ -18,17 +18,18 @@ import java.util.Date;
 public class DateDeserializer implements JsonDeserializer<Date> {
     private static final Logger LOG = LoggerFactory.getLogger(DateDeserializer.class);
 
-    public static Date parse(String input) throws java.text.ParseException {
+    public static Date parse(String iso8601date) throws java.text.ParseException {
+        String date = iso8601date;
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz");
-        if (input.endsWith("Z")) {
-            input = input.substring(0, input.length() - 1) + "GMT-00:00";
+        if (date.endsWith("Z")) {
+            date = date.substring(0, date.length() - 1) + "GMT-00:00";
         } else {
             int inset = 6;
-            String s0 = input.substring(0, input.length() - inset);
-            String s1 = input.substring(input.length() - inset, input.length());
-            input = s0 + "GMT" + s1;
+            String s0 = date.substring(0, date.length() - inset);
+            String s1 = date.substring(date.length() - inset, date.length());
+            date = s0 + "GMT" + s1;
         }
-        return df.parse(input);
+        return df.parse(date);
     }
 
     @Override

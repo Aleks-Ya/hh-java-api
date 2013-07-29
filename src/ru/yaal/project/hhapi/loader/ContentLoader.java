@@ -29,13 +29,13 @@ class ContentLoader implements IContentLoader {
     public String loadContent(String url) throws LoadException {
         try {
             assert (url != null);
-            url = appendParameters(url);
-            String cachedContent = storage.search(url);
+            String urlWithParams = appendParameters(url);
+            String cachedContent = storage.search(urlWithParams);
             if (cachedContent != null && !cachedContent.isEmpty()) {
                 return cachedContent;
             } else {
-                String content = loadContentFromNet(url);
-                storage.save(url, content);
+                String content = loadContentFromNet(urlWithParams);
+                storage.save(urlWithParams, content);
                 return content;
             }
         } catch (Exception e) {
