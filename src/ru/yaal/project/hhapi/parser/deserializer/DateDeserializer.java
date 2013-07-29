@@ -33,8 +33,7 @@ public class DateDeserializer implements JsonDeserializer<Date> {
     }
 
     @Override
-    public Date deserialize(JsonElement element, Type type,
-                            JsonDeserializationContext context) throws JsonParseException {
+    public Date deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
             String dateStr = element.getAsString();
             return parse(dateStr);

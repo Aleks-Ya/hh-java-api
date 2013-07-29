@@ -16,8 +16,7 @@ public class ProfessionalFieldDeserializer implements JsonDeserializer<Professio
     private static final Logger LOG = LoggerFactory.getLogger(ProfessionalFieldDeserializer.class);
 
     @Override
-    public ProfessionalFieldDictionary deserialize(JsonElement element, Type type,
-                                                   JsonDeserializationContext context) throws JsonParseException {
+    public ProfessionalFieldDictionary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
             List<ProfessionalField> fields = new ArrayList<>();
             for (JsonElement field : element.getAsJsonArray()) {

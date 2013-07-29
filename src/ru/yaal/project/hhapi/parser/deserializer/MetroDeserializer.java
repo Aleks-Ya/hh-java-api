@@ -18,8 +18,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> 
     private static final Logger LOG = LoggerFactory.getLogger(MetroCityDictionary.class);
 
     @Override
-    public MetroCityDictionary deserialize(JsonElement element, Type type,
-                                           JsonDeserializationContext context) throws JsonParseException {
+    public MetroCityDictionary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
             return new MetroCityDictionary(parseCities(element));
         } catch (Exception e) {

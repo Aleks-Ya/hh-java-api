@@ -13,8 +13,7 @@ public class SalaryDeserializer implements JsonDeserializer<Salary> {
     private static final Logger LOG = LoggerFactory.getLogger(SalaryDeserializer.class);
 
     @Override
-    public Salary deserialize(JsonElement element, Type type,
-                              JsonDeserializationContext context) throws JsonParseException {
+    public Salary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
             JsonObject object = (JsonObject) element;
 

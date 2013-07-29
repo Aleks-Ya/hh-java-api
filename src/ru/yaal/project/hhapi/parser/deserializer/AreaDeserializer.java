@@ -17,8 +17,7 @@ public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
     private static final Logger LOG = LoggerFactory.getLogger(AreaDeserializer.class);
 
     @Override
-    public AreaDictionary deserialize(JsonElement element, Type type,
-                                      JsonDeserializationContext context) throws JsonParseException {
+    public AreaDictionary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
             List<Area> areas = new ArrayList<>();
             for (JsonElement area : element.getAsJsonArray()) {
