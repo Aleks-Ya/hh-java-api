@@ -34,7 +34,9 @@ public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
     private Area parseArea(JsonElement element, Area parentArea) throws MalformedURLException, DictionaryException {
         JsonObject object = (JsonObject) element;
         String id = object.get("id").getAsString();
-        if (id == null || id.isEmpty()) return Area.NULL_AREA;
+        if (id == null || id.isEmpty()) {
+            return Area.NULL_AREA;
+        }
         Area newArea = new Area();
         newArea.setId(id);
         newArea.setName(object.get("name").getAsString());

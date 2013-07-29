@@ -14,7 +14,9 @@ public class FileStorage extends AbstractStorage {
     public FileStorage(File dir, int lifeTimeMin) {
         super(lifeTimeMin);
         this.dir = dir;
-        if (!dir.exists()) dir.mkdirs();
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
     }
 
     @Override
@@ -48,7 +50,9 @@ public class FileStorage extends AbstractStorage {
     public void delete(String name) {
         String hash = generateHashFileName(name);
         File file = new File(dir, hash);
-        if (file.exists()) file.delete();
+        if (file.exists()) {
+            file.delete();
+        }
     }
 
     @Override

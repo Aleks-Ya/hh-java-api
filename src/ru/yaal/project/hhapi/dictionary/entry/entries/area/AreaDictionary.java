@@ -22,7 +22,9 @@ public class AreaDictionary extends Dictionary<Area> {
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasId(id)) return true;
+                if (areas.hasId(id)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -35,7 +37,9 @@ public class AreaDictionary extends Dictionary<Area> {
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasName(name)) return true;
+                if (areas.hasName(name)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -48,7 +52,9 @@ public class AreaDictionary extends Dictionary<Area> {
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasId(id)) return areas.getById(id);
+                if (areas.hasId(id)) {
+                    return areas.getById(id);
+                }
             }
         }
         return getNullObject(id);
@@ -61,7 +67,9 @@ public class AreaDictionary extends Dictionary<Area> {
         } else {
             for (Area area : toList()) {
                 IDictionary<Area> areas = area.getAreas();
-                if (areas.hasName(name)) return areas.getByName(name);
+                if (areas.hasName(name)) {
+                    return areas.getByName(name);
+                }
             }
         }
         return getNullObject(name);

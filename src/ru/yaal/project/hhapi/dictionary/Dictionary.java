@@ -32,16 +32,24 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     }
 
     protected void putName(V entry) throws DictionaryException {
-        if (entry.getName() == null) throw new DictionaryException("Имя не может быть null (id %s).", entry.getId());
+        if (entry.getName() == null) {
+            throw new DictionaryException("Имя не может быть null (id %s).", entry.getId());
+        }
         String name = entry.getName().toUpperCase();
-        if (nameMap.containsKey(name)) throw new DictionaryException("Повторяющееся имя: %s.", name);
+        if (nameMap.containsKey(name)) {
+            throw new DictionaryException("Повторяющееся имя: %s.", name);
+        }
         nameMap.put(name, entry);
     }
 
     protected void putId(V entry) throws DictionaryException {
-        if (entry.getId() == null) throw new DictionaryException("Ключ не может быть null (имя %s).", entry.getName());
+        if (entry.getId() == null){
+            throw new DictionaryException("Ключ не может быть null (имя %s).", entry.getName());
+        }
         String id = entry.getId().toUpperCase();
-        if (idMap.containsKey(id)) throw new DictionaryException("Повторяющийся ключ: %s.", id);
+        if (idMap.containsKey(id)) {
+            throw new DictionaryException("Повторяющийся ключ: %s.", id);
+        }
         idMap.put(id, entry);
     }
 
@@ -70,7 +78,9 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
         StringBuilder builder = new StringBuilder();
         builder.append("{");
         for (String key : idMap.keySet()) {
-            if (builder.length() != 1) builder.append(",");
+            if (builder.length() != 1) {
+                builder.append(",");
+            }
             builder.append(getById(key));
         }
         builder.append("}");

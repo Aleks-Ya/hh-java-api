@@ -1,6 +1,5 @@
 package ru.yaal.project.hhapi.search;
 
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
@@ -20,8 +19,10 @@ class Page implements ISearchParameter {
     }
 
     public void setPage(Integer page) throws SearchException {
-        if (page < MIN_PAGE) throw new SearchException(
-                format("Номер страницы с вакансиями не может быть меньше %d. Получен %d.", MIN_PAGE, page));
+        if (page < MIN_PAGE) {
+            throw new SearchException(
+                    format("Номер страницы с вакансиями не может быть меньше %d. Получен %d.", MIN_PAGE, page));
+        }
         this.page = page;
     }
 

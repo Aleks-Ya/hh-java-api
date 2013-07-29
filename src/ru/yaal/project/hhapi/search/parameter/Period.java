@@ -23,8 +23,10 @@ public class Period implements ISearchParameter {
     }
 
     public void setPeriod(Integer period) throws SearchException {
-        if (period < MIN_PERIOD || period > MAX_PERIOD) throw new SearchException(
-                format("Некорректный период. Ожидается %d-%d. Получено %d.", MIN_PERIOD, MAX_PERIOD, period));
+        if (period < MIN_PERIOD || period > MAX_PERIOD) {
+            throw new SearchException(
+                    format("Некорректный период. Ожидается %d-%d. Получено %d.", MIN_PERIOD, MAX_PERIOD, period));
+        }
         this.period = period;
     }
 

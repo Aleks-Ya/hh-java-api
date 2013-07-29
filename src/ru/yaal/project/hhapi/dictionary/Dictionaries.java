@@ -57,7 +57,9 @@ public class Dictionaries {
     }
 
     public static Dictionaries getInstance() {
-        if (dictionary == null) dictionary = new Dictionaries();
+        if (dictionary == null) {
+            dictionary = new Dictionaries();
+        }
         return dictionary;
     }
 

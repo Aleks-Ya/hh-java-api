@@ -85,7 +85,9 @@ public class Vacancy implements IDictionaryEntry {
     private boolean singleVacancyLoaded = false;
 
     public Salary getSalary() {
-        if (salary == null) setSalary(Salary.NULL_SALARY);
+        if (salary == null) {
+            setSalary(Salary.NULL_SALARY);
+        }
         assert (salary != null);
         return salary;
     }

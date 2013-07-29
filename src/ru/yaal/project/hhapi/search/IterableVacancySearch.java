@@ -16,9 +16,11 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
     }
 
     public IterableVacancySearch(int vacancyLimit) throws SearchException {
-        if (vacancyLimit < MIN_VACANCIES_LIMIT || vacancyLimit > MAX_VACANCIES_LIMIT) throw new SearchException(
-                "Количество вакансий может быть в пределах от %d до %d. Получено: %d.",
-                MIN_VACANCIES_LIMIT, MAX_VACANCIES_LIMIT, vacancyLimit);
+        if (vacancyLimit < MIN_VACANCIES_LIMIT || vacancyLimit > MAX_VACANCIES_LIMIT) {
+            throw new SearchException(
+                    "Количество вакансий может быть в пределах от %d до %d. Получено: %d.",
+                    MIN_VACANCIES_LIMIT, MAX_VACANCIES_LIMIT, vacancyLimit);
+        }
         this.vacancyLimit = vacancyLimit;
     }
 
@@ -44,10 +46,12 @@ public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancy
     private void verifySearchParameters(SearchParameterBox parameterBox) throws SearchException {
         Set<SearchParamNames> keys = parameterBox.getParameterMap().keySet();
         for (SearchParamNames name : keys) {
-            if (name == SearchParamNames.PAGE)
+            if (name == SearchParamNames.PAGE) {
                 throw new SearchException("В IterableVacancySearch нельзя задавать номер страницы.");
-            if (name == SearchParamNames.PER_PAGE)
+            }
+            if (name == SearchParamNames.PER_PAGE) {
                 throw new SearchException("В IterableVacancySearch нельзя задавать количество вакансий на страницу.");
+            }
         }
 
     }

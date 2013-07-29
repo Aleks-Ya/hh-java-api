@@ -25,7 +25,9 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
         } else {
             for (MetroLine line : toList()) {
                 IDictionary<MetroStation> stations = line.getStations();
-                if (stations.hasId(id)) return true;
+                if (stations.hasId(id)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -38,7 +40,9 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
         } else {
             for (MetroLine line : toList()) {
                 IDictionary<MetroStation> stations = line.getStations();
-                if (stations.hasName(name)) return true;
+                if (stations.hasName(name)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -52,7 +56,9 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
             } else {
                 for (MetroLine line : toList()) {
                     IDictionary<MetroStation> stations = line.getStations();
-                    if (stations.hasId(id)) return stations.getById(id);
+                    if (stations.hasId(id)) {
+                        return stations.getById(id);
+                    }
                 }
             }
         }
@@ -67,7 +73,9 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
             } else {
                 for (MetroLine line : toList()) {
                     IDictionary<MetroStation> stations = line.getStations();
-                    if (stations.hasName(name)) return stations.getByName(name);
+                    if (stations.hasName(name)) {
+                        return stations.getByName(name);
+                    }
                 }
             }
         }

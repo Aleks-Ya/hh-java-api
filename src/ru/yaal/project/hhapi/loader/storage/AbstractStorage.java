@@ -61,7 +61,9 @@ public abstract class AbstractStorage implements IStorage {
                 LineNumberReader reader = new LineNumberReader(new FileReader(file));
                 StringBuilder builder = new StringBuilder();
                 String s;
-                while ((s = reader.readLine()) != null) builder.append(s);
+                while ((s = reader.readLine()) != null) {
+                    builder.append(s);
+                }
                 reader.close();
                 return builder.toString().trim();
             }

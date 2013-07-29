@@ -1,6 +1,5 @@
 package ru.yaal.project.hhapi.search;
 
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
@@ -21,10 +20,11 @@ class PerPage implements ISearchParameter {
     }
 
     public void setPerPage(Integer perPage) throws SearchException {
-        if (perPage < MIN_PER_PAGE || perPage > MAX_PER_PAGE)
+        if (perPage < MIN_PER_PAGE || perPage > MAX_PER_PAGE) {
             throw new SearchException(
                     format("Некорректное количество найденных элементов на страницу. Ожидается %d-%d. Получено %d",
                             MIN_PER_PAGE, MAX_PER_PAGE, perPage));
+        }
         this.perPage = perPage;
     }
 

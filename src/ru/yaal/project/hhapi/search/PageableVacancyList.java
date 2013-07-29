@@ -26,9 +26,10 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
 
     public IterableVacancyList getVacanciesOnPage(int pageNumber) throws SearchException {
         try {
-            if (pageNumber < Page.MIN_PAGE || pageNumber > getPageAmount())
+            if (pageNumber < Page.MIN_PAGE || pageNumber > getPageAmount()){
                 throw new SearchException("Несуществующий номер страницы. Ожидается: %d-%d (включительно). Получено: %d.",
                         Page.MIN_PAGE, getPageAmount(), pageNumber);
+            }
             if (pagesCache.containsKey(pageNumber)) {
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             } else {
