@@ -53,4 +53,9 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
     public String toString() {
         return format("%s(%s)", getName(), getId());
     }
+
+    @Override
+    public int hashCode() {
+        return getId().hashCode();
+    }
 }

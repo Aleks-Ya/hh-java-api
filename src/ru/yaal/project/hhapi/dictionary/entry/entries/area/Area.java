@@ -33,17 +33,8 @@ public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     }
 
     @Override
-    public boolean equals(Object other) {
-        if (other instanceof Area) {
-            Area otherArea = (Area) other;
-            return (getId().equals(otherArea.getId()));
-        } else {
-            return false;
-        }
-    }
-
-    @Override
     public String getSearchParameterName() {
         return "Регион";
     }
+
 }
