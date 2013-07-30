@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 
@@ -43,7 +44,7 @@ public class DictionaryTest {
     @Test
     public void toStringAreaDictionary() {
         assertEquals("{Другие страны(1001),Россия(113),Украина(5),Казахстан(40),Азербайджан(9),Беларусь(16)}",
-                Dictionaries.getInstance().getAreas().toString());
+                Area.AREAS.toString());
     }
 
     @Test

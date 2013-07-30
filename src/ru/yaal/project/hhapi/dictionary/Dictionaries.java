@@ -3,7 +3,6 @@ package ru.yaal.project.hhapi.dictionary;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
@@ -14,15 +13,15 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchField
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.*;
+import ru.yaal.project.hhapi.parser.IParser;
+import ru.yaal.project.hhapi.parser.MetroParser;
+import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
+import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 public final class Dictionaries {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
     private static Dictionaries dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
-    private AreaDictionary areas;
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private MetroCityDictionary metroCities;
@@ -63,7 +62,6 @@ public final class Dictionaries {
     private Dictionaries() {
         LOG.debug("Создаю инстанс Dictionaries");
         loadSmallDictionaries();
-        loadAreas();
         loadMetro();
         loadProfessionalFields();
     }
@@ -73,18 +71,6 @@ public final class Dictionaries {
             dictionary = new Dictionaries();
         }
         return dictionary;
-    }
-
-    private void loadAreas() {
-        try {
-            LOG.info("Загружаю справочник районов.");
-            String content = loader.loadContent(UrlConstants.AREAS_URL);
-            IParser<AreaDictionary> parse = new AreasParser();
-            areas = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            areas = new AreaDictionary();
-        }
     }
 
     private void loadMetro() {

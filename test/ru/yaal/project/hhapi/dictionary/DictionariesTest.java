@@ -37,8 +37,7 @@ public class DictionariesTest {
 
     @Test
     public void testAreas() throws DictionaryException {
-        IDictionary<Area> dict = Dictionaries.getInstance().getAreas();
-        assertEquals(6, dict.size());
+        assertEquals(6, Area.AREAS.size());
     }
 
     @Test

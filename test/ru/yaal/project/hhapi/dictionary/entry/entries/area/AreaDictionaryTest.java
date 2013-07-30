@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.junit.Assert.*;
@@ -18,7 +17,7 @@ public class AreaDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        areas = Dictionaries.getInstance().getAreas();
+        areas = Area.AREAS;
     }
 
     @Test

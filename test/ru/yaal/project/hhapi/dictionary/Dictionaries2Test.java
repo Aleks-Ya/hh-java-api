@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
@@ -14,7 +15,7 @@ public class Dictionaries2Test {
 
     @Test
     public void areas() throws Exception {
-        AreaDictionary areas = dictionaries.getAreas();
+        AreaDictionary areas = Area.AREAS;
         assertEquals(SPB, areas.getByName(SPB).getName());
     }
 
