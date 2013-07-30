@@ -11,7 +11,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 @Data
 public class Salary implements ISearchParameter, INullable {
     public static final Salary NULL_SALARY = new Salary();
-    private static final Integer NULL_VALUE = -1;
+    private static final int NULL_VALUE = -1;
     private Integer from;
     private Integer to;
     @SuppressWarnings("PMD.UnusedPrivateField")
