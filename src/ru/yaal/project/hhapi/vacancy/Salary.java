@@ -31,6 +31,26 @@ public class Salary implements ISearchParameter, INullable {
         setCurrency(currency);
     }
 
+    /**
+     * Конвертирует зарплату, указанную в произвольной валюте, в рубли.
+     */
+    public static Salary toRur(Salary salary) {
+        Salary salaryRur = new Salary();
+        Currency currency = salary.getCurrency();
+
+        Integer from = salary.getFrom();
+        Integer fromRur = (from != null) ? new Double(from / currency.getRate()).intValue() : null;
+        salaryRur.setFrom(fromRur);
+
+        Integer to = salary.getTo();
+        Integer toRur = (to != null) ? new Double(to / currency.getRate()).intValue() : null;
+        salaryRur.setTo(toRur);
+
+        salaryRur.setCurrency(Currency.RUR);
+
+        return salaryRur;
+    }
+
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
         SearchParameterBox params = new SearchParameterBox();
@@ -43,12 +63,13 @@ public class Salary implements ISearchParameter, INullable {
                 throw new SearchException("Ни минимальная, ни максимальная зарплата не указана.");
             }
         }
+        params.setParameter(SearchParamNames.CURRENCY, getCurrency().getId());
         return params;
     }
 
     @Override
     public boolean isNull() {
-        return ((getTo() == null && getFrom() == null) || getTo() == NULL_VALUE || getFrom() == NULL_VALUE);
+        return ((getTo() == null && getFrom() == null) || NULL_VALUE.equals(getTo()) || NULL_VALUE.equals(getFrom()));
     }
 
     @Override
