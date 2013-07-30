@@ -27,9 +27,6 @@ public final class Dictionaries {
     private MetroCityDictionary metroCities;
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
-    private ProfessionalFieldDictionary professionalFields;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Currency> currency;
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
@@ -63,7 +60,6 @@ public final class Dictionaries {
         LOG.debug("Создаю инстанс Dictionaries");
         loadSmallDictionaries();
         loadMetro();
-        loadProfessionalFields();
     }
 
     public static Dictionaries getInstance() {
@@ -82,18 +78,6 @@ public final class Dictionaries {
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             metroCities = new MetroCityDictionary();
-        }
-    }
-
-    private void loadProfessionalFields() {
-        try {
-            LOG.info("Загружаю справочник профессиональных областей.");
-            String content = loader.loadContent(UrlConstants.SPECIALIZATIONS_URL);
-            IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
-            professionalFields = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            professionalFields = new ProfessionalFieldDictionary();
         }
     }
 

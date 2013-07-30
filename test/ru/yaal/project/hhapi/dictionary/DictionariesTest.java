@@ -42,8 +42,7 @@ public class DictionariesTest {
 
     @Test
     public void testProfessionalFields() throws DictionaryException {
-        IDictionary<ProfessionalField> dict = Dictionaries.getInstance().getProfessionalFields();
-        assertEquals(28, dict.size());
+        assertEquals(28, ProfessionalField.PROFESSIONAL_FIELDS.size());
     }
 
 }

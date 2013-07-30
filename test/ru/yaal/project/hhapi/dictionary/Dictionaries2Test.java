@@ -4,7 +4,7 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -28,7 +28,6 @@ public class Dictionaries2Test {
 
     @Test
     public void professionalFields() throws Exception {
-        ProfessionalFieldDictionary professionalFields = dictionaries.getProfessionalFields();
-        assertTrue(professionalFields.getById("1.221").getName().contains("Программирование"));
+        assertTrue(ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221").getName().contains("Программирование"));
     }
 }

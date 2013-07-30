@@ -1,8 +1,8 @@
 package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
 
@@ -13,8 +13,8 @@ public class ProfessionalFieldSearchTest {
 
     @Test
     public void test() throws DictionaryException, SearchException {
-        ISearchParameter programming = Dictionaries.getInstance().getProfessionalFields().getById("1.221");
-        ISearchParameter copywriter = Dictionaries.getInstance().getProfessionalFields().getById("3.119");
+        ISearchParameter programming = ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221");
+        ISearchParameter copywriter = ProfessionalField.PROFESSIONAL_FIELDS.getById("3.119");
         search.addParameter(programming).addParameter(copywriter);
         VacancyList searchResult = search.search();
         assertTrue(15000 < searchResult.getFound());
