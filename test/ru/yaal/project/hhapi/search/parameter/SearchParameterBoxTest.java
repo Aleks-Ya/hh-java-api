@@ -1,8 +1,8 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.PageableVacancyList;
 import ru.yaal.project.hhapi.search.PageableVacancySearch;

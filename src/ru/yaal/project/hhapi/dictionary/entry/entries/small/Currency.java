@@ -1,10 +1,9 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.currency;
+package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
@@ -12,7 +11,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 @ToString(callSuper = true)
 public class Currency extends AbstractDictionaryEntry {
     public static final Currency NULL_CURRENCY = new Currency();
-    public static final IDictionary<Currency> CURRENCIES = Dictionaries.getInstance().getCurrency();
+    public static final IDictionary<Currency> CURRENCIES = SmallDictionariesInitializer.getInstance().getCurrency();
     public static final Currency RUR = CURRENCIES.getById("RUR");
     public static final Currency USD = CURRENCIES.getById("USD");
     public static final Currency EUR = CURRENCIES.getById("EUR");

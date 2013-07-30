@@ -1,6 +1,6 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.simple;
+package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
+import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
@@ -9,11 +9,12 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 public class Employment extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Employment NULL_EMPLOYMENT = new Employment();
-    public static final Employment FULL = Dictionaries.getInstance().getEmployment().getById("full");
-    public static final Employment PART = Dictionaries.getInstance().getEmployment().getById("part");
-    public static final Employment PROJECT = Dictionaries.getInstance().getEmployment().getById("project");
-    public static final Employment VOLUNTEER = Dictionaries.getInstance().getEmployment().getById("volunteer");
-    public static final Employment PROBATION = Dictionaries.getInstance().getEmployment().getById("probation");
+    public static final IDictionary<Employment> EMPLOYMENTS = SmallDictionariesInitializer.getInstance().getEmployment();
+    public static final Employment FULL = EMPLOYMENTS.getById("full");
+    public static final Employment PART = EMPLOYMENTS.getById("part");
+    public static final Employment PROJECT = EMPLOYMENTS.getById("project");
+    public static final Employment VOLUNTEER = EMPLOYMENTS.getById("volunteer");
+    public static final Employment PROBATION = EMPLOYMENTS.getById("probation");
 
     Employment() {
     }

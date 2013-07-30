@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.IterableVacancyList;
 import ru.yaal.project.hhapi.search.IterableVacancySearch;

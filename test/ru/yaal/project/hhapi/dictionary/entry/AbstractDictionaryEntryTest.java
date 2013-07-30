@@ -4,8 +4,8 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Gender;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Gender;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
 
 import static org.junit.Assert.assertEquals;
 

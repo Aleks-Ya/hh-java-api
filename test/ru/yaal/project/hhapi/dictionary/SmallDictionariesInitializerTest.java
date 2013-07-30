@@ -2,9 +2,10 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.EducationLevel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.EducationLevel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,10 +15,10 @@ import static org.junit.Assert.assertNotNull;
  *
  * @author Aleks
  */
-public class DictionariesTest {
+public class SmallDictionariesInitializerTest {
     @Test
     public void testCurrency() throws DictionaryException {
-        IDictionary<Currency> dict = Dictionaries.getInstance().getCurrency();
+        IDictionary<Currency> dict = SmallDictionariesInitializer.getInstance().getCurrency();
         assertEquals(7, dict.size());
         Currency rur = dict.getById("RUR");
         assertEquals("Рубли", rur.getName());
@@ -28,7 +29,7 @@ public class DictionariesTest {
 
     @Test
     public void testEducationLevel() throws DictionaryException {
-        IDictionary<EducationLevel> dict = Dictionaries.getInstance().getEducationLevel();
+        IDictionary<EducationLevel> dict = SmallDictionariesInitializer.getInstance().getEducationLevel();
         assertEquals(8, dict.size());
         EducationLevel higher = dict.getById("higher");
         assertNotNull(higher);

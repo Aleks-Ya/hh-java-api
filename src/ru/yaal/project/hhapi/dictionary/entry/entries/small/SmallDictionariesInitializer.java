@@ -1,21 +1,20 @@
-package ru.yaal.project.hhapi.dictionary;
+package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.DictionariesContainer;
+import ru.yaal.project.hhapi.dictionary.Dictionary;
+import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
-public final class Dictionaries {
-    private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
-    private static Dictionaries dictionary;
+public final class SmallDictionariesInitializer {
+    private static final Logger LOG = LoggerFactory.getLogger(SmallDictionariesInitializer.class);
+    private static SmallDictionariesInitializer dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
@@ -48,14 +47,14 @@ public final class Dictionaries {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancyLabel> vacancyLabel;
 
-    private Dictionaries() {
-        LOG.debug("Создаю инстанс Dictionaries");
+    private SmallDictionariesInitializer() {
+        LOG.debug("Создаю инстанс SmallDictionariesInitializer");
         loadSmallDictionaries();
     }
 
-    public static Dictionaries getInstance() {
+    public static SmallDictionariesInitializer getInstance() {
         if (dictionary == null) {
-            dictionary = new Dictionaries();
+            dictionary = new SmallDictionariesInitializer();
         }
         return dictionary;
     }

@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.simple;
+package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.loader.LoadException;

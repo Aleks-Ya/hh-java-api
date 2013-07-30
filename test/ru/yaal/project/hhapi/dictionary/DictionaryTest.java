@@ -2,8 +2,9 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class DictionaryTest {
 
     @Test
     public void iterable() {
-        IDictionary<Currency> currencies = Dictionaries.getInstance().getCurrency();
+        IDictionary<Currency> currencies = SmallDictionariesInitializer.getInstance().getCurrency();
         List<Currency> actualCurrencies = new ArrayList<>(currencies.size());
         for (Currency currency : currencies) {
             actualCurrencies.add(currency);
@@ -38,7 +39,7 @@ public class DictionaryTest {
 
     @Test
     public void toStringDictionary() {
-        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", Dictionaries.getInstance().getGender().toString());
+        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", SmallDictionariesInitializer.getInstance().getGender().toString());
     }
 
     @Test

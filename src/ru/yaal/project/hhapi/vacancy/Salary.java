@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.INullable;
-import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;

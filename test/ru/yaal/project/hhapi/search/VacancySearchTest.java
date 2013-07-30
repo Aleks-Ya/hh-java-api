@@ -2,9 +2,9 @@ package ru.yaal.project.hhapi.search;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.simple.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Order;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
