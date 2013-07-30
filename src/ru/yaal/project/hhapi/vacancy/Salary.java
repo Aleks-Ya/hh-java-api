@@ -11,7 +11,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 @Data
 public class Salary implements ISearchParameter, INullable {
     public static final Salary NULL_SALARY = new Salary();
-    private static final Integer NULL_VALUE = -1;
+    private static final int NULL_VALUE = -1;
     private Integer from;
     private Integer to;
     @SuppressWarnings("PMD.UnusedPrivateField")
@@ -31,6 +31,26 @@ public class Salary implements ISearchParameter, INullable {
         setCurrency(currency);
     }
 
+    /**
+     * Конвертирует зарплату, указанную в произвольной валюте, в рубли.
+     */
+    public static Salary toRur(Salary salary) {
+        Salary salaryRur = new Salary();
+        Currency currency = salary.getCurrency();
+
+        Integer from = salary.getFrom();
+        Integer fromRur = (from != null) ? new Double(from / currency.getRate()).intValue() : null;
+        salaryRur.setFrom(fromRur);
+
+        Integer to = salary.getTo();
+        Integer toRur = (to != null) ? new Double(to / currency.getRate()).intValue() : null;
+        salaryRur.setTo(toRur);
+
+        salaryRur.setCurrency(Currency.RUR);
+
+        return salaryRur;
+    }
+
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
         SearchParameterBox params = new SearchParameterBox();
@@ -43,6 +63,7 @@ public class Salary implements ISearchParameter, INullable {
                 throw new SearchException("Ни минимальная, ни максимальная зарплата не указана.");
             }
         }
+        params.setParameter(SearchParamNames.CURRENCY, getCurrency().getId());
         return params;
     }
 
