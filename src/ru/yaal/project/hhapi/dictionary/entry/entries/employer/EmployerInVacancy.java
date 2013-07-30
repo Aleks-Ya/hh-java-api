@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
+
 import ru.yaal.project.hhapi.vacancy.LogoUrls;
 
 import java.net.URL;

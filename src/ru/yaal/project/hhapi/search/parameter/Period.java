@@ -4,7 +4,7 @@ import ru.yaal.project.hhapi.search.SearchException;
 
 import static java.lang.String.format;
 
-public class Period implements ISearchParameter {
+final public class Period implements ISearchParameter {
     public static final int MIN_PERIOD = 1;
     public static final int MAX_PERIOD = 30;
     private Integer period;

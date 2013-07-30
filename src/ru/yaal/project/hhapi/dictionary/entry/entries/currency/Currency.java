@@ -8,6 +8,7 @@ import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
+
 @ToString(callSuper = true)
 public class Currency extends AbstractDictionaryEntry {
     public static final Currency NULL_CURRENCY = new Currency();

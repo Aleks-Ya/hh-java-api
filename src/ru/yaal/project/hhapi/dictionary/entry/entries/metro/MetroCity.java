@@ -10,7 +10,6 @@ import java.net.URL;
 public class MetroCity extends AbstractDictionaryEntry {
     public static final MetroCity NULL_METRO_CITY = new MetroCity();
     public static final MetroCityDictionary CITIES = Dictionaries.getInstance().getMetroCities();
-
     @Getter
     @Setter
     @SuppressWarnings("PMD.UnusedPrivateField")

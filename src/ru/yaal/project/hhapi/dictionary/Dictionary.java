@@ -26,7 +26,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     /**
      * ”прощение дл€ put(entry.getId(), entry);
      */
-    public void addEntry(V entry) throws DictionaryException {
+    public final void addEntry(V entry) throws DictionaryException {
         putId(entry);
         putName(entry);
     }

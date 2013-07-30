@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 import static java.lang.String.format;
 
-class PerPage implements ISearchParameter {
+final class PerPage implements ISearchParameter {
     public static final int MIN_PER_PAGE = 1;
     public static final int MAX_PER_PAGE = 500;
     private Integer perPage;

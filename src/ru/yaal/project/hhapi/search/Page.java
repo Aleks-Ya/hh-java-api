@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 import static java.lang.String.format;
 
-class Page implements ISearchParameter {
+final class Page implements ISearchParameter {
     public static final int MIN_PAGE = 1;
     private Integer page;
 

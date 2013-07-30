@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 import java.net.URL;
 
 public class EmployerSingle extends EmployerInVacancy {

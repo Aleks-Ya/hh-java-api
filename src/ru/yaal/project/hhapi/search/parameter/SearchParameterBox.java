@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.search.SearchException;
 import java.util.*;
 
 @ToString(of = "params")
-public class SearchParameterBox {
+final public class SearchParameterBox {
     private final Map<SearchParamNames, List<String>> params = new HashMap<>();
 
     public SearchParameterBox() {

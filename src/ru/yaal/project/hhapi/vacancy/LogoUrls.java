@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.vacancy;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+
 import java.net.URL;
 
 @Data

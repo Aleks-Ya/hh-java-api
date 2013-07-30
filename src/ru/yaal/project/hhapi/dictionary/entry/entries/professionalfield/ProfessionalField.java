@@ -10,6 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
+
 public class ProfessionalField extends AbstractDictionaryEntry implements ISearchParameter {
     public static final ProfessionalField NULL_PROFESSIONAL_FIELD = new ProfessionalField();
     public static final ProfessionalFieldDictionary PROFESSIONAL_FIELDS = Dictionaries.getInstance().getProfessionalFields();

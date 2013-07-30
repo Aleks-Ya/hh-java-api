@@ -16,7 +16,7 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.*;
 
-public class Dictionaries {
+final public class Dictionaries {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
     private static Dictionaries dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();

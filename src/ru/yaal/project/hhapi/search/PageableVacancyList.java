@@ -42,7 +42,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
             }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
-            throw new SearchException(e);
+            throw new SearchException(e.getMessage(), e);
         }
     }
 

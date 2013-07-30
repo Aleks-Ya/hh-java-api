@@ -9,6 +9,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 
+
 import java.util.List;
 
 @Data

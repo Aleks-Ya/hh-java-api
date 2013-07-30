@@ -20,6 +20,7 @@ import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.ParseException;
 import ru.yaal.project.hhapi.parser.VacancyParser;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;

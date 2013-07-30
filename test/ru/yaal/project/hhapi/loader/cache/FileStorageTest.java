@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.loader.cache;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 
 import java.io.File;
 
@@ -15,7 +16,7 @@ public class FileStorageTest {
 
     @Before
     public void before() {
-        tempFile = new File(System.getProperty("java.io.tmpdir") + "test_hh_api_cache\\");
+        tempFile = new File(System.getProperty(ContentLoaderFactory.JAVA_IO_TMPDIR) + "test_hh_api_cache\\");
     }
 
     @Test
@@ -37,8 +38,8 @@ public class FileStorageTest {
         storage = new FileCache(tempFile, lifeTimeMin);
         storage.clear();
         ICache storage = new MemoryCache(lifeTimeMin);
-        String name = "http://danceja.com";
-        String content = "{Dancehall:'Vybz Kartel'}";
+        String name = "http://gangalee.net";
+        String content = "{Dancehall Tune:'Vybz Kartel'}";
         storage.save(name, content);
         Thread.sleep(100);
         String actualContent = storage.search(name);

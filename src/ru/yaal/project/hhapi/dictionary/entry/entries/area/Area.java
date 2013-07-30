@@ -10,6 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
+
 import java.net.URL;
 
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {

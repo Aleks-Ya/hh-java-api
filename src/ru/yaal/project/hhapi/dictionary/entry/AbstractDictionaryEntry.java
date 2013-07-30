@@ -9,13 +9,12 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
     private String name;
 
     public AbstractDictionaryEntry() {
-        setId(NULL_ID);
-        setName(NULL_NAME);
+        this(NULL_ID, NULL_NAME);
     }
 
     public AbstractDictionaryEntry(String id, String name) {
-        setId(id);
-        setName(name);
+        this.id = id;
+        this.name = name;
     }
 
     public String getId() {
