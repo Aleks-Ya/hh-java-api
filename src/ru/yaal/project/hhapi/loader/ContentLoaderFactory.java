@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.loader.cache.*;
 
 import java.io.File;
 
-public class ContentLoaderFactory {
+public final class ContentLoaderFactory {
     public static final String JAVA_IO_TMPDIR = "java.io.tmpdir";
     private static final Logger LOG = LoggerFactory.getLogger(ContentLoaderFactory.class);
     private static final ICache LONG_TERM_STORAGE;
@@ -41,7 +41,7 @@ public class ContentLoaderFactory {
     }
 
 
-    ContentLoaderFactory() {
+    private ContentLoaderFactory() {
     }
 
     public static IContentLoader newInstanceLongTermCache() {

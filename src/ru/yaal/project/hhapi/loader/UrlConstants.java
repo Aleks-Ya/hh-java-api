@@ -1,6 +1,6 @@
 package ru.yaal.project.hhapi.loader;
 
-final public class UrlConstants {
+public final class UrlConstants {
 
     public static final String BASE_API_URL = "https://api.hh.ru";
     public static final String ME_URL = BASE_API_URL + "/me";
@@ -14,6 +14,6 @@ final public class UrlConstants {
     public static final String METRO_IN_CITY_URL = BASE_API_URL + "/metro/%s";
     public static final String EMPLOYER_URL = BASE_API_URL + "/employers/%s";
 
-    UrlConstants() {
+    private UrlConstants() {
     }
 }

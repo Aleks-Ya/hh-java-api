@@ -26,7 +26,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
 
     public IterableVacancyList getVacanciesOnPage(int pageNumber) throws SearchException {
         try {
-            if (pageNumber < Page.MIN_PAGE || pageNumber > getPageAmount()){
+            if (pageNumber < Page.MIN_PAGE || pageNumber > getPageAmount()) {
                 throw new SearchException("Несуществующий номер страницы. Ожидается: %d-%d (включительно). Получено: %d.",
                         Page.MIN_PAGE, getPageAmount(), pageNumber);
             }
@@ -60,29 +60,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
 
     @Override
     public Iterator<IterableVacancyList> iterator() {
-        return new Iterator<IterableVacancyList>() {
-            private int cursor = 0;
-
-            @Override
-            public boolean hasNext() {
-                return cursor < getPageAmount();
-            }
-
-            @Override
-            public IterableVacancyList next() {
-                try {
-                    return getVacanciesOnPage(++cursor);
-                } catch (SearchException e) {
-                    LOG.error(e.getMessage(), e);
-                    throw new NoSuchElementException(e.getMessage());
-                }
-            }
-
-            @Override
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
+        return new VacancyListIterator();
     }
 
     public IterableVacancyList toList() throws SearchException {
@@ -101,6 +79,30 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new SearchException(e);
+        }
+    }
+
+    class VacancyListIterator implements Iterator<IterableVacancyList> {
+        private int cursor = 0;
+
+        @Override
+        public boolean hasNext() {
+            return cursor < getPageAmount();
+        }
+
+        @Override
+        public IterableVacancyList next() {
+            try {
+                return getVacanciesOnPage(++cursor);
+            } catch (SearchException e) {
+                LOG.error(e.getMessage(), e);
+                throw new NoSuchElementException(e.getMessage());
+            }
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
         }
     }
 }

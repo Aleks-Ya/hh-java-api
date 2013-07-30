@@ -5,7 +5,7 @@ import lombok.Setter;
 import ru.yaal.project.hhapi.dictionary.INullable;
 
 
-final public class Address implements INullable {
+public final class Address implements INullable {
     public static final Address NULL_ADDRESS = new Address();
     private static final String NULL_CITY = "NullCity";
     @Getter

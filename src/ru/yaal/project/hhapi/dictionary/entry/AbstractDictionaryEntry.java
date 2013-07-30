@@ -43,7 +43,7 @@ public abstract class AbstractDictionaryEntry implements IDictionaryEntry {
 
     @Override
     public boolean equals(Object otherObj) {
-        if (otherObj == null || !(otherObj instanceof AbstractDictionaryEntry)) {
+        if (!(otherObj instanceof AbstractDictionaryEntry)) {
             return false;
         }
         AbstractDictionaryEntry other = (AbstractDictionaryEntry) otherObj;

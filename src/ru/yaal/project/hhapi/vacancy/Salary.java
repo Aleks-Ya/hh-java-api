@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
 
 @Data
-final public class Salary implements ISearchParameter, INullable {
+public final class Salary implements ISearchParameter, INullable {
     public static final Salary NULL_SALARY = new Salary();
     private static final Integer NULL_VALUE = -1;
     private Integer from;
