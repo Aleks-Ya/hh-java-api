@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.parser;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
@@ -15,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class MetroParserTest {
     @Test
     public void testParse() throws Exception {
-        MetroCityDictionary metroCityDictionary = Dictionaries.getInstance().getMetroCities();
+        MetroCityDictionary metroCityDictionary = MetroCity.CITIES;
         final int metroCityCount = 12;
         assertEquals(metroCityCount, metroCityDictionary.size());
         MetroCity spb = metroCityDictionary.getById("2");

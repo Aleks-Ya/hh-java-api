@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.Dictionaries;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.junit.Assert.assertFalse;
@@ -19,7 +18,7 @@ public class MetroCityDictionaryTest {
 
     @Before
     public void before() throws DictionaryException {
-        metroCityDictionary = Dictionaries.getInstance().getMetroCities();
+        metroCityDictionary = MetroCity.CITIES;
     }
 
     @Test

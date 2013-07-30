@@ -5,26 +5,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.simple.*;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.Order;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancySearchFields;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.MetroParser;
-import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
 import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 public final class Dictionaries {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionaries.class);
     private static Dictionaries dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
-    private MetroCityDictionary metroCities;
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Currency> currency;
@@ -59,7 +51,6 @@ public final class Dictionaries {
     private Dictionaries() {
         LOG.debug("Создаю инстанс Dictionaries");
         loadSmallDictionaries();
-        loadMetro();
     }
 
     public static Dictionaries getInstance() {
@@ -67,18 +58,6 @@ public final class Dictionaries {
             dictionary = new Dictionaries();
         }
         return dictionary;
-    }
-
-    private void loadMetro() {
-        try {
-            LOG.info("Загружаю справочник метро.");
-            String content = loader.loadContent(UrlConstants.METRO_URL);
-            IParser<MetroCityDictionary> parse = new MetroParser();
-            metroCities = parse.parse(content);
-        } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
-            metroCities = new MetroCityDictionary();
-        }
     }
 
     private void loadSmallDictionaries() {
