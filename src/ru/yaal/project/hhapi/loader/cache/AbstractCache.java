@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,16 +9,18 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.Date;
 
-public abstract class AbstractStorage implements IStorage {
-    protected static final String DATA_FOUND_MESSAGE = "Данные для url={} в кэше найдены. Размер: {}.";
-    protected static final String DATA_FOUND_BUT_EMPTY_MESSAGE = "Данные для url={} в кэше найдены, но они пустые.";
-    protected static final String DATA_FOUND_BUT_OUTDATED_MESSAGE = "Данные для url={} в кэше найдены, но они устарели. Удаляю.";
-    protected static final String DATA_NOT_FOUND_MESSAGE = "Данные для url={} кэше не найдены.";
-    protected static final String SAVE_DATA_MESSAGE = "Сохраняю в кэш данные для url={} (длина контента {}).";
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractStorage.class);
+public abstract class AbstractCache implements ICache {
+    protected static final String DATA_FOUND_MESSAGE = "Данные для url={} в кэше '{}' найдены. Размер: {}.";
+    protected static final String DATA_FOUND_BUT_EMPTY_MESSAGE = "Данные для url={} в кэше '{}' найдены, но они пустые.";
+    protected static final String DATA_FOUND_BUT_OUTDATED_MESSAGE = "Данные для url={} в кэше '{}' найдены, но они устарели. Удаляю.";
+    protected static final String DATA_NOT_FOUND_MESSAGE = "Данные для url={} кэше '{}' не найдены.";
+    protected static final String SAVE_DATA_MESSAGE = "Сохраняю в кэш '{}' данные для url={} (длина контента {}).";
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractCache.class);
     private long lifeTimeMilliSec;
+    private String cacheName;
 
-    public AbstractStorage(int lifeTimeMin) {
+    public AbstractCache(String cacheName, int lifeTimeMin) {
+        this.cacheName = cacheName;
         this.lifeTimeMilliSec = lifeTimeMin * 60 * 1000;
         assert (lifeTimeMilliSec >= 0);
     }
@@ -37,20 +39,20 @@ public abstract class AbstractStorage implements IStorage {
     protected String verifyContent(String name, String content, long lastModified) {
         if (content != null) {
             if (!isOutdated(lastModified, lifeTimeMilliSec)) {
-                LOG.info(DATA_FOUND_MESSAGE, name, content.length());
+                LOG.info(DATA_FOUND_MESSAGE, name, getCacheName(), content.length());
                 if (!content.isEmpty()) {
                     return content;
                 } else {
-                    LOG.info(DATA_FOUND_BUT_EMPTY_MESSAGE, name);
+                    LOG.info(DATA_FOUND_BUT_EMPTY_MESSAGE, name, getCacheName());
                     return null;
                 }
             } else {
-                LOG.info(DATA_FOUND_BUT_OUTDATED_MESSAGE, name);
+                LOG.info(DATA_FOUND_BUT_OUTDATED_MESSAGE, name, getCacheName());
                 delete(name);
                 return null;
             }
         } else {
-            LOG.info(DATA_NOT_FOUND_MESSAGE, name);
+            LOG.info(DATA_NOT_FOUND_MESSAGE, name, getCacheName());
             return null;
         }
     }
@@ -71,5 +73,10 @@ public abstract class AbstractStorage implements IStorage {
             LOG.error(e.getMessage(), e);
         }
         return null;
+    }
+
+    @Override
+    public String getCacheName() {
+        return cacheName;
     }
 }

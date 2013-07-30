@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class FileStorageTest {
-    private IStorage storage;
+    private ICache storage;
     private File tempFile;
 
     @Before
@@ -21,7 +21,7 @@ public class FileStorageTest {
     @Test
     public void testSave() throws Exception {
         int lifeTime = 10000;
-        storage = new FileStorage(tempFile, lifeTime);
+        storage = new FileCache(tempFile, lifeTime);
         storage.clear();
         final String name = "http://ready.com/now?fuck=true";
         assertNull(storage.search(name));
@@ -34,9 +34,9 @@ public class FileStorageTest {
     @Test
     public void outdated() throws Exception {
         int lifeTimeMin = 0;
-        storage = new FileStorage(tempFile, lifeTimeMin);
+        storage = new FileCache(tempFile, lifeTimeMin);
         storage.clear();
-        IStorage storage = new MemoryStorage(lifeTimeMin);
+        ICache storage = new MemoryCache(lifeTimeMin);
         String name = "http://danceja.com";
         String content = "{Dancehall:'Vybz Kartel'}";
         storage.save(name, content);

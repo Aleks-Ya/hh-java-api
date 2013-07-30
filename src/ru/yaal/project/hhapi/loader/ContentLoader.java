@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.loader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.loader.storage.IStorage;
+import ru.yaal.project.hhapi.loader.cache.ICache;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,9 +20,9 @@ class ContentLoader implements IContentLoader {
     private static final Logger LOG = LoggerFactory.getLogger(ContentLoader.class);
     private final Map<String, String> headers = new HashMap<>();
     private final Map<String, List<String>> params = new HashMap<>();
-    private final IStorage storage;
+    private final ICache storage;
 
-    ContentLoader(IStorage storage) {
+    ContentLoader(ICache storage) {
         this.storage = storage;
     }
 

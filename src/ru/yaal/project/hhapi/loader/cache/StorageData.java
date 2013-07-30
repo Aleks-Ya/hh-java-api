@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import java.util.Date;
 

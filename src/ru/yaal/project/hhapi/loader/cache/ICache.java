@@ -1,6 +1,6 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
-public interface IStorage {
+public interface ICache {
     String search(String name);
 
     void save(String name, String content);
@@ -8,4 +8,6 @@ public interface IStorage {
     void delete(String name);
 
     void clear();
+
+    String getCacheName();
 }

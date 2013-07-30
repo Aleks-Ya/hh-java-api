@@ -1,18 +1,25 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import static java.lang.String.format;
 
-public class FileStorage extends AbstractStorage {
-    private static final Logger LOG = LoggerFactory.getLogger(FileStorage.class);
+public class FileCache extends AbstractCache {
+    private static final Logger LOG = LoggerFactory.getLogger(FileCache.class);
+    private static final String DEFAULT_NAME = "File Storage";
     private final File dir;
 
-    public FileStorage(File dir, int lifeTimeMin) {
-        super(lifeTimeMin);
+    public FileCache(File dir, int lifeTimeMin) {
+        this(DEFAULT_NAME, dir, lifeTimeMin);
+    }
+
+    public FileCache(String name, File dir, int lifeTimeMin) {
+        super(name, lifeTimeMin);
         this.dir = dir;
         if (!dir.exists()) {
             dir.mkdirs();

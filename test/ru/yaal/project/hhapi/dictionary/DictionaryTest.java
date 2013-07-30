@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.currency.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 
 import java.util.ArrayList;
@@ -45,18 +44,6 @@ public class DictionaryTest {
     public void toStringAreaDictionary() {
         assertEquals("{Другие страны(1001),Россия(113),Украина(5),Казахстан(40),Азербайджан(9),Беларусь(16)}",
                 Dictionaries.getInstance().getAreas().toString());
-    }
-
-    @Test
-    public void toStringMetroDictionary() {
-        assertEquals("{Екатеринбург(3),Нижний Новгород(66),Санкт-Петербург(2),Днепропетровск(117),Харьков(135)," +
-                "Самара(78),Москва(1),Минск(1002),Киев(115),Алматы(160),Новосибирск(4),Казань(88)}",
-                Dictionaries.getInstance().getMetroCities().toString());
-        MetroLine line = MetroLine.MOSCOW.getByName("Кольцевая");
-        assertEquals("{Краснопресненская(5.58),Киевская(5.49),Курская(5.71),Павелецкая(5.102),Октябрьская(5.93)," +
-                "Добрынинская(5.36),Парк культуры(5.104),Комсомольская(5.55),Новослободская(5.82),Таганская(5.76)," +
-                "Проспект Мира(5.119),Белорусская(5.20)}",
-                line.getStations().toString());
     }
 
     @Test

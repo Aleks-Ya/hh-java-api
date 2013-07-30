@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,12 +6,17 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemoryStorage extends AbstractStorage {
-    private static final Logger LOG = LoggerFactory.getLogger(MemoryStorage.class);
+public class MemoryCache extends AbstractCache {
+    private static final Logger LOG = LoggerFactory.getLogger(MemoryCache.class);
+    private static final String DEFAULT_NAME = "Memory Cache";
     private Map<String, StorageData> memoryCache = new HashMap<>();
 
-    public MemoryStorage(int lifeTimeMin) {
-        super(lifeTimeMin);
+    public MemoryCache(int lifeTimeMin) {
+        this(DEFAULT_NAME, lifeTimeMin);
+    }
+
+    public MemoryCache(String name, int lifeTimeMin) {
+        super(name, lifeTimeMin);
     }
 
     @Override
@@ -27,7 +32,7 @@ public class MemoryStorage extends AbstractStorage {
 
     @Override
     public void save(String name, String content) {
-        LOG.info(SAVE_DATA_MESSAGE, name, content.length());
+        LOG.info(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
         String nameHash = generateHashFileName(name);
         memoryCache.put(nameHash, new StorageData(content));
     }

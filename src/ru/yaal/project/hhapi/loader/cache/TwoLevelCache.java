@@ -1,10 +1,10 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
-public class TwoLevelStorage implements IStorage {
-    private IStorage fastStorage;
-    private IStorage slowStorage;
+public class TwoLevelCache implements ICache {
+    private ICache fastStorage;
+    private ICache slowStorage;
 
-    public TwoLevelStorage(IStorage fastStorage, IStorage slowStorage) {
+    public TwoLevelCache(ICache fastStorage, ICache slowStorage) {
         this.fastStorage = fastStorage;
         this.slowStorage = slowStorage;
     }
@@ -37,5 +37,10 @@ public class TwoLevelStorage implements IStorage {
     public void clear() {
         fastStorage.clear();
         slowStorage.clear();
+    }
+
+    @Override
+    public String getCacheName() {
+        return "Two Level Cache";
     }
 }

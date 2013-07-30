@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ public class MemoryStorageTest {
     @Test
     public void testSave() throws Exception {
         int lifeTimeMin = 10;
-        IStorage storage = new MemoryStorage(lifeTimeMin);
+        ICache storage = new MemoryCache(lifeTimeMin);
         String name = "http://nasa.com?curiosity=good";
 
         assertNull(storage.search(name));
@@ -30,7 +30,7 @@ public class MemoryStorageTest {
     @Test
     public void outdated() throws Exception {
         int lifeTimeMin = 0;
-        IStorage storage = new MemoryStorage(lifeTimeMin);
+        ICache storage = new MemoryCache(lifeTimeMin);
         String name = "http://danceja.com";
         String content = "{Dancehall:'Vybz Kartel'}";
         storage.save(name, content);

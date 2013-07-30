@@ -1,14 +1,14 @@
-package ru.yaal.project.hhapi.loader.storage;
+package ru.yaal.project.hhapi.loader.cache;
 
 import java.io.File;
 import java.net.URL;
 
-public class ClassResourceStorage extends AbstractStorage {
-    private IStorage fileStorage;
+public class ClassResourceCache extends AbstractCache {
+    private ICache fileStorage;
 
-    public ClassResourceStorage(File tempDir) {
-        super(1000);
-        fileStorage = new FileStorage(tempDir, 1000);
+    public ClassResourceCache(File tempDir) {
+        super("Test Cache", 1000);
+        fileStorage = new FileCache("Test Cache", tempDir, 1000);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ClassResourceStorage extends AbstractStorage {
 
     private String searchInResource(String name) {
         String hashName = generateHashFileName(name);
-        URL resourceUrl = ClassResourceStorage.class.getResource(hashName);
+        URL resourceUrl = ClassResourceCache.class.getResource(hashName);
         if (resourceUrl != null) {
             File resource = new File(resourceUrl.getFile());
             return loadFromFile(resource);
