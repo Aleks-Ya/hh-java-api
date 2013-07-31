@@ -47,6 +47,24 @@ public final class SmallDictionariesInitializer {
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<BusinessTripReadiness> businessTripReadiness;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<LanguageLevel> languageLevel;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<PreferredContactType> preferredContactType;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<RelocationType> relocationType;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<ResumeAccessType> resumeAccessType;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<ResumeContactsSiteType> resumeContactsSiteType;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<TravelTime> travelTime;
 
     private SmallDictionariesInitializer() {
         LOG.debug("Создаю инстанс SmallDictionariesInitializer");
@@ -77,6 +95,12 @@ public final class SmallDictionariesInitializer {
             employerType = new Dictionary<>(smallDictionaries.getEmployerType(), EmployerType.NULL_EMPLOYER_TYPE);
             vacancyLabel = new Dictionary<>(smallDictionaries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
             businessTripReadiness = new Dictionary<>(smallDictionaries.getBusinessTripReadiness(), BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
+            languageLevel = new Dictionary<>(smallDictionaries.getLanguageLevel(), LanguageLevel.NULL_LANGUAGE_LEVEL);
+            preferredContactType = new Dictionary<>(smallDictionaries.getPreferredContactType(), PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);
+            relocationType = new Dictionary<>(smallDictionaries.getRelocationType(), RelocationType.NULL_RELOCATION_TYPE);
+            resumeAccessType = new Dictionary<>(smallDictionaries.getResumeAccessType(), ResumeAccessType.NULL_RESUME_ACCESS_TYPE);
+            resumeContactsSiteType = new Dictionary<>(smallDictionaries.getResumeContactsSiteType(), ResumeContactsSiteType.NULL_RESUME_CONTACTS_SITE_TYPE);
+            travelTime = new Dictionary<>(smallDictionaries.getTravelTime(), TravelTime.NULL_TRAVEL_TIME);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }

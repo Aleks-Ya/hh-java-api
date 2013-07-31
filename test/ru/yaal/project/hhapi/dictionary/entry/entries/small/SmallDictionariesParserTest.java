@@ -53,7 +53,7 @@ public class SmallDictionariesParserTest {
                 + ""
                 + "\"education_level\": ["
                 + "{\"id\": \"higher\", \"name\": \"Высшее\"}, "
-                + "{\"id\": \"bachelor\", \"name\": \"Бакалавр\"}, "
+                + "{\"id\": \"BACHELOR\", \"name\": \"Бакалавр\"}, "
                 + "{\"id\": \"master\", \"name\": \"Магистр\"}, "
                 + "{\"id\": \"candidate\", \"name\": \"Кандидат наук\"}, "
                 + "{\"id\": \"doctor\", \"name\": \"Доктор наук\"}, "
