@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.search.parameter;
+package ru.yaal.project.hhapi.search;
 
 public enum SearchParamNames {
     TEXT("text"),

@@ -5,9 +5,9 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
-import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
-import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
+import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 import java.util.List;
 import java.util.Map;

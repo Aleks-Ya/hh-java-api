@@ -4,6 +4,8 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.SearchParameterBox;
 import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
 import ru.yaal.project.hhapi.vacancy.PageableVacancySearch;
 import ru.yaal.project.hhapi.search.SearchException;

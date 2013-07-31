@@ -1,6 +1,9 @@
 package ru.yaal.project.hhapi.search.parameter;
 
+import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
+import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 public class OnlyWithSalary implements ISearchParameter {
     public static final OnlyWithSalary ON = new OnlyWithSalary(true);

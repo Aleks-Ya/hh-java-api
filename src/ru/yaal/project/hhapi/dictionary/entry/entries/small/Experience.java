@@ -3,9 +3,9 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
-import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
-import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
+import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 /**
  * Опыт работы (вакансия).

@@ -4,8 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
-import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
+import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 import java.util.*;
 

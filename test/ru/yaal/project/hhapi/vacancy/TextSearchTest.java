@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.vacancy;
 import org.junit.Test;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
+import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.Text;
 
 import static org.junit.Assert.assertNotNull;

@@ -16,7 +16,7 @@ import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
+import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Period;
 import ru.yaal.project.hhapi.search.parameter.Text;
