@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.vacancy;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.INullable;
+import ru.yaal.project.hhapi.dictionary.entry.INullable;
 
 @Data
 public class Metro implements INullable {

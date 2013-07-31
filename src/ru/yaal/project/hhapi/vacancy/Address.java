@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.yaal.project.hhapi.dictionary.INullable;
+import ru.yaal.project.hhapi.dictionary.entry.INullable;
 
 
 public final class Address implements INullable {
