@@ -5,7 +5,6 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.EmployerParser;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.ParseException;
 import ru.yaal.project.hhapi.vacancy.LogoUrls;

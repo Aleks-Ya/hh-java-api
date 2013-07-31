@@ -7,7 +7,6 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.MetroParser;
 
 final class MetroInitializer {
     private static final Logger LOG = LoggerFactory.getLogger(MetroInitializer.class);

@@ -1,9 +1,9 @@
-package ru.yaal.project.hhapi.parser;
+package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
+import ru.yaal.project.hhapi.parser.IParser;
 
 import static org.junit.Assert.assertTrue;
 

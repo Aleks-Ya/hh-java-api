@@ -10,7 +10,6 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.ProfessionalFieldsParser;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
@@ -26,16 +25,6 @@ public class ProfessionalField extends AbstractDictionaryEntry implements ISearc
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Specialization> specializations;
 
-    @Override
-    public SearchParameterBox getSearchParameters() throws SearchException {
-        return new SearchParameterBox(SearchParamNames.PROFESSIONAL_FIELD, getId());
-    }
-
-    @Override
-    public String getSearchParameterName() {
-        return "Профессиональная область";
-    }
-
     private static ProfessionalFieldDictionary loadProfessionalFields() {
         ProfessionalFieldDictionary professionalFields;
         try {
@@ -48,6 +37,16 @@ public class ProfessionalField extends AbstractDictionaryEntry implements ISearc
             LOG.error(e.getMessage(), e);
             professionalFields = new ProfessionalFieldDictionary();
         }
-         return professionalFields;
+        return professionalFields;
+    }
+
+    @Override
+    public SearchParameterBox getSearchParameters() throws SearchException {
+        return new SearchParameterBox(SearchParamNames.PROFESSIONAL_FIELD, getId());
+    }
+
+    @Override
+    public String getSearchParameterName() {
+        return "Профессиональная область";
     }
 }

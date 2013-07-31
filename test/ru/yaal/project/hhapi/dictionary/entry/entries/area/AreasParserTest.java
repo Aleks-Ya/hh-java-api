@@ -1,11 +1,10 @@
-package ru.yaal.project.hhapi.parser;
+package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
+import ru.yaal.project.hhapi.parser.IParser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

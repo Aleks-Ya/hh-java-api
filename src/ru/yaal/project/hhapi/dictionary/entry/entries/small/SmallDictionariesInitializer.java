@@ -9,7 +9,6 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.SmallDictionariesParser;
 
 public final class SmallDictionariesInitializer {
     private static final Logger LOG = LoggerFactory.getLogger(SmallDictionariesInitializer.class);

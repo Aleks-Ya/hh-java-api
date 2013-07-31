@@ -9,7 +9,6 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
-import ru.yaal.project.hhapi.parser.AreasParser;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
