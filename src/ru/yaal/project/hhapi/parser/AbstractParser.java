@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCityDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
-import ru.yaal.project.hhapi.parser.deserializer.*;
 import ru.yaal.project.hhapi.vacancy.Salary;
 
 import java.util.Date;

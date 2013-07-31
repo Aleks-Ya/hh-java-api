@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.parser.deserializer;
+package ru.yaal.project.hhapi.parser;
 
 import com.google.gson.*;
 import org.slf4j.Logger;
