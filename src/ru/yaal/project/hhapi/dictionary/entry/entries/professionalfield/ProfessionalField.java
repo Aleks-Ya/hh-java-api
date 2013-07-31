@@ -10,12 +10,15 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
-
+/**
+ * Профессиональная область.
+ * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("ИЛИ").
+ */
 public class ProfessionalField extends AbstractDictionaryEntry implements ISearchParameter {
     private static final Logger LOG = LoggerFactory.getLogger(ProfessionalField.class);
     public static final ProfessionalField NULL_PROFESSIONAL_FIELD = new ProfessionalField();

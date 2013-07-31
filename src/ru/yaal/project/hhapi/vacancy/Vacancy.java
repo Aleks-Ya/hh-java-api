@@ -7,7 +7,7 @@ import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerInVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerSingle;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
+import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
@@ -88,7 +88,7 @@ public class Vacancy implements IDictionaryEntry {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
     @Setter
-    private List<ProfessionalFieldsForVacancy> professionalFields = new ArrayList<>(0);
+    private List<ProfessionalField> professionalFields = new ArrayList<>(0);
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
     private IParser<Vacancy> parser = new VacancyParser();
     private boolean singleVacancyLoaded = false;
@@ -131,7 +131,7 @@ public class Vacancy implements IDictionaryEntry {
         return archived;
     }
 
-    public List<ProfessionalFieldsForVacancy> getProfessionalFields() throws LoadException, ParseException {
+    public List<ProfessionalField> getProfessionalFields() throws LoadException, ParseException {
         loadSingleVacancy();
         return professionalFields;
     }
