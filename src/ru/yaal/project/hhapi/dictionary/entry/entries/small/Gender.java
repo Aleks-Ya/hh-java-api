@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Ïמכ (נוח‏לו).
  */
-public class Gender extends AbstractDictionaryEntry {
+public final class Gender extends AbstractDictionaryEntry {
     public static final Gender NULL_GENDER = new Gender();
     public static final IDictionary<Gender> GENDERS = SmallDictionariesInitializer.getInstance().getGender();
     /**

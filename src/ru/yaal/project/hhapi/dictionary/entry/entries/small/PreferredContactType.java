@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Желаемый способ связи (резюме).
  */
-public class PreferredContactType extends AbstractDictionaryEntry {
+public final class PreferredContactType extends AbstractDictionaryEntry {
     public static final PreferredContactType NULL_PREFERRED_CONTACT_TYPE = new PreferredContactType();
     public static final IDictionary<PreferredContactType> PREFERRED_CONTACT_TYPES = SmallDictionariesInitializer.getInstance().getPreferredContactType();
     /**

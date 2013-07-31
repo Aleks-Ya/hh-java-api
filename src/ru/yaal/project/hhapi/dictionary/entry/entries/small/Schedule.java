@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 /**
  * График работы.
  */
-public class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
+public final class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Schedule NULL_SCHEDULE = new Schedule();
     public static final IDictionary<Schedule> SCHEDULES = SmallDictionariesInitializer.getInstance().getSchedule();
     /**

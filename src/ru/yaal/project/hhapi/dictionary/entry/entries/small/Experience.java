@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 /**
  * Опыт работы (вакансия).
  */
-public class Experience extends AbstractDictionaryEntry implements ISearchParameter {
+public final class Experience extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Experience NULL_EXPERIENCE = new Experience();
     public static final IDictionary<Experience> EXPERIENCES = SmallDictionariesInitializer.getInstance().getExperience();
     /**

@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Тип сайта в поле «контакты» (резюме).
  */
-public class ResumeContactsSiteType extends AbstractDictionaryEntry {
+public final class ResumeContactsSiteType extends AbstractDictionaryEntry {
     public static final ResumeContactsSiteType NULL_RESUME_CONTACTS_SITE_TYPE = new ResumeContactsSiteType();
     public static final IDictionary<ResumeContactsSiteType> RESUME_CONTACTS_SITE_TYPES
             = SmallDictionariesInitializer.getInstance().getResumeContactsSiteType();

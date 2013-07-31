@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 /**
  * Сортировка списка вакансий.
  */
-public class Order extends AbstractDictionaryEntry implements ISearchParameter {
+public final class Order extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Order NULL_ORDER = new Order();
     public static final IDictionary<Order> ORDERS = SmallDictionariesInitializer.getInstance().getOrder();
     /**

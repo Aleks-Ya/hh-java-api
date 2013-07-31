@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 /**
  * Метки вакансии.
  */
-public class VacancyLabel extends AbstractDictionaryEntry implements ISearchParameter {
+public final class VacancyLabel extends AbstractDictionaryEntry implements ISearchParameter {
     public static final VacancyLabel NULL_VACANCY_LABEL = new VacancyLabel();
     public static final IDictionary<VacancyLabel> VACANCY_LABELS = SmallDictionariesInitializer.getInstance().getVacancyLabel();
     public static final VacancyLabel WITH_ADDRESS = VACANCY_LABELS.getById("with_address");

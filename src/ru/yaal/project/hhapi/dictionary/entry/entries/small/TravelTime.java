@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Время в пути (резюме).
  */
-public class TravelTime extends AbstractDictionaryEntry {
+public final class TravelTime extends AbstractDictionaryEntry {
     public static final TravelTime NULL_TRAVEL_TIME = new TravelTime();
     public static final IDictionary<TravelTime> TRAVEL_TIMES = SmallDictionariesInitializer.getInstance().getTravelTime();
     /**

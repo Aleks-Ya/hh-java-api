@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * язык сайта.
  */
-public class SiteLang extends AbstractDictionaryEntry {
+public final class SiteLang extends AbstractDictionaryEntry {
     public static final SiteLang NULL_SITE_LANG = new SiteLang();
     public static final IDictionary<SiteLang> SITE_LANGS = SmallDictionariesInitializer.getInstance().getSiteLang();
     /**

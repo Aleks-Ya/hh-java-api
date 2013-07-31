@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Уровень доступа к резюме (резюме).
  */
-public class ResumeAccessType extends AbstractDictionaryEntry {
+public final class ResumeAccessType extends AbstractDictionaryEntry {
     public static final ResumeAccessType NULL_RESUME_ACCESS_TYPE = new ResumeAccessType();
     public static final IDictionary<ResumeAccessType> RESUME_ACCESS_TYPES = SmallDictionariesInitializer.getInstance().getResumeAccessType();
     /**

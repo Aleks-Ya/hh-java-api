@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Образование (резюме).
  */
-public class EducationLevel extends AbstractDictionaryEntry {
+public final class EducationLevel extends AbstractDictionaryEntry {
     public static final EducationLevel NULL_EDUCATION_LEVEL = new EducationLevel();
     public static final IDictionary<EducationLevel> EDUCATION_LEVELS = SmallDictionariesInitializer.getInstance().getEducationLevel();
     /**

@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Готовность к переезду (резюме).
  */
-public class RelocationType extends AbstractDictionaryEntry {
+public final class RelocationType extends AbstractDictionaryEntry {
     public static final RelocationType NULL_RELOCATION_TYPE = new RelocationType();
     public static final IDictionary<RelocationType> RELOCATION_TYPES = SmallDictionariesInitializer.getInstance().getRelocationType();
     /**

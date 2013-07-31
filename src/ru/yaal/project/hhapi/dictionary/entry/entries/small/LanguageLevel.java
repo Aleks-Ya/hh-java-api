@@ -6,7 +6,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Уровень владения языком (резюме).
  */
-public class LanguageLevel extends AbstractDictionaryEntry {
+public final class LanguageLevel extends AbstractDictionaryEntry {
     public static final LanguageLevel NULL_LANGUAGE_LEVEL = new LanguageLevel();
     public static final IDictionary<LanguageLevel> LANGUAGE_LEVELS = SmallDictionariesInitializer.getInstance().getLanguageLevel();
     /**

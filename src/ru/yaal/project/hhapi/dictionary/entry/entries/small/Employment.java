@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 /**
  * Тип занятости (вакансия).
  */
-public class Employment extends AbstractDictionaryEntry implements ISearchParameter {
+public final class Employment extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Employment NULL_EMPLOYMENT = new Employment();
     public static final IDictionary<Employment> EMPLOYMENTS = SmallDictionariesInitializer.getInstance().getEmployment();
     /**
