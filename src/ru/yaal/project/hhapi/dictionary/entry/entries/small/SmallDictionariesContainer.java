@@ -3,7 +3,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 
 import java.util.List;
 

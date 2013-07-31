@@ -11,7 +11,7 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Professi
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
