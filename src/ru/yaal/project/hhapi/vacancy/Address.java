@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import ru.yaal.project.hhapi.dictionary.entry.INullable;
+import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 
 /**
  * Адрес.
@@ -57,19 +58,13 @@ public final class Address implements INullable {
         return ((cityEmpty && metroEmpty) || NULL_CITY.equalsIgnoreCase(getCity()));
     }
 
-    public Station getStation() {
-        return (station != null) ? station : Station.NULL_STATION;
+    public MetroStation getStation() {
+        return (station != null) ? MetroStation.getStationById(station.getStationId()) : MetroStation.NULL_METRO_STATION;
     }
 
     @Data
-    public static class Station implements INullable {
-        public static final Station NULL_STATION = new Station();
+    static final class Station {
         @SerializedName("station_id")
         private String stationId;
-
-        @Override
-        public boolean isNull() {
-            return (stationId == null || stationId.isEmpty());
-        }
     }
 }

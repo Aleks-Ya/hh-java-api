@@ -24,12 +24,11 @@ public class MetroSearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Address address = vacancy.getAddress();
             if (!address.isNull()) {
-                Address.Station stationActual = address.getStation();
+                MetroStation stationActual = address.getStation();
                 if (!stationActual.isNull()) {
-                    MetroStation metroStationActual = (MetroStation) MetroLine.SAINT_PETERSBURG.getById(stationActual.getStationId());
-                    assertTrue(metroStationActual.equals(metroExpected)
-                            || metroStationActual.equals(metroExpected2)
-                            || metroStationActual.equals(metroExpected3));
+                    assertTrue(stationActual.equals(metroExpected)
+                            || stationActual.equals(metroExpected2)
+                            || stationActual.equals(metroExpected3));
                 }
             }
         }
