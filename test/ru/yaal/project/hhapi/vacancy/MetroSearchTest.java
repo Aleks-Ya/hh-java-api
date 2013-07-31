@@ -24,9 +24,9 @@ public class MetroSearchTest {
         for (Vacancy vacancy : result.getItems()) {
             Address address = vacancy.getAddress();
             if (!address.isNull()) {
-                Metro metroActual = address.getMetro();
-                if (!metroActual.isNull()) {
-                    MetroStation metroStationActual = (MetroStation) MetroLine.SAINT_PETERSBURG.getById(metroActual.getMetroId());
+                Address.Station stationActual = address.getStation();
+                if (!stationActual.isNull()) {
+                    MetroStation metroStationActual = (MetroStation) MetroLine.SAINT_PETERSBURG.getById(stationActual.getStationId());
                     assertTrue(metroStationActual.equals(metroExpected)
                             || metroStationActual.equals(metroExpected2)
                             || metroStationActual.equals(metroExpected3));

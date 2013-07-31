@@ -1,5 +1,7 @@
 package ru.yaal.project.hhapi.vacancy;
 
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -29,7 +31,8 @@ public final class Address implements INullable {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private String description;
     @Setter
-    private Metro metro;
+    @SerializedName("metro")
+    private Station station;
     @Getter
     @Setter
     @SuppressWarnings("PMD.UnusedPrivateField")
@@ -50,11 +53,23 @@ public final class Address implements INullable {
     @Override
     public boolean isNull() {
         boolean cityEmpty = (getCity() == null || getCity().isEmpty());
-        boolean metroEmpty = getMetro().isNull();
+        boolean metroEmpty = getStation().isNull();
         return ((cityEmpty && metroEmpty) || NULL_CITY.equalsIgnoreCase(getCity()));
     }
 
-    public Metro getMetro() {
-        return (metro != null) ? metro : Metro.NULL_METRO;
+    public Station getStation() {
+        return (station != null) ? station : Station.NULL_STATION;
+    }
+
+    @Data
+    public static class Station implements INullable {
+        public static final Station NULL_STATION = new Station();
+        @SerializedName("station_id")
+        private String stationId;
+
+        @Override
+        public boolean isNull() {
+            return (stationId == null || stationId.isEmpty());
+        }
     }
 }
