@@ -26,7 +26,7 @@ public class VacanciesParserTest {
             assertNotNull(salary);
             if (!salary.isNull()) notNullSalaryCount++;
         }
-        assertTrue(10 < notNullSalaryCount);
+        assertTrue(1 < notNullSalaryCount);
     }
 
 }
