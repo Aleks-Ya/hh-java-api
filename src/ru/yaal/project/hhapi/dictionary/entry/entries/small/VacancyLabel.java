@@ -9,6 +9,7 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 /**
  * Метки вакансии.
+ * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("И").
  */
 public final class VacancyLabel extends AbstractDictionaryEntry implements ISearchParameter {
     public static final VacancyLabel NULL_VACANCY_LABEL = new VacancyLabel();
