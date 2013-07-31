@@ -46,7 +46,9 @@ public final class Address implements INullable {
 
     @Override
     public boolean isNull() {
-        return (getCity() == null || getCity().isEmpty() || NULL_CITY.equalsIgnoreCase(getCity()));
+        boolean cityEmpty = (getCity() == null || getCity().isEmpty());
+        boolean metroEmpty = getMetro().isNull();
+        return ((cityEmpty && metroEmpty) || NULL_CITY.equalsIgnoreCase(getCity()));
     }
 
     public Metro getMetro() {
