@@ -1,7 +1,6 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.search.PerPage;
 import ru.yaal.project.hhapi.search.SearchException;
 
 public class PerPageTest {

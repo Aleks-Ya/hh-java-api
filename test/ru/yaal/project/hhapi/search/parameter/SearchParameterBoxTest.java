@@ -4,8 +4,8 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.search.PageableVacancyList;
-import ru.yaal.project.hhapi.search.PageableVacancySearch;
+import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
+import ru.yaal.project.hhapi.vacancy.PageableVacancySearch;
 import ru.yaal.project.hhapi.search.SearchException;
 
 public class SearchParameterBoxTest {

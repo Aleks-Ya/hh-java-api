@@ -1,8 +1,9 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.Text;
-import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.ArrayList;
 import java.util.List;

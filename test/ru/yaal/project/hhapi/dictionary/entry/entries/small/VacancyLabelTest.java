@@ -4,8 +4,8 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.ParseException;
 import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.search.IterableVacancyList;
-import ru.yaal.project.hhapi.search.IterableVacancySearch;
+import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
+import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 

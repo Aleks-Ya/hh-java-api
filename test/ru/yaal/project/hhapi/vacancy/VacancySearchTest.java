@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
@@ -9,10 +9,10 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
+import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.Coordinates;
 import ru.yaal.project.hhapi.search.parameter.Period;
-import ru.yaal.project.hhapi.vacancy.Vacancy;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import java.util.Date;
 import java.util.List;

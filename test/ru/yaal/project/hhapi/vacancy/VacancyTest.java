@@ -2,8 +2,6 @@ package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.search.PageableVacancyList;
-import ru.yaal.project.hhapi.search.PageableVacancySearch;
 
 import static java.lang.String.format;
 import static org.junit.Assert.assertEquals;

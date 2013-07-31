@@ -1,9 +1,8 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.vacancy.Vacancy;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
+import ru.yaal.project.hhapi.search.SearchException;
 
 import java.util.List;
 

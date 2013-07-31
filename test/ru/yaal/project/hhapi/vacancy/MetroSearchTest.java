@@ -1,16 +1,13 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
-import ru.yaal.project.hhapi.vacancy.Address;
-import ru.yaal.project.hhapi.vacancy.Metro;
-import ru.yaal.project.hhapi.vacancy.Vacancy;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
+import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 
 import static org.junit.Assert.assertTrue;
-import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class MetroSearchTest {
     private ISearch<VacancyList> search = new VacancySearch();
@@ -22,7 +19,7 @@ public class MetroSearchTest {
         MetroStation metroExpected3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
         search.addParameter(metroExpected);
         VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(1 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
             Address address = vacancy.getAddress();

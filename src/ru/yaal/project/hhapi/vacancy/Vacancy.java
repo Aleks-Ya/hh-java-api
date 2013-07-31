@@ -5,12 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerInVacancy;
+import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerSingle;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldsForVacancy;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerInVacancy;
-import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerSingle;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
@@ -18,8 +18,6 @@ import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.ParseException;
-import ru.yaal.project.hhapi.search.VacancyParser;
-
 
 import java.net.URL;
 import java.util.ArrayList;

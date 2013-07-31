@@ -1,13 +1,13 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.Text;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class TextSearchTest {
     private ISearch<VacancyList> search = new VacancySearch();
@@ -18,7 +18,7 @@ public class TextSearchTest {
         search.addParameter(textParam);
         VacancyList result = search.search();
         assertNotNull(result);
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(1000 < result.getFound());
     }
 

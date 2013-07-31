@@ -1,16 +1,14 @@
-package ru.yaal.project.hhapi.search;
+package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
-import ru.yaal.project.hhapi.vacancy.Salary;
-import ru.yaal.project.hhapi.vacancy.Vacancy;
-import ru.yaal.project.hhapi.vacancy.VacancyList;
 
 import static org.junit.Assert.assertTrue;
-import static ru.yaal.project.hhapi.search.VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT;
 
 public class SalarySearchTest {
     private ISearch<VacancyList> search = new VacancySearch();
@@ -20,7 +18,7 @@ public class SalarySearchTest {
         ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
         search.addParameter(onlyWithSalary);
         VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(100000 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
             Salary salary = vacancy.getSalary();
@@ -35,7 +33,7 @@ public class SalarySearchTest {
         Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
         search.addParameter(salaryExpected);
         VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(50000 < result.getFound());
     }
 
@@ -47,7 +45,7 @@ public class SalarySearchTest {
         Salary salaryExpected = new Salary(MIN_SALARY, MAX_SALARY);
         search.addParameter(salaryExpected).addParameter(onlyWithSalary);
         VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
+        assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
         assertTrue(4000 < result.getFound());
         for (Vacancy vacancy : result.getItems()) {
             Salary salary = vacancy.getSalary();

@@ -3,6 +3,8 @@ package ru.yaal.project.hhapi.search;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancySearchFields;
 import ru.yaal.project.hhapi.search.parameter.Text;
+import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
+import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.junit.Assert.assertEquals;
