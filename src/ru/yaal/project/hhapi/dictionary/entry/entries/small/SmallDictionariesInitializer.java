@@ -3,7 +3,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.DictionariesContainer;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
@@ -63,7 +62,7 @@ public final class SmallDictionariesInitializer {
         try {
             String content = loader.loadContent(UrlConstants.DICTINARIES_URL);
             SmallDictionariesParser parse = new SmallDictionariesParser();
-            DictionariesContainer smallDictionaries = parse.parse(content);
+            SmallDictionariesContainer smallDictionaries = parse.parse(content);
 
             currency = new Dictionary<>(smallDictionaries.getCurrency(), Currency.NULL_CURRENCY);
             gender = new Dictionary<>(smallDictionaries.getGender(), Gender.NULL_GENDER);

@@ -1,10 +1,10 @@
 package ru.yaal.project.hhapi.parser;
 
-import ru.yaal.project.hhapi.dictionary.DictionariesContainer;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesContainer;
 
-public class SmallDictionariesParser extends AbstractParser<DictionariesContainer> {
+public class SmallDictionariesParser extends AbstractParser<SmallDictionariesContainer> {
     @Override
-    public DictionariesContainer parse(String content) {
-        return getGson().fromJson(content, DictionariesContainer.class);
+    public SmallDictionariesContainer parse(String content) {
+        return getGson().fromJson(content, SmallDictionariesContainer.class);
     }
 }

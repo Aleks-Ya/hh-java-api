@@ -1,20 +1,15 @@
-package ru.yaal.project.hhapi.dictionary;
+package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.employer.EmployerType;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.*;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancySearchFields;
 import ru.yaal.project.hhapi.dictionary.entry.entries.vacancy.VacancyType;
-
 
 import java.util.List;
 
 @Data
 @SuppressWarnings("PMD.UnusedPrivateField")
-public class DictionariesContainer {
+public class SmallDictionariesContainer {
     @SerializedName("resume_contacts_site_type")
     private List<ResumeContactsSiteType> resumeContactsSiteType;
     private List<Schedule> schedule;

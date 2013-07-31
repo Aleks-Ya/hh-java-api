@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.parser;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionariesContainer;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesContainer;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -125,8 +125,8 @@ public class SmallDictionariesParserTest {
                 + "\"site_lang\": ["
                 + "{\"id\": \"ru\", \"name\": \"По-русски\"}, "
                 + "{\"id\": \"en\", \"name\": \"In English\"}]}";
-        IParser<DictionariesContainer> parser = new SmallDictionariesParser();
-        DictionariesContainer dictionaries = parser.parse(requestContent);
+        IParser<SmallDictionariesContainer> parser = new SmallDictionariesParser();
+        SmallDictionariesContainer dictionaries = parser.parse(requestContent);
         assertNotNull(dictionaries);
     }
 
