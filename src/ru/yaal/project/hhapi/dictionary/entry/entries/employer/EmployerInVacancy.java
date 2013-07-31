@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
-import ru.yaal.project.hhapi.vacancy.LogoUrls;
-
 import java.net.URL;
 
 public class EmployerInVacancy extends EmployerSearchParameter {

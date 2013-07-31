@@ -7,7 +7,6 @@ import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
 import ru.yaal.project.hhapi.parser.ParseException;
-import ru.yaal.project.hhapi.vacancy.LogoUrls;
 
 import java.net.MalformedURLException;
 import java.net.URL;
