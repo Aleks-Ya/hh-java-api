@@ -65,6 +65,9 @@ public final class SmallDictionariesInitializer {
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<TravelTime> travelTime;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<SiteLang> siteLang;
 
     private SmallDictionariesInitializer() {
         LOG.debug("Создаю инстанс SmallDictionariesInitializer");
@@ -101,6 +104,7 @@ public final class SmallDictionariesInitializer {
             resumeAccessType = new Dictionary<>(smallDictionaries.getResumeAccessType(), ResumeAccessType.NULL_RESUME_ACCESS_TYPE);
             resumeContactsSiteType = new Dictionary<>(smallDictionaries.getResumeContactsSiteType(), ResumeContactsSiteType.NULL_RESUME_CONTACTS_SITE_TYPE);
             travelTime = new Dictionary<>(smallDictionaries.getTravelTime(), TravelTime.NULL_TRAVEL_TIME);
+            siteLang = new Dictionary<>(smallDictionaries.getSiteLang(), SiteLang.NULL_SITE_LANG);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }

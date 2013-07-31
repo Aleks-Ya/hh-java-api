@@ -7,16 +7,34 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
+/**
+ * Тип занятости (вакансия).
+ */
 public class Employment extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Employment NULL_EMPLOYMENT = new Employment();
     public static final IDictionary<Employment> EMPLOYMENTS = SmallDictionariesInitializer.getInstance().getEmployment();
+    /**
+     * Полная занятость.
+     */
     public static final Employment FULL = EMPLOYMENTS.getById("full");
+    /**
+     * Частичная занятость.
+     */
     public static final Employment PART = EMPLOYMENTS.getById("part");
+    /**
+     * Проектная работа.
+     */
     public static final Employment PROJECT = EMPLOYMENTS.getById("project");
+    /**
+     * Волонтерство.
+     */
     public static final Employment VOLUNTEER = EMPLOYMENTS.getById("volunteer");
+    /**
+     * Стажировка.
+     */
     public static final Employment PROBATION = EMPLOYMENTS.getById("probation");
 
-    Employment() {
+    private Employment() {
     }
 
     @Override

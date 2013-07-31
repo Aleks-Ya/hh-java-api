@@ -7,15 +7,30 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
+/**
+ * Сортировка списка вакансий.
+ */
 public class Order extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Order NULL_ORDER = new Order();
     public static final IDictionary<Order> ORDERS = SmallDictionariesInitializer.getInstance().getOrder();
+    /**
+     * По дате.
+     */
     public static final Order PUBLICATION_TIME = ORDERS.getById("publication_time");
+    /**
+     * По убыванию зарплаты.
+     */
     public static final Order SALARY_DESC = ORDERS.getById("salary_desc");
+    /**
+     * По возрастанию зарплаты.
+     */
     public static final Order SALARY_ASC = ORDERS.getById("salary_asc");
+    /**
+     * По соответствию.
+     */
     public static final Order RELEVANCE = ORDERS.getById("relevance");
 
-    Order() {
+    private Order() {
     }
 
     @Override

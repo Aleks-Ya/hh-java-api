@@ -7,15 +7,30 @@ import ru.yaal.project.hhapi.search.parameter.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.SearchParameterBox;
 
+/**
+ * График работы.
+ */
 public class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Schedule NULL_SCHEDULE = new Schedule();
     public static final IDictionary<Schedule> SCHEDULES = SmallDictionariesInitializer.getInstance().getSchedule();
+    /**
+     * Полный день.
+     */
     public static final Schedule FULL_DAY = SCHEDULES.getById("fullDay");
+    /**
+     * Сменный график.
+     */
     public static final Schedule SHIFT = SCHEDULES.getById("shift");
+    /**
+     * Гибкий график.
+     */
     public static final Schedule FLEXIBLE = SCHEDULES.getById("flexible");
+    /**
+     * Удаленная работа.
+     */
     public static final Schedule REMOTE = SCHEDULES.getById("remote");
 
-    Schedule() {
+    private Schedule() {
     }
 
     @Override
