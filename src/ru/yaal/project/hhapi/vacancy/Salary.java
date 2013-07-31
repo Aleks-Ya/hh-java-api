@@ -9,6 +9,9 @@ import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 
+/**
+ * Зарплата.
+ */
 @Data
 public final class Salary implements ISearchParameter, INullable {
     public static final Salary NULL_SALARY = new Salary();

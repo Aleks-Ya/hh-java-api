@@ -5,6 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 import ru.yaal.project.hhapi.dictionary.entry.INullable;
 
+/**
+ * Адрес.
+ */
 @ToString
 public final class Address implements INullable {
     public static final Address NULL_ADDRESS = new Address();

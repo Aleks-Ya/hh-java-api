@@ -26,6 +26,9 @@ import java.util.List;
 
 import static java.lang.String.format;
 
+/**
+ * Вакансия.
+ */
 public class Vacancy implements IDictionaryEntry {
     public static final Vacancy NULL_VACANCY = new Vacancy();
     @Getter
