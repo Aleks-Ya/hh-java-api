@@ -6,6 +6,9 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
 import java.net.URL;
 
+/**
+ * Город с метро.
+ */
 public class MetroCity extends AbstractDictionaryEntry {
     public static final MetroCity NULL_METRO_CITY = new MetroCity();
     public static final MetroCityDictionary CITIES = MetroInitializer.getInstance().getMetroCities();

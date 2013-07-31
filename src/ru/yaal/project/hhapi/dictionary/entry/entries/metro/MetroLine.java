@@ -9,7 +9,9 @@ import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
-
+/**
+ * Линия метро.
+ */
 public class MetroLine extends AbstractDictionaryEntry implements ISearchParameter {
     public static final MetroLine NULL_METRO_LINE = new MetroLine();
     public static final MetroLineDictionary MOSCOW = MetroInitializer.getInstance().getMetroCities().getByName("Москва").getLines();

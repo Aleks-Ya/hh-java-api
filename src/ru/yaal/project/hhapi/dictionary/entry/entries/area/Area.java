@@ -10,13 +10,17 @@ import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 import java.net.URL;
 
+/**
+ * Район.
+ * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("ИЛИ").
+ */
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     private static final Logger LOG = LoggerFactory.getLogger(Area.class);
     public static final Area NULL_AREA = new Area();

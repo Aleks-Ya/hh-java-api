@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+/**
+ * Станция метро.
+ */
 public class MetroStation extends MetroLine {
     public static final MetroStation NULL_METRO_STATION = new MetroStation();
     @Getter
