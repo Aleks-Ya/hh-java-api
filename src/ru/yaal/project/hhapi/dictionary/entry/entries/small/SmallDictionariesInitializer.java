@@ -44,6 +44,9 @@ public final class SmallDictionariesInitializer {
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancyLabel> vacancyLabel;
+    @Getter
+    @SuppressWarnings("PMD.UnusedPrivateField")
+    private IDictionary<BusinessTripReadiness> businessTripReadiness;
 
     private SmallDictionariesInitializer() {
         LOG.debug("Создаю инстанс SmallDictionariesInitializer");
@@ -73,6 +76,7 @@ public final class SmallDictionariesInitializer {
             experience = new Dictionary<>(smallDictionaries.getExperience(), Experience.NULL_EXPERIENCE);
             employerType = new Dictionary<>(smallDictionaries.getEmployerType(), EmployerType.NULL_EMPLOYER_TYPE);
             vacancyLabel = new Dictionary<>(smallDictionaries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
+            businessTripReadiness = new Dictionary<>(smallDictionaries.getBusinessTripReadiness(), BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
