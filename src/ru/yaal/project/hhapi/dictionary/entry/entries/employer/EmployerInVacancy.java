@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.net.URL;
 
-public class EmployerInVacancy extends EmployerSearchParameter {
+public class EmployerInVacancy extends Employer {
     @Getter
     @Setter
     @SuppressWarnings("PMD.UnusedPrivateField")
@@ -21,4 +21,8 @@ public class EmployerInVacancy extends EmployerSearchParameter {
     @SerializedName("logo_urls")
     @SuppressWarnings("PMD.UnusedPrivateField")
     private LogoUrls logoUrls;
+
+    public EmployerInVacancy() {
+        super(null);
+    }
 }
