@@ -2,11 +2,11 @@ package ru.yaal.project.hhapi.loader.cache;
 
 import java.util.Date;
 
-public class StorageData {
+public class CacheData {
     private String content;
     private long creationDate;
 
-    public StorageData(String content) {
+    public CacheData(String content) {
         this.content = content;
         this.creationDate = new Date().getTime();
     }

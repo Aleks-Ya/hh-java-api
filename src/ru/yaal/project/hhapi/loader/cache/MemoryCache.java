@@ -9,7 +9,7 @@ import java.util.Map;
 public class MemoryCache extends AbstractCache {
     private static final Logger LOG = LoggerFactory.getLogger(MemoryCache.class);
     private static final String DEFAULT_NAME = "Memory Cache";
-    private Map<String, StorageData> memoryCache = new HashMap<>();
+    private Map<String, CacheData> memoryCache = new HashMap<>();
 
     public MemoryCache(int lifeTimeMin) {
         this(DEFAULT_NAME, lifeTimeMin);
@@ -22,7 +22,7 @@ public class MemoryCache extends AbstractCache {
     @Override
     public String search(String name) {
         String nameHash = generateHashFileName(name);
-        StorageData content = memoryCache.get(nameHash);
+        CacheData content = memoryCache.get(nameHash);
         if (content != null) {
             return verifyContent(name, content.getContent(), content.getCreationDate());
         } else {
@@ -34,7 +34,7 @@ public class MemoryCache extends AbstractCache {
     public void save(String name, String content) {
         LOG.info(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
         String nameHash = generateHashFileName(name);
-        memoryCache.put(nameHash, new StorageData(content));
+        memoryCache.put(nameHash, new CacheData(content));
     }
 
     @Override
