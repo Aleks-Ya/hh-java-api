@@ -4,10 +4,10 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
-import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
+import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
 import static org.junit.Assert.*;
 
@@ -26,9 +26,13 @@ public class SalaryTest {
         assertTrue(expectedValue >= actualFrom || expectedValue <= actualTo);
     }
 
+    public static void assertSalary(Integer expectedSalary, Salary actualSalary) throws SearchException {
+        assertSalary(new Salary(expectedSalary), actualSalary);
+    }
+
     @Test(expected = SearchException.class)
     public void testSalaryNotSpecified() throws SearchException, DictionaryException {
-        ISearchParameter parameter = new Salary(null, null);
+        ISearchParameter parameter = new Salary(null);
         parameter.getSearchParameters();
     }
 

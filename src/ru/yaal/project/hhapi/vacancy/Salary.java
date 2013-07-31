@@ -3,14 +3,17 @@ package ru.yaal.project.hhapi.vacancy;
 import lombok.Data;
 import ru.yaal.project.hhapi.dictionary.entry.INullable;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 
 /**
  * Зарплата.
+ * Может использоваться как параметр поиска вакансий.
+ * В результаты поиска включены вакансии с незаполненной зарплатой.
+ * Чтобы их исключить, добавьте параметр {@link ru.yaal.project.hhapi.search.parameter.OnlyWithSalary#ON}.
  */
 @Data
 public final class Salary implements ISearchParameter, INullable {
@@ -22,11 +25,11 @@ public final class Salary implements ISearchParameter, INullable {
     private Currency currency = Currency.NULL_CURRENCY;
 
     public Salary() {
-        this(NULL_VALUE, NULL_VALUE);
+        this(NULL_VALUE);
     }
 
-    public Salary(Integer from, Integer to) {
-        this(from, to, Currency.RUR);
+    public Salary(Integer salary) {
+        this(salary, salary, Currency.RUR);
     }
 
     public Salary(Integer from, Integer to, Currency currency) {
