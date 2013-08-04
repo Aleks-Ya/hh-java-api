@@ -7,39 +7,31 @@ import ru.yaal.project.hhapi.loader.cache.*;
 import java.io.File;
 
 public final class ContentLoaderFactory {
-    public static final String JAVA_IO_TMPDIR = "java.io.tmpdir";
+    public static final String JAVA_IO_TMPDIR = System.getProperty("java.io.tmpdir");
     private static final Logger LOG = LoggerFactory.getLogger(ContentLoaderFactory.class);
     private static final ICache LONG_TERM_STORAGE;
     private static final ICache SHORT_TERM_STORAGE;
     private static ICache fakeStorage;
 
     static {
-        File longTermDir = new File(System.getProperty(JAVA_IO_TMPDIR) + "hh_api_cache\\long_term\\");
-        if (!longTermDir.exists()) {
-            longTermDir.mkdirs();
-        }
-        int sevenDays = 7 * 24 * 60;
-        LONG_TERM_STORAGE = new TwoLevelCache(new MemoryCache(sevenDays), new FileCache(longTermDir, sevenDays));
-        LOG.info("Кэш длительного хранения ({} мин.): {}", sevenDays, longTermDir.getAbsolutePath());
+        final String cacheDir = JAVA_IO_TMPDIR + "hh_api_cache\\";
 
-        File shortTermDir = new File(System.getProperty(JAVA_IO_TMPDIR) + "hh_api_cache\\short_term\\");
-        if (!shortTermDir.exists()) {
-            shortTermDir.mkdirs();
-        }
+        int sevenDays = 7 * 24 * 60;
+        File longTermDir = new File(cacheDir + "long_term\\");
+        LONG_TERM_STORAGE = new TwoLevelCache(new MemoryCache(sevenDays), new FileCache(longTermDir, sevenDays));
+        LOG.info("Инициализирован кэш длительного хранения ({} мин.): {}", sevenDays, longTermDir.getAbsolutePath());
+
         int oneDay = 24 * 60;
+        File shortTermDir = new File(cacheDir + "short_term\\");
         SHORT_TERM_STORAGE = new TwoLevelCache(new MemoryCache(oneDay), new FileCache(shortTermDir, oneDay));
-        LOG.info("Кэш краткосрочного хранения ({} мин.): {}", oneDay, shortTermDir.getAbsolutePath());
+        LOG.info("Инициализирован кэш краткосрочного хранения ({} мин.): {}", oneDay, shortTermDir.getAbsolutePath());
 
         if (isUseFakeStorage()) {
-            File testDir = new File(System.getProperty(JAVA_IO_TMPDIR) + "hh_api_cache\\test\\");
-            if (!longTermDir.exists()) {
-                longTermDir.mkdirs();
-            }
-            fakeStorage = new ClassResourceCache(testDir);
+            File testCacheDir = new File(cacheDir + "test\\");
+            fakeStorage = new ClassResourceCache(testCacheDir);
         }
-        LOG.info("Кэш для тестирования: {}", fakeStorage);
+        LOG.info("Инициализирован кэш для тестирования: {}", fakeStorage);
     }
-
 
     private ContentLoaderFactory() {
     }
