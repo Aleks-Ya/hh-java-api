@@ -34,15 +34,6 @@ public class VacancySearchTest {
     }
 
     @Test
-    public void testCoordinates() throws SearchException, DictionaryException {
-        Coordinates coordinates = new Coordinates(59.932243, 59.915611, 30.303541, 30.360532);
-        search.addParameter(coordinates);
-        VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(200 < result.getFound());
-    }
-
-    @Test
     public void testVacancySearchOrder() throws SearchException, DictionaryException {
         search.addParameter(Order.PUBLICATION_TIME);
         VacancyList result = search.search();
