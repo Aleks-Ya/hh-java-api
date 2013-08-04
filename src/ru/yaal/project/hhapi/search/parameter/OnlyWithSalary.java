@@ -10,7 +10,7 @@ public class OnlyWithSalary implements ISearchParameter {
     public static final OnlyWithSalary OFF = new OnlyWithSalary(false);
     private boolean onlyWithSalary;
 
-    OnlyWithSalary(boolean withSalary) {
+    private OnlyWithSalary(boolean withSalary) {
         this.onlyWithSalary = withSalary;
     }
 
