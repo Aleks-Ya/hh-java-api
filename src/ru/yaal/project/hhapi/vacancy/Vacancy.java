@@ -92,7 +92,7 @@ public class Vacancy implements IDictionaryEntry {
     private VacancyType type = VacancyType.NULL_VACANCY_TYPE;
     @Setter
     private List<ProfField> profFields = new ArrayList<>(0);
-    private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
+    private IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
     private IParser<Vacancy> parser = new VacancyParser();
     private boolean singleVacancyLoaded = false;
 
