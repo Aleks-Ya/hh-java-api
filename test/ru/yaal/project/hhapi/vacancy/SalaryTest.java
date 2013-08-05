@@ -19,9 +19,13 @@ import static org.junit.Assert.*;
 public class SalaryTest {
     private static final Logger LOG = LoggerFactory.getLogger(SalaryTest.class);
 
+    public static void assertSalary(Integer expectedSalary, Salary actualSalary) throws SearchException {
+        assertSalary(new Salary(expectedSalary), actualSalary);
+    }
+
     @Test(expected = SearchException.class)
     public void testSalaryNotSpecified() throws SearchException, DictionaryException {
-        ISearchParameter parameter = new Salary(null, null);
+        ISearchParameter parameter = new Salary(null);
         parameter.getSearchParameters();
     }
 
