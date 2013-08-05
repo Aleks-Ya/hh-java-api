@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -22,7 +22,7 @@ public class CoordinatesTest {
         double lngRight = 30.360532;
         double inaccuracy = 0.01;
         Coordinates coordinates = new Coordinates(latTop, latBottom, lngLeft, lngRight);
-        for (Vacancy vacancy : TestHelper.search(200, coordinates)) {
+        for (Vacancy vacancy : HhApi.search(200, coordinates)) {
             Address address = vacancy.getAddress();
             String city = address.getCity();
             if (city != null) {

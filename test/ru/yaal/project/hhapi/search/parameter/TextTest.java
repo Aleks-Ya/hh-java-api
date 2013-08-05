@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.ParseException;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -15,7 +15,7 @@ public class TextTest {
     public void searchByText() throws SearchException, LoadException, ParseException {
         final String searchText = "java";
         final String searchTextUpperCase = searchText.toUpperCase();
-        for (Vacancy vacancy : TestHelper.search(new Text(searchText))) {
+        for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
             String name = vacancy.getName().toUpperCase();
             String description = vacancy.getDescription().toUpperCase();
             assertTrue(name.contains(searchTextUpperCase) || description.contains(searchTextUpperCase));
@@ -26,7 +26,7 @@ public class TextTest {
     public void searchByMultiParams() throws SearchException, LoadException, ParseException {
         final String searchText = "java";
         final String searchTextUpperCase = searchText.toUpperCase();
-        for (Vacancy vacancy : TestHelper.search(new Text(searchText))) {
+        for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
             String name = vacancy.getName().toUpperCase();
             String description = vacancy.getDescription().toUpperCase();
             assertTrue(name.contains(searchTextUpperCase) || description.contains(searchTextUpperCase));

@@ -1,11 +1,9 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.hamcrest.Matchers.isOneOf;
@@ -27,7 +25,7 @@ public class AreaTest {
     @Test
     public void searchArea() throws SearchException, DictionaryException {
         final Area expArea = Area.AREAS.getByName("Санкт-ПЕТЕРБУРГ");
-        for (Vacancy vacancy : TestHelper.search(expArea)) {
+        for (Vacancy vacancy : HhApi.search(expArea)) {
             Area actArea = vacancy.getArea();
             assertEquals(expArea, actArea);
         }
@@ -37,7 +35,7 @@ public class AreaTest {
     public void searchMultiParams() throws SearchException {
         Area expArea1 = Area.AREAS.getByName("Саратов");
         Area expArea2 = Area.AREAS.getByName("Вологда");
-        for (Vacancy vacancy : TestHelper.search(expArea1, expArea2)) {
+        for (Vacancy vacancy : HhApi.search(expArea1, expArea2)) {
             Area actArea = vacancy.getArea();
             assertThat(actArea, isOneOf(expArea1, expArea2));
         }

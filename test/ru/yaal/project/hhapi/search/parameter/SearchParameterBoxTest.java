@@ -4,11 +4,11 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
-import ru.yaal.project.hhapi.vacancy.PageableVacancyList;
-import ru.yaal.project.hhapi.vacancy.PageableVacancySearch;
-import ru.yaal.project.hhapi.search.SearchException;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
+import ru.yaal.project.hhapi.vacancy.VacancySearch;
 
 public class SearchParameterBoxTest {
     private final SearchParameterBox box = new SearchParameterBox();
@@ -27,7 +27,7 @@ public class SearchParameterBoxTest {
 
     @Test(expected = SearchException.class)
     public void multipleParamsNotAcceptedSearch() throws SearchException {
-        ISearch<PageableVacancyList> search = new PageableVacancySearch();
+        ISearch<VacancyList> search = new VacancySearch();
         search.addParameter(new Text("one"));
         search.addParameter(new Text("two"));
     }

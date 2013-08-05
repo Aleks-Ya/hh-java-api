@@ -4,23 +4,17 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Gender;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Order;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancySearchFields;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.*;
 import ru.yaal.project.hhapi.search.ISearch;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
-import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Period;
 import ru.yaal.project.hhapi.search.parameter.Text;
 import ru.yaal.project.hhapi.vacancy.Salary;
+import ru.yaal.project.hhapi.vacancy.VacancyList;
+import ru.yaal.project.hhapi.vacancy.VacancySearch;
 
 import static org.junit.Assert.assertTrue;
 
@@ -46,7 +40,7 @@ public class UseTest {
         ISearchParameter schedule = Schedule.FULL_DAY;
         ISearchParameter employment = Employment.FULL;
 
-        ISearch<IterableVacancyList> search = new IterableVacancySearch(50);
+        ISearch<VacancyList> search = new VacancySearch(50);
         search.addParameter(text)
                 .addParameter(area1)
 //                .addParameter(area2)
@@ -60,7 +54,7 @@ public class UseTest {
                 .addParameter(schedule)
                 .addParameter(employment)
                 .addParameter(order);
-        IterableVacancyList vacancies = search.search();
+        VacancyList vacancies = search.search();
         assertTrue(vacancies.size() > 0);
     }
 

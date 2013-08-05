@@ -6,7 +6,7 @@ import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearchParameter;
@@ -22,7 +22,7 @@ public class SalaryTest {
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
-        for (Vacancy vacancy : TestHelper.search(50, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(50, OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertNotNull(actSalary);
             assertTrue(actSalary.getFrom() != null || actSalary.getTo() != null);
@@ -32,7 +32,7 @@ public class SalaryTest {
     @Test
     public void testSalary() throws SearchException, DictionaryException {
         final Salary expSalary = new Salary(100000);
-        for (Vacancy vacancy : TestHelper.search(50, expSalary)) {
+        for (Vacancy vacancy : HhApi.search(50, expSalary)) {
             Salary actSalary = vacancy.getSalary();
             if (actSalary.getFrom() != null || actSalary.getTo() != null) {
                 assertThat(actSalary, salaryEquals(expSalary));
@@ -43,7 +43,7 @@ public class SalaryTest {
     @Test
     public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
         final Salary expSalary = new Salary(50000);
-        for (Vacancy vacancy : TestHelper.search(50, expSalary, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(50, expSalary, OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertThat(actSalary, salaryEquals(expSalary));
         }
@@ -60,7 +60,7 @@ public class SalaryTest {
         final Currency expCurrency = Currency.USD;
         final int salaryUsd = 1000;
         final Salary expSalary = new Salary(salaryUsd, salaryUsd, expCurrency);
-        for (Vacancy vacancy : TestHelper.search(expSalary, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(expSalary, OnlyWithSalary.ON)) {
             //todo переписать проверку с испльзованием матчера SalaryEquals
             Salary actSalary = vacancy.getSalary();
             System.out.println(actSalary.getFrom());

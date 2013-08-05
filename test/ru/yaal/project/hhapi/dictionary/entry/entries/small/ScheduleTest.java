@@ -1,7 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.hamcrest.Matchers.isOneOf;
@@ -12,7 +12,7 @@ public class ScheduleTest {
     @Test
     public void searchBySchedule() throws Exception {
         final Schedule expSchedule = Schedule.SHIFT;
-        for (Vacancy vacancy : TestHelper.search(expSchedule)) {
+        for (Vacancy vacancy : HhApi.search(expSchedule)) {
             assertEquals(vacancy.getSchedule(), expSchedule);
         }
     }
@@ -21,7 +21,7 @@ public class ScheduleTest {
     public void searchByMultiSchedules() throws Exception {
         final Schedule expSchedule1 = Schedule.REMOTE;
         final Schedule expSchedule2 = Schedule.SHIFT;
-        for (Vacancy vacancy : TestHelper.search(expSchedule1, expSchedule2)) {
+        for (Vacancy vacancy : HhApi.search(expSchedule1, expSchedule2)) {
             Schedule actSchedule = vacancy.getSchedule();
             assertThat(actSchedule, isOneOf(expSchedule1, expSchedule2));
         }

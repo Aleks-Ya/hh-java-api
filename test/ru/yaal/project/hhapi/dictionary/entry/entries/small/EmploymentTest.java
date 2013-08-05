@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yaal.project.hhapi.TestHelper;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
@@ -37,7 +37,7 @@ public class EmploymentTest {
 
     @Test
     public void searchPart() throws Exception {
-        for (Vacancy vacancy : TestHelper.search(parameters)) {
+        for (Vacancy vacancy : HhApi.search(parameters)) {
             Employment actEmployment = vacancy.getEmployment();
             assertThat(actEmployment, isIn(parameters));
         }

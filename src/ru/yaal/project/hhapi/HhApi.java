@@ -13,7 +13,6 @@ public class HhApi {
 
     /**
      * Метод для быстрого поиска вакансий по параметрам.
-     * Дополнительно проверяется равенство количества найденных вакансий заданному лимиту.
      */
     public static VacancyList search(int vacancyLimit, ISearchParameter... searchParameters)
             throws SearchException {
