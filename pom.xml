@@ -16,7 +16,7 @@
         <testSourceDirectory>test</testSourceDirectory>
         <testResources>
             <testResource>
-                <directory>test</directory>
+                <directory>test_cache</directory>
                 <includes>
                     <include>**/*.json</include>
                 </includes>
