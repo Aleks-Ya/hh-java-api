@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
@@ -23,6 +24,18 @@ public class AreaTest {
     }
 
     @Test
+    public void searchArea() throws SearchException, DictionaryException {
+        final Area expectedArea = Area.AREAS.getByName("Санкт-ПЕТЕРБУРГ");
+        final int count = 50;
+        IterableVacancyList vacancies = new IterableVacancySearch(count).addParameter(expectedArea).search();
+        assertEquals(count, vacancies.size());
+        for (Vacancy vacancy : vacancies) {
+            Area actualArea = vacancy.getArea();
+            assertEquals(expectedArea, actualArea);
+        }
+    }
+
+    @Test
     public void searchMultiParams() throws SearchException {
         Area expectedArea1 = Area.AREAS.getByName("Саратов");
         Area expectedArea2 = Area.AREAS.getByName("Вологда");
@@ -37,4 +50,5 @@ public class AreaTest {
             assertThat(actualArea, isOneOf(expectedArea1, expectedArea2));
         }
     }
+
 }
