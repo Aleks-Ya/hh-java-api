@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
@@ -25,29 +26,20 @@ public class AreaTest {
 
     @Test
     public void searchArea() throws SearchException, DictionaryException {
-        final Area expectedArea = Area.AREAS.getByName("Санкт-ПЕТЕРБУРГ");
-        final int count = 50;
-        IterableVacancyList vacancies = new IterableVacancySearch(count).addParameter(expectedArea).search();
-        assertEquals(count, vacancies.size());
-        for (Vacancy vacancy : vacancies) {
+        final Area expArea = Area.AREAS.getByName("Санкт-ПЕТЕРБУРГ");
+        for (Vacancy vacancy : TestHelper.search(expArea)) {
             Area actualArea = vacancy.getArea();
-            assertEquals(expectedArea, actualArea);
+            assertEquals(expArea, actualArea);
         }
     }
 
     @Test
     public void searchMultiParams() throws SearchException {
-        Area expectedArea1 = Area.AREAS.getByName("Саратов");
-        Area expectedArea2 = Area.AREAS.getByName("Вологда");
-        final int limit = 50;
-        IterableVacancyList vacancies = new IterableVacancySearch(limit)
-                .addParameter(expectedArea1)
-                .addParameter(expectedArea2)
-                .search();
-        assertEquals(limit, vacancies.size());
-        for (Vacancy vacancy : vacancies) {
+        Area expArea1 = Area.AREAS.getByName("Саратов");
+        Area expArea2 = Area.AREAS.getByName("Вологда");
+        for (Vacancy vacancy : TestHelper.search(expArea1, expArea2)) {
             Area actualArea = vacancy.getArea();
-            assertThat(actualArea, isOneOf(expectedArea1, expectedArea2));
+            assertThat(actualArea, isOneOf(expArea1, expArea2));
         }
     }
 

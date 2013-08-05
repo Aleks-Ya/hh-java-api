@@ -6,15 +6,14 @@ import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
-import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 import static ru.yaal.project.hhapi.vacancy.SalaryTest.SalaryEquals.salaryEquals;
 
@@ -23,11 +22,7 @@ public class SalaryTest {
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
-        final int count = 50;
-        IterableVacancyList vacancies = new IterableVacancySearch(count)
-                .addParameter(OnlyWithSalary.ON).search();
-        assertThat(vacancies.size(), equalTo(count));
-        for (Vacancy vacancy : vacancies) {
+        for (Vacancy vacancy : TestHelper.search(50, OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertNotNull(actSalary);
             assertTrue(actSalary.getFrom() != null || actSalary.getTo() != null);
@@ -36,12 +31,8 @@ public class SalaryTest {
 
     @Test
     public void testSalary() throws SearchException, DictionaryException {
-        final int count = 50;
         final Salary expSalary = new Salary(100000);
-        IterableVacancyList vacancies = new IterableVacancySearch(count)
-                .addParameter(expSalary).search();
-        assertThat(vacancies.size(), equalTo(count));
-        for (Vacancy vacancy : vacancies) {
+        for (Vacancy vacancy : TestHelper.search(50, expSalary)) {
             Salary actSalary = vacancy.getSalary();
             if (actSalary.getFrom() != null || actSalary.getTo() != null) {
                 assertThat(actSalary, salaryEquals(expSalary));
@@ -51,14 +42,8 @@ public class SalaryTest {
 
     @Test
     public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
-        final int count = 50;
         final Salary expSalary = new Salary(50000);
-        IterableVacancyList vacancies = new IterableVacancySearch(count)
-                .addParameter(expSalary)
-                .addParameter(OnlyWithSalary.ON)
-                .search();
-        assertThat(vacancies.size(), equalTo(count));
-        for (Vacancy vacancy : vacancies) {
+        for (Vacancy vacancy : TestHelper.search(50, expSalary, OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertThat(actSalary, salaryEquals(expSalary));
         }
@@ -75,11 +60,8 @@ public class SalaryTest {
         final Currency expectedCurrency = Currency.USD;
         final int salaryUsd = 1000;
         final Salary expectedSalary = new Salary(salaryUsd, salaryUsd, expectedCurrency);
-        ISearch<IterableVacancyList> search = new IterableVacancySearch(100)
-                .addParameter(expectedSalary)
-                .addParameter(OnlyWithSalary.ON);
-        IterableVacancyList vacancies = search.search();
-        for (Vacancy vacancy : vacancies) {
+        for (Vacancy vacancy : TestHelper.search(expectedSalary, OnlyWithSalary.ON)) {
+            //todo переписать проверку с испльзованием матчера SalaryEquals
             Salary actualSalary = vacancy.getSalary();
             System.out.println(actualSalary.getFrom());
             System.out.println(actualSalary.getTo());

@@ -3,10 +3,8 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yaal.project.hhapi.search.ISearch;
+import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.search.ISearchParameter;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.Arrays;
@@ -39,12 +37,7 @@ public class EmploymentTest {
 
     @Test
     public void searchPart() throws Exception {
-        ISearch<IterableVacancyList> search = new IterableVacancySearch(30);
-        for (ISearchParameter parameter : parameters) {
-            search.addParameter(parameter);
-        }
-        IterableVacancyList vacancies = search.search();
-        for (Vacancy vacancy : vacancies) {
+        for (Vacancy vacancy : TestHelper.search(parameters)) {
             Employment actualEmployment = vacancy.getEmployment();
             assertThat(actualEmployment, isIn(parameters));
         }

@@ -32,9 +32,9 @@ public class DictionaryTest {
         for (Currency currency : currencies) {
             actualCurrencies.add(currency);
         }
-        List<Currency> expectedCurrencies = currencies.toList();
-        assertThat(actualCurrencies, hasSize(expectedCurrencies.size()));
-        assertTrue(actualCurrencies.containsAll(expectedCurrencies));
+        List<Currency> expCurrencies = currencies.toList();
+        assertThat(actualCurrencies, hasSize(expCurrencies.size()));
+        assertTrue(actualCurrencies.containsAll(expCurrencies));
     }
 
     @Test
