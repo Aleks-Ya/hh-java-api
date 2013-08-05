@@ -7,7 +7,9 @@ import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.everyItem;
+import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertThat;
 
 public class ProfessionalFieldTest {
     @Test
@@ -21,10 +23,7 @@ public class ProfessionalFieldTest {
                 .search();
         for (Vacancy vacancy : vacancies) {
             List<ProfessionalField> fields = vacancy.getProfessionalFields();
-            for (ProfessionalField field : fields) {
-                assertTrue(field.equals(expectedField1) || field.equals(expectedField2));
-            }
+            assertThat(fields, everyItem(isOneOf(expectedField1, expectedField2)));
         }
-
     }
 }

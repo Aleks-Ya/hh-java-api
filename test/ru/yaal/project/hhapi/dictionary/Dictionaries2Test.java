@@ -6,8 +6,9 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
 
 public class Dictionaries2Test {
     private static final String SPB = "Санкт-Петербург";
@@ -26,6 +27,6 @@ public class Dictionaries2Test {
 
     @Test
     public void professionalFields() throws Exception {
-        assertTrue(ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221").getName().contains("Программирование"));
+        assertThat(ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221").getName(), containsString("Программирование"));
     }
 }

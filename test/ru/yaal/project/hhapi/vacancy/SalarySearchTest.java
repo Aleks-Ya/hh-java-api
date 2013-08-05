@@ -8,6 +8,8 @@ import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class SalarySearchTest {
@@ -34,7 +36,7 @@ public class SalarySearchTest {
         search.addParameter(salaryExpected);
         VacancyList result = search.search();
         assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(50000 < result.getFound());
+        assertThat(result.getFound(), greaterThan(50000));
     }
 
     @Test
@@ -46,7 +48,8 @@ public class SalarySearchTest {
         search.addParameter(salaryExpected).addParameter(onlyWithSalary);
         VacancyList result = search.search();
         assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(4000 < result.getFound());
+        assertThat(result.getFound(), greaterThan(4000));
+        //todo переписать использу€ Salary.toRur() и assertSalary()
         for (Vacancy vacancy : result.getItems()) {
             Salary salary = vacancy.getSalary();
             Integer to = salary.getTo();

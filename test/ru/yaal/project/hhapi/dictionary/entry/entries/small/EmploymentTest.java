@@ -13,7 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.isIn;
+import static org.junit.Assert.assertThat;
 import static ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment.*;
 
 @RunWith(value = Parameterized.class)
@@ -45,18 +46,8 @@ public class EmploymentTest {
         IterableVacancyList vacancies = search.search();
         for (Vacancy vacancy : vacancies) {
             Employment actualEmployment = vacancy.getEmployment();
-            assertTrue(isEquals(actualEmployment, parameters));
+            assertThat(actualEmployment, isIn(parameters));
         }
-    }
-
-    private boolean isEquals(ISearchParameter actual, List<ISearchParameter> expected) {
-        boolean result = false;
-        for (ISearchParameter parameter : expected) {
-            if (actual.equals(parameter)) {
-                result = true;
-            }
-        }
-        return result;
     }
 
 }

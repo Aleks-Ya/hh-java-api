@@ -12,8 +12,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static java.lang.String.format;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
 
 public class EmployerSingleTest {
     @Test
@@ -25,7 +26,8 @@ public class EmployerSingleTest {
         assertEquals("1455", employer.getId());
         assertEquals("HeadHunter", employer.getName());
         assertEquals(EmployerType.COMPANY, employer.getType());
-        assertTrue(employer.getDescription().contains("специализируется на предоставлении услуг интернет-рекрутмента"));
+        assertThat(employer.getDescription(),
+                containsString("специализируется на предоставлении услуг интернет-рекрутмента"));
         assertEquals(new URL("http://hh.ru"), employer.getSiteUrl());
         assertEquals(new URL("https://api.hh.ru/vacancies?employer_id=1455"), employer.getVacanciesUrl());
         assertEquals(new URL("http://hh.ru/employer/1455"), employer.getAlternateUrl());

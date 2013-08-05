@@ -5,6 +5,8 @@ import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
+import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class ScheduleTest {
@@ -19,6 +21,7 @@ public class ScheduleTest {
         for (Vacancy vacancy : vacancies) {
             Schedule actualSchedule = vacancy.getSchedule();
             assertTrue(actualSchedule.equals(expectedSchedule1) || actualSchedule.equals(expectedSchedule2));
+            assertThat(actualSchedule, isOneOf(expectedSchedule1, expectedSchedule2));
         }
     }
 }

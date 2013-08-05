@@ -12,7 +12,7 @@ import ru.yaal.project.hhapi.search.SearchParamNames;
 import static org.junit.Assert.*;
 
 public class SalaryTest {
-
+    //todo переписать использу€ Salary.toRur() и assertSalary()
     public static void assertSalary(Salary expectedSalary, Salary actualSalary) throws SearchException {
         Salary expectedSalaryRur = Salary.toRur(expectedSalary);
         Salary actualSalaryRur = Salary.toRur(actualSalary);

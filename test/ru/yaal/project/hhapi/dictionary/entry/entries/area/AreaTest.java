@@ -6,6 +6,7 @@ import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
+import static org.hamcrest.Matchers.isOneOf;
 import static org.junit.Assert.*;
 
 public class AreaTest {
@@ -33,7 +34,7 @@ public class AreaTest {
         assertEquals(limit, vacancies.size());
         for (Vacancy vacancy : vacancies) {
             Area actualArea = vacancy.getArea();
-            assertTrue(actualArea.equals(expectedArea1) || actualArea.equals(expectedArea2));
+            assertThat(actualArea, isOneOf(expectedArea1, expectedArea2));
         }
     }
 }

@@ -5,6 +5,8 @@ import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
+import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class EmployerTest {
@@ -19,7 +21,7 @@ public class EmployerTest {
         assertTrue(vacancies.size() > 0);
         for (Vacancy vacancy : vacancies) {
             Employer actualEmployer = vacancy.getEmployer();
-            assertTrue(actualEmployer.equals(expectedEmployer1) || actualEmployer.equals(expectedEmployer2));
+            assertThat(actualEmployer, isOneOf(expectedEmployer1, expectedEmployer2));
         }
     }
 }

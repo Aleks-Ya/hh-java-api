@@ -9,8 +9,8 @@ import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.Text;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.*;
 
 public class TextSearchTest {
     private ISearch<VacancyList> search = new VacancySearch();
@@ -22,7 +22,7 @@ public class TextSearchTest {
         VacancyList result = search.search();
         assertNotNull(result);
         assertTrue(VacancySearchTest.WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertTrue(1000 < result.getFound());
+        assertThat(result.getFound(), greaterThan(1000));
     }
 
     @Test

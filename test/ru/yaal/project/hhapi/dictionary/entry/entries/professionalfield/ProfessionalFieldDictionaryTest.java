@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.*;
 
 public class ProfessionalFieldDictionaryTest {
@@ -35,7 +36,7 @@ public class ProfessionalFieldDictionaryTest {
     @Test
     public void getById() throws DictionaryException {
         assertTrue(FIELD_NAME.equalsIgnoreCase(dictionary.getById(FIELD_ID).getName()));
-        assertTrue(SPECIALIZATION_NAME.equalsIgnoreCase(dictionary.getById(SPECIALIZATION_ID).getName()));
+        assertThat(SPECIALIZATION_NAME, equalToIgnoringCase(dictionary.getById(SPECIALIZATION_ID).getName()));
     }
 
     @Test

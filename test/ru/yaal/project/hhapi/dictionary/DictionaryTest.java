@@ -2,15 +2,15 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.hasSize;
+import static org.junit.Assert.*;
 
 public class DictionaryTest {
 
@@ -33,13 +33,14 @@ public class DictionaryTest {
             actualCurrencies.add(currency);
         }
         List<Currency> expectedCurrencies = currencies.toList();
-        assertEquals(expectedCurrencies.size(), actualCurrencies.size());
+        assertThat(actualCurrencies, hasSize(expectedCurrencies.size()));
         assertTrue(actualCurrencies.containsAll(expectedCurrencies));
     }
 
     @Test
     public void toStringDictionary() {
-        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}", SmallDictionariesInitializer.getInstance().getGender().toString());
+        assertEquals("{Женский(female),Не скажу(unknown),Мужской(male)}",
+                SmallDictionariesInitializer.getInstance().getGender().toString());
     }
 
     @Test

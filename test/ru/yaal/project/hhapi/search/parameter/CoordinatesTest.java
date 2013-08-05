@@ -9,8 +9,8 @@ import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
 
 public class CoordinatesTest {
 
@@ -37,10 +37,10 @@ public class CoordinatesTest {
                 Double lat = station.getLat();
                 Double lng = station.getLng();
                 if (lat != null) {
-                    assertTrue(latBottom - inaccuracy < lat && lat < latTop + inaccuracy);
+                    assertThat(lat, allOf(greaterThan(latBottom - inaccuracy), lessThan(latTop + inaccuracy)));
                 }
                 if (lng != null) {
-                    assertTrue(lngLeft - inaccuracy < lng && lng < lngRight + inaccuracy);
+                    assertThat(lng, allOf(greaterThan(lngLeft - inaccuracy), lessThan(lngRight + inaccuracy)));
                 }
             }
         }

@@ -7,8 +7,10 @@ import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
 import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
 
 public class IterableVacancySearchTest {
     @Test
@@ -20,7 +22,7 @@ public class IterableVacancySearchTest {
         IterableVacancyList ivl = search.search();
         assertEquals(vacanciesLimit, ivl.size());
         for (Vacancy vacancy : ivl) {
-            assertTrue(vacancy.getName().toUpperCase().contains(nameText.toUpperCase()));
+            assertThat(vacancy.getName().toUpperCase(), containsString(nameText.toUpperCase()));
         }
     }
 
@@ -33,7 +35,7 @@ public class IterableVacancySearchTest {
         IterableVacancyList ivl = search.search();
         assertEquals(vacanciesLimit, ivl.size());
         for (Vacancy vacancy : ivl) {
-            assertTrue(vacancy.getName().toUpperCase().contains(nameText.toUpperCase()));
+            assertThat(vacancy.getName().toUpperCase(), containsString(nameText.toUpperCase()));
         }
     }
 }
