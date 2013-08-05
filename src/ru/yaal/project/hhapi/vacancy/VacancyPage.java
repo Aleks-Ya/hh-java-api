@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @ToString(exclude = "items")
-public class VacancyList {
+public class VacancyPage {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private Integer found;
     @SuppressWarnings("PMD.UnusedPrivateField")

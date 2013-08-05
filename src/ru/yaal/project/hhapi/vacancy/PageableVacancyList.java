@@ -11,12 +11,12 @@ import java.util.*;
 
 public class PageableVacancyList implements Iterable<IterableVacancyList> {
     private static final Logger LOG = LoggerFactory.getLogger(PageableVacancyList.class);
-    private VacancyList firstPage;
+    private VacancyPage firstPage;
     private SearchParameterBox searchParameters;
-    private Map<Integer, VacancyList> pagesCache;
+    private Map<Integer, VacancyPage> pagesCache;
     private int vacanciesLimit;
 
-    public PageableVacancyList(VacancyList firstPage, SearchParameterBox searchParameters, int vacanciesLimit) {
+    public PageableVacancyList(VacancyPage firstPage, SearchParameterBox searchParameters, int vacanciesLimit) {
         pagesCache = new HashMap<>(firstPage.getPages());
         pagesCache.put(1, firstPage);
         this.firstPage = firstPage;
@@ -33,11 +33,11 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
             if (pagesCache.containsKey(pageNumber)) {
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             } else {
-                ISearch<VacancyList> search = new VacancySearch();
+                ISearch<VacancyPage> search = new VacancySearch();
                 searchParameters.setParameter(SearchParamNames.PAGE, String.valueOf(pageNumber - 1));
                 search.addParameter(searchParameters);
-                VacancyList vacancyList = search.search();
-                pagesCache.put(pageNumber, vacancyList);
+                VacancyPage vacancyPage = search.search();
+                pagesCache.put(pageNumber, vacancyPage);
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             }
         } catch (Exception e) {

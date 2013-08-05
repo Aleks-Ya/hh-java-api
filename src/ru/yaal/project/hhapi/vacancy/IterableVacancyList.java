@@ -8,7 +8,7 @@ import java.util.List;
 
 public class IterableVacancyList extends Dictionary<Vacancy> {
 
-    public IterableVacancyList(VacancyList vacancyFullList) throws DictionaryException {
+    public IterableVacancyList(VacancyPage vacancyFullList) throws DictionaryException {
         super(vacancyFullList.getItems(), Vacancy.NULL_VACANCY);
     }
 

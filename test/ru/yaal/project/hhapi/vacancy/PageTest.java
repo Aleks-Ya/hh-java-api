@@ -22,17 +22,17 @@ public class PageTest {
 
     @Test
     public void testPage() throws SearchException, DictionaryException {
-        VacancyList vacancyList1 = new VacancySearch().addParameter(new Page(1)).search();
-        int pages = vacancyList1.getPages();
-        int perPage = vacancyList1.getPerPage();
-        int itemsCount = vacancyList1.getItems().size();
+        VacancyPage vacancyPage1 = new VacancySearch().addParameter(new Page(1)).search();
+        int pages = vacancyPage1.getPages();
+        int perPage = vacancyPage1.getPerPage();
+        int itemsCount = vacancyPage1.getItems().size();
 
         for (int page = 1; page <= 5; page++) {
-            VacancyList vacancyList = new VacancySearch().addParameter(new Page(page)).search();
-            assertThat(vacancyList.getPage(), is(page));
-            assertThat(vacancyList.getPages(), is(pages));
-            assertThat(vacancyList.getPerPage(), is(perPage));
-            assertThat(vacancyList.getItems(), hasSize(itemsCount));
+            VacancyPage vacancyPage = new VacancySearch().addParameter(new Page(page)).search();
+            assertThat(vacancyPage.getPage(), is(page));
+            assertThat(vacancyPage.getPages(), is(pages));
+            assertThat(vacancyPage.getPerPage(), is(perPage));
+            assertThat(vacancyPage.getItems(), hasSize(itemsCount));
         }
     }
 }

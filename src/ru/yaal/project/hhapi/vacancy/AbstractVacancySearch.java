@@ -16,11 +16,11 @@ public abstract class AbstractVacancySearch<E> implements ISearch<E> {
     public static final int MAX_VACANCIES_LIMIT = 2000;
     public static final int MIN_VACANCIES_LIMIT = PerPage.MIN_PER_PAGE;
     public static final int DEFAULT_VACANCIES_LIMIT = 20;
-    private IParser<VacancyList> parser = new VacanciesParser();
+    private IParser<VacancyPage> parser = new VacanciesParser();
     private IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
     private SearchParameterBox parameterBox = new SearchParameterBox();
 
-    protected IParser<VacancyList> getParser() {
+    protected IParser<VacancyPage> getParser() {
         return parser;
     }
 

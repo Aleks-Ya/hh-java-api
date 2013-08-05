@@ -28,9 +28,9 @@ public class PerPageTest {
     public void testPerPage() throws SearchException, DictionaryException {
         final Integer perPageCount = 5;
         PerPage perPage = new PerPage(perPageCount);
-        ISearch<VacancyList> search = new VacancySearch();
+        ISearch<VacancyPage> search = new VacancySearch();
         search.addParameter(perPage);
-        VacancyList result = search.search();
+        VacancyPage result = search.search();
         assertEquals(perPageCount, result.getPerPage());
         assertEquals((Object) perPageCount, result.getItems().size());
     }
