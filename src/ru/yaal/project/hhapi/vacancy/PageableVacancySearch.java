@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.search.SearchException;
 
-public class PageableVacancySearch extends AbstractVacancySearch<PageableVacancyList> {
+public class PageableVacancySearch extends AbstractSearch<PageableVacancyList> {
     private static final Logger LOG = LoggerFactory.getLogger(PageableVacancySearch.class);
     private int vacanciesLimit;
 

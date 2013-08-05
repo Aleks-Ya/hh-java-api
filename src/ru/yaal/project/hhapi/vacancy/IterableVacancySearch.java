@@ -9,7 +9,7 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 import java.util.Set;
 
-public class IterableVacancySearch extends AbstractVacancySearch<IterableVacancyList> {
+public class IterableVacancySearch extends AbstractSearch<IterableVacancyList> {
     private static final Logger LOG = LoggerFactory.getLogger(IterableVacancySearch.class);
     private Integer vacancyLimit;
 

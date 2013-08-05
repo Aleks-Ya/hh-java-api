@@ -12,7 +12,7 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractVacancySearch<E> implements ISearch<E> {
+public abstract class AbstractSearch<E> implements ISearch<E> {
     public static final int MAX_VACANCIES_LIMIT = 2000;
     public static final int MIN_VACANCIES_LIMIT = PerPage.MIN_PER_PAGE;
     public static final int DEFAULT_VACANCIES_LIMIT = 20;
@@ -42,13 +42,13 @@ public abstract class AbstractVacancySearch<E> implements ISearch<E> {
     }
 
     @Override
-    public AbstractVacancySearch<E> addParameter(ISearchParameter searchParameter) throws SearchException {
+    public AbstractSearch<E> addParameter(ISearchParameter searchParameter) throws SearchException {
         parameterBox.addParameter(searchParameter.getSearchParameters());
         return this;
     }
 
     @Override
-    public AbstractVacancySearch<E> addParameter(SearchParameterBox parameterBox) throws SearchException {
+    public AbstractSearch<E> addParameter(SearchParameterBox parameterBox) throws SearchException {
         this.parameterBox.addParameter(parameterBox);
         return this;
     }
