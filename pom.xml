@@ -4,7 +4,7 @@
     <groupId>ru.yaal.project.hhapi</groupId>
     <artifactId>HhJavaApi</artifactId>
     <version>0.3.0-SNAPSHOT</version>
-    <name>HeadHunter.ru Java API</name>
+    <name>HeadHunter Java API</name>
 
     <properties>
         <project.build.sourceEncoding>cp1251</project.build.sourceEncoding>
