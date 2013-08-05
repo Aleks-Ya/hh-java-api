@@ -5,7 +5,6 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
-import ru.yaal.project.hhapi.search.parameter.Period;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.*;
@@ -32,14 +31,5 @@ public class VacancySearchTest {
         assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT < result.getFound());
         assertEquals(perPageCount, result.getPerPage());
         assertEquals((Object) perPageCount, result.getItems().size());
-    }
-
-    @Test
-    public void testPeriod() throws SearchException, DictionaryException {
-        Period period = new Period(1);
-        search.addParameter(period);
-        VacancyList result = search.search();
-        assertTrue(WITHOUT_PARAMS_VACANCIES_COUNT > result.getFound());
-        assertThat(result.getFound(), greaterThan(4000));
     }
 }
