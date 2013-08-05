@@ -4,7 +4,6 @@ import org.junit.Test;
 import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
@@ -15,15 +14,16 @@ import static org.junit.Assert.assertThat;
 public class MetroLineTest {
     @Test
     public void searchByMetroLine() throws SearchException, DictionaryException {
-        MetroStation metroExpected = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
-        MetroStation metroExpected2 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Маяковская");
-        MetroStation metroExpected3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
-        for (Vacancy vacancy : TestHelper.search(30, metroExpected)) {
+        MetroStation expMetro = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
+        MetroStation expMetro2 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Маяковская");
+        MetroStation expMetro3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
+        MetroStation expMetro4 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Купчино");
+        for (Vacancy vacancy : TestHelper.search(30, expMetro)) {
             Address address = vacancy.getAddress();
             if (!address.isNull()) {
-                MetroStation stationActual = address.getStation();
-                if (!stationActual.isNull()) {
-                    assertThat(stationActual, isOneOf(metroExpected, metroExpected2, metroExpected3));
+                MetroStation actStation = address.getStation();
+                if (!actStation.isNull()) {
+                    assertThat(actStation, isOneOf(expMetro, expMetro2, expMetro3, expMetro4));
                 }
             }
         }
