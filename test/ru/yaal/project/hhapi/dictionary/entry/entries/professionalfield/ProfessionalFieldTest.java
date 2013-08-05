@@ -13,11 +13,11 @@ import static org.junit.Assert.assertThat;
 public class ProfessionalFieldTest {
     @Test
     public void searchMultiValues() throws Exception {
-        final ProfessionalField expectedField1 = ProfessionalField.PROFESSIONAL_FIELDS.getById("18.298");
-        final ProfessionalField expectedField2 = ProfessionalField.PROFESSIONAL_FIELDS.getById("22.11");
-        for (Vacancy vacancy : TestHelper.search(expectedField1, expectedField2)) {
+        final ProfessionalField expField1 = ProfessionalField.PROFESSIONAL_FIELDS.getById("18.298");
+        final ProfessionalField expField2 = ProfessionalField.PROFESSIONAL_FIELDS.getById("22.11");
+        for (Vacancy vacancy : TestHelper.search(expField1, expField2)) {
             List<ProfessionalField> fields = vacancy.getProfessionalFields();
-            assertThat(fields, everyItem(isOneOf(expectedField1, expectedField2)));
+            assertThat(fields, everyItem(isOneOf(expField1, expField2)));
         }
     }
 }

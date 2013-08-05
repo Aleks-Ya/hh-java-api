@@ -28,13 +28,13 @@ public class DictionaryTest {
     @Test
     public void iterable() {
         IDictionary<Currency> currencies = SmallDictionariesInitializer.getInstance().getCurrency();
-        List<Currency> actualCurrencies = new ArrayList<>(currencies.size());
+        List<Currency> actCurrencies = new ArrayList<>(currencies.size());
         for (Currency currency : currencies) {
-            actualCurrencies.add(currency);
+            actCurrencies.add(currency);
         }
         List<Currency> expCurrencies = currencies.toList();
-        assertThat(actualCurrencies, hasSize(expCurrencies.size()));
-        assertTrue(actualCurrencies.containsAll(expCurrencies));
+        assertThat(actCurrencies, hasSize(expCurrencies.size()));
+        assertTrue(actCurrencies.containsAll(expCurrencies));
     }
 
     @Test

@@ -11,12 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class ScheduleTest {
     @Test
     public void searchMultiParameters() throws Exception {
-        final Schedule expectedSchedule1 = Schedule.REMOTE;
-        final Schedule expectedSchedule2 = Schedule.SHIFT;
-        for (Vacancy vacancy : TestHelper.search(expectedSchedule1, expectedSchedule2)) {
-            Schedule actualSchedule = vacancy.getSchedule();
-            assertTrue(actualSchedule.equals(expectedSchedule1) || actualSchedule.equals(expectedSchedule2));
-            assertThat(actualSchedule, isOneOf(expectedSchedule1, expectedSchedule2));
+        final Schedule expSchedule1 = Schedule.REMOTE;
+        final Schedule expSchedule2 = Schedule.SHIFT;
+        for (Vacancy vacancy : TestHelper.search(expSchedule1, expSchedule2)) {
+            Schedule actSchedule = vacancy.getSchedule();
+            assertTrue(actSchedule.equals(expSchedule1) || actSchedule.equals(expSchedule2));
+            assertThat(actSchedule, isOneOf(expSchedule1, expSchedule2));
         }
     }
 }

@@ -38,8 +38,8 @@ public class EmploymentTest {
     @Test
     public void searchPart() throws Exception {
         for (Vacancy vacancy : TestHelper.search(parameters)) {
-            Employment actualEmployment = vacancy.getEmployment();
-            assertThat(actualEmployment, isIn(parameters));
+            Employment actEmployment = vacancy.getEmployment();
+            assertThat(actEmployment, isIn(parameters));
         }
     }
 

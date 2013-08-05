@@ -11,10 +11,10 @@ public class EmployerTest {
     @Test
     public void testGetSearchParameters() throws Exception {
         final Employer expEmployer1 = new Employer("1455");
-        final Employer expectedEmployer2 = new Employer("6591");
-        for (Vacancy vacancy : TestHelper.search(expEmployer1, expectedEmployer2)) {
-            Employer actualEmployer = vacancy.getEmployer();
-            assertThat(actualEmployer, isOneOf(expEmployer1, expectedEmployer2));
+        final Employer expEmployer2 = new Employer("6591");
+        for (Vacancy vacancy : TestHelper.search(expEmployer1, expEmployer2)) {
+            Employer actEmployer = vacancy.getEmployer();
+            assertThat(actEmployer, isOneOf(expEmployer1, expEmployer2));
         }
     }
 }

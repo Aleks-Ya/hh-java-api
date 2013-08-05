@@ -17,11 +17,11 @@ public class PageableVacancySearchTest {
     public void testSearch() throws Exception {
         search.addParameter(new Text("scala"));
         PageableVacancyList pageableVacancyList = search.search();
-        List<Vacancy> actualList = new ArrayList<>(pageableVacancyList.getVacanciesAmount());
+        List<Vacancy> actList = new ArrayList<>(pageableVacancyList.getVacanciesAmount());
         for (IterableVacancyList vacancyList : pageableVacancyList) {
-            actualList.addAll(vacancyList.toList());
+            actList.addAll(vacancyList.toList());
         }
-        assertEquals(pageableVacancyList.getVacanciesAmount(), actualList.size());
+        assertEquals(pageableVacancyList.getVacanciesAmount(), actList.size());
     }
 
     @Test

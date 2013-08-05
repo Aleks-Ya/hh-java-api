@@ -28,8 +28,8 @@ public class AreaTest {
     public void searchArea() throws SearchException, DictionaryException {
         final Area expArea = Area.AREAS.getByName("Санкт-ПЕТЕРБУРГ");
         for (Vacancy vacancy : TestHelper.search(expArea)) {
-            Area actualArea = vacancy.getArea();
-            assertEquals(expArea, actualArea);
+            Area actArea = vacancy.getArea();
+            assertEquals(expArea, actArea);
         }
     }
 
@@ -38,8 +38,8 @@ public class AreaTest {
         Area expArea1 = Area.AREAS.getByName("Саратов");
         Area expArea2 = Area.AREAS.getByName("Вологда");
         for (Vacancy vacancy : TestHelper.search(expArea1, expArea2)) {
-            Area actualArea = vacancy.getArea();
-            assertThat(actualArea, isOneOf(expArea1, expArea2));
+            Area actArea = vacancy.getArea();
+            assertThat(actArea, isOneOf(expArea1, expArea2));
         }
     }
 
