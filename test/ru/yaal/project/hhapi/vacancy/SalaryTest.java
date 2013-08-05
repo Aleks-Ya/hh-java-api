@@ -14,13 +14,54 @@ import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
+import static ru.yaal.project.hhapi.vacancy.SalaryTest.SalaryEquals.salaryEquals;
 
 public class SalaryTest {
     private static final Logger LOG = LoggerFactory.getLogger(SalaryTest.class);
 
-    public static void assertSalary(Integer expectedSalary, Salary actualSalary) throws SearchException {
-        assertSalary(new Salary(expectedSalary), actualSalary);
+    @Test
+    public void testOnlyWithSalary() throws SearchException {
+        final int count = 50;
+        IterableVacancyList vacancies = new IterableVacancySearch(count)
+                .addParameter(OnlyWithSalary.ON).search();
+        assertThat(vacancies.size(), equalTo(count));
+        for (Vacancy vacancy : vacancies) {
+            Salary actSalary = vacancy.getSalary();
+            assertNotNull(actSalary);
+            assertTrue(actSalary.getFrom() != null || actSalary.getTo() != null);
+        }
+    }
+
+    @Test
+    public void testSalary() throws SearchException, DictionaryException {
+        final int count = 50;
+        final Salary expSalary = new Salary(100000);
+        IterableVacancyList vacancies = new IterableVacancySearch(count)
+                .addParameter(expSalary).search();
+        assertThat(vacancies.size(), equalTo(count));
+        for (Vacancy vacancy : vacancies) {
+            Salary actSalary = vacancy.getSalary();
+            if (actSalary.getFrom() != null || actSalary.getTo() != null) {
+                assertThat(actSalary, salaryEquals(expSalary));
+            }
+        }
+    }
+
+    @Test
+    public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
+        final int count = 50;
+        final Salary expSalary = new Salary(50000);
+        IterableVacancyList vacancies = new IterableVacancySearch(count)
+                .addParameter(expSalary)
+                .addParameter(OnlyWithSalary.ON)
+                .search();
+        assertThat(vacancies.size(), equalTo(count));
+        for (Vacancy vacancy : vacancies) {
+            Salary actSalary = vacancy.getSalary();
+            assertThat(actSalary, salaryEquals(expSalary));
+        }
     }
 
     @Test(expected = SearchException.class)
