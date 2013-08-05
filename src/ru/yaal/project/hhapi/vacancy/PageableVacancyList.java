@@ -33,7 +33,7 @@ public class PageableVacancyList implements Iterable<IterableVacancyList> {
             if (pagesCache.containsKey(pageNumber)) {
                 return new IterableVacancyList(pagesCache.get(pageNumber));
             } else {
-                ISearch<VacancyPage> search = new VacancySearch();
+                ISearch<VacancyPage> search = new VacancyPageSearch();
                 searchParameters.setParameter(SearchParamNames.PAGE, String.valueOf(pageNumber - 1));
                 search.addParameter(searchParameters);
                 VacancyPage vacancyPage = search.search();
