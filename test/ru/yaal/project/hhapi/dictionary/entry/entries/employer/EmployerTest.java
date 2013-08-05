@@ -5,16 +5,25 @@ import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
 import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class EmployerTest {
+
     @Test
-    public void testGetSearchParameters() throws Exception {
-        final Employer expEmployer1 = new Employer("1455");
-        final Employer expEmployer2 = new Employer("6591");
-        for (Vacancy vacancy : TestHelper.search(expEmployer1, expEmployer2)) {
-            Employer actEmployer = vacancy.getEmployer();
-            assertThat(actEmployer, isOneOf(expEmployer1, expEmployer2));
+    public void searchByEmployer() throws Exception {
+        final Employer kafeHouse = new Employer("27986");
+        for (Vacancy vacancy : TestHelper.search(kafeHouse)) {
+            assertEquals(vacancy.getEmployer(), kafeHouse);
+        }
+    }
+
+    @Test
+    public void searchByMultiEmployers() throws Exception {
+        final Employer headHunter = new Employer("1455");
+        final Employer promSviazBank = new Employer("6591");
+        for (Vacancy vacancy : TestHelper.search(headHunter, promSviazBank)) {
+            assertThat(vacancy.getEmployer(), isOneOf(headHunter, promSviazBank));
         }
     }
 }
