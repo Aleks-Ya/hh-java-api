@@ -2,7 +2,7 @@ package ru.yaal.project.hhapi.dictionary;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
@@ -50,7 +50,7 @@ public class DictionaryTest {
     }
 
     @Test
-    public void toStringProfessionalFieldDictionary() {
+    public void toStringProfFieldDictionary() {
         assertEquals("{Страхование(19),Продажи(17),Производство(18),Начало карьеры, студенты(15)," +
                 "Государственная служба, некоммерческие организации(16),Медицина, фармацевтика(13)," +
                 "Наука, образование(14),Искусство, развлечения, масс-медиа(11),Консультирование(12)," +
@@ -60,8 +60,8 @@ public class DictionaryTest {
                 "Бухгалтерия, управленческий учет, финансы предприятия(2)," +
                 "Информационные технологии, интернет, телеком(1),Добыча сырья(10),Автомобильный бизнес(7)," +
                 "Управление персоналом, тренинги(6),Банки, инвестиции, лизинг(5),Административный персонал(4)," +
-                "Высший менеджмент(9),Безопасность(8)}", ProfessionalField.PROFESSIONAL_FIELDS.toString());
-        ProfessionalField field = ProfessionalField.PROFESSIONAL_FIELDS.getById("19");
+                "Высший менеджмент(9),Безопасность(8)}", ProfField.PROF_FIELDS.toString());
+        ProfField field = ProfField.PROF_FIELDS.getById("19");
         assertEquals("{Эксперт-оценщик(19.357),Агент(19.19),Начальный уровень, Мало опыта(19.170)," +
                 "Комплексное страхование физических лиц(19.108),Руководитель направления(19.259),Автострахование(19.18)," +
                 "Андеррайтер(19.28),Комплексное страхование юридических лиц(19.109),Перестрахование(19.483)," +

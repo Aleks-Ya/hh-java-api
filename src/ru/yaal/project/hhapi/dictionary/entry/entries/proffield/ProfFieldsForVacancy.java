@@ -1,11 +1,11 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
+package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
 
-public class ProfessionalFieldsForVacancy extends ProfessionalField {
+public class ProfFieldsForVacancy extends ProfField {
     @Getter
     @Setter
     @SerializedName("profarea_id")

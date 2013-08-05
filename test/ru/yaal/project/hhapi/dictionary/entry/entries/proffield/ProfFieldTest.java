@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
+package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.TestHelper;
@@ -11,31 +11,31 @@ import ru.yaal.project.hhapi.vacancy.Vacancy;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
-public class ProfessionalFieldTest {
+public class ProfFieldTest {
 
     @Test
     public void searchByProfField() throws Exception {
-        final ProfessionalField expProfField = ProfessionalField.PROFESSIONAL_FIELDS.getById("18.291");
+        final ProfField expProfField = ProfField.PROF_FIELDS.getById("18.291");
         for (Vacancy vacancy : TestHelper.search(expProfField)) {
-            assertThat(vacancy.getProfessionalFields(), everyItem(equalTo(expProfField)));
+            assertThat(vacancy.getProfFields(), everyItem(equalTo(expProfField)));
         }
     }
 
     @Test
     public void searchByMultiProfFields1() throws Exception {
-        final ProfessionalField expField1 = ProfessionalField.PROFESSIONAL_FIELDS.getById("18.298");
-        final ProfessionalField expField2 = ProfessionalField.PROFESSIONAL_FIELDS.getById("22.11");
+        final ProfField expField1 = ProfField.PROF_FIELDS.getById("18.298");
+        final ProfField expField2 = ProfField.PROF_FIELDS.getById("22.11");
         for (Vacancy vacancy : TestHelper.search(expField1, expField2)) {
-            assertThat(vacancy.getProfessionalFields(), everyItem(isOneOf(expField1, expField2)));
+            assertThat(vacancy.getProfFields(), everyItem(isOneOf(expField1, expField2)));
         }
     }
 
     @Test
     public void searchByMultiProfFields2() throws DictionaryException, SearchException, LoadException, ParseException {
-        final ProfessionalField programming = ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221");
-        final ProfessionalField copywriter = ProfessionalField.PROFESSIONAL_FIELDS.getById("3.119");
+        final ProfField programming = ProfField.PROF_FIELDS.getById("1.221");
+        final ProfField copywriter = ProfField.PROF_FIELDS.getById("3.119");
         for (Vacancy vacancy : TestHelper.search(programming, copywriter)) {
-            assertThat(vacancy.getProfessionalFields(), everyItem(isOneOf(programming, copywriter)));
+            assertThat(vacancy.getProfFields(), everyItem(isOneOf(programming, copywriter)));
         }
     }
 }

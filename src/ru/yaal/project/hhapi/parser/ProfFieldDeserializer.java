@@ -5,37 +5,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalFieldDictionary;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.Specialization;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfFieldDictionary;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.Specialization;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfessionalFieldDeserializer implements JsonDeserializer<ProfessionalFieldDictionary> {
-    private static final Logger LOG = LoggerFactory.getLogger(ProfessionalFieldDeserializer.class);
+public class ProfFieldDeserializer implements JsonDeserializer<ProfFieldDictionary> {
+    private static final Logger LOG = LoggerFactory.getLogger(ProfFieldDeserializer.class);
 
     @Override
-    public ProfessionalFieldDictionary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
+    public ProfFieldDictionary deserialize(JsonElement element, Type type, JsonDeserializationContext context) {
         try {
-            List<ProfessionalField> fields = new ArrayList<>();
+            List<ProfField> fields = new ArrayList<>();
             for (JsonElement field : element.getAsJsonArray()) {
                 JsonObject object = (JsonObject) field;
-                fields.add(parseProfessionalField(object));
+                fields.add(parseProfField(object));
             }
-            return new ProfessionalFieldDictionary(fields);
+            return new ProfFieldDictionary(fields);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new JsonParseException(e);
         }
     }
 
-    private ProfessionalField parseProfessionalField(JsonObject object) throws DictionaryException {
-        ProfessionalField newField;
+    private ProfField parseProfField(JsonObject object) throws DictionaryException {
+        ProfField newField;
         String id = object.get("id").getAsString();
         if (id != null && !id.isEmpty()) {
-            newField = new ProfessionalField();
+            newField = new ProfField();
             newField.setId(id);
             newField.setName(object.get("name").getAsString());
             JsonElement specializations = object.get("specializations");
@@ -48,7 +48,7 @@ public class ProfessionalFieldDeserializer implements JsonDeserializer<Professio
                 newField.setSpecializations(new Dictionary<>(newSpecializations, Specialization.NULL_SPECIALIZATION));
             }
         } else {
-            newField = ProfessionalField.NULL_PROFESSIONAL_FIELD;
+            newField = ProfField.NULL_PROF_FIELD;
         }
         return newField;
     }

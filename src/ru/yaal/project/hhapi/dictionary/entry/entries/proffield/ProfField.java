@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
+package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,33 +19,33 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
  * Профессиональная область.
  * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("ИЛИ").
  */
-public class ProfessionalField extends AbstractDictionaryEntry implements ISearchParameter {
-    private static final Logger LOG = LoggerFactory.getLogger(ProfessionalField.class);
-    public static final ProfessionalField NULL_PROFESSIONAL_FIELD = new ProfessionalField();
-    public static final ProfessionalFieldDictionary PROFESSIONAL_FIELDS = loadProfessionalFields();
+public class ProfField extends AbstractDictionaryEntry implements ISearchParameter {
+    private static final Logger LOG = LoggerFactory.getLogger(ProfField.class);
+    public static final ProfField NULL_PROF_FIELD = new ProfField();
+    public static final ProfFieldDictionary PROF_FIELDS = loadProfFields();
     @Getter
     @Setter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Specialization> specializations;
 
-    private static ProfessionalFieldDictionary loadProfessionalFields() {
-        ProfessionalFieldDictionary professionalFields;
+    private static ProfFieldDictionary loadProfFields() {
+        ProfFieldDictionary profFields;
         try {
             LOG.info("Загружаю справочник профессиональных областей.");
             IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
             String content = loader.loadContent(UrlConstants.SPECIALIZATIONS_URL);
-            IParser<ProfessionalFieldDictionary> parse = new ProfessionalFieldsParser();
-            professionalFields = parse.parse(content);
+            IParser<ProfFieldDictionary> parse = new ProfFieldsParser();
+            profFields = parse.parse(content);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
-            professionalFields = new ProfessionalFieldDictionary();
+            profFields = new ProfFieldDictionary();
         }
-        return professionalFields;
+        return profFields;
     }
 
     @Override
     public SearchParameterBox getSearchParameters() throws SearchException {
-        return new SearchParameterBox(SearchParamNames.PROFESSIONAL_FIELD, getId());
+        return new SearchParameterBox(SearchParamNames.PROF_FIELD, getId());
     }
 
     @Override

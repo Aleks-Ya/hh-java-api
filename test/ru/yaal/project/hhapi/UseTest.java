@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Gender;
@@ -37,7 +37,7 @@ public class UseTest {
 //        ISearchParameter area2 = Area.SAINT_PETERSBURG;
 //        ISearchParameter metro1 = MetroLine.MOSCOW.getByName("Марьина Роща");
 //        ISearchParameter metro2 = MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
-        ISearchParameter professionalField = ProfessionalField.PROFESSIONAL_FIELDS.getById("1.221");//Программирование
+        ISearchParameter profField = ProfField.PROF_FIELDS.getById("1.221");//Программирование
         ISearchParameter salary = new Salary(2000, 5000, Currency.USD);
         ISearchParameter experience = Experience.BETWEEN_3_AND_6;
         ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
@@ -52,7 +52,7 @@ public class UseTest {
 //                .addParameter(area2)
 //                .addParameter(metro1)
 //                .addParameter(metro2)
-                .addParameter(professionalField)
+                .addParameter(profField)
                 .addParameter(salary)
                 .addParameter(experience)
                 .addParameter(onlyWithSalary)

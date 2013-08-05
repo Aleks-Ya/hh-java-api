@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
+package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
@@ -6,13 +6,13 @@ import ru.yaal.project.hhapi.dictionary.IDictionary;
 
 import java.util.List;
 
-public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
-    public ProfessionalFieldDictionary() {
-        super(ProfessionalField.NULL_PROFESSIONAL_FIELD);
+public class ProfFieldDictionary extends Dictionary<ProfField> {
+    public ProfFieldDictionary() {
+        super(ProfField.NULL_PROF_FIELD);
     }
 
-    public ProfessionalFieldDictionary(List<ProfessionalField> fieldList) throws DictionaryException {
-        super(fieldList, ProfessionalField.NULL_PROFESSIONAL_FIELD);
+    public ProfFieldDictionary(List<ProfField> fieldList) throws DictionaryException {
+        super(fieldList, ProfField.NULL_PROF_FIELD);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
         if (super.hasId(id)) {
             return true;
         } else {
-            for (ProfessionalField field : toList()) {
+            for (ProfField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
                 if (specializations.hasId(id)) {
                     return true;
@@ -35,7 +35,7 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
         if (super.hasName(name)) {
             return true;
         } else {
-            for (ProfessionalField field : toList()) {
+            for (ProfField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
                 if (specializations.hasName(name)) {
                     return true;
@@ -46,11 +46,11 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
     }
 
     @Override
-    public ProfessionalField getById(String id) {
+    public ProfField getById(String id) {
         if (super.hasId(id)) {
             return super.getById(id);
         } else {
-            for (ProfessionalField field : toList()) {
+            for (ProfField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
                 if (specializations.hasId(id)) {
                     return specializations.getById(id);
@@ -61,11 +61,11 @@ public class ProfessionalFieldDictionary extends Dictionary<ProfessionalField> {
     }
 
     @Override
-    public ProfessionalField getByName(String name) {
+    public ProfField getByName(String name) {
         if (super.hasName(name)) {
             return super.getByName(name);
         } else {
-            for (ProfessionalField field : toList()) {
+            for (ProfField field : toList()) {
                 IDictionary<Specialization> specializations = field.getSpecializations();
                 if (specializations.hasName(name)) {
                     return specializations.getByName(name);

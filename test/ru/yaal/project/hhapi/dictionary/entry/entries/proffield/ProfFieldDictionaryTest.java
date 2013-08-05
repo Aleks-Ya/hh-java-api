@@ -1,4 +1,4 @@
-package ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield;
+package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,16 +7,16 @@ import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.*;
 
-public class ProfessionalFieldDictionaryTest {
+public class ProfFieldDictionaryTest {
     private static final String FIELD_ID = "1";
     private static final String FIELD_NAME = "»Ì‘Ó–Ï¿ˆ»ÓÕÌ€Â “Â’ÌŒÎŒ„»Ë, »Ì“Â–Ì≈Ú, “ÂÀÂ ÓÃ";
     private static final String SPECIALIZATION_ID = "1.221";
     private static final String SPECIALIZATION_NAME = "œŒ„–‡ÃÏ»Œ‚¿Ì»Â, –‡«¿·ŒÚ ‡";
-    private ProfessionalFieldDictionary dictionary;
+    private ProfFieldDictionary dictionary;
 
     @Before
     public void before() throws DictionaryException {
-        dictionary = ProfessionalField.PROFESSIONAL_FIELDS;
+        dictionary = ProfField.PROF_FIELDS;
     }
 
     @Test
