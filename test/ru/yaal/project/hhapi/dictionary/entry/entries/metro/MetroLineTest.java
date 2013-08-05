@@ -3,7 +3,8 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 import org.junit.Test;
 import ru.yaal.project.hhapi.TestHelper;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancyLabel;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Address;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
@@ -32,6 +33,6 @@ public class MetroLineTest {
     public void searchByMultiMetroLines() throws Exception {
         MetroStation expMetro1 = (MetroStation) MetroLine.MOSCOW.getByName("Лубянка");
         MetroStation expMetro2 = (MetroStation) MetroLine.KAZAN.getByName("Горки");
-        TestHelper.search(50, VacancyLabel.WITH_ADDRESS, expMetro1, expMetro2);
+        TestHelper.search(50, Label.WITH_ADDRESS, expMetro1, expMetro2);
     }
 }

@@ -11,23 +11,23 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
  * Метки вакансии.
  * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("И").
  */
-public final class VacancyLabel extends AbstractDictionaryEntry implements ISearchParameter {
-    public static final VacancyLabel NULL_VACANCY_LABEL = new VacancyLabel();
-    public static final IDictionary<VacancyLabel> VACANCY_LABELS = SmallDictionariesInitializer.getInstance().getVacancyLabel();
+public final class Label extends AbstractDictionaryEntry implements ISearchParameter {
+    public static final Label NULL_LABEL = new Label();
+    public static final IDictionary<Label> LABELS = SmallDictionariesInitializer.getInstance().getLabel();
     /**
      * Только с адресом.
      */
-    public static final VacancyLabel WITH_ADDRESS = VACANCY_LABELS.getById("with_address");
+    public static final Label WITH_ADDRESS = LABELS.getById("with_address");
     /**
      * Только доступные для людей с инвалидностью.
      */
-    public static final VacancyLabel ACCEPT_HANDICAPPED = VACANCY_LABELS.getById("accept_handicapped");
+    public static final Label ACCEPT_HANDICAPPED = LABELS.getById("accept_handicapped");
     /**
      * Без вакансий агентств.
      */
-    public static final VacancyLabel NOT_FROM_AGENCY = VACANCY_LABELS.getById("not_from_agency");
+    public static final Label NOT_FROM_AGENCY = LABELS.getById("not_from_agency");
 
-    private VacancyLabel() {
+    private Label() {
     }
 
     @Override

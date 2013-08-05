@@ -10,18 +10,18 @@ import ru.yaal.project.hhapi.vacancy.Vacancy;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class VacancyLabelTest {
+public class LabelTest {
 
     @Test
     public void searchByOneLabel() throws SearchException, LoadException, ParseException {
-        for (Vacancy vacancy : TestHelper.search(10, VacancyLabel.ACCEPT_HANDICAPPED)) {
+        for (Vacancy vacancy : TestHelper.search(10, Label.ACCEPT_HANDICAPPED)) {
             assertTrue(vacancy.getAcceptHandicapped());
         }
     }
 
     @Test
     public void searchByMultiLabels() throws SearchException, LoadException, ParseException {
-        for (Vacancy vacancy : TestHelper.search(100, VacancyLabel.ACCEPT_HANDICAPPED, VacancyLabel.WITH_ADDRESS)) {
+        for (Vacancy vacancy : TestHelper.search(100, Label.ACCEPT_HANDICAPPED, Label.WITH_ADDRESS)) {
             assertTrue(vacancy.getAcceptHandicapped());
             assertFalse(vacancy.getAddress().isNull());
         }

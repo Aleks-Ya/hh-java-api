@@ -27,7 +27,7 @@ public class SmallDictionariesContainer {
     private List<ResumeAccessType> resumeAccessType;
     private List<Employment> employment;
     @SerializedName("vacancy_label")
-    private List<VacancyLabel> vacancyLabel;
+    private List<Label> label;
     private List<Gender> gender;
     @SerializedName("language_level")
     private List<LanguageLevel> languageLevel;
