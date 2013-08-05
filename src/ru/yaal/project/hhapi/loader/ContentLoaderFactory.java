@@ -47,6 +47,6 @@ public final class ContentLoaderFactory {
     }
 
     private static boolean isUseFakeStorage() {
-        return Boolean.valueOf(System.getProperty("use_fake_storage"));
+        return Boolean.valueOf(System.getProperty("use_test_cache"));
     }
 }

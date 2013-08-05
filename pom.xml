@@ -37,7 +37,7 @@
                 <configuration>
                     <systemProperties>
                         <property>
-                            <name>use_fake_storage</name>
+                            <name>use_test_cache</name>
                             <value>true</value>
                         </property>
                     </systemProperties>
