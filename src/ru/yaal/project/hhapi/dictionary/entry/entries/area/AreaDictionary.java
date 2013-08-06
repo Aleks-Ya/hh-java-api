@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public class AreaDictionary extends Dictionary<Area> {
         super(Area.NULL_AREA);
     }
 
-    public AreaDictionary(List<Area> treeList) throws DictionaryException {
+    public AreaDictionary(List<Area> treeList) {
         super(treeList, Area.NULL_AREA);
     }
 

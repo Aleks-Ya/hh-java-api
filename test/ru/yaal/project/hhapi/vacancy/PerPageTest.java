@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
 
@@ -25,7 +24,7 @@ public class PerPageTest {
     }
 
     @Test
-    public void testPerPage() throws SearchException, DictionaryException {
+    public void testPerPage() throws SearchException {
         final Integer perPageCount = 5;
         PerPage perPage = new PerPage(perPageCount);
         ISearch<VacancyPage> search = new VacancyPageSearch();

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class SmallDictionariesInitializerTest {
     @Test
-    public void testCurrency() throws DictionaryException {
+    public void testCurrency() {
         IDictionary<Currency> dict = SmallDictionariesInitializer.getInstance().getCurrency();
         assertEquals(7, dict.size());
         Currency rur = dict.getById("RUR");
@@ -28,7 +28,7 @@ public class SmallDictionariesInitializerTest {
     }
 
     @Test
-    public void testEducationLevel() throws DictionaryException {
+    public void testEducationLevel() {
         IDictionary<EducationLevel> dict = SmallDictionariesInitializer.getInstance().getEducationLevel();
         assertEquals(8, dict.size());
         EducationLevel higher = dict.getById("higher");
@@ -37,12 +37,12 @@ public class SmallDictionariesInitializerTest {
     }
 
     @Test
-    public void testAreas() throws DictionaryException {
+    public void testAreas() {
         assertEquals(6, Area.AREAS.size());
     }
 
     @Test
-    public void testProfFields() throws DictionaryException {
+    public void testProfFields() {
         assertEquals(28, ProfField.PROF_FIELDS.size());
     }
 

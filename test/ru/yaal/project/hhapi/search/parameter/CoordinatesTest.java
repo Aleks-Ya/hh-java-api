@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Address;
@@ -15,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class CoordinatesTest {
 
     @Test
-    public void testCoordinates() throws SearchException, DictionaryException {
+    public void testCoordinates() throws SearchException {
         double latTop = 59.932243;
         double latBottom = 59.915611;
         double lngLeft = 30.303541;

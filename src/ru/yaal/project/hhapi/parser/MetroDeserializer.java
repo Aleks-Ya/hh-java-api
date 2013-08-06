@@ -4,7 +4,6 @@ import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.*;
 
@@ -27,7 +26,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> 
         }
     }
 
-    private List<MetroCity> parseCities(JsonElement element) throws MalformedURLException, DictionaryException {
+    private List<MetroCity> parseCities(JsonElement element) throws MalformedURLException {
         List<MetroCity> result = new ArrayList<>();
         if (!element.isJsonNull()) {
             for (JsonElement cityElement : element.getAsJsonArray()) {
@@ -52,7 +51,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> 
         return result;
     }
 
-    private MetroLineDictionary parseLines(JsonElement lines, MetroCity city) throws DictionaryException {
+    private MetroLineDictionary parseLines(JsonElement lines, MetroCity city) {
         List<MetroLine> result = new ArrayList<>();
         if (!lines.isJsonNull()) {
             for (JsonElement lineElement : lines.getAsJsonArray()) {
@@ -74,7 +73,7 @@ public class MetroDeserializer implements JsonDeserializer<MetroCityDictionary> 
         return new MetroLineDictionary(result);
     }
 
-    private IDictionary<MetroStation> parseStations(JsonElement stationsElement, MetroLine line) throws DictionaryException {
+    private IDictionary<MetroStation> parseStations(JsonElement stationsElement, MetroLine line) {
         List<MetroStation> result = new ArrayList<>();
         if (!stationsElement.isJsonNull()) {
             for (JsonElement stationElement : stationsElement.getAsJsonArray()) {

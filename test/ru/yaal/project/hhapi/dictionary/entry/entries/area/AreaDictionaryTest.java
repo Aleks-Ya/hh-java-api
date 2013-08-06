@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.junit.Assert.*;
 
@@ -16,12 +15,12 @@ public class AreaDictionaryTest {
     private AreaDictionary areas;
 
     @Before
-    public void before() throws DictionaryException {
+    public void before() {
         areas = Area.AREAS;
     }
 
     @Test
-    public void hasById() throws DictionaryException {
+    public void hasById() {
         assertTrue(areas.hasId(RUSSIA_ID));
         assertTrue(areas.hasId(LEN_OBLAST_ID));
         assertTrue(areas.hasId(SPB_ID));
@@ -29,7 +28,7 @@ public class AreaDictionaryTest {
     }
 
     @Test
-    public void hasByName() throws DictionaryException {
+    public void hasByName() {
         assertTrue(areas.hasName(RUSSIA_NAME));
         assertTrue(areas.hasName(LEN_OBLAST_NAME));
         assertTrue(areas.hasName(SPB_NAME));
@@ -37,14 +36,14 @@ public class AreaDictionaryTest {
     }
 
     @Test
-    public void getById() throws DictionaryException {
+    public void getById() {
         assertTrue(RUSSIA_NAME.equalsIgnoreCase(areas.getById(RUSSIA_ID).getName()));
         assertTrue(LEN_OBLAST_NAME.equalsIgnoreCase(areas.getById(LEN_OBLAST_ID).getName()));
         assertTrue(SPB_NAME.equalsIgnoreCase(areas.getById(SPB_ID).getName()));
     }
 
     @Test
-    public void getByName() throws DictionaryException {
+    public void getByName() {
         assertEquals(RUSSIA_ID, areas.getByName(RUSSIA_NAME).getId());
         assertEquals(LEN_OBLAST_ID, areas.getByName(LEN_OBLAST_NAME).getId());
         assertEquals(SPB_ID, areas.getByName(SPB_NAME).getId());

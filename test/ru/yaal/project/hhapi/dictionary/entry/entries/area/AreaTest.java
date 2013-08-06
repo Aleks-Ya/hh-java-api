@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.area;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
@@ -23,7 +22,7 @@ public class AreaTest {
     }
 
     @Test
-    public void searchArea() throws SearchException, DictionaryException {
+    public void searchArea() throws SearchException {
         final Area expArea = Area.AREAS.getByName("—‡ÌÍÚ-œ≈“≈–¡”–√");
         for (Vacancy vacancy : HhApi.search(expArea)) {
             Area actArea = vacancy.getArea();

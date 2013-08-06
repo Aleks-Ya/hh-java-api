@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.parser.ParseException;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -31,7 +30,7 @@ public class ProfFieldTest {
     }
 
     @Test
-    public void searchByMultiProfFields2() throws DictionaryException, SearchException, LoadException, ParseException {
+    public void searchByMultiProfFields2() throws SearchException, LoadException, ParseException {
         final ProfField programming = ProfField.PROF_FIELDS.getById("1.221");
         final ProfField copywriter = ProfField.PROF_FIELDS.getById("3.119");
         for (Vacancy vacancy : HhApi.search(programming, copywriter)) {

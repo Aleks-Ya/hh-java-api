@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
 
@@ -15,7 +14,7 @@ import static uk.co.it.modular.hamcrest.date.DateMatchers.sameDay;
 
 public class OrderTest {
     @Test
-    public void testVacancySearchOrder() throws SearchException, DictionaryException {
+    public void testVacancySearchOrder() throws SearchException {
         VacancyList vacancyList = HhApi.search(Order.PUBLICATION_TIME);
         for (int v = 0; (v + 1) < 20; v++) {
             Date create1 = vacancyList.get(v).getCreatedAt();

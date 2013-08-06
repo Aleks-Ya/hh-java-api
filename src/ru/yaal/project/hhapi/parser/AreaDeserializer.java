@@ -3,7 +3,6 @@ package ru.yaal.project.hhapi.parser;
 import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.AreaDictionary;
 
@@ -30,7 +29,7 @@ public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
         }
     }
 
-    private Area parseArea(JsonElement element, Area parentArea) throws MalformedURLException, DictionaryException {
+    private Area parseArea(JsonElement element, Area parentArea) throws MalformedURLException {
         JsonObject object = (JsonObject) element;
         String id = object.get("id").getAsString();
         if (id == null || id.isEmpty()) {

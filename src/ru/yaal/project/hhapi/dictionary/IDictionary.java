@@ -15,7 +15,7 @@ public interface IDictionary<T extends IDictionaryEntry> extends Iterable<T> {
 
     T getByName(String name);
 
-    void addEntry(T entry) throws DictionaryException;
+    void addEntry(T entry);
 
     int size();
 

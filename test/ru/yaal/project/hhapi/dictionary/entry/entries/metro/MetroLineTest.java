@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Address;
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertThat;
 
 public class MetroLineTest {
     @Test
-    public void searchByMetroLine() throws SearchException, DictionaryException {
+    public void searchByMetroLine() throws SearchException {
         MetroStation expMetro = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
         MetroStation expMetro2 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Маяковская");
         MetroStation expMetro3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
