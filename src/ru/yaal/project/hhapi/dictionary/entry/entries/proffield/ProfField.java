@@ -31,7 +31,7 @@ public class ProfField extends AbstractDictionaryEntry implements ISearchParamet
     private static ProfFieldDictionary loadProfFields() {
         ProfFieldDictionary profFields;
         try {
-            LOG.info("Загружаю справочник профессиональных областей.");
+            LOG.debug("Загружаю справочник профессиональных областей.");
             IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
             String content = loader.loadContent(UrlConstants.SPECIALIZATIONS_URL);
             IParser<ProfFieldDictionary> parse = new ProfFieldsParser();

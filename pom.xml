@@ -24,6 +24,12 @@
         <testSourceDirectory>test</testSourceDirectory>
         <testResources>
             <testResource>
+                <directory>test</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </testResource>
+            <testResource>
                 <directory>test_cache</directory>
                 <includes>
                     <include>**/*.json</include>

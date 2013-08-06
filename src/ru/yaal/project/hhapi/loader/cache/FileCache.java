@@ -42,7 +42,7 @@ public class FileCache extends AbstractCache {
     @Override
     public void save(String name, String content) {
         try {
-            LOG.info(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
+            LOG.debug(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
             String hashFileName = generateHashFileName(name);
             File file = new File(dir, hashFileName);
             FileWriter writer = new FileWriter(file);

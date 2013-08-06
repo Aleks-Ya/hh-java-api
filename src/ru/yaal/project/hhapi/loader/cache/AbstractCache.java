@@ -39,20 +39,20 @@ public abstract class AbstractCache implements ICache {
     protected String verifyContent(String name, String content, long lastModified) {
         if (content != null) {
             if (!isOutdated(lastModified, lifeTimeMilliSec)) {
-                LOG.info(DATA_FOUND_MESSAGE, name, getCacheName(), content.length());
+                LOG.debug(DATA_FOUND_MESSAGE, name, getCacheName(), content.length());
                 if (!content.isEmpty()) {
                     return content;
                 } else {
-                    LOG.info(DATA_FOUND_BUT_EMPTY_MESSAGE, name, getCacheName());
+                    LOG.debug(DATA_FOUND_BUT_EMPTY_MESSAGE, name, getCacheName());
                     return null;
                 }
             } else {
-                LOG.info(DATA_FOUND_BUT_OUTDATED_MESSAGE, name, getCacheName());
+                LOG.debug(DATA_FOUND_BUT_OUTDATED_MESSAGE, name, getCacheName());
                 delete(name);
                 return null;
             }
         } else {
-            LOG.info(DATA_NOT_FOUND_MESSAGE, name, getCacheName());
+            LOG.debug(DATA_NOT_FOUND_MESSAGE, name, getCacheName());
             return null;
         }
     }

@@ -45,7 +45,7 @@ class ContentLoader implements IContentLoader {
     }
 
     private String loadContentFromNet(String url) throws IOException {
-        LOG.info("Загружаю данные с {}.", url);
+        LOG.debug("Загружаю данные с {}.", url);
         URL hhUrl = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) hhUrl.openConnection();
         connection.setRequestMethod("GET");

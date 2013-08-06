@@ -30,7 +30,7 @@ final class MetroInitializer {
 
     private void loadMetro() {
         try {
-            LOG.info("Загружаю справочник метро.");
+            LOG.debug("Загружаю справочник метро.");
             String content = loader.loadContent(UrlConstants.METRO_URL);
             IParser<MetroCityDictionary> parse = new MetroParser();
             metroCities = parse.parse(content);
