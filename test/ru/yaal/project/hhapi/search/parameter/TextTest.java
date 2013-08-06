@@ -33,4 +33,16 @@ public class TextTest {
         }
     }
 
+    @Test
+    public void textEncoding() throws SearchException, LoadException, ParseException {
+        final String searchText = "java developer";
+        final String searchTextUpperCase = searchText.toUpperCase();
+        for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
+            String name = vacancy.getName().toUpperCase();
+            String description = vacancy.getDescription().toUpperCase();
+            assertTrue(name.contains(searchTextUpperCase) || description.contains("JAVA")
+                    || description.contains("DEVELOPER"));
+        }
+    }
+
 }
