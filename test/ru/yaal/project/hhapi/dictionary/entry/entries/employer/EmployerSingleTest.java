@@ -6,7 +6,6 @@ import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.ParseException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +17,7 @@ import static org.junit.Assert.assertThat;
 
 public class EmployerSingleTest {
     @Test
-    public void employerSingleParse() throws LoadException, ParseException, MalformedURLException {
+    public void employerSingleParse() throws LoadException, MalformedURLException {
         IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
         String content = loader.loadContent(format(UrlConstants.EMPLOYER_URL, "1455"));
         IParser<EmployerSingle> parser = new EmployerParser();
