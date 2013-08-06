@@ -2,16 +2,17 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
 public class TextTest {
 
     @Test
-    public void searchByText() throws SearchException, LoadException {
+    public void searchByText() throws SearchException, IOException {
         final String searchText = "java";
         final String searchTextUpperCase = searchText.toUpperCase();
         for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
@@ -22,7 +23,7 @@ public class TextTest {
     }
 
     @Test
-    public void searchByMultiParams() throws SearchException, LoadException {
+    public void searchByMultiParams() throws SearchException, IOException {
         final String searchText = "java";
         final String searchTextUpperCase = searchText.toUpperCase();
         for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
@@ -33,7 +34,7 @@ public class TextTest {
     }
 
     @Test
-    public void textEncoding() throws SearchException, LoadException {
+    public void textEncoding() throws SearchException, IOException {
         final String searchText = "java developer";
         final String searchTextUpperCase = searchText.toUpperCase();
         for (Vacancy vacancy : HhApi.search(new Text(searchText))) {
