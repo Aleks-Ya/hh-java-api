@@ -8,7 +8,7 @@ public enum SearchParamNames {
     SCHEDULE("schedule", true),
     AREA("area", true),
     METRO("metro", true),
-    PROFESSIONAL_FIELD("specialization", true),
+    PROF_FIELD("specialization", true),
     EMPLOYER("employer_id", true),
     CURRENCY("currency"),
     SALARY("salary"),

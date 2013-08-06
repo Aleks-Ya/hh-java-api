@@ -1,33 +1,52 @@
 package ru.yaal.project.hhapi.vacancy;
 
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
-import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
 import static org.junit.Assert.*;
+import static ru.yaal.project.hhapi.vacancy.SalaryTest.SalaryEquals.salaryEquals;
 
 public class SalaryTest {
+    private static final Logger LOG = LoggerFactory.getLogger(SalaryTest.class);
 
-    public static void assertSalary(Salary expectedSalary, Salary actualSalary) throws SearchException {
-        Salary expectedSalaryRur = Salary.toRur(expectedSalary);
-        Salary actualSalaryRur = Salary.toRur(actualSalary);
-        Integer expectedValue = Integer.valueOf(expectedSalaryRur.getSearchParameters().getParameterMap().get(SearchParamNames.SALARY).get(0));
-        assertNotNull(expectedValue);
-        Integer actualTo = actualSalaryRur.getTo();
-        Integer actualFrom = actualSalaryRur.getFrom();
-        assertTrue(actualTo != null || actualFrom != null);
-        actualTo = (actualTo != null) ? actualTo : actualFrom;
-        actualFrom = (actualFrom != null) ? actualFrom : actualTo;
-        assertTrue(expectedValue >= actualFrom || expectedValue <= actualTo);
+    @Test
+    public void testOnlyWithSalary() throws SearchException {
+        for (Vacancy vacancy : HhApi.search(50, OnlyWithSalary.ON)) {
+            Salary actSalary = vacancy.getSalary();
+            assertNotNull(actSalary);
+            assertTrue(actSalary.getFrom() != null || actSalary.getTo() != null);
+        }
     }
 
-    public static void assertSalary(Integer expectedSalary, Salary actualSalary) throws SearchException {
-        assertSalary(new Salary(expectedSalary), actualSalary);
+    @Test
+    public void testSalary() throws SearchException, DictionaryException {
+        final Salary expSalary = new Salary(100000);
+        for (Vacancy vacancy : HhApi.search(50, expSalary)) {
+            Salary actSalary = vacancy.getSalary();
+            if (actSalary.getFrom() != null || actSalary.getTo() != null) {
+                assertThat(actSalary, salaryEquals(expSalary));
+            }
+        }
+    }
+
+    @Test
+    public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
+        final Salary expSalary = new Salary(50000);
+        for (Vacancy vacancy : HhApi.search(50, expSalary, OnlyWithSalary.ON)) {
+            Salary actSalary = vacancy.getSalary();
+            assertThat(actSalary, salaryEquals(expSalary));
+        }
     }
 
     @Test(expected = SearchException.class)
@@ -38,19 +57,16 @@ public class SalaryTest {
 
     @Test
     public void putCurrencyToSearchParams() throws SearchException {
-        final Currency expectedCurrency = Currency.USD;
+        final Currency expCurrency = Currency.USD;
         final int salaryUsd = 1000;
-        final Salary expectedSalary = new Salary(salaryUsd, salaryUsd, expectedCurrency);
-        ISearch<IterableVacancyList> search = new IterableVacancySearch(100)
-                .addParameter(expectedSalary)
-                .addParameter(OnlyWithSalary.ON);
-        IterableVacancyList vacancies = search.search();
-        for (Vacancy vacancy : vacancies) {
-            Salary actualSalary = vacancy.getSalary();
-            System.out.println(actualSalary.getFrom());
-            System.out.println(actualSalary.getTo());
-            System.out.println(actualSalary.getCurrency());
-            assertSalary(expectedSalary, actualSalary);
+        final Salary expSalary = new Salary(salaryUsd, salaryUsd, expCurrency);
+        for (Vacancy vacancy : HhApi.search(expSalary, OnlyWithSalary.ON)) {
+            //todo переписать проверку с испльзованием матчера SalaryEquals
+            Salary actSalary = vacancy.getSalary();
+            System.out.println(actSalary.getFrom());
+            System.out.println(actSalary.getTo());
+            System.out.println(actSalary.getCurrency());
+            assertThat(actSalary, SalaryEquals.salaryEquals(actSalary));
         }
     }
 
@@ -107,6 +123,45 @@ public class SalaryTest {
         assertEquals(from, salaryRur.getFrom());
         assertEquals(to, salaryRur.getTo());
         assertEquals(Currency.RUR, salaryRur.getCurrency());
+    }
+
+    public static class SalaryEquals extends TypeSafeMatcher<Salary> {
+        private Salary actSalary;
+
+        public SalaryEquals(Salary actSalary) {
+            this.actSalary = actSalary;
+        }
+
+        @Factory
+        public static org.hamcrest.Matcher<Salary> salaryEquals(Salary actSalary) {
+            return new SalaryEquals(actSalary);
+        }
+
+        @Override
+        public boolean matchesSafely(Salary expSalary) {
+            try {
+                Salary expSalaryRur = Salary.toRur(expSalary);
+                Salary actSalaryRur = Salary.toRur(actSalary);
+                Integer expValue = Integer.valueOf(expSalaryRur.getSearchParameters()
+                        .getParameterMap().get(SearchParamNames.SALARY).get(0));
+                assertNotNull(expValue);
+                Integer actTo = actSalaryRur.getTo();
+                Integer actFrom = actSalaryRur.getFrom();
+                assertTrue(actTo != null || actFrom != null);
+                actTo = (actTo != null) ? actTo : actFrom;
+                actFrom = (actFrom != null) ? actFrom : actTo;
+                return (expValue >= actFrom || expValue <= actTo);
+            } catch (SearchException e) {
+                LOG.error(e.getMessage(), e);
+                return false;
+            }
+        }
+
+        public void describeTo(Description description) {
+            description.appendText("salary not equals:");
+            description.appendValue(actSalary);
+        }
+
     }
 
 }

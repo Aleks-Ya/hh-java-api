@@ -1,5 +1,6 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +43,9 @@ public final class SmallDictionariesInitializer {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<EmployerType> employerType;
     @Getter
+    @SerializedName("vacancyLabel")
     @SuppressWarnings("PMD.UnusedPrivateField")
-    private IDictionary<VacancyLabel> vacancyLabel;
+    private IDictionary<Label> label;
     @Getter
     @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<BusinessTripReadiness> businessTripReadiness;
@@ -99,7 +101,7 @@ public final class SmallDictionariesInitializer {
             vacancySearchFields = new Dictionary<>(smallDictionaries.getVacancySearchFields(), VacancySearchFields.NULL_VACANCY_SEARCH_FIELD);
             experience = new Dictionary<>(smallDictionaries.getExperience(), Experience.NULL_EXPERIENCE);
             employerType = new Dictionary<>(smallDictionaries.getEmployerType(), EmployerType.NULL_EMPLOYER_TYPE);
-            vacancyLabel = new Dictionary<>(smallDictionaries.getVacancyLabel(), VacancyLabel.NULL_VACANCY_LABEL);
+            label = new Dictionary<>(smallDictionaries.getLabel(), Label.NULL_LABEL);
             businessTripReadiness = new Dictionary<>(smallDictionaries.getBusinessTripReadiness(), BusinessTripReadiness.NULL_BUSINESS_TRIP_READINESS);
             languageLevel = new Dictionary<>(smallDictionaries.getLanguageLevel(), LanguageLevel.NULL_LANGUAGE_LEVEL);
             preferredContactType = new Dictionary<>(smallDictionaries.getPreferredContactType(), PreferredContactType.NULL_PREFERRED_CONTACT_TYPE);

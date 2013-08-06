@@ -43,7 +43,7 @@ public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     private static AreaDictionary loadAreas() {
         AreaDictionary areas;
         try {
-            LOG.info("Загружаю справочник районов.");
+            LOG.debug("Загружаю справочник районов.");
             IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
             String content = loader.loadContent(UrlConstants.AREAS_URL);
             IParser<AreaDictionary> parse = new AreasParser();

@@ -1,23 +1,38 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancyLabel;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
+import ru.yaal.project.hhapi.HhApi;
+import ru.yaal.project.hhapi.dictionary.DictionaryException;
+import ru.yaal.project.hhapi.dictionary.entry.entries.small.Label;
+import ru.yaal.project.hhapi.search.SearchException;
+import ru.yaal.project.hhapi.vacancy.Address;
+import ru.yaal.project.hhapi.vacancy.Vacancy;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertThat;
 
 public class MetroLineTest {
     @Test
-    public void multiParamSearch() throws Exception {
-        MetroStation expectedMetro1 = (MetroStation) MetroLine.MOSCOW.getByName("Лубянка");
-        MetroStation expectedMetro2 = (MetroStation) MetroLine.KAZAN.getByName("Горки");
-        final int limit = 50;
-        IterableVacancyList vacancies = new IterableVacancySearch(limit)
-                .addParameter(VacancyLabel.WITH_ADDRESS)
-                .addParameter(expectedMetro1)
-                .addParameter(expectedMetro2)
-                .search();
-        assertEquals(limit, vacancies.size());
+    public void searchByMetroLine() throws SearchException, DictionaryException {
+        MetroStation expMetro = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
+        MetroStation expMetro2 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Маяковская");
+        MetroStation expMetro3 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
+        MetroStation expMetro4 = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Купчино");
+        for (Vacancy vacancy : HhApi.search(30, expMetro)) {
+            Address address = vacancy.getAddress();
+            if (!address.isNull()) {
+                MetroStation actStation = address.getStation();
+                if (!actStation.isNull()) {
+                    assertThat(actStation, isOneOf(expMetro, expMetro2, expMetro3, expMetro4));
+                }
+            }
+        }
+    }
+
+    @Test
+    public void searchByMultiMetroLines() throws Exception {
+        MetroStation expMetro1 = (MetroStation) MetroLine.MOSCOW.getByName("Лубянка");
+        MetroStation expMetro2 = (MetroStation) MetroLine.KAZAN.getByName("Горки");
+        HhApi.search(50, Label.WITH_ADDRESS, expMetro1, expMetro2);
     }
 }

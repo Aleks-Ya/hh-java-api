@@ -1,25 +1,29 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.vacancy.IterableVacancyList;
-import ru.yaal.project.hhapi.vacancy.IterableVacancySearch;
+import ru.yaal.project.hhapi.HhApi;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.isOneOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class EmployerTest {
+
     @Test
-    public void testGetSearchParameters() throws Exception {
-        final Employer expectedEmployer1 = new Employer("1455");
-        final Employer expectedEmployer2 = new Employer("6591");
-        IterableVacancyList vacancies = new IterableVacancySearch(50)
-                .addParameter(expectedEmployer1)
-                .addParameter(expectedEmployer2)
-                .search();
-        assertTrue(vacancies.size() > 0);
-        for (Vacancy vacancy : vacancies) {
-            Employer actualEmployer = vacancy.getEmployer();
-            assertTrue(actualEmployer.equals(expectedEmployer1) || actualEmployer.equals(expectedEmployer2));
+    public void searchByEmployer() throws Exception {
+        final Employer kafeHouse = new Employer("27986");
+        for (Vacancy vacancy : HhApi.search(kafeHouse)) {
+            assertEquals(vacancy.getEmployer(), kafeHouse);
+        }
+    }
+
+    @Test
+    public void searchByMultiEmployers() throws Exception {
+        final Employer headHunter = new Employer("1455");
+        final Employer promSviazBank = new Employer("6591");
+        for (Vacancy vacancy : HhApi.search(headHunter, promSviazBank)) {
+            assertThat(vacancy.getEmployer(), isOneOf(headHunter, promSviazBank));
         }
     }
 }

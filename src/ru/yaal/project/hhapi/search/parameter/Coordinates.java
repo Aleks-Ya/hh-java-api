@@ -6,6 +6,9 @@ import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
+/**
+ *  Гео-координаты.
+ */
 @Data
 public class Coordinates implements ISearchParameter {
     private Double topLat;

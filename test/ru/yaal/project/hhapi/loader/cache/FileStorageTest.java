@@ -16,7 +16,7 @@ public class FileStorageTest {
 
     @Before
     public void before() {
-        tempFile = new File(System.getProperty(ContentLoaderFactory.JAVA_IO_TMPDIR) + "test_hh_api_cache\\");
+        tempFile = new File(ContentLoaderFactory.JAVA_IO_TMPDIR + "test_hh_api_cache\\");
     }
 
     @Test
@@ -26,10 +26,10 @@ public class FileStorageTest {
         storage.clear();
         final String name = "http://ready.com/now?fuck=true";
         assertNull(storage.search(name));
-        final String expectedContent = "{girl:777}";
-        storage.save(name, expectedContent);
-        String actualContent = storage.search(name);
-        assertEquals(expectedContent, actualContent);
+        final String expContent = "{girl:777}";
+        storage.save(name, expContent);
+        String actContent = storage.search(name);
+        assertEquals(expContent, actContent);
     }
 
     @Test
@@ -42,8 +42,8 @@ public class FileStorageTest {
         String content = "{Dancehall Tune:'Vybz Kartel'}";
         storage.save(name, content);
         Thread.sleep(100);
-        String actualContent = storage.search(name);
-        assertNull(actualContent);
+        String actContent = storage.search(name);
+        assertNull(actContent);
     }
 
     @After

@@ -3,7 +3,7 @@ package ru.yaal.project.hhapi.dictionary;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
-import ru.yaal.project.hhapi.dictionary.entry.entries.professionalfield.ProfessionalField;
+import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.EducationLevel;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
@@ -42,8 +42,8 @@ public class SmallDictionariesInitializerTest {
     }
 
     @Test
-    public void testProfessionalFields() throws DictionaryException {
-        assertEquals(28, ProfessionalField.PROFESSIONAL_FIELDS.size());
+    public void testProfFields() throws DictionaryException {
+        assertEquals(28, ProfField.PROF_FIELDS.size());
     }
 
 }

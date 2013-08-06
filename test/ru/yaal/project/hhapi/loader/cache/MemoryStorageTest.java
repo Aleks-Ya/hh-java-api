@@ -14,15 +14,15 @@ public class MemoryStorageTest {
 
         assertNull(storage.search(name));
 
-        String expectedContent = "{gangnamStyle:PSY}";
-        storage.save(name, expectedContent);
-        String actualContent = storage.search(name);
-        assertEquals(expectedContent, actualContent);
+        String expContent = "{gangnamStyle:PSY}";
+        storage.save(name, expContent);
+        String actContent = storage.search(name);
+        assertEquals(expContent, actContent);
 
         storage.delete(name);
         assertNull(storage.search(name));
 
-        storage.save(name, expectedContent);
+        storage.save(name, expContent);
         storage.clear();
         assertNull(storage.search(name));
     }
@@ -35,7 +35,7 @@ public class MemoryStorageTest {
         String content = "{Dancehall:'Vybz Kartel'}";
         storage.save(name, content);
         Thread.sleep(100);
-        String actualContent = storage.search(name);
-        assertNull(actualContent);
+        String actContent = storage.search(name);
+        assertNull(actContent);
     }
 }

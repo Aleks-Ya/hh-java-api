@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.junit.Assert.*;
 
 public class MetroLineDictionaryTest {
     public static final String LINE_ID = "15";
@@ -22,19 +22,19 @@ public class MetroLineDictionaryTest {
     @Test
     public void getById() throws DictionaryException {
         MetroLine line = dictionary.getById(LINE_ID);
-        assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
+        assertThat(LINE_NAME, equalToIgnoringCase(line.getName()));
 
         MetroStation station = (MetroStation) dictionary.getById(STATION_ID);
-        assertTrue(STATION_NAME.equalsIgnoreCase(station.getName()));
+        assertThat(STATION_NAME, equalToIgnoringCase(station.getName()));
     }
 
     @Test
     public void getByName() throws DictionaryException {
         MetroLine line = dictionary.getByName(LINE_NAME);
-        assertTrue(LINE_NAME.equalsIgnoreCase(line.getName()));
+        assertThat(LINE_NAME, equalToIgnoringCase(line.getName()));
 
         MetroStation station = (MetroStation) dictionary.getByName(STATION_NAME);
-        assertTrue(STATION_NAME.equalsIgnoreCase(station.getName()));
+        assertThat(STATION_NAME, equalToIgnoringCase(station.getName()));
     }
 
     @Test

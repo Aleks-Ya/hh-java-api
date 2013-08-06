@@ -32,7 +32,7 @@ public class MemoryCache extends AbstractCache {
 
     @Override
     public void save(String name, String content) {
-        LOG.info(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
+        LOG.debug(SAVE_DATA_MESSAGE, getCacheName(), name, content.length());
         String nameHash = generateHashFileName(name);
         memoryCache.put(nameHash, new CacheData(content));
     }
