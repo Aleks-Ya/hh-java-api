@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -30,7 +29,7 @@ public class SalaryTest {
     }
 
     @Test
-    public void testSalary() throws SearchException, DictionaryException {
+    public void testSalary() throws SearchException {
         final Salary expSalary = new Salary(100000);
         for (Vacancy vacancy : HhApi.search(50, expSalary)) {
             Salary actSalary = vacancy.getSalary();
@@ -41,7 +40,7 @@ public class SalaryTest {
     }
 
     @Test
-    public void testSalaryAndOnlyWithSalary() throws SearchException, DictionaryException {
+    public void testSalaryAndOnlyWithSalary() throws SearchException {
         final Salary expSalary = new Salary(50000);
         for (Vacancy vacancy : HhApi.search(50, expSalary, OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
@@ -50,7 +49,7 @@ public class SalaryTest {
     }
 
     @Test(expected = SearchException.class)
-    public void testSalaryNotSpecified() throws SearchException, DictionaryException {
+    public void testSalaryNotSpecified() throws SearchException {
         ISearchParameter parameter = new Salary(null);
         parameter.getSearchParameters();
     }

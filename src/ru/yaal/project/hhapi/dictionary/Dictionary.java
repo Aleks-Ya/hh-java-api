@@ -6,6 +6,8 @@ import ru.yaal.project.hhapi.dictionary.entry.IDictionaryEntry;
 
 import java.util.*;
 
+import static java.lang.String.format;
+
 public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     private static final Logger LOG = LoggerFactory.getLogger(Dictionary.class);
     private Map<String, V> idMap = new HashMap<>();
@@ -16,7 +18,7 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
         this.nullObject = nullObject;
     }
 
-    public Dictionary(List<V> entryList, V nullObject) throws DictionaryException {
+    public Dictionary(List<V> entryList, V nullObject) {
         for (V entry : entryList) {
             addEntry(entry);
         }
@@ -26,29 +28,29 @@ public class Dictionary<V extends IDictionaryEntry> implements IDictionary<V> {
     /**
      * Упрощение для put(entry.getId(), entry);
      */
-    public final void addEntry(V entry) throws DictionaryException {
+    public final void addEntry(V entry) {
         putId(entry);
         putName(entry);
     }
 
-    protected void putName(V entry) throws DictionaryException {
+    protected void putName(V entry) {
         if (entry.getName() == null) {
-            throw new DictionaryException("Имя не может быть null (id %s).", entry.getId());
+            throw new IllegalArgumentException(format("Имя не может быть null (id %s).", entry.getId()));
         }
         String name = entry.getName().toUpperCase();
         if (nameMap.containsKey(name)) {
-            throw new DictionaryException("Повторяющееся имя: %s.", name);
+            throw new IllegalArgumentException(format("Повторяющееся имя: %s.", name));
         }
         nameMap.put(name, entry);
     }
 
-    protected void putId(V entry) throws DictionaryException {
+    protected void putId(V entry) {
         if (entry.getId() == null) {
-            throw new DictionaryException("Ключ не может быть null (имя %s).", entry.getName());
+            throw new IllegalArgumentException(format("Ключ не может быть null (имя %s).", entry.getName()));
         }
         String id = entry.getId().toUpperCase();
         if (idMap.containsKey(id)) {
-            throw new DictionaryException("Повторяющийся ключ: %s.", id);
+            throw new IllegalArgumentException(format("Повторяющийся ключ: %s.", id));
         }
         idMap.put(id, entry);
     }

@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class DictionaryTest {
 
     @Test
-    public void test() throws DictionaryException {
+    public void test() {
         Currency currency = Currency.NULL_CURRENCY;
         currency.setId("1");
         currency.setName("Рубли");

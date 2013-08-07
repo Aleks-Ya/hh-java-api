@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public class ProfFieldDictionary extends Dictionary<ProfField> {
         super(ProfField.NULL_PROF_FIELD);
     }
 
-    public ProfFieldDictionary(List<ProfField> fieldList) throws DictionaryException {
+    public ProfFieldDictionary(List<ProfField> fieldList) {
         super(fieldList, ProfField.NULL_PROF_FIELD);
     }
 

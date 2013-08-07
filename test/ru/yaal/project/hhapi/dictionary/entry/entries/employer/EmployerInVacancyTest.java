@@ -3,12 +3,11 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 import org.junit.Test;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
-import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.ParseException;
-import ru.yaal.project.hhapi.vacancy.VacancyParser;
+import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
+import ru.yaal.project.hhapi.vacancy.VacancyParser;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 public class EmployerInVacancyTest {
 
     @Test
-    public void employerInVacancyParse() throws LoadException, ParseException, MalformedURLException {
+    public void employerInVacancyParse() throws SearchException, MalformedURLException {
         IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
         String content = loader.loadContent(format(UrlConstants.VACANCY_URL, "8252535"));
         IParser<Vacancy> parser = new VacancyParser();

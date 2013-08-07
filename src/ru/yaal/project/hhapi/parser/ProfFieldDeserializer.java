@@ -4,7 +4,6 @@ import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfFieldDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.Specialization;
@@ -31,7 +30,7 @@ public class ProfFieldDeserializer implements JsonDeserializer<ProfFieldDictiona
         }
     }
 
-    private ProfField parseProfField(JsonObject object) throws DictionaryException {
+    private ProfField parseProfField(JsonObject object) {
         ProfField newField;
         String id = object.get("id").getAsString();
         if (id != null && !id.isEmpty()) {

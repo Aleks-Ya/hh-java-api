@@ -14,10 +14,9 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.VacancyType;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
-import ru.yaal.project.hhapi.loader.LoadException;
 import ru.yaal.project.hhapi.loader.UrlConstants;
 import ru.yaal.project.hhapi.parser.IParser;
-import ru.yaal.project.hhapi.parser.ParseException;
+import ru.yaal.project.hhapi.search.SearchException;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -109,42 +108,42 @@ public class Vacancy implements IDictionaryEntry {
         assert (salary != null);
     }
 
-    public Schedule getSchedule() throws LoadException, ParseException {
+    public Schedule getSchedule() throws SearchException {
         loadSingleVacancy();
         return schedule;
     }
 
-    public Boolean getAcceptHandicapped() throws LoadException, ParseException {
+    public Boolean getAcceptHandicapped() throws SearchException {
         loadSingleVacancy();
         return acceptHandicapped;
     }
 
-    public Experience getExperience() throws LoadException, ParseException {
+    public Experience getExperience() throws SearchException {
         loadSingleVacancy();
         return experience;
     }
 
-    public Employment getEmployment() throws LoadException, ParseException {
+    public Employment getEmployment() throws SearchException {
         loadSingleVacancy();
         return employment;
     }
 
-    public Boolean getArchived() throws LoadException, ParseException {
+    public Boolean getArchived() throws SearchException {
         loadSingleVacancy();
         return archived;
     }
 
-    public List<ProfField> getProfFields() throws LoadException, ParseException {
+    public List<ProfField> getProfFields() throws SearchException {
         loadSingleVacancy();
         return profFields;
     }
 
-    public String getDescription() throws LoadException, ParseException {
+    public String getDescription() throws SearchException {
         loadSingleVacancy();
         return description;
     }
 
-    private void loadSingleVacancy() throws LoadException, ParseException {
+    private void loadSingleVacancy() throws SearchException {
         if (!singleVacancyLoaded) {
             String content = loader.loadContent(format(UrlConstants.VACANCY_URL, getId()));
             Vacancy vacancy = parser.parse(content);

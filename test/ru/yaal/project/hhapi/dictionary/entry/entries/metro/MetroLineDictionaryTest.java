@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.*;
@@ -15,12 +14,12 @@ public class MetroLineDictionaryTest {
     private MetroLineDictionary dictionary;
 
     @Before
-    public void before() throws DictionaryException {
+    public void before() {
         dictionary = MetroLine.SAINT_PETERSBURG;
     }
 
     @Test
-    public void getById() throws DictionaryException {
+    public void getById() {
         MetroLine line = dictionary.getById(LINE_ID);
         assertThat(LINE_NAME, equalToIgnoringCase(line.getName()));
 
@@ -29,7 +28,7 @@ public class MetroLineDictionaryTest {
     }
 
     @Test
-    public void getByName() throws DictionaryException {
+    public void getByName() {
         MetroLine line = dictionary.getByName(LINE_NAME);
         assertThat(LINE_NAME, equalToIgnoringCase(line.getName()));
 
@@ -38,14 +37,14 @@ public class MetroLineDictionaryTest {
     }
 
     @Test
-    public void hasWithId() throws DictionaryException {
+    public void hasWithId() {
         assertTrue(dictionary.hasId(LINE_ID));
         assertTrue(dictionary.hasId(STATION_ID));
         assertFalse(dictionary.hasId("1000"));
     }
 
     @Test
-    public void hasCityWithName() throws DictionaryException {
+    public void hasCityWithName() {
         assertTrue(dictionary.hasName(LINE_NAME));
         assertTrue(dictionary.hasName(STATION_NAME));
         assertFalse(dictionary.hasName("Óðþïèíñê"));

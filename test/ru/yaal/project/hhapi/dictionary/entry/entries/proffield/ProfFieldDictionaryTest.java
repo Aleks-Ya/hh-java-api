@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.dictionary.entry.entries.proffield;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.*;
@@ -15,32 +14,32 @@ public class ProfFieldDictionaryTest {
     private ProfFieldDictionary dictionary;
 
     @Before
-    public void before() throws DictionaryException {
+    public void before() {
         dictionary = ProfField.PROF_FIELDS;
     }
 
     @Test
-    public void hasWithId() throws DictionaryException {
+    public void hasWithId() {
         assertTrue(dictionary.hasId(FIELD_ID));
         assertTrue(dictionary.hasId(SPECIALIZATION_ID));
         assertFalse(dictionary.hasId("1000"));
     }
 
     @Test
-    public void hasWithName() throws DictionaryException {
+    public void hasWithName() {
         assertTrue(dictionary.hasName(FIELD_NAME));
         assertTrue(dictionary.hasName(SPECIALIZATION_NAME));
         assertFalse(dictionary.hasName("1000"));
     }
 
     @Test
-    public void getById() throws DictionaryException {
+    public void getById() {
         assertTrue(FIELD_NAME.equalsIgnoreCase(dictionary.getById(FIELD_ID).getName()));
         assertThat(SPECIALIZATION_NAME, equalToIgnoringCase(dictionary.getById(SPECIALIZATION_ID).getName()));
     }
 
     @Test
-    public void getByName() throws DictionaryException {
+    public void getByName() {
         assertEquals(FIELD_ID, dictionary.getByName(FIELD_NAME).getId());
         assertEquals(SPECIALIZATION_ID, dictionary.getByName(SPECIALIZATION_NAME).getId());
     }

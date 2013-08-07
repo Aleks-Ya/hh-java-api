@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.vacancy;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -21,7 +20,7 @@ public class PageTest {
     }
 
     @Test
-    public void testPage() throws SearchException, DictionaryException {
+    public void testPage() throws SearchException {
         VacancyPage vacancyPage1 = new VacancyPageSearch().addParameter(new Page(1)).search();
         int pages = vacancyPage1.getPages();
         int perPage = vacancyPage1.getPerPage();

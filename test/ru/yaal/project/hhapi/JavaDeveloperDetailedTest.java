@@ -1,8 +1,6 @@
 package ru.yaal.project.hhapi;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.*;
@@ -13,26 +11,22 @@ import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Period;
 import ru.yaal.project.hhapi.search.parameter.Text;
 import ru.yaal.project.hhapi.vacancy.Salary;
+import ru.yaal.project.hhapi.vacancy.Vacancy;
 import ru.yaal.project.hhapi.vacancy.VacancyList;
 import ru.yaal.project.hhapi.vacancy.VacancySearch;
 
-import static org.junit.Assert.assertTrue;
+import java.util.List;
 
-public class UseTest {
-    private static final Logger LOG = LoggerFactory.getLogger(UseTest.class);
-
-    /**
-     * Проанализируем вакансии программистов java в Москве и Питере.
-     */
+/**
+ * Найдем вакансии программистов java в Питере (подробный вариант).
+ */
+public class JavaDeveloperDetailedTest {
     @Test
-    public void vacancySearch() throws SearchException {
+    public void javaDeveloper() throws SearchException {
         ISearchParameter text = new Text("java", VacancySearchFields.VACANCY_NAME);
-        ISearchParameter area1 = Area.AREAS.getByName("Москва");
-//        ISearchParameter area2 = Area.SAINT_PETERSBURG;
-//        ISearchParameter metro1 = MetroLine.MOSCOW.getByName("Марьина Роща");
-//        ISearchParameter metro2 = MetroLine.SAINT_PETERSBURG.getByName("Чернышевская");
+        ISearchParameter area = Area.AREAS.getByName("Санкт-Петербург");
         ISearchParameter profField = ProfField.PROF_FIELDS.getById("1.221");//Программирование
-        ISearchParameter salary = new Salary(2000, 5000, Currency.USD);
+        ISearchParameter salary = new Salary(3000, 5000, Currency.USD);
         ISearchParameter experience = Experience.BETWEEN_3_AND_6;
         ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
         ISearchParameter order = Order.SALARY_DESC;
@@ -40,12 +34,9 @@ public class UseTest {
         ISearchParameter schedule = Schedule.FULL_DAY;
         ISearchParameter employment = Employment.FULL;
 
-        ISearch<VacancyList> search = new VacancySearch(50);
-        search.addParameter(text)
-                .addParameter(area1)
-//                .addParameter(area2)
-//                .addParameter(metro1)
-//                .addParameter(metro2)
+        ISearch<VacancyList> search = new VacancySearch(50)
+                .addParameter(text)
+                .addParameter(area)
                 .addParameter(profField)
                 .addParameter(salary)
                 .addParameter(experience)
@@ -54,14 +45,9 @@ public class UseTest {
                 .addParameter(schedule)
                 .addParameter(employment)
                 .addParameter(order);
-        VacancyList vacancies = search.search();
-        assertTrue(vacancies.size() > 0);
-    }
 
-    @Test
-    public void printAllGenders() {
-        for (Gender gender : Gender.GENDERS) {
-            LOG.info(gender.toString());
-        }
+        List<Vacancy> vacancies = search.search();
+
+        System.out.printf("Нашлось %d вакансий.\n", vacancies.size());
     }
 }

@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.loader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.cache.ICache;
+import ru.yaal.project.hhapi.search.SearchException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,21 +27,22 @@ class ContentLoader implements IContentLoader {
         this.storage = storage;
     }
 
-    public String loadContent(String url) throws LoadException {
+    public String loadContent(String url) throws SearchException {
+        assert (url != null);
         try {
-            assert (url != null);
             String urlWithParams = appendParameters(url);
             String cachedContent = storage.search(urlWithParams);
             if (cachedContent != null && !cachedContent.isEmpty()) {
                 return cachedContent;
             } else {
-                String content = loadContentFromNet(urlWithParams);
+                String content = null;
+                content = loadContentFromNet(urlWithParams);
                 storage.save(urlWithParams, content);
                 return content;
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage(), e);
-            throw new LoadException(e);
+            throw new SearchException(e);
         }
     }
 

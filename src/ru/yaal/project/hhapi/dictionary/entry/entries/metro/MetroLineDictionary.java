@@ -1,7 +1,6 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
 import ru.yaal.project.hhapi.dictionary.Dictionary;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.dictionary.IDictionary;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public class MetroLineDictionary extends Dictionary<MetroLine> {
         super(MetroStation.NULL_METRO_STATION);
     }
 
-    public MetroLineDictionary(List<MetroLine> metroLines) throws DictionaryException {
+    public MetroLineDictionary(List<MetroLine> metroLines) {
         super(MetroStation.NULL_METRO_STATION);
         for (MetroLine line : metroLines) {
             addEntry(line);

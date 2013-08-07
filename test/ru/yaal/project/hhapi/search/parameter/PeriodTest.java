@@ -2,7 +2,6 @@ package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
 import ru.yaal.project.hhapi.HhApi;
-import ru.yaal.project.hhapi.dictionary.DictionaryException;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.vacancy.Vacancy;
 
@@ -22,7 +21,7 @@ public class PeriodTest {
     }
 
     @Test
-    public void testPeriod() throws SearchException, DictionaryException {
+    public void testPeriod() throws SearchException {
         for (Vacancy vacancy : HhApi.search(new Period(1))) {
             assertThat(vacancy.getCreatedAt(), anyOf(isYesterday(), isToday(), isTomorrow()));
         }
