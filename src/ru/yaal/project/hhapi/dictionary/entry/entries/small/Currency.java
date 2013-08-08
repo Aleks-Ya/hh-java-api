@@ -10,7 +10,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Справочник валют.
  */
-@ToString(callSuper = true)
+@ToString(of = {"id", "abbr"})
 public final class Currency extends AbstractDictionaryEntry {
     public static final Currency NULL_CURRENCY = new Currency();
     public static final IDictionary<Currency> CURRENCIES = SmallDictionariesInitializer.getInstance().getCurrency();
