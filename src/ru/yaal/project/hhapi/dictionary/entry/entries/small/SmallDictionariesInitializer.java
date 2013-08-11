@@ -1,7 +1,5 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
-import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.dictionary.Dictionary;
@@ -15,63 +13,24 @@ public final class SmallDictionariesInitializer {
     private static final Logger LOG = LoggerFactory.getLogger(SmallDictionariesInitializer.class);
     private static SmallDictionariesInitializer dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Currency> currency;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Gender> gender;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Schedule> schedule;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<EducationLevel> educationLevel;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Employment> employment;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Order> order;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancySearchFields> vacancySearchFields;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Experience> experience;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<EmployerType> employerType;
-    @Getter
-    @SerializedName("vacancyLabel")
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Label> label;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<BusinessTripReadiness> businessTripReadiness;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<LanguageLevel> languageLevel;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<PreferredContactType> preferredContactType;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<RelocationType> relocationType;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<ResumeAccessType> resumeAccessType;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<ResumeContactsSiteType> resumeContactsSiteType;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<TravelTime> travelTime;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<SiteLang> siteLang;
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<VacancyType> vacancyType;
 
     private SmallDictionariesInitializer() {
@@ -84,6 +43,82 @@ public final class SmallDictionariesInitializer {
             dictionary = new SmallDictionariesInitializer();
         }
         return dictionary;
+    }
+
+    public IDictionary<Currency> getCurrency() {
+        return currency;
+    }
+
+    public IDictionary<EmployerType> getEmployerType() {
+        return employerType;
+    }
+
+    public IDictionary<Gender> getGender() {
+        return gender;
+    }
+
+    public IDictionary<Schedule> getSchedule() {
+        return schedule;
+    }
+
+    public IDictionary<EducationLevel> getEducationLevel() {
+        return educationLevel;
+    }
+
+    public IDictionary<Employment> getEmployment() {
+        return employment;
+    }
+
+    public IDictionary<Order> getOrder() {
+        return order;
+    }
+
+    public IDictionary<VacancySearchFields> getVacancySearchFields() {
+        return vacancySearchFields;
+    }
+
+    public IDictionary<Experience> getExperience() {
+        return experience;
+    }
+
+    public IDictionary<Label> getLabel() {
+        return label;
+    }
+
+    public IDictionary<BusinessTripReadiness> getBusinessTripReadiness() {
+        return businessTripReadiness;
+    }
+
+    public IDictionary<LanguageLevel> getLanguageLevel() {
+        return languageLevel;
+    }
+
+    public IDictionary<PreferredContactType> getPreferredContactType() {
+        return preferredContactType;
+    }
+
+    public IDictionary<RelocationType> getRelocationType() {
+        return relocationType;
+    }
+
+    public IDictionary<ResumeAccessType> getResumeAccessType() {
+        return resumeAccessType;
+    }
+
+    public IDictionary<ResumeContactsSiteType> getResumeContactsSiteType() {
+        return resumeContactsSiteType;
+    }
+
+    public IDictionary<TravelTime> getTravelTime() {
+        return travelTime;
+    }
+
+    public IDictionary<SiteLang> getSiteLang() {
+        return siteLang;
+    }
+
+    public IDictionary<VacancyType> getVacancyType() {
+        return vacancyType;
     }
 
     private void loadSmallDictionaries() {
