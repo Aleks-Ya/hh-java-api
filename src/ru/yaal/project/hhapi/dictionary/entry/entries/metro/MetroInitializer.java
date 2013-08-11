@@ -1,6 +1,5 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.metro;
 
-import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
@@ -12,8 +11,6 @@ final class MetroInitializer {
     private static final Logger LOG = LoggerFactory.getLogger(MetroInitializer.class);
     private static MetroInitializer dictionary;
     private IContentLoader loader = ContentLoaderFactory.newInstanceLongTermCache();
-    @Getter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private MetroCityDictionary metroCities;
 
     private MetroInitializer() {
@@ -26,6 +23,10 @@ final class MetroInitializer {
             dictionary = new MetroInitializer();
         }
         return dictionary;
+    }
+
+    MetroCityDictionary getMetroCities() {
+        return metroCities;
     }
 
     private void loadMetro() {
