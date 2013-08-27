@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.yaal.project.hhapi</groupId>
     <artifactId>HhJavaApi</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>HeadHunter Java API</name>
     <description>Java API for employment site HeadHunter (hh.ru)</description>
@@ -17,7 +17,8 @@
     </licenses>
     <scm>
         <url>https://github.com/Aleks-Ya/hh-java-api.git</url>
-        <connection>scm:git:https://github.com/Aleks-Ya/hh-java-api.git</connection>
+        <connection>scm:git:git@github.com:Aleks-Ya/hh-java-api.git</connection>
+        <developerConnection>scm:git:git@github.com:Aleks-Ya/hh-java-api.git</developerConnection>
     </scm>
 
     <developers>
