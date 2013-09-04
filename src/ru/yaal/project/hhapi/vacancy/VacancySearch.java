@@ -8,14 +8,26 @@ import java.util.List;
 import static java.lang.String.format;
 import static ru.yaal.project.hhapi.vacancy.PerPage.MAX_PER_PAGE;
 
+/**
+ * Поиск вакансий.
+ */
 public class VacancySearch extends AbstractSearch<VacancyList> {
     private final int vacancyLimit;
     private final List<Vacancy> vacancies = new ArrayList<>();
 
+    /**
+     * Поиск вакансий.
+     * Лимит вакансий по-умолчанию ({@value ru.yaal.project.hhapi.HhApi#DEFAULT_VACANCY_LIMIT}).
+     */
     public VacancySearch() {
         this(DEFAULT_VACANCIES_LIMIT);
     }
 
+    /**
+     * Поиск вакансий.
+     *
+     * @param vacancyLimit Лимит вакансий.
+     */
     public VacancySearch(int vacancyLimit) {
         if (vacancyLimit < MIN_VACANCIES_LIMIT || vacancyLimit > MAX_VACANCIES_LIMIT) {
             throw new IllegalArgumentException(format(

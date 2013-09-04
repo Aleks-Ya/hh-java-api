@@ -12,7 +12,6 @@ import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
-import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 
 import static org.junit.Assert.*;
 import static ru.yaal.project.hhapi.vacancy.SalaryTest.SalaryEquals.salaryEquals;
@@ -22,7 +21,7 @@ public class SalaryTest {
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
-        for (Vacancy vacancy : HhApi.search(50, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(50, Constants.OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertNotNull(actSalary);
             assertTrue(actSalary.getFrom() != null || actSalary.getTo() != null);
@@ -43,7 +42,7 @@ public class SalaryTest {
     @Test
     public void testSalaryAndOnlyWithSalary() throws SearchException {
         final Salary expSalary = new Salary(50000);
-        for (Vacancy vacancy : HhApi.search(50, expSalary, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(50, expSalary, Constants.OnlyWithSalary.ON)) {
             Salary actSalary = vacancy.getSalary();
             assertThat(actSalary, salaryEquals(expSalary));
         }
@@ -60,7 +59,7 @@ public class SalaryTest {
         final Currency expCurrency = Constants.Currency.USD;
         final int salaryUsd = 1000;
         final Salary expSalary = new Salary(salaryUsd, salaryUsd, expCurrency);
-        for (Vacancy vacancy : HhApi.search(expSalary, OnlyWithSalary.ON)) {
+        for (Vacancy vacancy : HhApi.search(expSalary, Constants.OnlyWithSalary.ON)) {
             //todo переписать проверку с испльзованием матчера SalaryEquals
             Salary actSalary = vacancy.getSalary();
             System.out.println(actSalary.getFrom());

@@ -3,7 +3,13 @@ package ru.yaal.project.hhapi.dictionary;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.SmallDictionariesInitializer;
 
 /**
- * Константы для доступа к справочникам.
+ * Константы для доступа к "малым" справочникам.
+ *
+ * @see ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField#PROF_FIELDS Справочник профессиональных областей
+ * @see ru.yaal.project.hhapi.dictionary.entry.entries.area.Area#AREAS Справочник районов
+ * @see ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroCity#CITIES Справочник городов с метро
+ * @see ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine Справочники веток метро
+ * @see ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroStation#STATIONS Справочник станций метро
  */
 @SuppressWarnings("unused")
 public interface Constants {
@@ -611,6 +617,17 @@ public interface Constants {
          */
         public static final ru.yaal.project.hhapi.dictionary.entry.entries.small.ResumeAccessType
                 DIRECT = RESUME_ACCESS_TYPES.getById("direct");
+    }
 
+    /**
+     * Только с указанной зарплатой.
+     *
+     * @see ru.yaal.project.hhapi.search.parameter.OnlyWithSalary
+     */
+    public static interface OnlyWithSalary {
+        public static final ru.yaal.project.hhapi.search.parameter.OnlyWithSalary
+                ON = new ru.yaal.project.hhapi.search.parameter.OnlyWithSalary(true);
+        public static final ru.yaal.project.hhapi.search.parameter.OnlyWithSalary
+                OFF = new ru.yaal.project.hhapi.search.parameter.OnlyWithSalary(false);
     }
 }

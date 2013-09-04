@@ -11,6 +11,9 @@ import java.util.Map;
  */
 public class MetroStation extends MetroLine {
     public static final MetroStation NULL_METRO_STATION = new MetroStation();
+    /**
+     * Справочник станций метро.
+     */
     private static final Map<String, MetroStation> STATIONS = new HashMap<>();
 
     static {

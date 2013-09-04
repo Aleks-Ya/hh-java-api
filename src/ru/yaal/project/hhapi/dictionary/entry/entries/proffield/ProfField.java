@@ -22,6 +22,9 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 public class ProfField extends AbstractDictionaryEntry implements ISearchParameter {
     private static final Logger LOG = LoggerFactory.getLogger(ProfField.class);
     public static final ProfField NULL_PROF_FIELD = new ProfField();
+    /**
+     * Справочник профессиональных областей.
+     */
     public static final ProfFieldDictionary PROF_FIELDS = loadProfFields();
     @Getter
     @Setter

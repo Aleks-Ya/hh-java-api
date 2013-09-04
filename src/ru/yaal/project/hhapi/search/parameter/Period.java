@@ -7,11 +7,20 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 import static java.lang.String.format;
 
+/**
+ * Период поиска вакансий: за сколько дней искать вакансии.
+ * Максимум 30 дней (ограничение HeadHunter).
+ */
 public final class Period implements ISearchParameter {
     public static final int MIN_PERIOD = 1;
     public static final int MAX_PERIOD = 30;
     private Integer period;
 
+    /**
+     * Период поиска вакансий: за сколько дней искать вакансии.
+     *
+     * @param period Период поиска вакансий. Максимум 30 дней (ограничение HeadHunter).
+     */
     public Period(Integer period) throws SearchException {
         setPeriod(period);
     }

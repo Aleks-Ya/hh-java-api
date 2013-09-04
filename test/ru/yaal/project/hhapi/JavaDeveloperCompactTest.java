@@ -27,7 +27,7 @@ public class JavaDeveloperCompactTest {
                 ProfField.PROF_FIELDS.getById("1.221"),
                 new Salary(3000, 5000, Constants.Currency.USD),
                 Constants.Experience.BETWEEN_3_AND_6,
-                OnlyWithSalary.ON,
+                Constants.OnlyWithSalary.ON,
                 Constants.Order.SALARY_DESC,
                 new Period(30),
                 Constants.Schedule.FULL_DAY,

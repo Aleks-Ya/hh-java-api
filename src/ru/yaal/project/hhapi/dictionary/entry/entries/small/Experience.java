@@ -8,6 +8,7 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 
 /**
  * Опыт работы (вакансия).
+ * @see ru.yaal.project.hhapi.dictionary.Constants.Experience
  */
 public final class Experience extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Experience NULL_EXPERIENCE = new Experience();

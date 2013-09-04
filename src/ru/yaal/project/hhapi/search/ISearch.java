@@ -1,6 +1,8 @@
 package ru.yaal.project.hhapi.search;
 
-
+/**
+ * Поиск.
+ */
 public interface ISearch<T> {
     T search() throws SearchException;
 

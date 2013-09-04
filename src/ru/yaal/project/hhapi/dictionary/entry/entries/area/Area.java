@@ -24,6 +24,9 @@ import java.net.URL;
 public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     private static final Logger LOG = LoggerFactory.getLogger(Area.class);
     public static final Area NULL_AREA = new Area();
+    /**
+     * Справочник районов.
+     */
     public static final AreaDictionary AREAS = loadAreas();
     public static final Area MOSCOW = AREAS.getByName("Москва");
     public static final Area SAINT_PETERSBURG = AREAS.getByName("Санкт-Петербург");

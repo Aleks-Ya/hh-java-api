@@ -25,14 +25,23 @@ public final class Salary implements ISearchParameter, INullable {
     @SuppressWarnings("PMD.UnusedPrivateField")
     private Currency currency = Currency.NULL_CURRENCY;
 
+    /**
+     * @see Salary
+     */
     public Salary() {
         this(NULL_VALUE);
     }
 
+    /**
+     * @see Salary
+     */
     public Salary(Integer salary) {
         this(salary, salary, Constants.Currency.RUR);
     }
 
+    /**
+     * @see Salary
+     */
     public Salary(Integer from, Integer to, Currency currency) {
         setFrom(from);
         setTo(to);

@@ -8,6 +8,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 
 /**
  * Валюта.
+ * @see ru.yaal.project.hhapi.dictionary.Constants.Currency
  */
 @ToString(of = {"id", "abbr"})
 public final class Currency extends AbstractDictionaryEntry {

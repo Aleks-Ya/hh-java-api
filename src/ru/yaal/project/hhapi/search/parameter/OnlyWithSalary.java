@@ -5,12 +5,15 @@ import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
 import ru.yaal.project.hhapi.search.SearchParameterBox;
 
+/**
+ * Только с указанной зарплатой.
+ * Может использоваться как параметр поиска вакансий.
+ * @see ru.yaal.project.hhapi.dictionary.Constants.OnlyWithSalary
+ */
 public class OnlyWithSalary implements ISearchParameter {
-    public static final OnlyWithSalary ON = new OnlyWithSalary(true);
-    public static final OnlyWithSalary OFF = new OnlyWithSalary(false);
     private boolean onlyWithSalary;
 
-    private OnlyWithSalary(boolean withSalary) {
+    public OnlyWithSalary(boolean withSalary) {
         this.onlyWithSalary = withSalary;
     }
 

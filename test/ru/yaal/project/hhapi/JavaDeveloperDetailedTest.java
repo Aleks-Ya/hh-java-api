@@ -28,7 +28,7 @@ public class JavaDeveloperDetailedTest {
         ISearchParameter profField = ProfField.PROF_FIELDS.getById("1.221");//Программирование
         ISearchParameter salary = new Salary(3000, 5000, Constants.Currency.USD);
         ISearchParameter experience = Constants.Experience.BETWEEN_3_AND_6;
-        ISearchParameter onlyWithSalary = OnlyWithSalary.ON;
+        ISearchParameter onlyWithSalary = Constants.OnlyWithSalary.ON;
         ISearchParameter order = Constants.Order.SALARY_DESC;
         ISearchParameter period = new Period(30);
         ISearchParameter schedule = Constants.Schedule.FULL_DAY;

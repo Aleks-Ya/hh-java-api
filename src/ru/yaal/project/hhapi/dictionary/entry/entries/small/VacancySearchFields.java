@@ -5,6 +5,7 @@ import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 /**
  * Область поиска.
  * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("ИЛИ").
+ * @see ru.yaal.project.hhapi.dictionary.Constants.VacancySearchFields
  */
 public final class VacancySearchFields extends AbstractDictionaryEntry {
     public static final VacancySearchFields NULL_VACANCY_SEARCH_FIELD = new VacancySearchFields();

@@ -9,6 +9,7 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
 /**
  * Тип занятости (вакансия).
  * Может использоваться как параметр поиска вакансий. Допускает множественное значение ("ИЛИ").
+ * @see ru.yaal.project.hhapi.dictionary.Constants.Employment
  */
 public final class Employment extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Employment NULL_EMPLOYMENT = new Employment();

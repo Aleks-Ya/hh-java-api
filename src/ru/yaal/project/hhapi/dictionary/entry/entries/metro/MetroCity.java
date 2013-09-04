@@ -9,6 +9,9 @@ import java.net.URL;
  */
 public class MetroCity extends AbstractDictionaryEntry {
     public static final MetroCity NULL_METRO_CITY = new MetroCity();
+    /**
+     * Справочник городов с метро.
+     */
     public static final MetroCityDictionary CITIES = MetroInitializer.getInstance().getMetroCities();
     private URL url;
     private MetroLineDictionary lines = new MetroLineDictionary();
