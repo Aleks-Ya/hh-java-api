@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yaal.project.hhapi.HhApi;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -56,7 +57,7 @@ public class SalaryTest {
 
     @Test
     public void putCurrencyToSearchParams() throws SearchException {
-        final Currency expCurrency = Currency.USD;
+        final Currency expCurrency = Constants.Currency.USD;
         final int salaryUsd = 1000;
         final Salary expSalary = new Salary(salaryUsd, salaryUsd, expCurrency);
         for (Vacancy vacancy : HhApi.search(expSalary, OnlyWithSalary.ON)) {
@@ -73,55 +74,55 @@ public class SalaryTest {
     public void toRur() {
         int fromUsd = 1000;
         int toUsd = 3000;
-        Salary salaryUsd = new Salary(fromUsd, toUsd, Currency.USD);
+        Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertTrue(salaryRur.getFrom() > fromUsd * 29);
         assertTrue(salaryRur.getTo() < toUsd * 35);
-        assertEquals(Currency.RUR, salaryRur.getCurrency());
+        assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
     @Test
     public void toRurNullFrom() {
         Integer fromUsd = null;
         int toUsd = 3000;
-        Salary salaryUsd = new Salary(fromUsd, toUsd, Currency.USD);
+        Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertNull(salaryRur.getFrom());
         assertTrue(salaryRur.getTo() < toUsd * 35);
-        assertEquals(Currency.RUR, salaryRur.getCurrency());
+        assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
     @Test
     public void toRurNullTo() {
         int fromUsd = 1000;
         Integer toUsd = null;
-        Salary salaryUsd = new Salary(fromUsd, toUsd, Currency.USD);
+        Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertTrue(salaryRur.getFrom() > fromUsd * 29);
         assertNull(salaryRur.getTo());
-        assertEquals(Currency.RUR, salaryRur.getCurrency());
+        assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
     @Test
     public void toRurNulls() {
         Integer fromUsd = null;
         Integer toUsd = null;
-        Salary salaryUsd = new Salary(fromUsd, toUsd, Currency.USD);
+        Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertNull(salaryRur.getFrom());
         assertNull(salaryRur.getTo());
-        assertEquals(Currency.RUR, salaryRur.getCurrency());
+        assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
     @Test
     public void toRurFromRur() {
         Integer from = 1000;
         Integer to = 3000;
-        Salary salary = new Salary(from, to, Currency.RUR);
+        Salary salary = new Salary(from, to, Constants.Currency.RUR);
         Salary salaryRur = Salary.toRur(salary);
         assertEquals(from, salaryRur.getFrom());
         assertEquals(to, salaryRur.getTo());
-        assertEquals(Currency.RUR, salaryRur.getCurrency());
+        assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
     public static class SalaryEquals extends TypeSafeMatcher<Salary> {

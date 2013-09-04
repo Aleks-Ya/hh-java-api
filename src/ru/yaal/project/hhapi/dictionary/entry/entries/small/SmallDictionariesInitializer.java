@@ -38,7 +38,7 @@ public final class SmallDictionariesInitializer {
         loadSmallDictionaries();
     }
 
-    public static SmallDictionariesInitializer getInstance() {
+    public static synchronized SmallDictionariesInitializer getInstance() {
         if (dictionary == null) {
             dictionary = new SmallDictionariesInitializer();
         }

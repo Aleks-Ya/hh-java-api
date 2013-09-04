@@ -13,7 +13,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.isIn;
 import static org.junit.Assert.assertThat;
-import static ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment.*;
+import static ru.yaal.project.hhapi.dictionary.Constants.Employment.*;
 
 @RunWith(value = Parameterized.class)
 public class EmploymentTest {

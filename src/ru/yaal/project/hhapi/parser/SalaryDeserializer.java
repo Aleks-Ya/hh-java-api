@@ -3,6 +3,7 @@ package ru.yaal.project.hhapi.parser;
 import com.google.gson.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.vacancy.Salary;
 
@@ -26,7 +27,7 @@ public class SalaryDeserializer implements JsonDeserializer<Salary> {
             Currency currency = null;
             if (currencyElement.isJsonPrimitive()) {
                 String currencyId = currencyElement.getAsString();
-                currency = Currency.CURRENCIES.getById(currencyId);
+                currency = Constants.Currency.CURRENCIES.getById(currencyId);
             }
 
             return new Salary(from, to, currency);

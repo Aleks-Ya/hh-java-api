@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.vacancy;
 
 import lombok.Data;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.dictionary.entry.INullable;
 import ru.yaal.project.hhapi.dictionary.entry.entries.small.Currency;
 import ru.yaal.project.hhapi.search.ISearchParameter;
@@ -29,7 +30,7 @@ public final class Salary implements ISearchParameter, INullable {
     }
 
     public Salary(Integer salary) {
-        this(salary, salary, Currency.RUR);
+        this(salary, salary, Constants.Currency.RUR);
     }
 
     public Salary(Integer from, Integer to, Currency currency) {
@@ -53,7 +54,7 @@ public final class Salary implements ISearchParameter, INullable {
         Integer toRur = (to != null) ? new Double(to / currency.getRate()).intValue() : null;
         salaryRur.setTo(toRur);
 
-        salaryRur.setCurrency(Currency.RUR);
+        salaryRur.setCurrency(Constants.Currency.RUR);
 
         return salaryRur;
     }

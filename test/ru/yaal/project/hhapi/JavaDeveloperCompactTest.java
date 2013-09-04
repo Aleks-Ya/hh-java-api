@@ -1,9 +1,9 @@
 package ru.yaal.project.hhapi;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.*;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.parameter.OnlyWithSalary;
 import ru.yaal.project.hhapi.search.parameter.Period;
@@ -22,16 +22,16 @@ public class JavaDeveloperCompactTest {
     public void javaDeveloperCompact() throws SearchException {
         VacancyList vacancies = HhApi.search(
                 50,
-                new Text("java", VacancySearchFields.VACANCY_NAME),
+                new Text("java", Constants.VacancySearchFields.VACANCY_NAME),
                 Area.AREAS.getByName("Санкт-Петербург"),
                 ProfField.PROF_FIELDS.getById("1.221"),
-                new Salary(3000, 5000, Currency.USD),
-                Experience.BETWEEN_3_AND_6,
+                new Salary(3000, 5000, Constants.Currency.USD),
+                Constants.Experience.BETWEEN_3_AND_6,
                 OnlyWithSalary.ON,
-                Order.SALARY_DESC,
+                Constants.Order.SALARY_DESC,
                 new Period(30),
-                Schedule.FULL_DAY,
-                Employment.FULL
+                Constants.Schedule.FULL_DAY,
+                Constants.Employment.FULL
         );
 
         out.printf("Найдено %d вакансий.\n", vacancies.size());

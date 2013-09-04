@@ -1,8 +1,7 @@
 package ru.yaal.project.hhapi.search.parameter;
 
 import org.junit.Test;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Employment;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Experience;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.search.ISearch;
 import ru.yaal.project.hhapi.search.SearchException;
 import ru.yaal.project.hhapi.search.SearchParamNames;
@@ -15,14 +14,14 @@ public class SearchParameterBoxTest {
 
     @Test
     public void multipleParamsAccepted() throws SearchException {
-        box.addParameter(SearchParamNames.EMPLOYMENT, Employment.PART.getId());
-        box.addParameter(SearchParamNames.EMPLOYMENT, Employment.FULL.getId());
+        box.addParameter(SearchParamNames.EMPLOYMENT, Constants.Employment.PART.getId());
+        box.addParameter(SearchParamNames.EMPLOYMENT, Constants.Employment.FULL.getId());
     }
 
     @Test(expected = SearchException.class)
     public void multipleParamsNotAcceptedBox() throws SearchException {
-        box.addParameter(SearchParamNames.EXPERIENCE, Experience.BETWEEN_1_AND_3.getId());
-        box.addParameter(SearchParamNames.EXPERIENCE, Experience.BETWEEN_3_AND_6.getId());
+        box.addParameter(SearchParamNames.EXPERIENCE, Constants.Experience.BETWEEN_1_AND_3.getId());
+        box.addParameter(SearchParamNames.EXPERIENCE, Constants.Experience.BETWEEN_3_AND_6.getId());
     }
 
     @Test(expected = SearchException.class)

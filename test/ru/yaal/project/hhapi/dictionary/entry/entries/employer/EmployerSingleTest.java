@@ -1,6 +1,7 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.employer;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.loader.ContentLoaderFactory;
 import ru.yaal.project.hhapi.loader.IContentLoader;
 import ru.yaal.project.hhapi.loader.UrlConstants;
@@ -24,7 +25,7 @@ public class EmployerSingleTest {
         EmployerSingle employer = parser.parse(content);
         assertEquals("1455", employer.getId());
         assertEquals("HeadHunter", employer.getName());
-        assertEquals(EmployerType.COMPANY, employer.getType());
+        assertEquals(Constants.EmployerType.COMPANY, employer.getType());
         assertThat(employer.getDescription(),
                 containsString("специализируется на предоставлении услуг интернет-рекрутмента"));
         assertEquals(new URL("http://hh.ru"), employer.getSiteUrl());

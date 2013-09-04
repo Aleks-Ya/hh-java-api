@@ -1,19 +1,18 @@
 package ru.yaal.project.hhapi.dictionary.entry;
 
 import org.junit.Test;
+import ru.yaal.project.hhapi.dictionary.Constants;
 import ru.yaal.project.hhapi.dictionary.entry.entries.area.Area;
 import ru.yaal.project.hhapi.dictionary.entry.entries.metro.MetroLine;
 import ru.yaal.project.hhapi.dictionary.entry.entries.proffield.ProfField;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Gender;
-import ru.yaal.project.hhapi.dictionary.entry.entries.small.Schedule;
 
 import static org.junit.Assert.assertEquals;
 
 public class AbstractDictionaryEntryTest {
     @Test
     public void testToString() throws Exception {
-        assertEquals("Мужской(male)", Gender.MALE.toString());
-        assertEquals("Полный день(fullDay)", Schedule.FULL_DAY.toString());
+        assertEquals("Мужской(male)", Constants.Gender.MALE.toString());
+        assertEquals("Полный день(fullDay)", Constants.Schedule.FULL_DAY.toString());
         assertEquals("Санкт-Петербург(2)", Area.AREAS.getByName("Санкт-Петербург").toString());
         assertEquals("Программирование, Разработка(1.221)",
                 ProfField.PROF_FIELDS.getById("1.221").toString());

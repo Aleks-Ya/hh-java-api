@@ -25,7 +25,8 @@ public class CoordinatesTest {
             Address address = vacancy.getAddress();
             String city = address.getCity();
             if (city != null) {
-                assertTrue(city.startsWith("Санкт-Петербург"));
+                assertTrue(city.startsWith("Санкт-Петербург")
+                        || city.startsWith("Cанкт-Петербург")); // во 2-м 'C' английская
             }
             MetroStation station = address.getStation();
             if (station != null) {

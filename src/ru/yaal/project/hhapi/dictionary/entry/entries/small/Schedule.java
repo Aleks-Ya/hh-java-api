@@ -1,6 +1,5 @@
 package ru.yaal.project.hhapi.dictionary.entry.entries.small;
 
-import ru.yaal.project.hhapi.dictionary.IDictionary;
 import ru.yaal.project.hhapi.dictionary.entry.AbstractDictionaryEntry;
 import ru.yaal.project.hhapi.search.ISearchParameter;
 import ru.yaal.project.hhapi.search.SearchException;
@@ -13,23 +12,6 @@ import ru.yaal.project.hhapi.search.SearchParameterBox;
  */
 public final class Schedule extends AbstractDictionaryEntry implements ISearchParameter {
     public static final Schedule NULL_SCHEDULE = new Schedule();
-    public static final IDictionary<Schedule> SCHEDULES = SmallDictionariesInitializer.getInstance().getSchedule();
-    /**
-     * Полный день.
-     */
-    public static final Schedule FULL_DAY = SCHEDULES.getById("fullDay");
-    /**
-     * Сменный график.
-     */
-    public static final Schedule SHIFT = SCHEDULES.getById("shift");
-    /**
-     * Гибкий график.
-     */
-    public static final Schedule FLEXIBLE = SCHEDULES.getById("flexible");
-    /**
-     * Удаленная работа.
-     */
-    public static final Schedule REMOTE = SCHEDULES.getById("remote");
 
     private Schedule() {
     }
