@@ -39,7 +39,7 @@
     <properties>
         <project.build.sourceEncoding>cp1251</project.build.sourceEncoding>
         <java>1.7</java>
-        <lombok>0.12.0</lombok>
+        <lombok>1.16.0</lombok>
         <gson>2.2.4</gson>
         <powermock>1.5.1</powermock>
         <mockito>1.9.5</mockito>
