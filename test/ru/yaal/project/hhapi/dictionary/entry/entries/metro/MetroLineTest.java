@@ -11,6 +11,10 @@ import static org.hamcrest.Matchers.isOneOf;
 import static org.junit.Assert.assertThat;
 
 public class MetroLineTest {
+
+    /**
+     * todo Дублированный населенный пункт "Старые дороги(2329)".
+     */
     @Test
     public void searchByMetroLine() throws SearchException {
         MetroStation expMetro = (MetroStation) MetroLine.SAINT_PETERSBURG.getByName("Площадь Восстания");
