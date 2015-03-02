@@ -38,10 +38,6 @@ public class AreaDeserializer implements JsonDeserializer<AreaDictionary> {
         Area newArea = new Area();
         newArea.setId(id);
         newArea.setName(object.get("name").getAsString());
-        JsonElement url = object.get("url");
-        if (url != null) {
-            newArea.setUrl((!url.isJsonNull()) ? new URL(url.getAsString()) : null);
-        }
         newArea.setParent(parentArea);
 
         JsonElement nestedAreas = object.get("areas");

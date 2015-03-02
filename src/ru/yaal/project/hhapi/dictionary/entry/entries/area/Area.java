@@ -37,10 +37,6 @@ public class Area extends AbstractDictionaryEntry implements ISearchParameter {
     @Getter
     @Setter
     @SuppressWarnings("PMD.UnusedPrivateField")
-    private URL url;
-    @Getter
-    @Setter
-    @SuppressWarnings("PMD.UnusedPrivateField")
     private IDictionary<Area> areas;
 
     private static AreaDictionary loadAreas() {
