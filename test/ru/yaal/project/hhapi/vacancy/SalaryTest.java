@@ -18,6 +18,11 @@ import static ru.yaal.project.hhapi.vacancy.SalaryTest.SalaryEquals.salaryEquals
 
 public class SalaryTest {
     private static final Logger LOG = LoggerFactory.getLogger(SalaryTest.class);
+    /**
+     * Предельный курс доллара для тестов.
+     * Надеюсь, увеличивать не придется %)
+     */
+    private static final int MAX_USD_RATE = 100;
 
     @Test
     public void testOnlyWithSalary() throws SearchException {
@@ -76,7 +81,7 @@ public class SalaryTest {
         Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertTrue(salaryRur.getFrom() > fromUsd * 29);
-        assertTrue(salaryRur.getTo() < toUsd * 35);
+        assertTrue(salaryRur.getTo() < toUsd * MAX_USD_RATE);
         assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
@@ -87,7 +92,7 @@ public class SalaryTest {
         Salary salaryUsd = new Salary(fromUsd, toUsd, Constants.Currency.USD);
         Salary salaryRur = Salary.toRur(salaryUsd);
         assertNull(salaryRur.getFrom());
-        assertTrue(salaryRur.getTo() < toUsd * 35);
+        assertTrue(salaryRur.getTo() < toUsd * MAX_USD_RATE);
         assertEquals(Constants.Currency.RUR, salaryRur.getCurrency());
     }
 
