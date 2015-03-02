@@ -17,24 +17,28 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class EmployerSingleTest {
+
+    /**
+     * todo “ест прив€зан к реальной компании на сайте, котора€ может в какой-то момент исчезнуть.
+     */
     @Test
     public void employerSingleParse() throws SearchException, MalformedURLException {
         IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
-        String content = loader.loadContent(format(UrlConstants.EMPLOYER_URL, "1455"));
+        String content = loader.loadContent(format(UrlConstants.EMPLOYER_URL, "47571"));
         IParser<EmployerSingle> parser = new EmployerParser();
         EmployerSingle employer = parser.parse(content);
-        assertEquals("1455", employer.getId());
-        assertEquals("HeadHunter", employer.getName());
+        assertEquals("47571", employer.getId());
+        assertEquals("SAYENKO KHARENKO", employer.getName());
         assertEquals(Constants.EmployerType.COMPANY, employer.getType());
         assertThat(employer.getDescription(),
-                containsString("специализируетс€ на предоставлении услуг интернет-рекрутмента"));
-        assertEquals(new URL("http://hh.ru"), employer.getSiteUrl());
-        assertEquals(new URL("https://api.hh.ru/vacancies?employer_id=1455"), employer.getVacanciesUrl());
-        assertEquals(new URL("http://hh.ru/employer/1455"), employer.getAlternateUrl());
+                containsString(" is a leading Ukrainian full service law firm"));
+        assertEquals(new URL("http://www.sk.ua"), employer.getSiteUrl());
+        assertEquals(new URL("https://api.hh.ru/vacancies?employer_id=47571"), employer.getVacanciesUrl());
+        assertEquals(new URL("http://hh.ru/employer/47571"), employer.getAlternateUrl());
         LogoUrls logoUrls = employer.getLogoUrls();
-        assertEquals(new URL("http://hh.ru/employer-logo/289027.png"), logoUrls.getLogo90());
-        assertEquals(new URL("http://hh.ru/employer-logo/289169.png"), logoUrls.getLogo240());
-        assertEquals(new URL("http://hh.ru/file/2352807.png"), logoUrls.getOriginal());
+        assertEquals(new URL("http://hh.ru/employer-logo/686999.png"), logoUrls.getLogo90());
+        assertEquals(new URL("http://hh.ru/employer-logo/687000.png"), logoUrls.getLogo240());
+        assertEquals(new URL("http://hh.ru/employer-logo-original/221942.png"), logoUrls.getOriginal());
     }
 
 }

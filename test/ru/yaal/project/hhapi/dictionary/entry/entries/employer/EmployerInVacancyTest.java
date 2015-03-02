@@ -17,20 +17,23 @@ import static org.junit.Assert.assertEquals;
 
 public class EmployerInVacancyTest {
 
+    /**
+     * todo “ест прив€зан к реальной вакансии на сайте, котора€ может в какой-то момент исчезнуть.
+     */
     @Test
     public void employerInVacancyParse() throws SearchException, MalformedURLException {
         IContentLoader loader = ContentLoaderFactory.newInstanceSortTermCache();
-        String content = loader.loadContent(format(UrlConstants.VACANCY_URL, "8252535"));
+        String content = loader.loadContent(format(UrlConstants.VACANCY_URL, "12697071"));
         IParser<Vacancy> parser = new VacancyParser();
         Vacancy vacancy = parser.parse(content);
         EmployerInVacancy employer = vacancy.getEmployer();
-        assertEquals("1455", employer.getId());
-        assertEquals("HeadHunter", employer.getName());
-        assertEquals(new URL("https://api.hh.ru/employers/1455"), employer.getUrl());
-        assertEquals(new URL("http://hh.ru/employer/1455"), employer.getAlternateUrl());
+        assertEquals("47571", employer.getId());
+        assertEquals("SAYENKO KHARENKO", employer.getName());
+        assertEquals(new URL("https://api.hh.ru/employers/47571"), employer.getUrl());
+        assertEquals(new URL("http://hh.ru/employer/47571"), employer.getAlternateUrl());
         LogoUrls logoUrls = employer.getLogoUrls();
-        assertEquals(new URL("http://hh.ru/employer-logo/289027.png"), logoUrls.getLogo90());
-        assertEquals(new URL("http://hh.ru/employer-logo/289169.png"), logoUrls.getLogo240());
-        assertEquals(new URL("http://hh.ru/file/2352807.png"), logoUrls.getOriginal());
+        assertEquals(new URL("http://hh.ru/employer-logo/686999.png"), logoUrls.getLogo90());
+        assertEquals(new URL("http://hh.ru/employer-logo/687000.png"), logoUrls.getLogo240());
+        assertEquals(new URL("http://hh.ru/employer-logo-original/221942.png"), logoUrls.getOriginal());
     }
 }
