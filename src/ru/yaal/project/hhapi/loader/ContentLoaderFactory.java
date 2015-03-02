@@ -14,20 +14,20 @@ public final class ContentLoaderFactory {
     private static ICache fakeStorage;
 
     static {
-        final String cacheDir = JAVA_IO_TMPDIR + "hh_api_cache\\";
+        final File cacheDir = new File(JAVA_IO_TMPDIR, "hh_api_cache");
 
         int sevenDays = 7 * 24 * 60;
-        File longTermDir = new File(cacheDir + "long_term\\");
+        File longTermDir = new File(cacheDir, "long_term");
         LONG_TERM_STORAGE = new TwoLevelCache(new MemoryCache(sevenDays), new FileCache(longTermDir, sevenDays));
         LOG.debug("Инициализирован кэш длительного хранения ({} мин.): {}", sevenDays, longTermDir.getAbsolutePath());
 
         int oneDay = 24 * 60;
-        File shortTermDir = new File(cacheDir + "short_term\\");
+        File shortTermDir = new File(cacheDir, "short_term");
         SHORT_TERM_STORAGE = new TwoLevelCache(new MemoryCache(oneDay), new FileCache(shortTermDir, oneDay));
         LOG.debug("Инициализирован кэш краткосрочного хранения ({} мин.): {}", oneDay, shortTermDir.getAbsolutePath());
 
         if (isUseFakeStorage()) {
-            File testCacheDir = new File(cacheDir + "test\\");
+            File testCacheDir = new File(cacheDir, "test");
             fakeStorage = new ClassResourceCache(testCacheDir);
         }
         LOG.debug("Инициализирован кэш для тестирования: {}", fakeStorage);

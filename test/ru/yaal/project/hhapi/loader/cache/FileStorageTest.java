@@ -16,7 +16,7 @@ public class FileStorageTest {
 
     @Before
     public void before() {
-        tempFile = new File(ContentLoaderFactory.JAVA_IO_TMPDIR + "test_hh_api_cache\\");
+        tempFile = new File(ContentLoaderFactory.JAVA_IO_TMPDIR, "test_hh_api_cache");
     }
 
     @Test
